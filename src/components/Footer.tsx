@@ -46,6 +46,7 @@ const Footer: React.FC = () => {
                     key={city.id}
                     to={`/securite-ville-${city.id}`}
                     className="bg-white/10 px-3 py-1 rounded-full text-sm hover:bg-white/20 transition-colors"
+                    aria-label={`Services de sécurité à ${city.name}`}
                   >
                     {city.name}
                   </Link>
@@ -53,6 +54,7 @@ const Footer: React.FC = () => {
               <Link 
                 to="/villes"
                 className="bg-levigile-red px-3 py-1 rounded-full text-sm hover:bg-red-600 transition-colors"
+                aria-label="Voir toutes nos villes d'intervention"
               >
                 Voir toutes
               </Link>
@@ -64,13 +66,13 @@ const Footer: React.FC = () => {
             <h3 className="text-xl font-bold mb-4">Informations légales</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="hover:underline">Mentions légales</a>
+                <Link to="#" className="hover:underline">Mentions légales</Link>
               </li>
               <li>
-                <a href="#" className="hover:underline">Conditions générales de vente</a>
+                <Link to="#" className="hover:underline">Conditions générales de vente</Link>
               </li>
               <li>
-                <a href="#" className="hover:underline">Politique de confidentialité</a>
+                <Link to="#" className="hover:underline">Politique de confidentialité</Link>
               </li>
               <li>
                 <p className="mt-4 text-sm">
