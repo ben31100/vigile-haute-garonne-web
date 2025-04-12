@@ -1,12 +1,25 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Home, List, MapPin, AlertTriangle } from 'lucide-react';
 import Header from '../Header';
 import Footer from '../Footer';
+import { useToast } from '@/components/ui/use-toast';
 
 const CityNotFound: React.FC = () => {
+  const navigate = useNavigate();
+  const { toast } = useToast();
+  
+  // Afficher un toast pour informer l'utilisateur
+  React.useEffect(() => {
+    toast({
+      title: "Ville non trouvée",
+      description: "La ville que vous recherchez n'existe pas dans notre base de données.",
+      variant: "destructive",
+    });
+  }, []);
+
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
@@ -25,7 +38,7 @@ const CityNotFound: React.FC = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="flex items-center gap-2 py-5" onClick={() => window.history.back()}>
+              <Button className="flex items-center gap-2 py-5" onClick={() => navigate(-1)}>
                 Retour
               </Button>
               

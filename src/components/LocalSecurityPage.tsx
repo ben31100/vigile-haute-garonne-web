@@ -19,10 +19,10 @@ const LocalSecurityPage: React.FC = () => {
   console.log('Available cities:', citiesData.map(c => c.id));
   
   // Find the city data based on the URL parameter
-  const cityData = citiesData.find(city => city.id === cityId);
+  const cityData = cityId ? citiesData.find(city => city.id === cityId) : null;
   
   // If city not found, display a not found message
-  if (!cityData) {
+  if (!cityId || !cityData) {
     console.error(`City not found for ID: ${cityId}`);
     return <CityNotFound />;
   }
