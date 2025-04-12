@@ -6,6 +6,8 @@ import citiesData from '../data/cities.json';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
+  // Featured cities to display in the footer
+  const featuredCities = ["toulouse", "blagnac", "colomiers", "tournefeuille", "muret"];
 
   return (
     <footer id="contact" className="bg-levigile-blue text-white pt-12 pb-6">
@@ -37,15 +39,17 @@ const Footer: React.FC = () => {
               Nos agents interviennent sur l'ensemble du département de la Haute-Garonne (31):
             </p>
             <div className="flex flex-wrap gap-2 mb-4">
-              {citiesData.slice(0, 5).map((city) => (
-                <Link 
-                  key={city.id}
-                  to={`/securite-ville-${city.id}`}
-                  className="bg-white/10 px-3 py-1 rounded-full text-sm hover:bg-white/20 transition-colors"
-                >
-                  {city.name}
-                </Link>
-              ))}
+              {citiesData
+                .filter(city => featuredCities.includes(city.id))
+                .map((city) => (
+                  <Link 
+                    key={city.id}
+                    to={`/securite-ville-${city.id}`}
+                    className="bg-white/10 px-3 py-1 rounded-full text-sm hover:bg-white/20 transition-colors"
+                  >
+                    {city.name}
+                  </Link>
+                ))}
               <Link 
                 to="/villes"
                 className="bg-levigile-red px-3 py-1 rounded-full text-sm hover:bg-red-600 transition-colors"

@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 import citiesData from '../data/cities.json';
@@ -12,12 +12,18 @@ import CityNotFound from './local-security/CityNotFound';
 
 const LocalSecurityPage: React.FC = () => {
   const { cityId } = useParams<{ cityId: string }>();
+  const navigate = useNavigate();
+  
+  // Debug output to identify issues
+  console.log('Current cityId:', cityId);
+  console.log('Available cities:', citiesData.map(c => c.id));
   
   // Find the city data based on the URL parameter
   const cityData = citiesData.find(city => city.id === cityId);
   
   // If city not found, display a not found message
   if (!cityData) {
+    console.error(`City not found for ID: ${cityId}`);
     return <CityNotFound />;
   }
 
