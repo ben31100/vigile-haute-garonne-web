@@ -27,14 +27,25 @@ const LocalSecurityPage: React.FC = () => {
     return <CityNotFound />;
   }
 
+  // Default values for missing data properties to ensure components work
+  const neighborhoods = cityData.neighborhoods || [];
+  const nearbyAreas = cityData.nearbyAreas || ['communes voisines'];
+  const specificServices = cityData.specificServices || [
+    'Gardiennage de magasins et commerces',
+    'Sécurité pour les entreprises et bureaux',
+    'Protection des chantiers et sites industriels',
+    'Surveillance d\'entrepôts et de zones logistiques',
+    'Sécurité événementielle et culturelle'
+  ];
+
   return (
     <>
       <SeoElements 
         cityName={cityData.name}
         cityId={cityData.id}
         postalCode={cityData.postalCode}
-        metaTitle={cityData.metaTitle}
-        metaDescription={cityData.metaDescription}
+        metaTitle={cityData.metaTitle || `Agents de sécurité à ${cityData.name} (${cityData.postalCode}) - LeVigile`}
+        metaDescription={cityData.metaDescription || `Services de sécurité privée à ${cityData.name}. Gardiennage, surveillance et protection 24h/24 et 7j/7 dans tout le secteur de ${cityData.name} et ses environs.`}
       />
       
       <div className="flex flex-col min-h-screen">
@@ -42,7 +53,10 @@ const LocalSecurityPage: React.FC = () => {
         
         <main className="flex-grow pt-24">
           {/* Hero Section */}
-          <HeroSection cityName={cityData.name} />
+          <HeroSection 
+            cityName={cityData.name} 
+            postalCode={cityData.postalCode}
+          />
 
           {/* Main Content */}
           <section className="py-16 bg-white">
@@ -51,9 +65,9 @@ const LocalSecurityPage: React.FC = () => {
                 {/* Main text content */}
                 <MainContent 
                   cityName={cityData.name}
-                  neighborhoods={cityData.neighborhoods}
-                  nearbyAreas={cityData.nearbyAreas}
-                  specificServices={cityData.specificServices}
+                  neighborhoods={neighborhoods}
+                  nearbyAreas={nearbyAreas}
+                  specificServices={specificServices}
                 />
                 
                 {/* Sidebar */}
