@@ -1,13 +1,75 @@
-// Update this page (the content is just a fallback if you fail to update the page)
 
-const Index = () => {
+import React from 'react';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import HeroSection from '../components/HeroSection';
+import ServicesSection from '../components/ServicesSection';
+
+const Index: React.FC = () => {
+  // Structured data for SEO
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "LeVigile",
+    "description": "Entreprise de sécurité privée en Haute-Garonne. Services de gardiennage, surveillance, rondes de sécurité et sécurité événementielle à Toulouse et dans tout le département 31.",
+    "url": "https://www.levigile.fr",
+    "logo": "https://www.levigile.fr/logo.png",
+    "image": "https://www.levigile.fr/security-company.jpg",
+    "telephone": "+33561123456",
+    "email": "contact@levigile.fr",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "15 Rue de la Sécurité",
+      "addressLocality": "Toulouse",
+      "postalCode": "31000",
+      "addressRegion": "Haute-Garonne",
+      "addressCountry": "FR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 43.6047,
+      "longitude": 1.4442
+    },
+    "areaServed": {
+      "@type": "GeoCircle",
+      "geoMidpoint": {
+        "@type": "GeoCoordinates",
+        "latitude": 43.6047,
+        "longitude": 1.4442
+      },
+      "geoRadius": "50000"
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
+      ],
+      "opens": "00:00",
+      "closes": "23:59"
+    },
+    "sameAs": [
+      "https://www.facebook.com/levigile",
+      "https://www.linkedin.com/company/levigile",
+      "https://twitter.com/levigile"
+    ],
+    "priceRange": "€€"
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
+    <>
+      <script 
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+      <div className="flex flex-col min-h-screen">
+        <Header />
+        <main className="flex-grow">
+          <HeroSection />
+          <ServicesSection />
+        </main>
+        <Footer />
       </div>
-    </div>
+    </>
   );
 };
 
