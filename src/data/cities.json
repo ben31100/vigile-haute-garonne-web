@@ -1,0 +1,58 @@
+
+[
+  {
+    "id": "toulouse",
+    "name": "Toulouse",
+    "postalCode": "31000",
+    "description": "Toulouse, la ville rose, capitale de la Haute-Garonne et coeur économique de l'Occitanie.",
+    "neighborhoods": ["Capitole", "Saint-Cyprien", "Carmes", "Saint-Michel", "Côte Pavée", "Saint-Agne"],
+    "nearbyAreas": ["Blagnac", "Colomiers", "Tournefeuille", "Ramonville-Saint-Agne", "L'Union"],
+    "specificServices": ["Gardiennage d'entrepôts", "Sécurité pour sites industriels", "Protection de zones commerciales", "Surveillance de bureaux", "Sécurité événementielle"],
+    "metaTitle": "Sécurité à Toulouse - Protection 24/7 | LeVigile",
+    "metaDescription": "Services de sécurité professionnels à Toulouse. Gardiennage, surveillance, agents qualifiés disponibles 24/7 dans tous les quartiers de Toulouse et agglomération."
+  },
+  {
+    "id": "blagnac",
+    "name": "Blagnac",
+    "postalCode": "31700",
+    "description": "Blagnac, connue pour son aéroport international et ses nombreuses entreprises aéronautiques.",
+    "neighborhoods": ["Andromède", "Grand Noble", "Odyssud", "Ritouret"],
+    "nearbyAreas": ["Toulouse", "Beauzelle", "Cornebarrieu", "Aussonne"],
+    "specificServices": ["Sécurité aéroportuaire", "Protection de sites sensibles", "Gardiennage industriel", "Surveillance de zones commerciales"],
+    "metaTitle": "Sécurité à Blagnac - Agents de protection | LeVigile",
+    "metaDescription": "LeVigile assure la sécurité à Blagnac avec des agents qualifiés. Protection de biens et personnes, surveillance, gardiennage pour particuliers et entreprises."
+  },
+  {
+    "id": "colomiers",
+    "name": "Colomiers",
+    "postalCode": "31770",
+    "description": "Colomiers, deuxième ville de la Haute-Garonne, pôle économique majeur de l'agglomération toulousaine.",
+    "neighborhoods": ["En Jacca", "Les Ramassiers", "Naspe", "Le Perget"],
+    "nearbyAreas": ["Toulouse", "Tournefeuille", "Pibrac", "Cornebarrieu"],
+    "specificServices": ["Sécurité de zones industrielles", "Gardiennage d'entrepôts", "Protection de commerces", "Surveillance de chantiers"],
+    "metaTitle": "Sécurité à Colomiers - Protection professionnelle | LeVigile",
+    "metaDescription": "Services de sécurité sur-mesure à Colomiers. Agents de sécurité qualifiés, rondes, surveillance et gardiennage pour professionnels et particuliers."
+  },
+  {
+    "id": "tournefeuille",
+    "name": "Tournefeuille",
+    "postalCode": "31170",
+    "description": "Tournefeuille, troisième ville du département, appréciée pour sa qualité de vie et ses espaces verts.",
+    "neighborhoods": ["La Paderne", "Pahin", "La Ramée", "Loustalet"],
+    "nearbyAreas": ["Toulouse", "Colomiers", "Plaisance-du-Touch", "Cugnaux"],
+    "specificServices": ["Sécurité résidentielle", "Surveillance d'événements", "Protection de commerces", "Rondes de sécurité"],
+    "metaTitle": "Sécurité à Tournefeuille - Service de protection | LeVigile",
+    "metaDescription": "LeVigile offre des services de sécurité fiables à Tournefeuille. Gardiennage, surveillance, contrôle d'accès et protection événementielle disponibles 24h/24."
+  },
+  {
+    "id": "muret",
+    "name": "Muret",
+    "postalCode": "31600",
+    "description": "Muret, sous-préfecture de la Haute-Garonne, située au sud de l'agglomération toulousaine.",
+    "neighborhoods": ["Centre-ville", "Ox", "Estantens", "Clairfont"],
+    "nearbyAreas": ["Roques", "Portet-sur-Garonne", "Seysses", "Eaunes"],
+    "specificServices": ["Gardiennage de sites industriels", "Sécurité de zones commerciales", "Protection de bâtiments publics", "Surveillance résidentielle"],
+    "metaTitle": "Sécurité à Muret - Agents qualifiés 24/7 | LeVigile",
+    "metaDescription": "Services de sécurité professionnels à Muret et environs. Agents de surveillance, gardiennage et protection disponibles jour et nuit pour entreprises et particuliers."
+  }
+]

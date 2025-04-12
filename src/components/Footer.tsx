@@ -1,6 +1,8 @@
 
 import React from 'react';
 import { MapPin, Phone, Mail } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import citiesData from '../data/cities.json';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -34,10 +36,23 @@ const Footer: React.FC = () => {
             <p className="mb-3">
               Nos agents interviennent sur l'ensemble du département de la Haute-Garonne (31):
             </p>
-            <p>
-              Toulouse, Blagnac, Colomiers, Tournefeuille, Muret, Saint-Orens, Ramonville, Castanet-Tolosan, 
-              Balma, L'Union, et toutes les autres communes du département.
-            </p>
+            <div className="flex flex-wrap gap-2 mb-4">
+              {citiesData.slice(0, 5).map((city) => (
+                <Link 
+                  key={city.id}
+                  to={`/securite-ville-${city.id}`}
+                  className="bg-white/10 px-3 py-1 rounded-full text-sm hover:bg-white/20 transition-colors"
+                >
+                  {city.name}
+                </Link>
+              ))}
+              <Link 
+                to="/villes"
+                className="bg-levigile-red px-3 py-1 rounded-full text-sm hover:bg-red-600 transition-colors"
+              >
+                Voir toutes
+              </Link>
+            </div>
           </div>
 
           {/* Liens légaux */}
