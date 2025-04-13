@@ -54,7 +54,7 @@ export const getCityImageUrl = (
 const getUploadedImage = (cityName: string): string | null => {
   // Mapping des villes vers les images déjà téléchargées
   const uploadedImages: Record<string, string> = {
-    'toulouse': '/lovable-uploads/77981cbb-3233-4df4-af0e-f571db93e92d.png',
+    'toulouse': '/lovable-uploads/9bedebd2-00c5-4ecf-af03-f4313a2ee507.png',
     // Ajoutez d'autres mappings au besoin
   };
   
