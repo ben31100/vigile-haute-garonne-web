@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { getCityImageUrl } from '@/utils/imageUtils';
 
 interface CityHeroProps {
   cityName: string;
@@ -12,8 +13,8 @@ const CityHero: React.FC<CityHeroProps> = ({
   subtitle, 
   backgroundImage 
 }) => {
-  // Utilisons directement le chemin absolu de l'image
-  const bgImage = backgroundImage || `/images/cities/${cityName.toLowerCase()}-hero.jpg`;
+  // Utiliser la fonction utilitaire pour obtenir l'URL de l'image
+  const bgImage = backgroundImage || getCityImageUrl(cityName);
   
   console.log("Image de fond utilisée:", bgImage); // Pour le débogage
   
@@ -24,7 +25,8 @@ const CityHero: React.FC<CityHeroProps> = ({
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('${bgImage}')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
+        backgroundRepeat: 'no-repeat',
+        backgroundColor: 'gray' // Fallback si l'image ne charge pas
       }}
     >
       <div className="container mx-auto px-4 text-center z-10">
@@ -40,3 +42,4 @@ const CityHero: React.FC<CityHeroProps> = ({
 };
 
 export default CityHero;
+
