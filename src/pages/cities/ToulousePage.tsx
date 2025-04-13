@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import Header from '@/components/Header';
@@ -51,7 +52,7 @@ const ToulousePage: React.FC = () => {
           <CityHero 
             cityName="Toulouse" 
             subtitle="Services de sécurité sur mesure pour la ville rose"
-            backgroundImage="public/images/cities/toulouse-hero.jpg"
+            backgroundImage="/images/cities/toulouse-hero.jpg"
           />
           
           <SpecificitesSection items={specificites} />
