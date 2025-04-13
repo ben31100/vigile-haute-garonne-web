@@ -15,7 +15,7 @@ const CityHero: React.FC<CityHeroProps> = ({
   // Utilisons directement le chemin absolu de l'image
   const bgImage = backgroundImage || `/images/cities/${cityName.toLowerCase()}-hero.jpg`;
   
-  console.log("Image de fond utilisée:", bgImage); // Ajout d'un log pour le débogage
+  console.log("Image de fond utilisée:", bgImage); // Pour le débogage
   
   return (
     <section 
