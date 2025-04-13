@@ -51,6 +51,7 @@ const ToulousePage: React.FC = () => {
           <CityHero 
             cityName="Toulouse" 
             subtitle="Services de sécurité sur mesure pour la ville rose"
+            backgroundImage="public/images/cities/toulouse-hero.jpg"
           />
           
           <SpecificitesSection items={specificites} />
