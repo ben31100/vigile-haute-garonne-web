@@ -41,11 +41,11 @@ const Header: React.FC = () => {
             
             <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white z-10 hidden group-hover:block">
               <div className="rounded-md ring-1 ring-black ring-opacity-5 py-1">
-                <Link to="/securite-ville-toulouse" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Toulouse</Link>
-                <Link to="/securite-ville-blagnac" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Blagnac</Link>
-                <Link to="/securite-ville-colomiers" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Colomiers</Link>
-                <Link to="/securite-ville-tournefeuille" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Tournefeuille</Link>
-                <Link to="/securite-ville-muret" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Muret</Link>
+                <Link to="/toulouse.html" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Toulouse</Link>
+                <Link to="/blagnac.html" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Blagnac</Link>
+                <Link to="/colomiers.html" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Colomiers</Link>
+                <Link to="/tournefeuille.html" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Tournefeuille</Link>
+                <Link to="/muret.html" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Muret</Link>
                 <div className="border-t border-gray-100 my-1"></div>
                 <Link to="/villes" className="block px-4 py-2 text-sm font-medium text-levigile-blue hover:bg-gray-100">Toutes les villes</Link>
               </div>
@@ -96,19 +96,19 @@ const Header: React.FC = () => {
               
               {isVillesDropdownOpen && (
                 <div className="pl-4 space-y-2 mt-2 border-l-2 border-levigile-lightgray ml-4">
-                  <Link to="/securite-ville-toulouse" className="block py-1 text-sm hover:text-levigile-blue" onClick={toggleMenu}>
+                  <Link to="/toulouse.html" className="block py-1 text-sm hover:text-levigile-blue" onClick={toggleMenu}>
                     Toulouse
                   </Link>
-                  <Link to="/securite-ville-blagnac" className="block py-1 text-sm hover:text-levigile-blue" onClick={toggleMenu}>
+                  <Link to="/blagnac.html" className="block py-1 text-sm hover:text-levigile-blue" onClick={toggleMenu}>
                     Blagnac
                   </Link>
-                  <Link to="/securite-ville-colomiers" className="block py-1 text-sm hover:text-levigile-blue" onClick={toggleMenu}>
+                  <Link to="/colomiers.html" className="block py-1 text-sm hover:text-levigile-blue" onClick={toggleMenu}>
                     Colomiers
                   </Link>
-                  <Link to="/securite-ville-tournefeuille" className="block py-1 text-sm hover:text-levigile-blue" onClick={toggleMenu}>
+                  <Link to="/tournefeuille.html" className="block py-1 text-sm hover:text-levigile-blue" onClick={toggleMenu}>
                     Tournefeuille
                   </Link>
-                  <Link to="/securite-ville-muret" className="block py-1 text-sm hover:text-levigile-blue" onClick={toggleMenu}>
+                  <Link to="/muret.html" className="block py-1 text-sm hover:text-levigile-blue" onClick={toggleMenu}>
                     Muret
                   </Link>
                   <Link to="/villes" className="block py-1 text-sm font-medium text-levigile-blue" onClick={toggleMenu}>

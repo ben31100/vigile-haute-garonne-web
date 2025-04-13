@@ -41,16 +41,19 @@ const Footer: React.FC = () => {
             <div className="flex flex-wrap gap-2 mb-4">
               {citiesData
                 .filter(city => featuredCities.includes(city.id))
-                .map((city) => (
-                  <Link 
-                    key={city.id}
-                    to={`/securite-ville-${city.id}`}
-                    className="bg-white/10 px-3 py-1 rounded-full text-sm hover:bg-white/20 transition-colors"
-                    aria-label={`Services de sécurité à ${city.name}`}
-                  >
-                    {city.name}
-                  </Link>
-                ))}
+                .map((city) => {
+                  const cityHtmlUrl = `/${city.id}.html`;
+                  return (
+                    <Link 
+                      key={city.id}
+                      to={cityHtmlUrl}
+                      className="bg-white/10 px-3 py-1 rounded-full text-sm hover:bg-white/20 transition-colors"
+                      aria-label={`Services de sécurité à ${city.name}`}
+                    >
+                      {city.name}
+                    </Link>
+                  );
+                })}
               <Link 
                 to="/villes"
                 className="bg-levigile-red px-3 py-1 rounded-full text-sm hover:bg-red-600 transition-colors"

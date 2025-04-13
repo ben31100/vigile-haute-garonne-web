@@ -3,12 +3,17 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import CitiesList from "./pages/CitiesList";
 import LocalSecurityPage from "./components/LocalSecurityPage";
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import ToulousePage from "./pages/cities/ToulousePage";
+import BlagnacPage from "./pages/cities/BlagnacPage";
+import ColomersPage from "./pages/cities/ColomersPage";
+import TournefeuilePage from "./pages/cities/TournefeuilePage";
+import MuretPage from "./pages/cities/MuretPage";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +32,21 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/villes" element={<CitiesList />} />
             <Route path="/securite-ville-:cityId" element={<LocalSecurityPage />} />
+            
+            {/* Routes HTML-like pour les villes */}
+            <Route path="/toulouse.html" element={<ToulousePage />} />
+            <Route path="/blagnac.html" element={<BlagnacPage />} />
+            <Route path="/colomiers.html" element={<ColomersPage />} />
+            <Route path="/tournefeuille.html" element={<TournefeuilePage />} />
+            <Route path="/muret.html" element={<MuretPage />} />
+            
+            {/* Redirection des anciennes routes pour compatibilité */}
+            <Route path="/securite-ville-toulouse" element={<Navigate to="/toulouse.html" />} />
+            <Route path="/securite-ville-blagnac" element={<Navigate to="/blagnac.html" />} />
+            <Route path="/securite-ville-colomiers" element={<Navigate to="/colomiers.html" />} />
+            <Route path="/securite-ville-tournefeuille" element={<Navigate to="/tournefeuille.html" />} />
+            <Route path="/securite-ville-muret" element={<Navigate to="/muret.html" />} />
+            
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
