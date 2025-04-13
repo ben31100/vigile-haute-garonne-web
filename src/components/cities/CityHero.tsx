@@ -1,18 +1,26 @@
 
 import React from 'react';
+import { getCityImageUrl } from '@/utils/imageUtils';
 
 interface CityHeroProps {
   cityName: string;
   subtitle: string;
-  backgroundImage: string;
+  backgroundImage?: string;
 }
 
-const CityHero: React.FC<CityHeroProps> = ({ cityName, subtitle, backgroundImage }) => {
+const CityHero: React.FC<CityHeroProps> = ({ 
+  cityName, 
+  subtitle, 
+  backgroundImage 
+}) => {
+  // Si aucune image n'est fournie explicitement, utiliser notre utilitaire
+  const bgImage = backgroundImage || getCityImageUrl(cityName);
+  
   return (
     <section 
       className="relative h-[60vh] md:h-[70vh] flex items-center justify-center text-white"
       style={{
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url(${backgroundImage})`,
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url(${bgImage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
