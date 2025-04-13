@@ -21,7 +21,7 @@ const CityHero: React.FC<CityHeroProps> = ({
     <section 
       className="relative h-[60vh] md:h-[70vh] flex items-center justify-center text-white"
       style={{
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url(${bgImage})`,
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('${bgImage}')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
