@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -30,7 +29,11 @@ const Header: React.FC = () => {
         {/* Logo */}
         <div className="flex items-center">
           <Link to="/" className="flex items-center">
-            <span className="text-levigile-blue text-2xl font-bold">Le<span className="text-levigile-red">Vigile</span></span>
+            <img 
+              src="/lovable-uploads/22d5a3e6-941d-4667-a9e4-798cabb7fe20.png" 
+              alt="LeVigile Logo" 
+              className="h-10 w-auto"
+            />
           </Link>
         </div>
 
