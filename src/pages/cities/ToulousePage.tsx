@@ -7,7 +7,6 @@ import CityHero from '@/components/cities/CityHero';
 import SpecificitesSection, { SpecificiteItem } from '@/components/cities/SpecificitesSection';
 import CtaSection from '@/components/cities/CtaSection';
 import { MapPin, Users, Building, Star, Activity } from 'lucide-react';
-import { getCityImageUrl } from '@/utils/imageUtils';
 
 const ToulousePage: React.FC = () => {
   const specificites: SpecificiteItem[] = [
@@ -53,7 +52,7 @@ const ToulousePage: React.FC = () => {
           <CityHero 
             cityName="Toulouse" 
             subtitle="Services de sécurité sur mesure pour la ville rose"
-            backgroundImage={getCityImageUrl('toulouse')}
+            backgroundImage="/images/cities/toulouse-hero.jpg"
           />
           
           <SpecificitesSection items={specificites} />

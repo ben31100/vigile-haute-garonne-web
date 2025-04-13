@@ -14,7 +14,7 @@ const CityHero: React.FC<CityHeroProps> = ({
   backgroundImage 
 }) => {
   // Si aucune image n'est fournie explicitement, utiliser notre utilitaire
-  const bgImage = backgroundImage || getCityImageUrl(cityName);
+  const bgImage = backgroundImage || `/images/cities/${cityName.toLowerCase()}-hero.jpg`;
   
   return (
     <section 
