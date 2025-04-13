@@ -3,15 +3,12 @@ import React, { useState } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { 
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger
-} from "@/components/ui/navigation-menu";
-import { cn } from "@/lib/utils";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { useIsMobile } from '@/hooks/use-mobile';
 
 const Header: React.FC = () => {
@@ -42,62 +39,44 @@ const Header: React.FC = () => {
           <Link to="/" className="text-levigile-dark hover:text-levigile-blue font-medium">Accueil</Link>
           <Link to="/#services" className="text-levigile-dark hover:text-levigile-blue font-medium">Nos services</Link>
           
-          <NavigationMenu>
-            <NavigationMenuList>
-              <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-levigile-dark hover:text-levigile-blue font-medium bg-transparent hover:bg-transparent focus:bg-transparent">
-                  Villes
-                </NavigationMenuTrigger>
-                <NavigationMenuContent className="bg-white">
-                  <ul className="grid w-48 gap-1 p-2">
-                    <li>
-                      <NavigationMenuLink asChild>
-                        <Link to="/toulouse.html" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">
-                          Toulouse
-                        </Link>
-                      </NavigationMenuLink>
-                    </li>
-                    <li>
-                      <NavigationMenuLink asChild>
-                        <Link to="/blagnac.html" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">
-                          Blagnac
-                        </Link>
-                      </NavigationMenuLink>
-                    </li>
-                    <li>
-                      <NavigationMenuLink asChild>
-                        <Link to="/colomiers.html" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">
-                          Colomiers
-                        </Link>
-                      </NavigationMenuLink>
-                    </li>
-                    <li>
-                      <NavigationMenuLink asChild>
-                        <Link to="/tournefeuille.html" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">
-                          Tournefeuille
-                        </Link>
-                      </NavigationMenuLink>
-                    </li>
-                    <li>
-                      <NavigationMenuLink asChild>
-                        <Link to="/muret.html" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">
-                          Muret
-                        </Link>
-                      </NavigationMenuLink>
-                    </li>
-                    <li className="border-t border-gray-100 my-1"></li>
-                    <li>
-                      <NavigationMenuLink asChild>
-                        <Link to="/villes" className="block px-4 py-2 text-sm font-medium text-levigile-blue hover:bg-gray-100 rounded-md">
-                          Toutes les villes
-                        </Link>
-                      </NavigationMenuLink>
-                    </li>
-                  </ul>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
+          <DropdownMenu>
+            <DropdownMenuTrigger className="text-levigile-dark hover:text-levigile-blue font-medium bg-transparent hover:bg-transparent focus:bg-transparent inline-flex items-center">
+              Villes <ChevronDown className="ml-1 h-4 w-4" />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="start" className="bg-white w-48 p-1">
+              <DropdownMenuItem asChild>
+                <Link to="/toulouse.html" className="cursor-pointer w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">
+                  Toulouse
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link to="/blagnac.html" className="cursor-pointer w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">
+                  Blagnac
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link to="/colomiers.html" className="cursor-pointer w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">
+                  Colomiers
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link to="/tournefeuille.html" className="cursor-pointer w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">
+                  Tournefeuille
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link to="/muret.html" className="cursor-pointer w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">
+                  Muret
+                </Link>
+              </DropdownMenuItem>
+              <div className="border-t border-gray-100 my-1"></div>
+              <DropdownMenuItem asChild>
+                <Link to="/villes" className="cursor-pointer w-full px-4 py-2 text-sm font-medium text-levigile-blue hover:bg-gray-100 rounded-md">
+                  Toutes les villes
+                </Link>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
           
           <Link to="/#contact" className="text-levigile-dark hover:text-levigile-blue font-medium">Contact</Link>
         </nav>
