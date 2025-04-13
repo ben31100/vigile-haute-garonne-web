@@ -50,9 +50,23 @@ const Index: React.FC = () => {
       "opens": "00:00",
       "closes": "23:59"
     },
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "telephone": "+33780817979",
+        "contactType": "Urgence",
+        "availableLanguage": ["Français"]
+      },
+      {
+        "@type": "ContactPoint",
+        "email": "levigile31@gmail.com",
+        "contactType": "Recrutement",
+        "availableLanguage": ["Français"]
+      }
+    ],
     "sameAs": [
-      "https://www.facebook.com/LevigileToulousain?locale=fr_FR",
-      "https://x.com/levigile31/"
+      "https://x.com/levigile31/",
+      "https://www.facebook.com/LevigileToulousain?locale=fr_FR"
     ],
     "priceRange": "€€"
   };

@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { MapPin, Phone, Mail } from 'lucide-react';
+import { MapPin, Phone, Mail, PhoneCall } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import citiesData from '../data/cities.json';
 
@@ -23,11 +23,19 @@ const Footer: React.FC = () => {
               </li>
               <li className="flex items-center">
                 <Phone className="mr-2 h-5 w-5 shrink-0 text-levigile-red" />
-                <a href="tel:+33561123456" className="hover:underline">05 61 12 34 56</a>
+                <a href="tel:+33554546428" className="hover:underline">05 54 54 64 28</a>
               </li>
               <li className="flex items-center">
                 <Mail className="mr-2 h-5 w-5 shrink-0 text-levigile-red" />
                 <a href="mailto:contact@levigile.fr" className="hover:underline">contact@levigile.fr</a>
+              </li>
+              <li className="flex items-center">
+                <PhoneCall className="mr-2 h-5 w-5 shrink-0 text-levigile-red" />
+                <a href="tel:+33780817979" className="hover:underline">Urgence: 07 80 81 79 79</a>
+              </li>
+              <li className="flex items-center">
+                <Mail className="mr-2 h-5 w-5 shrink-0 text-levigile-red" />
+                <a href="mailto:levigile31@gmail.com" className="hover:underline">Recrutement: levigile31@gmail.com</a>
               </li>
             </ul>
           </div>
@@ -78,10 +86,24 @@ const Footer: React.FC = () => {
                 <Link to="#" className="hover:underline">Politique de confidentialité</Link>
               </li>
               <li>
-                <p className="mt-4 text-sm">
-                  SARL LeVigile - SIRET: 123 456 789 00012<br />
-                  Autorisation CNAPS: AUT-031-2115-01-01-20220123456
-                </p>
+                <div className="mt-4 space-y-2">
+                  <p className="text-sm">
+                    SARL LeVigile - SIRET: 123 456 789 00012<br />
+                    Autorisation CNAPS: AUT-031-2115-01-01-20220123456
+                  </p>
+                  <div className="flex items-center space-x-3 mt-2">
+                    <a href="https://x.com/levigile31/" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className="hover:text-levigile-red transition-colors">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                      </svg>
+                    </a>
+                    <a href="https://www.facebook.com/LevigileToulousain?locale=fr_FR" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-levigile-red transition-colors">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M9.198 21.5h4v-8.01h3.604l.396-3.98h-4V7.5a1 1 0 0 1 1-1h3v-4h-3a5 5 0 0 0-5 5v2.01h-2l-.396 3.98h2.396v8.01Z" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
               </li>
             </ul>
           </div>

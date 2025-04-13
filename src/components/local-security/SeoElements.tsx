@@ -26,7 +26,7 @@ const SeoElements: React.FC<SeoElementsProps> = ({
     "url": `https://www.levigile.fr/securite-ville-${cityId}`,
     "logo": "https://www.levigile.fr/logo.png",
     "image": "https://www.levigile.fr/security-company.jpg",
-    "telephone": "+33561123456",
+    "telephone": "+33554546428",
     "email": "contact@levigile.fr",
     "address": {
       "@type": "PostalAddress",
@@ -58,10 +58,23 @@ const SeoElements: React.FC<SeoElementsProps> = ({
       "opens": "00:00",
       "closes": "23:59"
     },
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "telephone": "+33780817979",
+        "contactType": "Urgence",
+        "availableLanguage": ["Français"]
+      },
+      {
+        "@type": "ContactPoint",
+        "email": "levigile31@gmail.com",
+        "contactType": "Recrutement",
+        "availableLanguage": ["Français"]
+      }
+    ],
     "sameAs": [
-      "https://www.facebook.com/levigile",
-      "https://www.linkedin.com/company/levigile",
-      "https://twitter.com/levigile"
+      "https://x.com/levigile31/",
+      "https://www.facebook.com/LevigileToulousain?locale=fr_FR"
     ],
     "priceRange": "€€"
   };
