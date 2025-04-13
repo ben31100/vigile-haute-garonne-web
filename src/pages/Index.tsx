@@ -4,6 +4,9 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import HeroSection from '../components/HeroSection';
 import ServicesSection from '../components/ServicesSection';
+import AboutSection from '../components/AboutSection';
+import TestimonialsSection from '../components/TestimonialsSection';
+import CtaSection from '../components/cities/CtaSection';
 
 const Index: React.FC = () => {
   // Structured data for SEO
@@ -15,7 +18,7 @@ const Index: React.FC = () => {
     "url": "https://www.levigile.fr",
     "logo": "https://www.levigile.fr/logo.png",
     "image": "https://www.levigile.fr/security-company.jpg",
-    "telephone": "+33561123456",
+    "telephone": "+33554546428",
     "email": "contact@levigile.fr",
     "address": {
       "@type": "PostalAddress",
@@ -48,9 +51,8 @@ const Index: React.FC = () => {
       "closes": "23:59"
     },
     "sameAs": [
-      "https://www.facebook.com/levigile",
-      "https://www.linkedin.com/company/levigile",
-      "https://twitter.com/levigile"
+      "https://www.facebook.com/LevigileToulousain?locale=fr_FR",
+      "https://x.com/levigile31/"
     ],
     "priceRange": "€€"
   };
@@ -66,6 +68,12 @@ const Index: React.FC = () => {
         <main className="flex-grow">
           <HeroSection />
           <ServicesSection />
+          <AboutSection />
+          <TestimonialsSection />
+          <CtaSection 
+            title="Votre sécurité est notre priorité" 
+            subtitle="Contactez-nous dès aujourd'hui pour discuter de vos besoins en matière de sécurité et recevoir un devis personnalisé."
+          />
         </main>
         <Footer />
       </div>
