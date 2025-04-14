@@ -1,5 +1,6 @@
+
 import React, { useState } from 'react';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown, ImageIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import {
@@ -82,6 +83,12 @@ const Header: React.FC = () => {
           </DropdownMenu>
           
           <Link to="/#contact" className="text-levigile-dark hover:text-levigile-blue font-medium">Contact</Link>
+          
+          {/* Nouveau lien vers le gestionnaire de médias */}
+          <Link to="/media" className="text-levigile-dark hover:text-levigile-blue font-medium flex items-center">
+            <ImageIcon className="mr-2 h-4 w-4" />
+            Médias
+          </Link>
         </nav>
 
         {/* Mobile Menu Button */}
@@ -152,6 +159,15 @@ const Header: React.FC = () => {
               onClick={toggleMenu}
             >
               Contact
+            </Link>
+            
+            {/* Nouveau lien vers le gestionnaire de médias pour mobile */}
+            <Link to="/media" 
+              className="text-levigile-dark hover:text-levigile-blue font-medium py-2 px-4 flex items-center" 
+              onClick={toggleMenu}
+            >
+              <ImageIcon className="mr-2 h-4 w-4" />
+              Médias
             </Link>
           </div>
         </div>
