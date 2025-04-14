@@ -21,7 +21,7 @@ const CitiesList: React.FC = () => {
 
   // Helper function to determine the correct link for each city
   const getCityLink = (cityId: string) => {
-    const htmlPages = ['toulouse', 'blagnac', 'colomiers', 'tournefeuille', 'muret', 'ramonville'];
+    const htmlPages = ['toulouse', 'blagnac', 'colomiers', 'tournefeuille', 'muret', 'ramonville', 'saint-gaudens', 'balma', 'cugnaux', 'lunion'];
     return htmlPages.includes(cityId) ? `/${cityId}.html` : `/securite-ville-${cityId}`;
   };
 

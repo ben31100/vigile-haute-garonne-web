@@ -15,6 +15,10 @@ import ColomersPage from "./pages/cities/ColomersPage";
 import TournefeuilePage from "./pages/cities/TournefeuilePage";
 import MuretPage from "./pages/cities/MuretPage";
 import RamonvillePage from "./pages/cities/RamonvillePage";
+import SaintGaudensPage from "./pages/cities/SaintGaudensPage";
+import BalmaPage from "./pages/cities/BalmaPage";
+import CugnauxPage from "./pages/cities/CugnauxPage";
+import LUnionPage from "./pages/cities/LUnionPage";
 
 const queryClient = new QueryClient();
 
@@ -41,6 +45,10 @@ const App = () => (
             <Route path="/tournefeuille.html" element={<TournefeuilePage />} />
             <Route path="/muret.html" element={<MuretPage />} />
             <Route path="/ramonville.html" element={<RamonvillePage />} />
+            <Route path="/saint-gaudens.html" element={<SaintGaudensPage />} />
+            <Route path="/balma.html" element={<BalmaPage />} />
+            <Route path="/cugnaux.html" element={<CugnauxPage />} />
+            <Route path="/lunion.html" element={<LUnionPage />} />
             
             {/* Redirection des anciennes routes pour compatibilité */}
             <Route path="/securite-ville-toulouse" element={<Navigate to="/toulouse.html" />} />
@@ -49,6 +57,10 @@ const App = () => (
             <Route path="/securite-ville-tournefeuille" element={<Navigate to="/tournefeuille.html" />} />
             <Route path="/securite-ville-muret" element={<Navigate to="/muret.html" />} />
             <Route path="/securite-ville-ramonville" element={<Navigate to="/ramonville.html" />} />
+            <Route path="/securite-ville-saint-gaudens" element={<Navigate to="/saint-gaudens.html" />} />
+            <Route path="/securite-ville-balma" element={<Navigate to="/balma.html" />} />
+            <Route path="/securite-ville-cugnaux" element={<Navigate to="/cugnaux.html" />} />
+            <Route path="/securite-ville-lunion" element={<Navigate to="/lunion.html" />} />
             
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
