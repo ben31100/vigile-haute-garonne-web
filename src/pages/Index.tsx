@@ -22,7 +22,7 @@ const Index: React.FC = () => {
     "email": "contact@levigile.fr",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "15 Rue de la Sécurité",
+      "streetAddress": "8 Pl. Roger Salengro, 31000 Toulouse",
       "addressLocality": "Toulouse",
       "postalCode": "31000",
       "addressRegion": "Haute-Garonne",
@@ -47,8 +47,8 @@ const Index: React.FC = () => {
       "dayOfWeek": [
         "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
       ],
-      "opens": "00:00",
-      "closes": "23:59"
+      "opens": "09:00",
+      "closes": "19:00"
     },
     "contactPoint": [
       {
