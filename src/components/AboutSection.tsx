@@ -92,17 +92,17 @@ const AboutSection: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
-                value: "+10",
+                value: "+3",
                 label: "ans d'expérience",
-                description: "Une décennie d'expertise dans le domaine de la sécurité privée."
+                description: "Des années d'expertise dans le domaine de la sécurité privée."
               },
               {
-                value: "+50",
+                value: "+15",
                 label: "agents qualifiés",
                 description: "Une équipe professionnelle disponible 24h/24 et 7j/7."
               },
               {
-                value: "+200",
+                value: "+10",
                 label: "clients satisfaits",
                 description: "Entreprises, commerces et particuliers nous font confiance."
               },

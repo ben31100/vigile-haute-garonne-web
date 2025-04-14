@@ -5,19 +5,19 @@ import { Star, Quote } from 'lucide-react';
 const TestimonialsSection: React.FC = () => {
   const testimonials = [
     {
-      name: "Marie Dupont",
+      name: "Marie",
       role: "Gérante de boutique, Toulouse",
       quote: "Depuis que nous avons fait appel à LeVigile pour la sécurité de notre magasin, les tentatives de vol ont considérablement diminué. Leurs agents sont professionnels et attentifs.",
       rating: 5
     },
     {
-      name: "Jean Leclerc",
+      name: "Jean",
       role: "Directeur d'événements, Blagnac",
       quote: "Pour notre festival annuel, nous faisons confiance à LeVigile depuis 3 ans. Leur équipe assure une sécurité discrète mais efficace, permettant à nos visiteurs de profiter pleinement de l'événement.",
       rating: 5
     },
     {
-      name: "Sophie Martin",
+      name: "Sophie",
       role: "Responsable d'immeuble, Colomiers",
       quote: "Le service de rondes nocturnes de LeVigile a apporté un sentiment de sécurité à tous les résidents de notre copropriété. Leur réactivité en cas d'incident est exemplaire.",
       rating: 4

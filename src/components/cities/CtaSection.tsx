@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Phone, Mail } from 'lucide-react';
@@ -19,7 +20,7 @@ const CtaSection: React.FC<CtaSectionProps> = ({
             <Phone className="mr-2 h-5 w-5" />
             Appeler au 05 54 54 64 28
           </Button>
-          <Button variant="outline" size="lg" className="border-white text-white py-6 bg-[#9e9e9e]/10">
+          <Button variant="outline" size="lg" className="border-white text-white py-6 bg-levigile-red hover:bg-red-600">
             <Mail className="mr-2 h-5 w-5" />
             Demander un devis
           </Button>
