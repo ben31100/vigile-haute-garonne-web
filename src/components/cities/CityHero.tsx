@@ -34,13 +34,13 @@ const CityHero: React.FC<CityHeroProps> = ({
         imagePath = getCityImageUrl(cityName, 'hero');
       }
 
-      // Si c'est une URL complète, l'utiliser directement
-      if (imagePath.startsWith('http')) {
-        setBgImage(imagePath);
-        return;
-      }
-
       try {
+        // Si c'est une URL complète, l'utiliser directement
+        if (imagePath.startsWith('http')) {
+          setBgImage(imagePath);
+          return;
+        }
+
         // Récupérer l'image depuis le bucket Supabase
         const cleanPath = imagePath.startsWith('/') ? imagePath.substring(1) : imagePath;
         const { data } = await supabase.storage
@@ -52,7 +52,7 @@ const CityHero: React.FC<CityHeroProps> = ({
       } catch (error) {
         console.error("Erreur inattendue:", error);
         // Utiliser le chemin local en cas d'erreur
-        setBgImage(imagePath);
+        setBgImage(`/${imagePath}`);
       }
     };
 
