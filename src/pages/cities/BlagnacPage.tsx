@@ -52,7 +52,7 @@ const BlagnacPage: React.FC = () => {
           <CityHero 
             cityName="Blagnac" 
             subtitle="Services de sécurité adaptés à la zone aéroportuaire et industrielle"
-            backgroundImage="https://images.unsplash.com/photo-1596465203818-2a2ff9382598?auto=format&fit=crop&w=1920"
+            backgroundImage="/lovable-uploads/329e34a7-1980-4728-92fa-c85355498d3e.png"
           />
           
           <SpecificitesSection items={specificites} />
