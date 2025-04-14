@@ -42,7 +42,7 @@ const BlagnacPage: React.FC = () => {
       <Helmet>
         <title>Sécurité privée à Blagnac | LeVigile - Services de surveillance</title>
         <meta name="description" content="Services professionnels de sécurité privée à Blagnac : gardiennage, surveillance, contrôle d'accès. Protection pour zones commerciales, aéroport et sites industriels." />
-        <link rel="canonical" href="https://www.levigile.fr/blagnac.html" />
+        <link rel="canonical" href="https://levigile.fr/blagnac.html" />
       </Helmet>
       
       <div className="flex flex-col min-h-screen">

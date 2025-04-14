@@ -15,9 +15,9 @@ const Index: React.FC = () => {
     "@type": "LocalBusiness",
     "name": "LeVigile",
     "description": "Entreprise de sécurité privée en Haute-Garonne. Services de gardiennage, surveillance, rondes de sécurité et sécurité événementielle à Toulouse et dans tout le département 31.",
-    "url": "https://www.levigile.fr",
-    "logo": "https://www.levigile.fr/logo.png",
-    "image": "https://www.levigile.fr/security-company.jpg",
+    "url": "https://levigile.fr",
+    "logo": "https://levigile.fr/logo.png",
+    "image": "https://levigile.fr/security-company.jpg",
     "telephone": "+33554546428",
     "email": "contact@levigile.fr",
     "address": {

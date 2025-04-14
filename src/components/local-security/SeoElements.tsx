@@ -23,9 +23,9 @@ const SeoElements: React.FC<SeoElementsProps> = ({
     "@type": "LocalBusiness",
     "name": "LeVigile - Sécurité à " + cityName,
     "description": `Services de sécurité privée professionnels à ${cityName}. Gardiennage, surveillance, rondes de sécurité et protection 24h/24 et 7j/7.`,
-    "url": `https://www.levigile.fr/securite-ville-${cityId}`,
-    "logo": "https://www.levigile.fr/logo.png",
-    "image": "https://www.levigile.fr/security-company.jpg",
+    "url": `https://levigile.fr/securite-ville-${cityId}`,
+    "logo": "https://levigile.fr/logo.png",
+    "image": "https://levigile.fr/security-company.jpg",
     "telephone": "+33554546428",
     "email": "contact@levigile.fr",
     "address": {
