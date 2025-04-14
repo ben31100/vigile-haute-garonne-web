@@ -22,7 +22,7 @@ const Index: React.FC = () => {
     "email": "contact@levigile.fr",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "8 Pl. Roger Salengro, 31000 Toulouse",
+      "streetAddress": "8 Pl. Roger Salengro",
       "addressLocality": "Toulouse",
       "postalCode": "31000",
       "addressRegion": "Haute-Garonne",
