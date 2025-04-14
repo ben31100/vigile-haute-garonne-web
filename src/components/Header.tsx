@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Menu, X, ChevronDown, ImageIcon } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import {
@@ -41,7 +41,7 @@ const Header: React.FC = () => {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-8">
           <Link to="/" className="text-levigile-dark hover:text-levigile-blue font-medium">Accueil</Link>
-          <Link to="/#services" className="text-levigile-dark hover:text-levigile-blue font-medium">Nos services</Link>
+          <a href="/#services" className="text-levigile-dark hover:text-levigile-blue font-medium">Nos services</a>
           
           <DropdownMenu>
             <DropdownMenuTrigger className="text-levigile-dark hover:text-levigile-blue font-medium bg-transparent hover:bg-transparent focus:bg-transparent inline-flex items-center">
@@ -82,13 +82,7 @@ const Header: React.FC = () => {
             </DropdownMenuContent>
           </DropdownMenu>
           
-          <Link to="/#contact" className="text-levigile-dark hover:text-levigile-blue font-medium">Contact</Link>
-          
-          {/* Nouveau lien vers le gestionnaire de médias */}
-          <Link to="/media" className="text-levigile-dark hover:text-levigile-blue font-medium flex items-center">
-            <ImageIcon className="mr-2 h-4 w-4" />
-            Médias
-          </Link>
+          <a href="/#contact" className="text-levigile-dark hover:text-levigile-blue font-medium">Contact</a>
         </nav>
 
         {/* Mobile Menu Button */}
@@ -114,12 +108,12 @@ const Header: React.FC = () => {
             >
               Accueil
             </Link>
-            <Link to="/#services" 
+            <a href="/#services" 
               className="text-levigile-dark hover:text-levigile-blue font-medium py-2 px-4" 
               onClick={toggleMenu}
             >
               Nos services
-            </Link>
+            </a>
             
             <div className="relative">
               <button 
@@ -154,21 +148,12 @@ const Header: React.FC = () => {
               )}
             </div>
             
-            <Link to="/#contact" 
+            <a href="/#contact" 
               className="text-levigile-dark hover:text-levigile-blue font-medium py-2 px-4" 
               onClick={toggleMenu}
             >
               Contact
-            </Link>
-            
-            {/* Nouveau lien vers le gestionnaire de médias pour mobile */}
-            <Link to="/media" 
-              className="text-levigile-dark hover:text-levigile-blue font-medium py-2 px-4 flex items-center" 
-              onClick={toggleMenu}
-            >
-              <ImageIcon className="mr-2 h-4 w-4" />
-              Médias
-            </Link>
+            </a>
           </div>
         </div>
       )}
