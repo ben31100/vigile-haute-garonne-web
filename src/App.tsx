@@ -14,6 +14,7 @@ import BlagnacPage from "./pages/cities/BlagnacPage";
 import ColomersPage from "./pages/cities/ColomersPage";
 import TournefeuilePage from "./pages/cities/TournefeuilePage";
 import MuretPage from "./pages/cities/MuretPage";
+import MediaManager from "./pages/MediaManager";
 
 const queryClient = new QueryClient();
 
@@ -32,6 +33,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/villes" element={<CitiesList />} />
             <Route path="/securite-ville-:cityId" element={<LocalSecurityPage />} />
+            <Route path="/media" element={<MediaManager />} />
             
             {/* Routes HTML-like pour les villes */}
             <Route path="/toulouse.html" element={<ToulousePage />} />
