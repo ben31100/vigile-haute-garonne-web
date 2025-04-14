@@ -1,6 +1,8 @@
 
 /**
  * Utilitaires pour gérer les images dans l'application
+ * Les clés d'API Supabase se trouvent dans src/integrations/supabase/client.ts
+ * Le project_id se trouve dans supabase/config.toml
  */
 import { supabase } from "@/integrations/supabase/client";
 
@@ -48,6 +50,10 @@ export const getCityImageUrl = (
 
 /**
  * Charge une image depuis Supabase et retourne son URL publique
+ * Configuration Supabase:
+ * - URL et clé d'API : src/integrations/supabase/client.ts
+ * - ID du projet : supabase/config.toml
+ * 
  * @param imagePath Chemin de l'image dans le bucket Supabase
  * @returns Promise avec l'URL publique de l'image
  */

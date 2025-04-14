@@ -3,6 +3,12 @@ import React, { useEffect, useState } from 'react';
 import { getCityImageUrl, getSupabaseImageUrl } from '@/utils/imageUtils';
 import { supabase } from '@/integrations/supabase/client';
 
+/**
+ * Configuration Supabase:
+ * - URL et clé d'API: src/integrations/supabase/client.ts
+ * - ID du projet: supabase/config.toml 
+ */
+
 interface CityHeroProps {
   cityName: string;
   subtitle: string;
