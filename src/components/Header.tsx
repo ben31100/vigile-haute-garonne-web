@@ -10,40 +10,11 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useIsMobile } from '@/hooks/use-mobile';
-import { getSupabaseImageUrl } from '@/utils/imageUtils';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isVillesDropdownOpen, setIsVillesDropdownOpen] = useState(false);
   const isMobile = useIsMobile();
-  const [logoUrl, setLogoUrl] = useState('');
-  const [logoLoadError, setLogoLoadError] = useState<string | null>(null);
-
-  useEffect(() => {
-    const fetchLogo = async () => {
-      try {
-        const url = await getSupabaseImageUrl('levigile securite.png');
-        console.log('Logo URL fetched:', url);
-        
-        // Additional check to validate the URL
-        const img = new Image();
-        img.onload = () => {
-          setLogoUrl(url);
-          console.log('Logo loaded successfully');
-        };
-        img.onerror = () => {
-          setLogoLoadError('Failed to load logo image');
-          console.error('Failed to load logo image');
-        };
-        img.src = url;
-      } catch (error) {
-        console.error('Failed to load logo:', error);
-        setLogoLoadError(error instanceof Error ? error.message : 'Unknown error');
-      }
-    };
-
-    fetchLogo();
-  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -59,19 +30,11 @@ const Header: React.FC = () => {
         {/* Logo */}
         <div className="flex items-center">
           <Link to="/" className="flex items-center">
-            {logoLoadError ? (
-              <div className="text-red-500">Logo Loading Error: {logoLoadError}</div>
-            ) : (
-              <img 
-                src={logoUrl || '/placeholder.svg'} 
-                alt="LeVigile Logo" 
-                className="h-10 w-auto"
-                onError={(e) => {
-                  console.error('Image load error', e);
-                  e.currentTarget.src = '/placeholder.svg';
-                }}
-              />
-            )}
+            <img 
+              src="/lovable-uploads/d4a5c58a-7eff-45a1-8d0f-b38cc32229f2.png" 
+              alt="LeVigile Logo" 
+              className="h-10 w-auto"
+            />
           </Link>
         </div>
 
