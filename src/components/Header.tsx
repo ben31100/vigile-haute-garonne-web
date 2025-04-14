@@ -1,5 +1,4 @@
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
@@ -10,11 +9,26 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useIsMobile } from '@/hooks/use-mobile';
+import { getSupabaseImageUrl } from '@/utils/imageUtils';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isVillesDropdownOpen, setIsVillesDropdownOpen] = useState(false);
   const isMobile = useIsMobile();
+  const [logoUrl, setLogoUrl] = useState('/lovable-uploads/22d5a3e6-941d-4667-a9e4-798cabb7fe20.png');
+
+  useEffect(() => {
+    const fetchLogo = async () => {
+      try {
+        const url = await getSupabaseImageUrl('levigile securite.png');
+        setLogoUrl(url);
+      } catch (error) {
+        console.error('Failed to load logo:', error);
+      }
+    };
+
+    fetchLogo();
+  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -31,7 +45,7 @@ const Header: React.FC = () => {
         <div className="flex items-center">
           <Link to="/" className="flex items-center">
             <img 
-              src="/lovable-uploads/22d5a3e6-941d-4667-a9e4-798cabb7fe20.png" 
+              src={logoUrl} 
               alt="LeVigile Logo" 
               className="h-10 w-auto"
             />
@@ -97,66 +111,6 @@ const Header: React.FC = () => {
           </Button>
         </div>
       </div>
-
-      {/* Mobile Navigation */}
-      {isMenuOpen && (
-        <div className="md:hidden bg-white">
-          <div className="container mx-auto px-4 py-2 flex flex-col space-y-4">
-            <Link to="/" 
-              className="text-levigile-dark hover:text-levigile-blue font-medium py-2 px-4" 
-              onClick={toggleMenu}
-            >
-              Accueil
-            </Link>
-            <a href="/#services" 
-              className="text-levigile-dark hover:text-levigile-blue font-medium py-2 px-4" 
-              onClick={toggleMenu}
-            >
-              Nos services
-            </a>
-            
-            <div className="relative">
-              <button 
-                onClick={toggleVillesDropdown}
-                className="w-full text-left text-levigile-dark hover:text-levigile-blue font-medium py-2 px-4 flex justify-between items-center"
-              >
-                <span>Villes</span>
-                <ChevronDown className={`h-4 w-4 transition-transform ${isVillesDropdownOpen ? 'rotate-180' : ''}`} />
-              </button>
-              
-              {isVillesDropdownOpen && (
-                <div className="pl-4 space-y-2 mt-2 border-l-2 border-levigile-lightgray ml-4">
-                  <Link to="/toulouse.html" className="block py-1 text-sm hover:text-levigile-blue" onClick={toggleMenu}>
-                    Toulouse
-                  </Link>
-                  <Link to="/blagnac.html" className="block py-1 text-sm hover:text-levigile-blue" onClick={toggleMenu}>
-                    Blagnac
-                  </Link>
-                  <Link to="/colomiers.html" className="block py-1 text-sm hover:text-levigile-blue" onClick={toggleMenu}>
-                    Colomiers
-                  </Link>
-                  <Link to="/tournefeuille.html" className="block py-1 text-sm hover:text-levigile-blue" onClick={toggleMenu}>
-                    Tournefeuille
-                  </Link>
-                  <Link to="/muret.html" className="block py-1 text-sm hover:text-levigile-blue" onClick={toggleMenu}>
-                    Muret
-                  </Link>
-                  <Link to="/villes" className="block py-1 text-sm font-medium text-levigile-blue" onClick={toggleMenu}>
-                    Toutes les villes
-                  </Link>
-                </div>
-              )}
-            </div>
-            
-            <a href="/#contact" 
-              className="text-levigile-dark hover:text-levigile-blue font-medium py-2 px-4" 
-              onClick={toggleMenu}
-            >
-              Contact
-            </a>
-          </div>
-        </div>
-      )}
     </header>
   );
 };
