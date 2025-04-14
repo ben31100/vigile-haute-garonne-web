@@ -19,7 +19,15 @@ export const getMedias = async ({
   serviceReference?: string;
   limit?: number;
   offset?: number;
-}): Promise<(MediaMetadata & { url: string })[]> => {
+}): Promise<{
+  id: string;
+  name: string;
+  description?: string;
+  url: string;
+  content_type: string;
+  bucket_id: string;
+  created_at: string;
+}[]> => {
   try {
     let query = supabase.from('medias').select('*');
     
@@ -47,15 +55,20 @@ export const getMedias = async ({
       return [];
     }
     
-    // Ajouter les URLs publiques
+    // Ajouter les URLs publiques et transformer en format Media
     return data.map(media => {
       const { data: urlData } = supabase.storage
         .from(media.bucket_id)
         .getPublicUrl(media.storage_path);
       
       return {
-        ...media,
-        url: urlData.publicUrl
+        id: media.id,
+        name: media.name,
+        description: media.description,
+        url: urlData.publicUrl,
+        content_type: media.content_type,
+        bucket_id: media.bucket_id,
+        created_at: media.created_at
       };
     });
   } catch (error) {
@@ -109,7 +122,15 @@ export const getCityImage = async (
 export const getCityGalleryMedias = async (
   cityId: string,
   limit = 6
-): Promise<(MediaMetadata & { url: string })[]> => {
+): Promise<{
+  id: string;
+  name: string;
+  description?: string;
+  url: string;
+  content_type: string;
+  bucket_id: string;
+  created_at: string;
+}[]> => {
   return getMedias({
     bucket: 'images',
     cityReference: cityId,
