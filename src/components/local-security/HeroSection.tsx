@@ -19,22 +19,22 @@ const HeroSection: React.FC<HeroSectionProps> = ({ cityName, postalCode }) => {
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
-          <div className="inline-flex items-center px-4 py-1 rounded-full bg-white/10 text-sm mb-4 animate-fade-in">
+          <div className="inline-flex items-center px-4 py-1 rounded-full bg-white/10 text-sm mb-4">
             <MapPin className="h-4 w-4 mr-2 text-levigile-red" />
             <span>{postalCode} • {cityName}</span>
           </div>
           
-          <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight animate-fade-in animation-delay-200">
+          <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
             Agent de sécurité à <span className="text-white underline decoration-levigile-red decoration-4 underline-offset-4">{cityName}</span>
           </h1>
           
-          <p className="text-lg md:text-xl mb-8 opacity-90 leading-relaxed animate-fade-in animation-delay-400">
+          <p className="text-lg md:text-xl mb-8 opacity-90 leading-relaxed">
             Protection professionnelle 24h/24 pour entreprises et particuliers
             dans toute la commune de {cityName} et ses environs. Interventions rapides et garanties.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8 animate-fade-in animation-delay-600">
-            <Button className="bg-levigile-red hover:bg-red-600 text-white flex gap-2 items-center py-6 px-6 text-lg transform transition-transform hover:scale-105">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+            <Button className="bg-levigile-red hover:bg-red-600 text-white flex gap-2 items-center py-6 px-6 text-lg">
               <PhoneCall className="h-5 w-5" />
               <span>Devis gratuit à {cityName}</span>
             </Button>
@@ -44,7 +44,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ cityName, postalCode }) => {
             </Button>
           </div>
           
-          <div className="inline-flex items-center justify-center text-sm bg-white/10 p-3 rounded-lg animate-fade-in animation-delay-800">
+          <div className="inline-flex items-center justify-center text-sm bg-white/10 p-3 rounded-lg">
             <Shield className="h-5 w-5 text-levigile-red mr-2" />
             <span>Autorisation CNAPS: AUT-031-2115-01-01-20220123456</span>
           </div>
