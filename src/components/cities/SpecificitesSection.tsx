@@ -11,15 +11,31 @@ export interface SpecificiteItem {
 
 interface SpecificitesSectionProps {
   items: SpecificiteItem[];
+  title?: string;
+  subtitle?: string;
 }
 
-const SpecificitesSection: React.FC<SpecificitesSectionProps> = ({ items }) => {
+const SpecificitesSection: React.FC<SpecificitesSectionProps> = ({ items, title, subtitle }) => {
   return (
     <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-levigile-blue">
-          Spécificités de nos services
-        </h2>
+        {title && (
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-levigile-blue">
+            {title}
+          </h2>
+        )}
+        
+        {subtitle && (
+          <p className="text-lg text-center mb-12 text-gray-700 max-w-3xl mx-auto">
+            {subtitle}
+          </p>
+        )}
+        
+        {!title && !subtitle && (
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-levigile-blue">
+            Spécificités de nos services
+          </h2>
+        )}
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {items.map((item, index) => {
