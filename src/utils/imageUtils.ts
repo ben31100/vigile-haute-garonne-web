@@ -23,10 +23,10 @@ export const getCityImageUrl = (
   type: ImageType = 'hero',
   variant?: string
 ): string => {
-  const basePath = 'images/cities/';
+  const basePath = '/images/cities/';
   const normalizedCityName = cityName.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
   
-  // Pour Toulouse, nous avons une gestion spéciale
+  // Pour Toulouse, nous avons une gestion spéciale pour s'assurer que l'image est correctement chargée
   if (normalizedCityName === 'toulouse' && type === 'hero') {
     return `${basePath}toulouse-hero.jpg`;
   }

@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
-import { getCityImageUrl, getSupabaseImageUrl } from '@/utils/imageUtils';
+import { getCityImageUrl } from '@/utils/imageUtils';
 import { supabase } from '@/integrations/supabase/client';
 
 /**
@@ -29,12 +29,9 @@ const CityHero: React.FC<CityHeroProps> = ({
       if (backgroundImage) {
         // Si une image spécifique est fournie, l'utiliser
         imagePath = backgroundImage;
-      } else if (cityName === 'Toulouse') {
-        // Pour Toulouse, utiliser une image spécifique
-        imagePath = '/images/cities/toulouse-hero.jpg';
       } else {
-        // Pour les autres villes, utiliser la fonction getCityImageUrl
-        imagePath = getCityImageUrl(cityName);
+        // Pour toutes les villes, utiliser la fonction getCityImageUrl
+        imagePath = getCityImageUrl(cityName, 'hero');
       }
 
       // Si c'est une URL complète, l'utiliser directement
