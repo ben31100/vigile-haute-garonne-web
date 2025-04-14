@@ -19,6 +19,12 @@ const CitiesList: React.FC = () => {
     city.postalCode.includes(searchTerm)
   );
 
+  // Helper function to determine the correct link for each city
+  const getCityLink = (cityId: string) => {
+    const htmlPages = ['toulouse', 'blagnac', 'colomiers', 'tournefeuille', 'muret', 'ramonville'];
+    return htmlPages.includes(cityId) ? `/${cityId}.html` : `/securite-ville-${cityId}`;
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
       <Helmet>
@@ -56,7 +62,7 @@ const CitiesList: React.FC = () => {
                 filteredCities.map((city) => (
                   <Link
                     key={city.id}
-                    to={`/securite-ville-${city.id}`}
+                    to={getCityLink(city.id)}
                     className="block bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow border-t-4 border-levigile-blue hover:border-levigile-red"
                   >
                     <div className="flex items-start">

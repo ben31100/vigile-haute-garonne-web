@@ -14,6 +14,7 @@ import BlagnacPage from "./pages/cities/BlagnacPage";
 import ColomersPage from "./pages/cities/ColomersPage";
 import TournefeuilePage from "./pages/cities/TournefeuilePage";
 import MuretPage from "./pages/cities/MuretPage";
+import RamonvillePage from "./pages/cities/RamonvillePage";
 
 const queryClient = new QueryClient();
 
@@ -39,6 +40,7 @@ const App = () => (
             <Route path="/colomiers.html" element={<ColomersPage />} />
             <Route path="/tournefeuille.html" element={<TournefeuilePage />} />
             <Route path="/muret.html" element={<MuretPage />} />
+            <Route path="/ramonville.html" element={<RamonvillePage />} />
             
             {/* Redirection des anciennes routes pour compatibilité */}
             <Route path="/securite-ville-toulouse" element={<Navigate to="/toulouse.html" />} />
@@ -46,6 +48,7 @@ const App = () => (
             <Route path="/securite-ville-colomiers" element={<Navigate to="/colomiers.html" />} />
             <Route path="/securite-ville-tournefeuille" element={<Navigate to="/tournefeuille.html" />} />
             <Route path="/securite-ville-muret" element={<Navigate to="/muret.html" />} />
+            <Route path="/securite-ville-ramonville" element={<Navigate to="/ramonville.html" />} />
             
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
