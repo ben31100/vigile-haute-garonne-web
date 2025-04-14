@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
             <ul className="space-y-3">
               <li className="flex items-start">
                 <MapPin className="mr-2 h-5 w-5 shrink-0 text-levigile-red" />
-                <span>15 Rue de la Sécurité<br />31000 Toulouse</span>
+                <span>8 PLACE ROGER SALENGRO<br />31000 TOULOUSE</span>
               </li>
               <li className="flex items-center">
                 <Phone className="mr-2 h-5 w-5 shrink-0 text-levigile-red" />
@@ -88,8 +88,8 @@ const Footer: React.FC = () => {
               <li>
                 <div className="mt-4 space-y-2">
                   <p className="text-sm">
-                    SARL LeVigile - SIRET: 123 456 789 00012<br />
-                    Autorisation CNAPS: AUT-031-2115-01-01-20220123456
+                    SARL LeVigile - SIRET: 953 485 851 00018<br />
+                    Autorisation CNAPS: AUT-031-2122-10-25-20230887253
                   </p>
                   <div className="flex items-center space-x-3 mt-2">
                     <a href="https://x.com/levigile31/" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className="hover:text-levigile-red transition-colors">

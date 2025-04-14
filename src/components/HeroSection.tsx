@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Shield, Phone } from 'lucide-react';
@@ -51,7 +50,7 @@ const HeroSection: React.FC = () => {
             </div>
             <div className="absolute -bottom-6 -right-6 bg-levigile-red text-white p-4 rounded-lg shadow-lg text-center transform rotate-3">
               <p className="font-bold">Numéro d'autorisation CNAPS</p>
-              <p className="text-sm">AUT-031-2115-01-01-20220123456</p>
+              <p className="text-sm">AUT-031-2122-10-25-20230887253</p>
             </div>
           </div>
         </div>

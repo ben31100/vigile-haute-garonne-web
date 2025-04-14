@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { MapPin, Clock, Shield, PhoneCall } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -14,7 +13,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ cityName, postalCode }) => {
     <section className="bg-gradient-to-r from-levigile-blue to-levigile-gray py-16 text-white relative overflow-hidden">
       {/* Background pattern */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC40Ij48cGF0aCBkPSJNMzYgMzRjMC0yLjIxLTEuNzktNC00LTRzLTQgMS43OS00IDQgMS43OSA0IDQgNCA0LTEuNzkgNC00ek0yNCAzMGMwLTIuMjEtMS43OS00LTQtNHMtNCAxLjc5LTQgNCAoMS43OSA0IDQgNCA0LTEuNzkgNC00ek0yNCA0NmMwLTIuMjEtMS43OS00LTQtNHMtNCAxLjc5LTQgNCAoMS43OSA0IDQgNCA0LTEuNzkgNC00ek00OCAzMGMwLTIuMjEtMS43OS00LTQtNHMtNCAxLjc5LTQgNCAoMS43OSA0IDQgNCA0LTEuNzkgNC00ek00OCA0NmMwLTIuMjEtMS43OS00LTQtNHMtNCAxLjc5LTQgNCAoMS43OSA0IDQgNCA0LTEuNzkgNC00ek0xMiAxNGMwLTIuMjEtMS43OS00LTQtNHMtNCAxLjc5LTQgNCAoMS43OSA0IDQgNCA0LTEuNzkgNC00eiI+PC9wYXRoPjwvZz48L2c+PC9zdmc+')] rotate-45"></div>
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC40Ij48cGF0aCBkPSJNMzYgMzRjMC0yLjIxLTEuNzktNC00LTRzLTQgMS43OS00IDQgMS43OSA0IDQgNCA0LTEuNzkgNC00ek0yNCAzMGMwLTIuMjEtMS43OS00LTQtNHMtNCAxLjc5LTQgNCAoMS43OSA0IDQgNCA0LTEuNzkgNC00ek0yNCA0NmMwLTIuMjEtMS43OS00LTQtNHMtNCAxLjc5LTQgNCAoMS43OSA0IDQgNCA0LTEuNzkgNC00ek00OCAzMGMwLTIuMjEtMS43OS00LTQtNHMtNCAxLjc5LTQgNCAoMS43OSA0IDQgNCA0LTEuNzkgNC00ek00OCA0NmMwLTIuMjEtMS43OS00LTQtNHMtNCAxLjc5LTQgNCAoMS43OSA0IDQgNCA0LTEuNzkgNC00ek0xMiAxNGMwLTIuMjEtMS43OS00LTQtNHMtNCAxLjc5LTQgNCAoMS43OSA0IDQgNCA0LTEuNzkgNC00eiI6PC9wYXRoPjwvZz48L2c+PC9zdmc+')] rotate-45"></div>
       </div>
       
       <div className="container mx-auto px-4 relative z-10">
@@ -46,7 +45,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ cityName, postalCode }) => {
           
           <div className="inline-flex items-center justify-center text-sm bg-white/10 p-3 rounded-lg">
             <Shield className="h-5 w-5 text-levigile-red mr-2" />
-            <span>Autorisation CNAPS: AUT-031-2115-01-01-20220123456</span>
+            <span>Autorisation CNAPS: AUT-031-2122-10-25-20230887253</span>
           </div>
         </div>
       </div>
