@@ -52,7 +52,7 @@ const TournefeuilePage: React.FC = () => {
           <CityHero 
             cityName="Tournefeuille" 
             subtitle="Sécurité adaptée pour cette ville résidentielle de l'ouest toulousain"
-            backgroundImage="https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=1920"
+            backgroundImage="evenement-hero.jpg"
           />
           
           <SpecificitesSection items={specificites} />
