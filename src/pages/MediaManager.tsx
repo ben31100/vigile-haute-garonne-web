@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card } from '@/components/ui/card';
 import MediaUploader from '@/components/MediaUploader';
 import MediaGallery, { Media } from '@/components/MediaGallery';
@@ -67,49 +66,64 @@ const MediaManager: React.FC = () => {
         </div>
         
         <Card className="p-6">
-          <Tabs defaultValue="all" value={activeTab} onValueChange={setActiveTab}>
-            <TabsList className="mb-6">
-              <TabsTrigger value="all" className="flex items-center gap-2">
-                Tous les médias
-              </TabsTrigger>
-              <TabsTrigger value="images" className="flex items-center gap-2">
-                <ImageIcon size={16} />
-                Images
-              </TabsTrigger>
-              <TabsTrigger value="videos" className="flex items-center gap-2">
-                <Film size={16} />
-                Vidéos
-              </TabsTrigger>
-            </TabsList>
-            
-            <TabsContent value="all">
+          {/* Boutons de filtre personnalisés */}
+          <div className="flex space-x-2 mb-6 bg-gray-100 p-2 rounded-lg w-fit">
+            <Button 
+              variant={activeTab === 'all' ? 'default' : 'ghost'} 
+              onClick={() => setActiveTab('all')}
+              className="rounded-md px-4"
+            >
+              Tous les médias
+            </Button>
+            <Button 
+              variant={activeTab === 'images' ? 'default' : 'ghost'} 
+              onClick={() => setActiveTab('images')}
+              className="rounded-md px-4 flex items-center gap-2"
+            >
+              <ImageIcon size={16} />
+              Images
+            </Button>
+            <Button 
+              variant={activeTab === 'videos' ? 'default' : 'ghost'} 
+              onClick={() => setActiveTab('videos')}
+              className="rounded-md px-4 flex items-center gap-2"
+            >
+              <Film size={16} />
+              Vidéos
+            </Button>
+          </div>
+          
+          {/* Contenu des onglets */}
+          <div>
+            {activeTab === 'all' && (
               <MediaGallery 
                 selectable={true} 
                 onSelect={handleMediaSelect}
                 showDelete={true} 
               />
-            </TabsContent>
+            )}
             
-            <TabsContent value="images">
+            {activeTab === 'images' && (
               <MediaGallery 
                 bucket="images" 
                 selectable={true} 
                 onSelect={handleMediaSelect}
                 showDelete={true} 
               />
-            </TabsContent>
+            )}
             
-            <TabsContent value="videos">
+            {activeTab === 'videos' && (
               <MediaGallery 
                 bucket="videos" 
                 selectable={true} 
                 onSelect={handleMediaSelect}
                 showDelete={true} 
               />
-            </TabsContent>
-          </Tabs>
+            )}
+          </div>
         </Card>
         
+        {/* Modal d'affichage de média */}
         {selectedMedia && (
           <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
             <div className="bg-white rounded-lg max-w-4xl max-h-[90vh] overflow-auto">
