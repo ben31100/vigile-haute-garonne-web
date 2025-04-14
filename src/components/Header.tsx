@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -15,7 +16,7 @@ const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isVillesDropdownOpen, setIsVillesDropdownOpen] = useState(false);
   const isMobile = useIsMobile();
-  const [logoUrl, setLogoUrl] = useState('/lovable-uploads/22d5a3e6-941d-4667-a9e4-798cabb7fe20.png');
+  const [logoUrl, setLogoUrl] = useState('');
 
   useEffect(() => {
     const fetchLogo = async () => {
