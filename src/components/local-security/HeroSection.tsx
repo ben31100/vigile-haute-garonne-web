@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { MapPin, Clock, Shield, PhoneCall } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -9,6 +10,10 @@ interface HeroSectionProps {
 }
 
 const HeroSection: React.FC<HeroSectionProps> = ({ cityName, postalCode }) => {
+  const handlePhoneCall = () => {
+    window.location.href = 'tel:+33554546428';
+  };
+
   return (
     <section className="bg-gradient-to-r from-levigile-blue to-levigile-gray py-16 text-white relative overflow-hidden">
       {/* Background pattern */}
@@ -33,14 +38,19 @@ const HeroSection: React.FC<HeroSectionProps> = ({ cityName, postalCode }) => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-            <Button className="bg-levigile-red hover:bg-red-600 text-white flex gap-2 items-center py-6 px-6 text-lg">
+            <Button 
+              className="bg-levigile-red hover:bg-red-600 text-white flex gap-2 items-center py-6 px-6 text-lg"
+              onClick={handlePhoneCall}
+            >
               <PhoneCall className="h-5 w-5" />
               <span>Devis gratuit à {cityName}</span>
             </Button>
-            <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 py-6 px-6 text-lg">
-              <Clock className="h-5 w-5 mr-2" />
-              <span>Intervention rapide</span>
-            </Button>
+            <Link to="/#services">
+              <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 py-6 px-6 text-lg">
+                <Clock className="h-5 w-5 mr-2" />
+                <span>Intervention rapide</span>
+              </Button>
+            </Link>
           </div>
           
           <div className="inline-flex items-center justify-center text-sm bg-white/10 p-3 rounded-lg">

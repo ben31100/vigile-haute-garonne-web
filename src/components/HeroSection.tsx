@@ -1,8 +1,14 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Shield, Phone } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const HeroSection: React.FC = () => {
+  const handlePhoneCall = () => {
+    window.location.href = 'tel:+33554546428';
+  };
+
   return (
     <section className="bg-gradient-to-r from-levigile-blue to-levigile-gray pt-24 pb-16 text-white">
       <div className="container mx-auto px-4">
@@ -16,14 +22,19 @@ const HeroSection: React.FC = () => {
               Services disponibles 24h/24 et 7j/7 sur tout le département.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button className="bg-levigile-red hover:bg-red-600 text-white flex gap-2 items-center">
+              <Button 
+                className="bg-levigile-red hover:bg-red-600 text-white flex gap-2 items-center"
+                onClick={handlePhoneCall}
+              >
                 <Phone className="h-4 w-4" />
                 <span>Demander un devis</span>
               </Button>
-              <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 flex gap-2 items-center">
-                <Shield className="h-4 w-4" />
-                <span>Nos services</span>
-              </Button>
+              <Link to="/#services">
+                <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 flex gap-2 items-center">
+                  <Shield className="h-4 w-4" />
+                  <span>Nos services</span>
+                </Button>
+              </Link>
             </div>
           </div>
           

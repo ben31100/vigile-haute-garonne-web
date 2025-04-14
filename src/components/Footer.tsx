@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { MapPin, Phone, Mail, PhoneCall } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -8,6 +9,14 @@ const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
   // Featured cities to display in the footer
   const featuredCities = ["toulouse", "blagnac", "colomiers", "tournefeuille", "muret"];
+
+  const handlePhoneCall = () => {
+    window.location.href = 'tel:+33554546428';
+  };
+
+  const handleEmailContact = () => {
+    window.location.href = 'mailto:contact@levigile.fr';
+  };
 
   return (
     <footer id="contact" className="bg-levigile-blue text-white pt-12 pb-6">
@@ -26,7 +35,7 @@ const Footer: React.FC = () => {
                 <Button 
                   variant="link" 
                   className="text-white hover:text-levigile-red p-0"
-                  onClick={() => window.open('tel:+33554546428', '_self')}
+                  onClick={handlePhoneCall}
                 >
                   Appel au 05 54 54 64 28
                 </Button>
