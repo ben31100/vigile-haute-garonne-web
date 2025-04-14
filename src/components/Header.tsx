@@ -1,40 +1,25 @@
-
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { useIsMobile } from '@/hooks/use-mobile';
-
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isVillesDropdownOpen, setIsVillesDropdownOpen] = useState(false);
   const isMobile = useIsMobile();
-
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-
   const toggleVillesDropdown = () => {
     setIsVillesDropdownOpen(!isVillesDropdownOpen);
   };
-
-  return (
-    <header className="bg-white shadow-md fixed w-full z-50">
+  return <header className="bg-white shadow-md fixed w-full z-50">
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center">
           <Link to="/" className="flex items-center">
-            <img 
-              src="/lovable-uploads/d4a5c58a-7eff-45a1-8d0f-b38cc32229f2.png" 
-              alt="LeVigile Logo" 
-              className="h-10 w-auto"
-            />
+            <img alt="LeVigile Logo" className="h-10 w-auto" src="/lovable-uploads/dc4a6e50-d420-4308-a7a4-442b41b2befb.png" />
           </Link>
         </div>
 
@@ -87,18 +72,11 @@ const Header: React.FC = () => {
 
         {/* Mobile Menu Button */}
         <div className="md:hidden">
-          <Button 
-            variant="ghost" 
-            size="sm" 
-            onClick={toggleMenu}
-            aria-label={isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
-          >
+          <Button variant="ghost" size="sm" onClick={toggleMenu} aria-label={isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}>
             {isMenuOpen ? <X /> : <Menu />}
           </Button>
         </div>
       </div>
-    </header>
-  );
+    </header>;
 };
-
 export default Header;
