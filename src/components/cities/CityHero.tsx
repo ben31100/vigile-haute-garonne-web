@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
-import { getCityImageUrl } from '@/utils/imageUtils';
+import { getCityImageUrl, getSupabaseImageUrl } from '@/utils/imageUtils';
 import { supabase } from '@/integrations/supabase/client';
 
 interface CityHeroProps {
@@ -39,18 +39,13 @@ const CityHero: React.FC<CityHeroProps> = ({
 
       try {
         // Récupérer l'image depuis le bucket Supabase
-        const { data, error } = await supabase.storage
+        const cleanPath = imagePath.startsWith('/') ? imagePath.substring(1) : imagePath;
+        const { data } = await supabase.storage
           .from('images')
-          .getPublicUrl(imagePath.startsWith('/') ? imagePath.substring(1) : imagePath);
+          .getPublicUrl(cleanPath);
 
-        if (error) {
-          console.error("Erreur lors de la récupération de l'image:", error);
-          // Utiliser une image par défaut en cas d'erreur
-          setBgImage('/images/cities/default-hero.jpg');
-        } else {
-          console.log("Image récupérée depuis Supabase:", data.publicUrl);
-          setBgImage(data.publicUrl);
-        }
+        console.log("Image récupérée depuis Supabase:", data.publicUrl);
+        setBgImage(data.publicUrl);
       } catch (error) {
         console.error("Erreur inattendue:", error);
         // Utiliser le chemin local en cas d'erreur

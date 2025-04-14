@@ -56,14 +56,9 @@ export const getSupabaseImageUrl = async (imagePath: string): Promise<string> =>
     // Si le chemin commence par '/', le supprimer
     const cleanPath = imagePath.startsWith('/') ? imagePath.substring(1) : imagePath;
     
-    const { data, error } = await supabase.storage
+    const { data } = await supabase.storage
       .from('images')
       .getPublicUrl(cleanPath);
-    
-    if (error) {
-      console.error("Erreur lors de la récupération de l'image depuis Supabase:", error);
-      return imagePath; // Retourner le chemin local en cas d'erreur
-    }
     
     return data.publicUrl;
   } catch (error) {
