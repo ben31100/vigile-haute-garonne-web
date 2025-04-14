@@ -24,9 +24,9 @@ const NotFound = () => {
       <main className="flex-grow pt-24 flex items-center justify-center">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-6xl font-bold text-levigile-blue mb-4">404</h1>
-          <p className="text-xl text-gray-600 mb-8">Oops! Page non trouvée</p>
+          <p className="text-xl text-gray-600 mb-8">Page en <strong>cours de création</strong></p>
           <p className="mb-8 max-w-md mx-auto text-gray-500">
-            La page que vous recherchez n'existe pas ou a été déplacée.
+            La page que vous recherchez est actuellement en développement.
           </p>
           <Button asChild>
             <Link to="/">
