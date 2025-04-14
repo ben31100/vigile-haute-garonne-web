@@ -6,6 +6,7 @@ import Footer from '@/components/Footer';
 import CityHero from '@/components/cities/CityHero';
 import CtaSection from '@/components/cities/CtaSection';
 import SpecificitesSection from '@/components/cities/SpecificitesSection';
+import { Building, MapPin, Calendar, Users, Shield, Clock, Activity } from 'lucide-react';
 
 const SaintOrensPage = () => {
   const cityName = "Saint-Orens-de-Gameville";
@@ -14,30 +15,56 @@ const SaintOrensPage = () => {
   
   // Spécificités de la ville
   const specificites = [
-    "Gardiennage commercial renforcé",
-    "Surveillance événementielle",
-    "Protection de zones résidentielles",
-    "Sécurité pour entreprises et bureaux",
-    "Agents dédiés à Saint-Orens"
+    {
+      icon: Building,
+      title: "Gardiennage commercial renforcé",
+      description: `Service spécialisé pour ${cityName}: gardiennage commercial renforcé`
+    },
+    {
+      icon: Calendar,
+      title: "Surveillance événementielle",
+      description: `Service spécialisé pour ${cityName}: surveillance événementielle`
+    },
+    {
+      icon: MapPin,
+      title: "Protection de zones résidentielles",
+      description: `Service spécialisé pour ${cityName}: protection de zones résidentielles`
+    },
+    {
+      icon: Users,
+      title: "Sécurité pour entreprises et bureaux",
+      description: `Service spécialisé pour ${cityName}: sécurité pour entreprises et bureaux`
+    },
+    {
+      icon: Shield,
+      title: "Agents dédiés à Saint-Orens",
+      description: `Service spécialisé pour ${cityName}: agents dédiés à Saint-Orens`
+    }
   ];
   
   // Faits intéressants sur la sécurité dans la ville
   const faits = [
-    "Notre équipe intervient dans tous les quartiers: Centre, Catala, Cayras, Labouilhe",
-    "Service disponible 24h/24 et 7j/7",
-    "Partenariats avec les commerces locaux",
-    "Agents formés aux spécificités du secteur sud-est toulousain"
+    {
+      icon: MapPin,
+      title: "Notre équipe intervient dans tous les quartiers: Centre, Catala, Cayras, Labouilhe",
+      description: ""
+    },
+    {
+      icon: Clock,
+      title: "Service disponible 24h/24 et 7j/7",
+      description: ""
+    },
+    {
+      icon: Building,
+      title: "Partenariats avec les commerces locaux",
+      description: ""
+    },
+    {
+      icon: Activity,
+      title: "Agents formés aux spécificités du secteur sud-est toulousain",
+      description: ""
+    }
   ];
-  
-  const specificitesItems = specificites.map(item => ({
-    title: item,
-    description: `Service spécialisé pour ${cityName}: ${item.toLowerCase()}`
-  }));
-  
-  const faitsItems = faits.map(item => ({
-    title: item,
-    description: ""
-  }));
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -111,7 +138,7 @@ const SaintOrensPage = () => {
         </section>
         
         <SpecificitesSection 
-          items={[...specificitesItems, ...faitsItems]}
+          items={[...specificites, ...faits]}
           title={`Pourquoi choisir LeVigile à ${cityName} ?`}
           subtitle="Notre expertise locale garantit une sécurité optimale pour vos biens et personnes"
         />

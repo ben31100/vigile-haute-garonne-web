@@ -6,6 +6,7 @@ import Footer from '@/components/Footer';
 import CityHero from '@/components/cities/CityHero';
 import CtaSection from '@/components/cities/CtaSection';
 import SpecificitesSection from '@/components/cities/SpecificitesSection';
+import { Building, MapPin, Users, Shield, Clock, Activity, Star } from 'lucide-react';
 
 const LUnionPage = () => {
   const cityName = "L'Union";
@@ -14,30 +15,56 @@ const LUnionPage = () => {
   
   // Spécificités de la ville
   const specificites = [
-    "Gardiennage d'entreprises 24/7",
-    "Rondes de surveillance adaptées",
-    "Protection de zones résidentielles",
-    "Sécurité pour commerces et bureaux",
-    "Agents certifiés connaissant L'Union"
+    {
+      icon: Building,
+      title: "Gardiennage d'entreprises 24/7",
+      description: `Service spécialisé pour ${cityName}: gardiennage d'entreprises 24/7`
+    },
+    {
+      icon: Shield,
+      title: "Rondes de surveillance adaptées",
+      description: `Service spécialisé pour ${cityName}: rondes de surveillance adaptées`
+    },
+    {
+      icon: MapPin,
+      title: "Protection de zones résidentielles",
+      description: `Service spécialisé pour ${cityName}: protection de zones résidentielles`
+    },
+    {
+      icon: Users,
+      title: "Sécurité pour commerces et bureaux",
+      description: `Service spécialisé pour ${cityName}: sécurité pour commerces et bureaux`
+    },
+    {
+      icon: Star,
+      title: "Agents certifiés connaissant L'Union",
+      description: `Service spécialisé pour ${cityName}: agents certifiés connaissant L'Union`
+    }
   ];
   
   // Faits intéressants sur la sécurité dans la ville
   const faits = [
-    "Notre agence couvre tous les quartiers: Centre, Somabé, Belbèze, Cornaudric",
-    "Interventions dans un rayon de 20 km autour de L'Union",
-    "Partenariats avec les entreprises locales",
-    "Agents formés aux spécificités du secteur nord-est toulousain"
+    {
+      icon: MapPin,
+      title: "Notre agence couvre tous les quartiers: Centre, Somabé, Belbèze, Cornaudric",
+      description: ""
+    },
+    {
+      icon: Activity,
+      title: "Interventions dans un rayon de 20 km autour de L'Union",
+      description: ""
+    },
+    {
+      icon: Building,
+      title: "Partenariats avec les entreprises locales",
+      description: ""
+    },
+    {
+      icon: Clock,
+      title: "Agents formés aux spécificités du secteur nord-est toulousain",
+      description: ""
+    }
   ];
-  
-  const specificitesItems = specificites.map(item => ({
-    title: item,
-    description: `Service spécialisé pour ${cityName}: ${item.toLowerCase()}`
-  }));
-  
-  const faitsItems = faits.map(item => ({
-    title: item,
-    description: ""
-  }));
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -111,7 +138,7 @@ const LUnionPage = () => {
         </section>
         
         <SpecificitesSection 
-          items={[...specificitesItems, ...faitsItems]}
+          items={[...specificites, ...faits]}
           title={`Pourquoi choisir LeVigile à ${cityName} ?`}
           subtitle="Nous garantissons une sécurité optimale grâce à notre expertise locale"
         />

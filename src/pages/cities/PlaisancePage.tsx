@@ -6,6 +6,7 @@ import Footer from '@/components/Footer';
 import CityHero from '@/components/cities/CityHero';
 import CtaSection from '@/components/cities/CtaSection';
 import SpecificitesSection from '@/components/cities/SpecificitesSection';
+import { Building, MapPin, Users, Calendar, Shield, Clock, Activity } from 'lucide-react';
 
 const PlaisancePage = () => {
   const cityName = "Plaisance-du-Touch";
@@ -14,30 +15,56 @@ const PlaisancePage = () => {
   
   // Spécificités de la ville
   const specificites = [
-    "Gardiennage résidentiel personnalisé",
-    "Surveillance de zones commerciales",
-    "Protection d'entreprises",
-    "Sécurité événementielle sur-mesure",
-    "Agents formés pour Plaisance-du-Touch"
+    {
+      icon: MapPin,
+      title: "Gardiennage résidentiel personnalisé",
+      description: `Service spécialisé pour ${cityName}: gardiennage résidentiel personnalisé`
+    },
+    {
+      icon: Building,
+      title: "Surveillance de zones commerciales",
+      description: `Service spécialisé pour ${cityName}: surveillance de zones commerciales`
+    },
+    {
+      icon: Users,
+      title: "Protection d'entreprises",
+      description: `Service spécialisé pour ${cityName}: protection d'entreprises`
+    },
+    {
+      icon: Calendar,
+      title: "Sécurité événementielle sur-mesure",
+      description: `Service spécialisé pour ${cityName}: sécurité événementielle sur-mesure`
+    },
+    {
+      icon: Shield,
+      title: "Agents formés pour Plaisance-du-Touch",
+      description: `Service spécialisé pour ${cityName}: agents formés pour Plaisance-du-Touch`
+    }
   ];
   
   // Faits intéressants sur la sécurité dans la ville
   const faits = [
-    "Notre équipe couvre tous les quartiers: Centre, Monestié, Saint-Nicolas, La Salvetat",
-    "Interventions dans un rayon de 20 km autour de Plaisance-du-Touch",
-    "Services disponibles 24h/24 et 7j/7",
-    "Agents formés aux spécificités du secteur sud-ouest toulousain"
+    {
+      icon: MapPin,
+      title: "Notre équipe couvre tous les quartiers: Centre, Monestié, Saint-Nicolas, La Salvetat",
+      description: ""
+    },
+    {
+      icon: Activity,
+      title: "Interventions dans un rayon de 20 km autour de Plaisance-du-Touch",
+      description: ""
+    },
+    {
+      icon: Clock,
+      title: "Services disponibles 24h/24 et 7j/7",
+      description: ""
+    },
+    {
+      icon: Users,
+      title: "Agents formés aux spécificités du secteur sud-ouest toulousain",
+      description: ""
+    }
   ];
-  
-  const specificitesItems = specificites.map(item => ({
-    title: item,
-    description: `Service spécialisé pour ${cityName}: ${item.toLowerCase()}`
-  }));
-  
-  const faitsItems = faits.map(item => ({
-    title: item,
-    description: ""
-  }));
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -111,7 +138,7 @@ const PlaisancePage = () => {
         </section>
         
         <SpecificitesSection 
-          items={[...specificitesItems, ...faitsItems]}
+          items={[...specificites, ...faits]}
           title={`Pourquoi choisir LeVigile à ${cityName} ?`}
           subtitle="Notre équipe locale garantit une sécurité optimale pour tous vos besoins"
         />
