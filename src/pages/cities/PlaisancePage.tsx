@@ -7,26 +7,26 @@ import CityHero from '@/components/cities/CityHero';
 import CtaSection from '@/components/cities/CtaSection';
 import SpecificitesSection from '@/components/cities/SpecificitesSection';
 
-const LUnionPage = () => {
-  const cityName = "L'Union";
-  const cityDescription = "L'Union, commune au nord-est de Toulouse, bénéficie de nos services de sécurité adaptés aux besoins locaux.";
-  const postalCode = "31240";
+const PlaisancePage = () => {
+  const cityName = "Plaisance-du-Touch";
+  const cityDescription = "Plaisance-du-Touch, commune au sud-ouest de Toulouse, bénéficie de notre expertise en sécurité privée pour les entreprises et les particuliers.";
+  const postalCode = "31830";
   
   // Spécificités de la ville
   const specificites = [
-    "Gardiennage d'entreprises 24/7",
-    "Rondes de surveillance adaptées",
-    "Protection de zones résidentielles",
-    "Sécurité pour commerces et bureaux",
-    "Agents certifiés connaissant L'Union"
+    "Gardiennage résidentiel personnalisé",
+    "Surveillance de zones commerciales",
+    "Protection d'entreprises",
+    "Sécurité événementielle sur-mesure",
+    "Agents formés pour Plaisance-du-Touch"
   ];
   
   // Faits intéressants sur la sécurité dans la ville
   const faits = [
-    "Notre agence couvre tous les quartiers: Centre, Somabé, Belbèze, Cornaudric",
-    "Interventions dans un rayon de 20 km autour de L'Union",
-    "Partenariats avec les entreprises locales",
-    "Agents formés aux spécificités du secteur nord-est toulousain"
+    "Notre équipe couvre tous les quartiers: Centre, Monestié, Saint-Nicolas, La Salvetat",
+    "Interventions dans un rayon de 20 km autour de Plaisance-du-Touch",
+    "Services disponibles 24h/24 et 7j/7",
+    "Agents formés aux spécificités du secteur sud-ouest toulousain"
   ];
   
   const specificitesItems = specificites.map(item => ({
@@ -42,8 +42,8 @@ const LUnionPage = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Helmet>
-        <title>Sécurité à {cityName} - Protection professionnelle | LeVigile</title>
-        <meta name="description" content={`LeVigile, votre partenaire sécurité à ${cityName}. Agents qualifiés pour la surveillance, le gardiennage et la protection de vos biens 24h/24.`} />
+        <title>Sécurité à {cityName} - Agents qualifiés | LeVigile</title>
+        <meta name="description" content={`LeVigile assure votre sécurité à ${cityName}. Gardiennage, surveillance et protection par des agents professionnels disponibles 24h/24.`} />
       </Helmet>
       
       <Header />
@@ -72,10 +72,10 @@ const LUnionPage = () => {
                   Notre expertise à {cityName}
                 </h2>
                 <p className="text-gray-700 mb-4">
-                  LeVigile propose des services de sécurité adaptés aux besoins spécifiques de {cityName}. Notre équipe d'agents qualifiés intervient dans toute la commune pour assurer la protection des biens et des personnes.
+                  LeVigile met à votre disposition des services de sécurité adaptés aux besoins spécifiques de {cityName}. Notre équipe d'agents qualifiés intervient dans toute la commune pour garantir la protection des biens et des personnes.
                 </p>
                 <p className="text-gray-700">
-                  Nous connaissons parfaitement le terrain et les enjeux sécuritaires de {cityName}, ce qui nous permet d'offrir des prestations sur-mesure et efficaces.
+                  Notre connaissance approfondie du terrain et des enjeux sécuritaires de {cityName} nous permet d'offrir des prestations personnalisées et efficaces.
                 </p>
               </div>
               
@@ -86,23 +86,23 @@ const LUnionPage = () => {
                 <ul className="space-y-2 text-gray-700">
                   <li className="flex items-start">
                     <span className="text-levigile-red mr-2">✓</span>
-                    <span>Gardiennage de sites industriels et commerciaux</span>
+                    <span>Gardiennage résidentiel</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-levigile-red mr-2">✓</span>
-                    <span>Surveillance d'immeubles résidentiels</span>
+                    <span>Surveillance de zones commerciales</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-levigile-red mr-2">✓</span>
+                    <span>Protection d'entreprises</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-levigile-red mr-2">✓</span>
+                    <span>Sécurité événementielle</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-levigile-red mr-2">✓</span>
                     <span>Rondes de sécurité</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-levigile-red mr-2">✓</span>
-                    <span>Protection événementielle</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-levigile-red mr-2">✓</span>
-                    <span>Intervention sur alarme</span>
                   </li>
                 </ul>
               </div>
@@ -113,12 +113,12 @@ const LUnionPage = () => {
         <SpecificitesSection 
           items={[...specificitesItems, ...faitsItems]}
           title={`Pourquoi choisir LeVigile à ${cityName} ?`}
-          subtitle="Nous garantissons une sécurité optimale grâce à notre expertise locale"
+          subtitle="Notre équipe locale garantit une sécurité optimale pour tous vos besoins"
         />
         
         <CtaSection 
           title={`Besoin d'un devis pour votre sécurité à ${cityName} ?`}
-          subtitle="Nos conseillers sont disponibles pour étudier vos besoins et vous proposer une solution adaptée."
+          subtitle="Nos experts sont à votre écoute pour vous proposer une solution de sécurité adaptée à vos besoins."
         />
       </main>
       
@@ -127,4 +127,4 @@ const LUnionPage = () => {
   );
 };
 
-export default LUnionPage;
+export default PlaisancePage;

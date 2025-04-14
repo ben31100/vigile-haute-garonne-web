@@ -7,26 +7,26 @@ import CityHero from '@/components/cities/CityHero';
 import CtaSection from '@/components/cities/CtaSection';
 import SpecificitesSection from '@/components/cities/SpecificitesSection';
 
-const LUnionPage = () => {
-  const cityName = "L'Union";
-  const cityDescription = "L'Union, commune au nord-est de Toulouse, bénéficie de nos services de sécurité adaptés aux besoins locaux.";
-  const postalCode = "31240";
+const SaintOrensPage = () => {
+  const cityName = "Saint-Orens-de-Gameville";
+  const cityDescription = "Saint-Orens-de-Gameville, ville attractive au sud-est de Toulouse, est desservie par nos agents de sécurité pour tous types de prestations.";
+  const postalCode = "31650";
   
   // Spécificités de la ville
   const specificites = [
-    "Gardiennage d'entreprises 24/7",
-    "Rondes de surveillance adaptées",
+    "Gardiennage commercial renforcé",
+    "Surveillance événementielle",
     "Protection de zones résidentielles",
-    "Sécurité pour commerces et bureaux",
-    "Agents certifiés connaissant L'Union"
+    "Sécurité pour entreprises et bureaux",
+    "Agents dédiés à Saint-Orens"
   ];
   
   // Faits intéressants sur la sécurité dans la ville
   const faits = [
-    "Notre agence couvre tous les quartiers: Centre, Somabé, Belbèze, Cornaudric",
-    "Interventions dans un rayon de 20 km autour de L'Union",
-    "Partenariats avec les entreprises locales",
-    "Agents formés aux spécificités du secteur nord-est toulousain"
+    "Notre équipe intervient dans tous les quartiers: Centre, Catala, Cayras, Labouilhe",
+    "Service disponible 24h/24 et 7j/7",
+    "Partenariats avec les commerces locaux",
+    "Agents formés aux spécificités du secteur sud-est toulousain"
   ];
   
   const specificitesItems = specificites.map(item => ({
@@ -42,8 +42,8 @@ const LUnionPage = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Helmet>
-        <title>Sécurité à {cityName} - Protection professionnelle | LeVigile</title>
-        <meta name="description" content={`LeVigile, votre partenaire sécurité à ${cityName}. Agents qualifiés pour la surveillance, le gardiennage et la protection de vos biens 24h/24.`} />
+        <title>Sécurité à {cityName} - Services adaptés | LeVigile</title>
+        <meta name="description" content={`Services de sécurité privée à ${cityName}. Gardiennage, rondes et protection par des agents certifiés pour particuliers et professionnels.`} />
       </Helmet>
       
       <Header />
@@ -72,10 +72,10 @@ const LUnionPage = () => {
                   Notre expertise à {cityName}
                 </h2>
                 <p className="text-gray-700 mb-4">
-                  LeVigile propose des services de sécurité adaptés aux besoins spécifiques de {cityName}. Notre équipe d'agents qualifiés intervient dans toute la commune pour assurer la protection des biens et des personnes.
+                  LeVigile propose des services de sécurité privée adaptés aux besoins spécifiques de {cityName}. Notre équipe d'agents qualifiés intervient dans l'ensemble de la commune pour assurer la protection des biens et des personnes.
                 </p>
                 <p className="text-gray-700">
-                  Nous connaissons parfaitement le terrain et les enjeux sécuritaires de {cityName}, ce qui nous permet d'offrir des prestations sur-mesure et efficaces.
+                  Notre connaissance approfondie du terrain et des enjeux sécuritaires à {cityName} nous permet d'offrir des prestations sur-mesure et efficaces.
                 </p>
               </div>
               
@@ -86,15 +86,15 @@ const LUnionPage = () => {
                 <ul className="space-y-2 text-gray-700">
                   <li className="flex items-start">
                     <span className="text-levigile-red mr-2">✓</span>
-                    <span>Gardiennage de sites industriels et commerciaux</span>
+                    <span>Gardiennage de zones commerciales</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-levigile-red mr-2">✓</span>
-                    <span>Surveillance d'immeubles résidentiels</span>
+                    <span>Surveillance de résidences et copropriétés</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-levigile-red mr-2">✓</span>
-                    <span>Rondes de sécurité</span>
+                    <span>Sécurité des entreprises et bureaux</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-levigile-red mr-2">✓</span>
@@ -102,7 +102,7 @@ const LUnionPage = () => {
                   </li>
                   <li className="flex items-start">
                     <span className="text-levigile-red mr-2">✓</span>
-                    <span>Intervention sur alarme</span>
+                    <span>Rondes de sécurité</span>
                   </li>
                 </ul>
               </div>
@@ -113,12 +113,12 @@ const LUnionPage = () => {
         <SpecificitesSection 
           items={[...specificitesItems, ...faitsItems]}
           title={`Pourquoi choisir LeVigile à ${cityName} ?`}
-          subtitle="Nous garantissons une sécurité optimale grâce à notre expertise locale"
+          subtitle="Notre expertise locale garantit une sécurité optimale pour vos biens et personnes"
         />
         
         <CtaSection 
           title={`Besoin d'un devis pour votre sécurité à ${cityName} ?`}
-          subtitle="Nos conseillers sont disponibles pour étudier vos besoins et vous proposer une solution adaptée."
+          subtitle="Nos conseillers sont à votre disposition pour étudier vos besoins et vous proposer une solution adaptée."
         />
       </main>
       
@@ -127,4 +127,4 @@ const LUnionPage = () => {
   );
 };
 
-export default LUnionPage;
+export default SaintOrensPage;

@@ -19,6 +19,8 @@ import SaintGaudensPage from "./pages/cities/SaintGaudensPage";
 import BalmaPage from "./pages/cities/BalmaPage";
 import CugnauxPage from "./pages/cities/CugnauxPage";
 import LUnionPage from "./pages/cities/LUnionPage";
+import SaintOrensPage from "./pages/cities/SaintOrensPage";
+import PlaisancePage from "./pages/cities/PlaisancePage";
 
 const queryClient = new QueryClient();
 
@@ -49,6 +51,8 @@ const App = () => (
             <Route path="/balma.html" element={<BalmaPage />} />
             <Route path="/cugnaux.html" element={<CugnauxPage />} />
             <Route path="/lunion.html" element={<LUnionPage />} />
+            <Route path="/saint-orens.html" element={<SaintOrensPage />} />
+            <Route path="/plaisance.html" element={<PlaisancePage />} />
             
             {/* Redirection des anciennes routes pour compatibilité */}
             <Route path="/securite-ville-toulouse" element={<Navigate to="/toulouse.html" />} />
@@ -61,6 +65,8 @@ const App = () => (
             <Route path="/securite-ville-balma" element={<Navigate to="/balma.html" />} />
             <Route path="/securite-ville-cugnaux" element={<Navigate to="/cugnaux.html" />} />
             <Route path="/securite-ville-lunion" element={<Navigate to="/lunion.html" />} />
+            <Route path="/securite-ville-saint-orens" element={<Navigate to="/saint-orens.html" />} />
+            <Route path="/securite-ville-plaisance" element={<Navigate to="/plaisance.html" />} />
             
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
