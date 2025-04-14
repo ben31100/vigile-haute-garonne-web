@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { MapPin, Search } from 'lucide-react';
+import { MapPin, Search, Shield } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Helmet } from 'react-helmet-async';
@@ -54,11 +54,7 @@ const CitiesList: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredCities.length > 0 ? (
                 filteredCities.map((city) => (
-                  <Link
-                    key={city.id}
-                    to={`/securite-ville-${city.id}`}
-                    className="block bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow border-t-4 border-levigile-blue hover:border-levigile-red"
-                  >
+                  <div key={city.id} className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow border-t-4 border-levigile-blue">
                     <div className="flex items-start">
                       <MapPin className="h-6 w-6 text-levigile-red shrink-0 mt-1" />
                       <div className="ml-3">
@@ -68,16 +64,29 @@ const CitiesList: React.FC = () => {
                         <p className="text-gray-600 text-sm mb-2">
                           {city.postalCode} - Haute-Garonne
                         </p>
-                        <p className="text-gray-700">
+                        <p className="text-gray-700 mb-4">
                           {city.description.substring(0, 100)}
                           {city.description.length > 100 ? '...' : ''}
                         </p>
-                        <p className="mt-3 text-levigile-blue font-medium text-sm hover:underline">
-                          Découvrir nos services à {city.name} →
-                        </p>
+                        <div className="flex flex-wrap gap-2 mt-4">
+                          <Link 
+                            to={`/securite-ville-${city.id}`}
+                            className="text-levigile-blue hover:text-levigile-red text-sm font-medium hover:underline flex items-center"
+                          >
+                            <MapPin className="h-4 w-4 mr-1" />
+                            Surveillance à {city.name}
+                          </Link>
+                          <Link 
+                            to={`/services-ville-${city.id}`}
+                            className="text-levigile-red hover:text-levigile-blue text-sm font-medium hover:underline flex items-center"
+                          >
+                            <Shield className="h-4 w-4 mr-1" />
+                            Services détaillés
+                          </Link>
+                        </div>
                       </div>
                     </div>
-                  </Link>
+                  </div>
                 ))
               ) : (
                 <div className="col-span-full text-center p-8">
