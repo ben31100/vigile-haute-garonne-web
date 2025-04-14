@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Shield, PhoneCall, Clock, MapPin, Calendar } from 'lucide-react';
+import { Shield, PhoneCall, Clock, MapPin, Calendar, Star, AlertCircle, BadgeCheck } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 
@@ -19,14 +19,20 @@ const Sidebar: React.FC<SidebarProps> = ({ cityName }) => {
           <p className="text-sm text-gray-600 mb-6">
             Recevez un devis personnalisé sous 24h
           </p>
-          <Button className="w-full bg-levigile-red hover:bg-red-600 text-white py-6 flex items-center justify-center gap-2 text-lg">
+          <Button className="w-full bg-levigile-red hover:bg-red-600 text-white py-6 flex items-center justify-center gap-2 text-lg transform transition hover:scale-105">
             <PhoneCall className="h-5 w-5" />
             Demander un devis gratuit
           </Button>
+          
+          <div className="mt-4 text-xs text-gray-500 flex items-center justify-center">
+            <BadgeCheck className="h-4 w-4 mr-1 text-green-600" /> 
+            <span>Réponse garantie sous 2h ouvrées</span>
+          </div>
         </div>
         
+        {/* Service cards with enhanced styling */}
         <div className="space-y-4 mb-6">
-          <div className="p-4 bg-levigile-lightgray rounded-lg">
+          <div className="p-4 bg-gradient-to-r from-levigile-lightgray to-white rounded-lg hover:shadow-md transition-shadow">
             <h4 className="font-semibold flex items-center text-levigile-blue mb-2">
               <Shield className="h-5 w-5 mr-2 text-levigile-red" />
               Gardiennage à {cityName}
@@ -34,7 +40,7 @@ const Sidebar: React.FC<SidebarProps> = ({ cityName }) => {
             <p className="text-sm text-gray-600">Protection statique de vos locaux et contrôle d'accès 24h/24.</p>
           </div>
           
-          <div className="p-4 bg-levigile-lightgray rounded-lg">
+          <div className="p-4 bg-gradient-to-r from-levigile-lightgray to-white rounded-lg hover:shadow-md transition-shadow">
             <h4 className="font-semibold flex items-center text-levigile-blue mb-2">
               <Clock className="h-5 w-5 mr-2 text-levigile-red" />
               Rondes de sécurité à {cityName}
@@ -42,12 +48,33 @@ const Sidebar: React.FC<SidebarProps> = ({ cityName }) => {
             <p className="text-sm text-gray-600">Surveillance mobile et vérification périodique de vos sites.</p>
           </div>
           
-          <div className="p-4 bg-levigile-lightgray rounded-lg">
+          <div className="p-4 bg-gradient-to-r from-levigile-lightgray to-white rounded-lg hover:shadow-md transition-shadow">
             <h4 className="font-semibold flex items-center text-levigile-blue mb-2">
               <Calendar className="h-5 w-5 mr-2 text-levigile-red" />
               Sécurité événementielle à {cityName}
             </h4>
             <p className="text-sm text-gray-600">Protection pour vos événements professionnels ou privés.</p>
+          </div>
+        </div>
+        
+        {/* Reviews / Testimonial section (new) */}
+        <div className="mb-6 pb-6 border-b border-gray-200">
+          <h4 className="text-center font-semibold text-sm uppercase tracking-wider text-levigile-blue mb-4">
+            Ce que nos clients disent
+          </h4>
+          <div className="bg-gray-50 p-4 rounded-lg italic text-gray-600 text-sm">
+            <div className="flex items-center mb-2">
+              <div className="flex text-yellow-400">
+                <Star className="h-4 w-4 fill-current" />
+                <Star className="h-4 w-4 fill-current" />
+                <Star className="h-4 w-4 fill-current" />
+                <Star className="h-4 w-4 fill-current" />
+                <Star className="h-4 w-4 fill-current" />
+              </div>
+              <span className="ml-2 text-xs font-medium text-gray-500">5.0</span>
+            </div>
+            <p className="mb-2">"Service de sécurité exceptionnel à {cityName}. Agents professionnels et réactifs."</p>
+            <div className="text-right text-xs font-medium">— Entreprise locale</div>
           </div>
         </div>
         
@@ -76,6 +103,23 @@ const Sidebar: React.FC<SidebarProps> = ({ cityName }) => {
             </ul>
           </CardContent>
         </Card>
+        
+        {/* Emergency contact section (new) */}
+        <div className="bg-red-50 border border-red-100 rounded-lg p-4">
+          <div className="flex items-start">
+            <AlertCircle className="h-5 w-5 text-levigile-red mr-2 mt-0.5" />
+            <div>
+              <h4 className="font-medium text-levigile-blue mb-1">Urgence à {cityName} ?</h4>
+              <p className="text-sm text-gray-600 mb-2">
+                Contactez notre service d'urgence disponible 24h/24
+              </p>
+              <a href="tel:+33780817979" className="inline-flex items-center text-levigile-red hover:text-red-700 font-medium">
+                <PhoneCall className="h-4 w-4 mr-1" />
+                07 80 81 79 79
+              </a>
+            </div>
+          </div>
+        </div>
         
         <div className="mt-6 pt-6 border-t border-gray-200">
           <div className="flex items-center justify-center text-sm font-medium text-levigile-blue mb-4">

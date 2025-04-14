@@ -1,48 +1,90 @@
 
 import React from 'react';
-import { MapPin, Phone, Mail, PhoneCall } from 'lucide-react';
+import { MapPin, Phone, Mail, PhoneCall, Shield, Clock } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import citiesData from '../data/cities.json';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
   // Featured cities to display in the footer
-  const featuredCities = ["toulouse", "blagnac", "colomiers", "tournefeuille", "muret"];
+  const featuredCities = ["toulouse", "blagnac", "colomiers", "tournefeuille", "muret", "saint-gaudens", "ramonville"];
 
   return (
     <footer id="contact" className="bg-levigile-blue text-white pt-12 pb-6">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* Contact Info */}
           <div>
-            <h3 className="text-xl font-bold mb-4">Contact</h3>
+            <h3 className="text-xl font-bold mb-4 flex items-center">
+              <MapPin className="mr-2 h-5 w-5 text-levigile-red" />
+              Contact
+            </h3>
             <ul className="space-y-3">
               <li className="flex items-start">
                 <MapPin className="mr-2 h-5 w-5 shrink-0 text-levigile-red" />
-                <span>15 Rue de la Sécurité<br />31000 Toulouse</span>
+                <span>8 Pl. Roger Salengro<br />31000 Toulouse</span>
               </li>
               <li className="flex items-center">
                 <Phone className="mr-2 h-5 w-5 shrink-0 text-levigile-red" />
-                <a href="tel:+33554546428" className="hover:underline">05 54 54 64 28</a>
+                <a href="tel:+33554546428" className="hover:underline transition-colors hover:text-levigile-red">05 54 54 64 28</a>
               </li>
               <li className="flex items-center">
                 <Mail className="mr-2 h-5 w-5 shrink-0 text-levigile-red" />
-                <a href="mailto:contact@levigile.fr" className="hover:underline">contact@levigile.fr</a>
+                <a href="mailto:contact@levigile.fr" className="hover:underline transition-colors hover:text-levigile-red">contact@levigile.fr</a>
               </li>
               <li className="flex items-center">
                 <PhoneCall className="mr-2 h-5 w-5 shrink-0 text-levigile-red" />
-                <a href="tel:+33780817979" className="hover:underline">Urgence: 07 80 81 79 79</a>
+                <a href="tel:+33780817979" className="hover:underline transition-colors hover:text-levigile-red">Urgence: 07 80 81 79 79</a>
               </li>
-              <li className="flex items-center">
-                <Mail className="mr-2 h-5 w-5 shrink-0 text-levigile-red" />
-                <a href="mailto:levigile31@gmail.com" className="hover:underline">Recrutement: levigile31@gmail.com</a>
+            </ul>
+          </div>
+
+          {/* Nos services */}
+          <div>
+            <h3 className="text-xl font-bold mb-4 flex items-center">
+              <Shield className="mr-2 h-5 w-5 text-levigile-red" />
+              Nos services
+            </h3>
+            <ul className="space-y-2">
+              <li>
+                <Link to="/#services" className="hover:text-levigile-red transition-colors flex items-center">
+                  <div className="w-1.5 h-1.5 bg-levigile-red rounded-full mr-2"></div>
+                  Gardiennage d'entreprise
+                </Link>
+              </li>
+              <li>
+                <Link to="/#services" className="hover:text-levigile-red transition-colors flex items-center">
+                  <div className="w-1.5 h-1.5 bg-levigile-red rounded-full mr-2"></div>
+                  Sécurité événementielle
+                </Link>
+              </li>
+              <li>
+                <Link to="/#services" className="hover:text-levigile-red transition-colors flex items-center">
+                  <div className="w-1.5 h-1.5 bg-levigile-red rounded-full mr-2"></div>
+                  Rondes de sécurité
+                </Link>
+              </li>
+              <li>
+                <Link to="/#services" className="hover:text-levigile-red transition-colors flex items-center">
+                  <div className="w-1.5 h-1.5 bg-levigile-red rounded-full mr-2"></div>
+                  Protection de chantier
+                </Link>
+              </li>
+              <li>
+                <Link to="/#services" className="hover:text-levigile-red transition-colors flex items-center">
+                  <div className="w-1.5 h-1.5 bg-levigile-red rounded-full mr-2"></div>
+                  Surveillance d'entrepôts
+                </Link>
               </li>
             </ul>
           </div>
 
           {/* Zone d'intervention */}
           <div>
-            <h3 className="text-xl font-bold mb-4">Zone d'intervention</h3>
+            <h3 className="text-xl font-bold mb-4 flex items-center">
+              <MapPin className="mr-2 h-5 w-5 text-levigile-red" />
+              Zone d'intervention
+            </h3>
             <p className="mb-3">
               Nos agents interviennent sur l'ensemble du département de la Haute-Garonne (31):
             </p>
@@ -72,18 +114,21 @@ const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Liens légaux */}
+          {/* Liens légaux et info */}
           <div>
-            <h3 className="text-xl font-bold mb-4">Informations légales</h3>
+            <h3 className="text-xl font-bold mb-4 flex items-center">
+              <Clock className="mr-2 h-5 w-5 text-levigile-red" />
+              Informations
+            </h3>
             <ul className="space-y-2">
               <li>
-                <Link to="#" className="hover:underline">Mentions légales</Link>
+                <Link to="#" className="hover:text-levigile-red transition-colors">Mentions légales</Link>
               </li>
               <li>
-                <Link to="#" className="hover:underline">Conditions générales de vente</Link>
+                <Link to="#" className="hover:text-levigile-red transition-colors">Conditions générales de vente</Link>
               </li>
               <li>
-                <Link to="#" className="hover:underline">Politique de confidentialité</Link>
+                <Link to="#" className="hover:text-levigile-red transition-colors">Politique de confidentialité</Link>
               </li>
               <li>
                 <div className="mt-4 space-y-2">
