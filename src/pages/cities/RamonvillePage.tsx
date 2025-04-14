@@ -4,10 +4,40 @@ import { Helmet } from 'react-helmet-async';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import CityHero from '../../components/cities/CityHero';
-import SpecificitesSection from '../../components/cities/SpecificitesSection';
+import SpecificitesSection, { SpecificiteItem } from '../../components/cities/SpecificitesSection';
 import CtaSection from '../../components/cities/CtaSection';
+import { Shield, MapPin, Calendar, Building, Users } from 'lucide-react';
 
 const RamonvillePage: React.FC = () => {
+  // Define the specificités items with proper structure
+  const specificitesItems: SpecificiteItem[] = [
+    {
+      icon: Shield,
+      title: "Sécurisation du Port de plaisance",
+      description: "Protection des installations nautiques et surveillance des accès au Port Sud, zone touristique de Ramonville."
+    },
+    {
+      icon: Building,
+      title: "Protection des établissements scolaires",
+      description: "Sécurité adaptée pour les écoles, collèges et établissements universitaires de la commune."
+    },
+    {
+      icon: MapPin,
+      title: "Surveillance des zones commerciales",
+      description: "Dispositifs de sécurité pour les centres commerciaux et grandes surfaces de Ramonville."
+    },
+    {
+      icon: Calendar,
+      title: "Sécurité événementielle",
+      description: "Protection des événements culturels et musicaux, notamment au Bikini et autres lieux de spectacle."
+    },
+    {
+      icon: Users,
+      title: "Gardiennage d'entreprises high-tech",
+      description: "Services adaptés aux besoins des entreprises innovantes du Parc Technologique du Canal."
+    }
+  ];
+
   return (
     <div className="flex flex-col min-h-screen">
       <Helmet>
@@ -24,9 +54,8 @@ const RamonvillePage: React.FC = () => {
       <main className="flex-grow pt-24">
         <CityHero 
           cityName="Ramonville-Saint-Agne"
-          postalCode="31520"
-          imageUrl="/images/cities/ramonville-hero.jpg"
-          defaultImageUrl="https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?auto=format&fit=crop&q=80"
+          subtitle="Des solutions de sécurité sur mesure pour particuliers et professionnels"
+          backgroundImage="/images/cities/ramonville-hero.jpg"
         />
         
         <section className="py-16">
@@ -83,22 +112,7 @@ const RamonvillePage: React.FC = () => {
           </div>
         </section>
         
-        <SpecificitesSection 
-          cityName="Ramonville-Saint-Agne"
-          specificites={[
-            "Sécurisation du Port de plaisance et des installations nautiques",
-            "Protection des établissements scolaires et universitaires",
-            "Surveillance des zones commerciales et des grandes surfaces",
-            "Sécurité pour les événements culturels et musicaux",
-            "Gardiennage des entreprises high-tech du Parc Technologique"
-          ]}
-          faits={[
-            "Ramonville-Saint-Agne abrite le célèbre port de plaisance Port Sud, une zone touristique nécessitant une vigilance particulière",
-            "La commune héberge de nombreuses entreprises innovantes dans son Parc Technologique du Canal",
-            "La salle de concert Le Bikini, lieu culturel majeur, requiert des dispositifs de sécurité adaptés lors des événements",
-            "La proximité du campus universitaire de Rangueil influence les besoins en sécurité de la ville"
-          ]}
-        />
+        <SpecificitesSection items={specificitesItems} />
         
         <CtaSection 
           title="Besoin d'un devis pour votre sécurité à Ramonville-Saint-Agne ?"
