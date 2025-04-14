@@ -1,6 +1,7 @@
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { getCityImageUrl } from '@/utils/imageUtils';
+import { supabase } from '@/integrations/supabase/client';
 
 interface CityHeroProps {
   cityName: string;
@@ -13,26 +14,57 @@ const CityHero: React.FC<CityHeroProps> = ({
   subtitle,
   backgroundImage
 }) => {
-  // Déterminer l'image de fond à utiliser
-  let bgImage = backgroundImage;
+  const [bgImage, setBgImage] = useState<string | null>(null);
 
-  if (!bgImage) {
-    // Si pas d'image spécifique fournie, utiliser celle basée sur le nom de la ville
-    if (cityName === 'Toulouse') {
-      // Pour Toulouse, utiliser une image spécifique depuis le dossier images/cities
-      bgImage = '/images/cities/toulouse-hero.jpg';
-    } else {
-      // Pour les autres villes, utiliser la fonction getCityImageUrl
-      bgImage = getCityImageUrl(cityName);
-    }
-  }
+  useEffect(() => {
+    const loadImageFromSupabase = async () => {
+      let imagePath;
 
-  console.log("Image de fond utilisée:", bgImage); // Pour le débogage
+      if (backgroundImage) {
+        // Si une image spécifique est fournie, l'utiliser
+        imagePath = backgroundImage;
+      } else if (cityName === 'Toulouse') {
+        // Pour Toulouse, utiliser une image spécifique
+        imagePath = '/images/cities/toulouse-hero.jpg';
+      } else {
+        // Pour les autres villes, utiliser la fonction getCityImageUrl
+        imagePath = getCityImageUrl(cityName);
+      }
+
+      // Si c'est une URL complète, l'utiliser directement
+      if (imagePath.startsWith('http')) {
+        setBgImage(imagePath);
+        return;
+      }
+
+      try {
+        // Récupérer l'image depuis le bucket Supabase
+        const { data, error } = await supabase.storage
+          .from('images')
+          .getPublicUrl(imagePath.startsWith('/') ? imagePath.substring(1) : imagePath);
+
+        if (error) {
+          console.error("Erreur lors de la récupération de l'image:", error);
+          // Utiliser une image par défaut en cas d'erreur
+          setBgImage('/images/cities/default-hero.jpg');
+        } else {
+          console.log("Image récupérée depuis Supabase:", data.publicUrl);
+          setBgImage(data.publicUrl);
+        }
+      } catch (error) {
+        console.error("Erreur inattendue:", error);
+        // Utiliser le chemin local en cas d'erreur
+        setBgImage(imagePath);
+      }
+    };
+
+    loadImageFromSupabase();
+  }, [cityName, backgroundImage]);
 
   return (
     <section 
       style={{
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('${bgImage}')`,
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('${bgImage || '/images/cities/default-hero.jpg'}')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
