@@ -13,8 +13,13 @@ const CityHero: React.FC<CityHeroProps> = ({
   subtitle, 
   backgroundImage 
 }) => {
-  // Utiliser la fonction utilitaire pour obtenir l'URL de l'image
-  const bgImage = backgroundImage || getCityImageUrl(cityName);
+  // Déterminer l'image de fond à utiliser
+  let bgImage = backgroundImage || getCityImageUrl(cityName);
+  
+  // Si nous sommes sur la page de Toulouse et qu'aucune image de fond spécifique n'est fournie, utiliser toulouse-hero.png
+  if (cityName === 'Toulouse' && !backgroundImage) {
+    bgImage = '/lovable-uploads/16b12a0d-7453-48ac-a8f1-0803dc361f16.png';
+  }
   
   console.log("Image de fond utilisée:", bgImage); // Pour le débogage
   
@@ -26,7 +31,7 @@ const CityHero: React.FC<CityHeroProps> = ({
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
-        backgroundColor: 'gray' // Fallback si l'image ne charge pas
+        backgroundColor: '#333' // Fallback si l'image ne charge pas - gris foncé plus adapté
       }}
     >
       <div className="container mx-auto px-4 text-center z-10">
@@ -42,4 +47,3 @@ const CityHero: React.FC<CityHeroProps> = ({
 };
 
 export default CityHero;
-
