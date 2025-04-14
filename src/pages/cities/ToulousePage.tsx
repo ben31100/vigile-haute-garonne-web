@@ -6,6 +6,7 @@ import CityHero from '@/components/cities/CityHero';
 import SpecificitesSection, { SpecificiteItem } from '@/components/cities/SpecificitesSection';
 import CtaSection from '@/components/cities/CtaSection';
 import { MapPin, Users, Building, Star, Activity } from 'lucide-react';
+
 const ToulousePage: React.FC = () => {
   const specificites: SpecificiteItem[] = [{
     icon: MapPin,
@@ -28,7 +29,9 @@ const ToulousePage: React.FC = () => {
     title: "Intervention sur alarme",
     description: "Équipe d'intervention rapide disponible 24h/24 sur l'ensemble de l'agglomération toulousaine."
   }];
-  return <>
+
+  return (
+    <>
       <Helmet>
         <title>Sécurité privée à Toulouse | LeVigile - Services de surveillance</title>
         <meta name="description" content="Services de sécurité privée à Toulouse : gardiennage, surveillance, rondes de sécurité. Protection pour commerces, entreprises et événements dans la ville rose." />
@@ -39,15 +42,23 @@ const ToulousePage: React.FC = () => {
         <Header />
         
         <main className="flex-grow pt-16">
-          <CityHero cityName="Toulouse" subtitle="Services de sécurité sur mesure pour la ville rose" />
+          <CityHero 
+            cityName="Toulouse" 
+            subtitle="Services de sécurité sur mesure pour la ville rose" 
+          />
           
           <SpecificitesSection items={specificites} />
           
-          <CtaSection title="Besoin d'un service de sécurité à Toulouse ?" subtitle="Nos agents spécialement formés sont disponibles 24h/24 pour répondre à vos besoins spécifiques dans toute l'agglomération toulousaine." />
+          <CtaSection 
+            title="Besoin d'un service de sécurité à Toulouse ?" 
+            subtitle="Nos agents spécialement formés sont disponibles 24h/24 pour répondre à vos besoins spécifiques dans toute l'agglomération toulousaine." 
+          />
         </main>
         
         <Footer />
       </div>
-    </>;
+    </>
+  );
 };
+
 export default ToulousePage;
