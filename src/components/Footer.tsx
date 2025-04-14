@@ -1,7 +1,7 @@
-
 import React from 'react';
 import { MapPin, Phone, Mail, PhoneCall } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
 import citiesData from '../data/cities.json';
 
 const Footer: React.FC = () => {
@@ -23,7 +23,13 @@ const Footer: React.FC = () => {
               </li>
               <li className="flex items-center">
                 <Phone className="mr-2 h-5 w-5 shrink-0 text-levigile-red" />
-                <a href="tel:+33554546428" className="hover:underline">05 54 54 64 28</a>
+                <Button 
+                  variant="link" 
+                  className="text-white hover:text-levigile-red p-0"
+                  onClick={() => window.open('tel:+33554546428', '_self')}
+                >
+                  Appel au 05 54 54 64 28
+                </Button>
               </li>
               <li className="flex items-center">
                 <Mail className="mr-2 h-5 w-5 shrink-0 text-levigile-red" />
