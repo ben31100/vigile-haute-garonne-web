@@ -83,13 +83,17 @@ const LocalSecurityPage: React.FC = () => {
         <HeroSection 
           cityName={city.name} 
           postalCode={city.postalCode} 
-          region={city.region || 'Haute-Garonne'} 
         />
         
         <div className="container mx-auto px-4 py-12">
           <div className="flex flex-col md:flex-row gap-8">
             <div className="md:w-2/3">
-              <MainContent city={city} />
+              <MainContent 
+                cityName={city.name}
+                neighborhoods={city.neighborhoods}
+                nearbyAreas={city.nearbyAreas}
+                specificServices={city.specificServices}
+              />
             </div>
             
             <div className="md:w-1/3">

@@ -5,6 +5,18 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 
+interface CityData {
+  id: string;
+  name: string;
+  postalCode: string;
+  description: string;
+  neighborhoods: string[];
+  nearbyAreas: string[];
+  specificServices: string[];
+  metaTitle?: string;
+  metaDescription?: string;
+}
+
 interface MainContentProps {
   cityName: string;
   neighborhoods: string[];
