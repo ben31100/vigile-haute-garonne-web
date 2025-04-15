@@ -21,7 +21,7 @@ const HeaderLogo: React.FC = () => {
       >
         <img 
           alt="LeVigile Logo" 
-          className="h-10 w-auto cursor-pointer" 
+          className="h-8 w-auto cursor-pointer" 
           src="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//logo%20levigile%20securite.png" 
         />
       </a>
