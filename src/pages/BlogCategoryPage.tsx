@@ -1,5 +1,5 @@
 
-import React, { useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Header from '@/components/header/Header';
@@ -10,8 +10,11 @@ import BlogSidebar from '@/components/blog/BlogSidebar';
 import BlogSearch from '@/components/blog/BlogSearch';
 import { categories as staticCategories, blogPosts } from '@/data/blogData';
 
+const POSTS_PER_PAGE = 6;
+
 const BlogCategoryPage: React.FC = () => {
   const { categorySlug } = useParams<{ categorySlug: string }>();
+  const [currentPage, setCurrentPage] = useState(1);
   
   // Convert slug back to category name for display and filtering
   const categoryName = useMemo(() => {
@@ -30,6 +33,23 @@ const BlogCategoryPage: React.FC = () => {
       post.categories.some(cat => cat.toLowerCase() === categoryName.toLowerCase())
     );
   }, [categoryName]);
+
+  // Pagination logic
+  const totalPages = Math.ceil(filteredPosts.length / POSTS_PER_PAGE);
+  
+  // Get current posts based on pagination
+  const currentPosts = useMemo(() => {
+    const indexOfLastPost = currentPage * POSTS_PER_PAGE;
+    const indexOfFirstPost = indexOfLastPost - POSTS_PER_PAGE;
+    return filteredPosts.slice(indexOfFirstPost, indexOfLastPost);
+  }, [currentPage, filteredPosts]);
+
+  // Handle page change
+  const handlePageChange = (pageNumber: number) => {
+    setCurrentPage(pageNumber);
+    // Scroll to top when page changes
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   // Calculate actual category counts based on blog posts
   const categoriesWithRealCounts = staticCategories.map(category => {
@@ -76,13 +96,17 @@ const BlogCategoryPage: React.FC = () => {
                 <>
                   {/* Articles */}
                   <div className="grid md:grid-cols-2 gap-6 mb-10">
-                    {filteredPosts.map((post) => (
+                    {currentPosts.map((post) => (
                       <BlogArticleCard key={post.id} post={post} />
                     ))}
                   </div>
                   
                   {/* Pagination */}
-                  <BlogPagination />
+                  <BlogPagination 
+                    currentPage={currentPage}
+                    totalPages={totalPages}
+                    onPageChange={handlePageChange}
+                  />
                 </>
               ) : (
                 <div className="bg-white p-8 rounded-lg shadow-md text-center">

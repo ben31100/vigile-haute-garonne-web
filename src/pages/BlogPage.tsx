@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 import { Helmet } from 'react-helmet-async';
 import Header from '@/components/header/Header';
 import Footer from '@/components/Footer';
@@ -12,7 +12,11 @@ import { categories as staticCategories, blogPosts } from '@/data/blogData';
 import { AlertCircle } from 'lucide-react';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 
+const POSTS_PER_PAGE = 6;
+
 const BlogPage: React.FC = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+  
   // Calculate actual category counts based on blog posts
   const categoriesWithRealCounts = staticCategories.map(category => {
     const count = blogPosts.filter(post => 
@@ -24,6 +28,23 @@ const BlogPage: React.FC = () => {
       count
     };
   });
+
+  // Pagination logic
+  const totalPages = Math.ceil(blogPosts.length / POSTS_PER_PAGE);
+  
+  // Get current posts based on pagination
+  const currentPosts = useMemo(() => {
+    const indexOfLastPost = currentPage * POSTS_PER_PAGE;
+    const indexOfFirstPost = indexOfLastPost - POSTS_PER_PAGE;
+    return blogPosts.slice(indexOfFirstPost, indexOfLastPost);
+  }, [currentPage]);
+
+  // Handle page change
+  const handlePageChange = (pageNumber: number) => {
+    setCurrentPage(pageNumber);
+    // Scroll to top when page changes
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
     <>
@@ -48,7 +69,7 @@ const BlogPage: React.FC = () => {
               {/* Articles */}
               {blogPosts.length > 0 ? (
                 <div className="grid md:grid-cols-2 gap-6 mb-10">
-                  {blogPosts.map((post) => (
+                  {currentPosts.map((post) => (
                     <BlogArticleCard key={post.id} post={post} />
                   ))}
                 </div>
@@ -62,7 +83,13 @@ const BlogPage: React.FC = () => {
               )}
               
               {/* Pagination - Afficher seulement s'il y a des articles */}
-              {blogPosts.length > 0 && <BlogPagination />}
+              {blogPosts.length > 0 && (
+                <BlogPagination 
+                  currentPage={currentPage}
+                  totalPages={totalPages}
+                  onPageChange={handlePageChange}
+                />
+              )}
             </div>
             
             {/* Sidebar */}
