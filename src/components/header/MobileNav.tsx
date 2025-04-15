@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Menu, ChevronDown } from 'lucide-react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
@@ -40,16 +40,9 @@ const MobileNav: React.FC = () => {
         <SheetContent side="right" className="py-8 px-4 w-[280px]">
           <div className="flex flex-col space-y-4">
             <SheetClose asChild>
-              <a 
-                href="#" 
-                onClick={(e) => {
-                  e.preventDefault();
-                  navigateAndScrollTop('/');
-                }}
-                className="text-levigile-dark hover:text-levigile-blue font-medium py-2"
-              >
+              <Link to="/" className="text-levigile-dark hover:text-levigile-blue font-medium py-2">
                 Accueil
-              </a>
+              </Link>
             </SheetClose>
             
             <SheetClose asChild>
@@ -65,18 +58,13 @@ const MobileNav: React.FC = () => {
               </a>
             </SheetClose>
             
-            {/* Blog link added here */}
             <SheetClose asChild>
-              <a 
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  navigateAndScrollTop('/blog');
-                }}
+              <Link 
+                to="/blog"
                 className="text-levigile-dark hover:text-levigile-blue font-medium py-2"
               >
                 Blog
-              </a>
+              </Link>
             </SheetClose>
             
             <Collapsible 

@@ -1,7 +1,6 @@
-
 import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 
 const DesktopNav: React.FC = () => {
@@ -30,27 +29,19 @@ const DesktopNav: React.FC = () => {
 
   return (
     <nav className="hidden md:flex space-x-8">
-      <a href="#" onClick={(e) => {
-        e.preventDefault();
-        navigateAndScrollTop('/');
-      }} className="text-levigile-dark hover:text-levigile-blue font-medium">Accueil</a>
+      <Link to="/" className="text-levigile-dark hover:text-levigile-blue font-medium">Accueil</Link>
       
       <a href="#services" onClick={(e) => {
         e.preventDefault();
         scrollToSection('services');
       }} className="text-levigile-dark hover:text-levigile-blue font-medium">Nos services</a>
       
-      {/* Blog link added here */}
-      <a 
-        href="#" 
-        onClick={(e) => {
-          e.preventDefault();
-          navigateAndScrollTop('/blog');
-        }} 
+      <Link 
+        to="/blog" 
         className="text-levigile-dark hover:text-levigile-blue font-medium"
       >
         Blog
-      </a>
+      </Link>
       
       <DropdownMenu open={isVillesDropdownOpen} onOpenChange={setIsVillesDropdownOpen}>
         <DropdownMenuTrigger className="text-levigile-dark hover:text-levigile-blue font-medium bg-transparent hover:bg-transparent focus:bg-transparent inline-flex items-center">
