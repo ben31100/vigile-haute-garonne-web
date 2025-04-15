@@ -65,6 +65,20 @@ const MobileNav: React.FC = () => {
               </a>
             </SheetClose>
             
+            {/* Blog link added here */}
+            <SheetClose asChild>
+              <a 
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigateAndScrollTop('/blog');
+                }}
+                className="text-levigile-dark hover:text-levigile-blue font-medium py-2"
+              >
+                Blog
+              </a>
+            </SheetClose>
+            
             <Collapsible 
               className="w-full" 
               open={isCollapsibleOpen} 

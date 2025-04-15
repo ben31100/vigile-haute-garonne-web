@@ -1,10 +1,10 @@
-
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Index from './pages/Index';
 import NotFound from './pages/NotFound';
 import MediaManager from './pages/MediaManager';
 import CitiesList from './pages/CitiesList';
+import BlogPage from './pages/BlogPage';  // New blog page
 
 // City pages
 import ToulousePage from './pages/cities/ToulousePage';
@@ -33,6 +33,7 @@ const AppRoutes: React.FC = () => {
       <Route path="/" element={<Index />} />
       <Route path="/media-manager" element={<MediaManager />} />
       <Route path="/villes" element={<CitiesList />} />
+      <Route path="/blog" element={<BlogPage />} />  {/* New blog route */}
       
       {/* Routes des villes */}
       <Route path="/toulouse.html" element={<ToulousePage />} />
