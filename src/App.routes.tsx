@@ -15,6 +15,11 @@ import SecuriteEvenementielle from './pages/blog/SecuriteEvenementielle';
 import DifferenceGardiennageSurveillance from './pages/blog/DifferenceGardiennageSurveillance';
 import AgentSecuriteNuitColomiers from './pages/blog/AgentSecuriteNuitColomiers';
 import Reglementation2025 from './pages/blog/Reglementation2025';
+import SecuriteIncendieObligations from './pages/blog/SecuriteIncendieObligations';
+import AgentCynophileMaitreChien from './pages/blog/AgentCynophileMaitreChien';
+import SecuriserChantierErreurs from './pages/blog/SecuriserChantierErreurs';
+import SurveillanceResidencesCambriolages from './pages/blog/SurveillanceResidencesCambriolages';
+import SecuriteGrandeSurfaceDispositifs from './pages/blog/SecuriteGrandeSurfaceDispositifs';
 
 // City pages
 import ToulousePage from './pages/cities/ToulousePage';
@@ -50,6 +55,11 @@ const AppRoutes: React.FC = () => {
       <Route path="/blog/difference-gardiennage-surveillance-mobile" element={<DifferenceGardiennageSurveillance />} />
       <Route path="/blog/agent-securite-nuit-colomiers" element={<AgentSecuriteNuitColomiers />} />
       <Route path="/blog/reglementation-2025-securite-privee" element={<Reglementation2025 />} />
+      <Route path="/blog/securite-incendie-obligations-legales" element={<SecuriteIncendieObligations />} />
+      <Route path="/blog/agent-cynophile-maitre-chien" element={<AgentCynophileMaitreChien />} />
+      <Route path="/blog/securiser-chantier-erreurs-eviter" element={<SecuriserChantierErreurs />} />
+      <Route path="/blog/surveillance-residences-cambriolages" element={<SurveillanceResidencesCambriolages />} />
+      <Route path="/blog/securite-grande-surface-dispositifs" element={<SecuriteGrandeSurfaceDispositifs />} />
       
       {/* Route générique pour les autres slugs (utilise l'exemple comme fallback) */}
       <Route path="/blog/:slug" element={<BlogArticleExample />} />
