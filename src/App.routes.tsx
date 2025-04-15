@@ -1,10 +1,11 @@
+
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Index from './pages/Index';
 import NotFound from './pages/NotFound';
 import MediaManager from './pages/MediaManager';
 import CitiesList from './pages/CitiesList';
-import BlogPage from './pages/BlogPage';  // New blog page
+import BlogPage from './pages/BlogPage';
 
 // City pages
 import ToulousePage from './pages/cities/ToulousePage';
@@ -24,7 +25,7 @@ import AudePage from './pages/cities/AudePage';
 import AveyronPage from './pages/cities/AveyronPage';
 import GardPage from './pages/cities/GardPage';
 
-// Blog example
+// Blog article
 import BlogArticleExample from './pages/BlogArticleExample';
 
 const AppRoutes: React.FC = () => {
@@ -33,7 +34,7 @@ const AppRoutes: React.FC = () => {
       <Route path="/" element={<Index />} />
       <Route path="/media-manager" element={<MediaManager />} />
       <Route path="/villes" element={<CitiesList />} />
-      <Route path="/blog" element={<BlogPage />} />  {/* New blog route */}
+      <Route path="/blog" element={<BlogPage />} />
       
       {/* Routes des villes */}
       <Route path="/toulouse.html" element={<ToulousePage />} />
@@ -53,8 +54,9 @@ const AppRoutes: React.FC = () => {
       <Route path="/aveyron.html" element={<AveyronPage />} />
       <Route path="/gard.html" element={<GardPage />} />
       
-      {/* Route pour l'exemple d'article de blog */}
+      {/* Routes pour le blog */}
       <Route path="/blog/exemple" element={<BlogArticleExample />} />
+      <Route path="/blog/:slug" element={<BlogArticleExample />} />
       
       <Route path="*" element={<NotFound />} />
     </Routes>
