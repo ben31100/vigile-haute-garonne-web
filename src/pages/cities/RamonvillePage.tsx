@@ -55,7 +55,7 @@ const RamonvillePage: React.FC = () => {
         <CityHero 
           cityName="Ramonville-Saint-Agne"
           subtitle="Des solutions de sécurité sur mesure pour particuliers et professionnels"
-          backgroundImage="/images/cities/ramonville-hero.jpg"
+          backgroundImage="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//gardiennage-hero.jpg"
         />
         
         <section className="py-16">

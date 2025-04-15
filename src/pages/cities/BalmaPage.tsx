@@ -55,7 +55,7 @@ const BalmaPage: React.FC = () => {
         <CityHero 
           cityName="Balma"
           subtitle="Des solutions de sécurité sur mesure pour cette commune dynamique de l'est toulousain"
-          backgroundImage="/images/cities/balma-hero.jpg"
+          backgroundImage="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//Toulouse-hero.jpg"
         />
         
         <section className="py-16">
