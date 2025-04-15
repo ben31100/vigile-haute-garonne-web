@@ -9,8 +9,11 @@ const HeroSection: React.FC = () => {
     window.location.href = 'tel:+33554546428';
   };
 
+  // Utiliser une URL Supabase directe comme image d'arrière-plan pour éviter les 404
+  const heroBackground = "bg-gradient-to-r from-levigile-blue to-levigile-gray";
+
   return (
-    <section className="bg-gradient-to-r from-levigile-blue to-levigile-gray pt-24 pb-16 text-white">
+    <section className={`${heroBackground} pt-24 pb-16 text-white`}>
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6 opacity-0 animate-fade-in">
@@ -29,12 +32,21 @@ const HeroSection: React.FC = () => {
                 <Phone className="h-4 w-4" />
                 <span>Demander un devis</span>
               </Button>
-              <Link to="/#services">
+              <a 
+                href="#services" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  const servicesSection = document.getElementById('services');
+                  if (servicesSection) {
+                    servicesSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+              >
                 <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 flex gap-2 items-center">
                   <Shield className="h-4 w-4" />
                   <span>Nos services</span>
                 </Button>
-              </Link>
+              </a>
             </div>
           </div>
           

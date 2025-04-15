@@ -1,7 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
-import { getCityImageUrl } from '@/utils/imageUtils';
-import { supabase } from '@/integrations/supabase/client';
+import { getCityImageUrl, getSupabaseImageUrl } from '@/utils/imageUtils';
 
 /**
  * Configuration Supabase:
@@ -21,53 +20,51 @@ const CityHero: React.FC<CityHeroProps> = ({
   backgroundImage
 }) => {
   const [bgImage, setBgImage] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const loadImageFromSupabase = async () => {
-      let imagePath;
-
-      if (backgroundImage) {
-        // Si une image spécifique est fournie, l'utiliser
-        imagePath = backgroundImage;
-      } else {
-        // Pour toutes les villes, utiliser la fonction getCityImageUrl
-        imagePath = getCityImageUrl(cityName, 'hero');
-      }
-
+      setIsLoading(true);
       try {
-        // Si c'est une URL complète, l'utiliser directement
-        if (imagePath.startsWith('http')) {
+        let imagePath;
+
+        if (backgroundImage) {
+          // Si une image spécifique est fournie, l'utiliser
+          imagePath = backgroundImage;
+        } else {
+          // Pour toutes les villes, utiliser la fonction getCityImageUrl
+          imagePath = getCityImageUrl(cityName, 'hero');
+        }
+
+        // Si c'est une URL complète de Supabase, l'utiliser directement
+        if (imagePath.includes('supabase.co')) {
           setBgImage(imagePath);
+          setIsLoading(false);
           return;
         }
 
-        // Récupérer l'image depuis le bucket Supabase
-        const cleanPath = imagePath.startsWith('/') ? imagePath.substring(1) : imagePath;
-        const { data } = supabase.storage
-          .from('images')
-          .getPublicUrl(cleanPath);
-
-        if (!data?.publicUrl) {
-          console.warn("Image introuvable dans Supabase, fallback local");
-          setBgImage(`/${imagePath}`);
-        } else {
-          console.log("Image récupérée depuis Supabase:", data.publicUrl);
-          setBgImage(data.publicUrl);
-        }
+        // Tenter de récupérer l'image depuis Supabase
+        const publicUrl = await getSupabaseImageUrl(imagePath);
+        setBgImage(publicUrl);
       } catch (error) {
-        console.error("Erreur inattendue:", error);
-        // Utiliser le chemin local en cas d'erreur
-        setBgImage(`/${imagePath}`);
+        console.error("Erreur lors du chargement de l'image:", error);
+        // En cas d'erreur, utiliser l'image par défaut de Supabase
+        setBgImage("https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images/gardiennage-hero.jpg");
+      } finally {
+        setIsLoading(false);
       }
     };
 
     loadImageFromSupabase();
   }, [cityName, backgroundImage]);
 
+  // Image de secours en cas d'échec du chargement
+  const fallbackImage = "https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images/gardiennage-hero.jpg";
+
   return (
     <section 
       style={{
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('${bgImage || '/images/cities/default-hero.jpg'}')`,
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('${bgImage || fallbackImage}')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
@@ -83,6 +80,11 @@ const CityHero: React.FC<CityHeroProps> = ({
           {subtitle}
         </p>
       </div>
+      {isLoading && (
+        <div className="absolute inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50">
+          <div className="animate-spin h-8 w-8 border-4 border-white border-t-transparent rounded-full"></div>
+        </div>
+      )}
     </section>
   );
 };
