@@ -23,35 +23,16 @@ const BlogPagination: React.FC<BlogPaginationProps> = ({
   // Don't render pagination if there's only one page
   if (totalPages <= 1) return null;
 
-  // Function to handle previous page navigation
-  const handlePreviousPage = (e: React.MouseEvent) => {
-    e.preventDefault();
-    if (currentPage > 1) {
-      onPageChange(currentPage - 1);
-    }
-  };
-
-  // Function to handle next page navigation
-  const handleNextPage = (e: React.MouseEvent) => {
-    e.preventDefault();
-    if (currentPage < totalPages) {
-      onPageChange(currentPage + 1);
-    }
-  };
-
-  // Function to handle specific page navigation
-  const handlePageClick = (e: React.MouseEvent, page: number) => {
-    e.preventDefault();
-    onPageChange(page);
-  };
-
   return (
     <div className="flex justify-center mt-10">
       <Pagination>
         <PaginationContent>
           <PaginationItem>
             <PaginationPrevious 
-              onClick={handlePreviousPage}
+              onClick={(e) => {
+                e.preventDefault();
+                if (currentPage > 1) onPageChange(currentPage - 1);
+              }}
               className={currentPage <= 1 ? "pointer-events-none opacity-50" : "cursor-pointer"}
               href="#"
             />
@@ -60,10 +41,13 @@ const BlogPagination: React.FC<BlogPaginationProps> = ({
           {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
             <PaginationItem key={page}>
               <PaginationLink 
-                onClick={(e) => handlePageClick(e, page)}
+                onClick={(e) => {
+                  e.preventDefault();
+                  onPageChange(page);
+                }}
                 isActive={page === currentPage}
                 href="#"
-                className={page === currentPage ? "bg-levigile-blue text-white hover:bg-levigile-dark" : ""}
+                className={`cursor-pointer ${page === currentPage ? "bg-levigile-blue text-white hover:bg-levigile-dark" : ""}`}
               >
                 {page}
               </PaginationLink>
@@ -72,7 +56,10 @@ const BlogPagination: React.FC<BlogPaginationProps> = ({
           
           <PaginationItem>
             <PaginationNext 
-              onClick={handleNextPage}
+              onClick={(e) => {
+                e.preventDefault();
+                if (currentPage < totalPages) onPageChange(currentPage + 1);
+              }}
               className={currentPage >= totalPages ? "pointer-events-none opacity-50" : "cursor-pointer"}
               href="#"
             />

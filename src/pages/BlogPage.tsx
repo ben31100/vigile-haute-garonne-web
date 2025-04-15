@@ -13,7 +13,7 @@ import { AlertCircle } from 'lucide-react';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 
 const BlogPage: React.FC = () => {
-  // Articles per page - augmenté à 6 articles par page
+  // Articles per page - augmenté à 6
   const itemsPerPage = 6;
   const [currentPage, setCurrentPage] = useState(1);
 
