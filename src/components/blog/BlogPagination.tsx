@@ -78,51 +78,53 @@ const BlogPagination: React.FC<BlogPaginationProps> = ({
   const pageNumbers = getPageNumbers();
   
   return (
-    <Pagination className="mt-8 mb-4 bg-white rounded-lg shadow-md p-4">
-      <PaginationContent>
-        <PaginationItem>
-          <PaginationPrevious 
-            onClick={() => currentPage > 1 && handlePageChange(currentPage - 1)}
-            className={`${currentPage <= 1 ? "pointer-events-none opacity-50" : "cursor-pointer"} text-levigile-dark`}
-            aria-disabled={currentPage <= 1}
-          />
-        </PaginationItem>
-        
-        {pageNumbers.map((page, index) => {
-          if (page === 'ellipsis-start' || page === 'ellipsis-end') {
+    <div className="flex justify-center my-8">
+      <Pagination className="bg-white shadow-md rounded-lg p-4 w-auto inline-block">
+        <PaginationContent>
+          <PaginationItem>
+            <PaginationPrevious 
+              onClick={() => currentPage > 1 && handlePageChange(currentPage - 1)}
+              className={`${currentPage <= 1 ? "pointer-events-none opacity-50" : "cursor-pointer hover:bg-gray-100"} text-levigile-dark font-medium`}
+              aria-disabled={currentPage <= 1}
+            />
+          </PaginationItem>
+          
+          {pageNumbers.map((page, index) => {
+            if (page === 'ellipsis-start' || page === 'ellipsis-end') {
+              return (
+                <PaginationItem key={`ellipsis-${index}`}>
+                  <span className="px-4">...</span>
+                </PaginationItem>
+              );
+            }
+            
             return (
-              <PaginationItem key={`ellipsis-${index}`}>
-                <span className="px-4">...</span>
+              <PaginationItem key={index}>
+                <PaginationLink
+                  onClick={() => handlePageChange(page as number)}
+                  isActive={currentPage === page}
+                  className={
+                    currentPage === page 
+                      ? "bg-levigile-blue hover:bg-levigile-dark text-white border-levigile-blue font-bold" 
+                      : "cursor-pointer bg-white hover:bg-gray-100 text-levigile-dark border border-gray-200 font-medium"
+                  }
+                >
+                  {page}
+                </PaginationLink>
               </PaginationItem>
             );
-          }
+          })}
           
-          return (
-            <PaginationItem key={index}>
-              <PaginationLink
-                onClick={() => handlePageChange(page as number)}
-                isActive={currentPage === page}
-                className={
-                  currentPage === page 
-                    ? "bg-levigile-blue hover:bg-levigile-dark text-white border-levigile-blue" 
-                    : "cursor-pointer bg-white hover:bg-gray-100 text-levigile-dark border border-gray-200"
-                }
-              >
-                {page}
-              </PaginationLink>
-            </PaginationItem>
-          );
-        })}
-        
-        <PaginationItem>
-          <PaginationNext 
-            onClick={() => currentPage < totalPages && handlePageChange(currentPage + 1)}
-            className={`${currentPage >= totalPages ? "pointer-events-none opacity-50" : "cursor-pointer"} text-levigile-dark`}
-            aria-disabled={currentPage >= totalPages}
-          />
-        </PaginationItem>
-      </PaginationContent>
-    </Pagination>
+          <PaginationItem>
+            <PaginationNext 
+              onClick={() => currentPage < totalPages && handlePageChange(currentPage + 1)}
+              className={`${currentPage >= totalPages ? "pointer-events-none opacity-50" : "cursor-pointer hover:bg-gray-100"} text-levigile-dark font-medium`}
+              aria-disabled={currentPage >= totalPages}
+            />
+          </PaginationItem>
+        </PaginationContent>
+      </Pagination>
+    </div>
   );
 };
 
