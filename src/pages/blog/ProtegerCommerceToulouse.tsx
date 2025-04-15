@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import Header from '@/components/header/Header';
@@ -39,7 +38,7 @@ const ProtegerCommerceToulouse: React.FC = () => {
 
       <figure className="my-8">
         <img 
-          src="/lovable-uploads/3beb272a-6541-4eb8-b22e-a1c263954ff4.png" 
+          src="/lovable-uploads/95d1d3d2-2323-40fb-9947-ca8e35e7a9f2.png" 
           alt="Sécurité d'un commerce à Toulouse" 
           className="w-full rounded-lg shadow-md"
         />
@@ -88,8 +87,7 @@ const ProtegerCommerceToulouse: React.FC = () => {
         author="Thomas Dupont"
         date="2025-04-10"
         readTime="8"
-        featuredImage="/lovable-uploads/3beb272a-6541-4eb8-b22e-a1c263954ff4.png"
-        content={articleContent}
+        featuredImage="/lovable-uploads/95d1d3d2-2323-40fb-9947-ca8e35e7a9f2.png"
         tags={["Sécurité commerce", "Toulouse", "Protection magasin", "Vidéosurveillance"]}
         relatedArticles={[
           {
@@ -125,6 +123,7 @@ const ProtegerCommerceToulouse: React.FC = () => {
             slug: "gardiennage"
           }
         ]}
+        content={articleContent}
       />
 
       <Footer />

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import Header from '@/components/header/Header';
@@ -23,7 +22,7 @@ const SecuriteEvenementielle: React.FC = () => {
 
       <figure className="my-8">
         <img 
-          src="https://images.unsplash.com/photo-1472396961693-142e6e269027?q=80&w=1562&auto=format&fit=crop" 
+          src="/lovable-uploads/95d1d3d2-2323-40fb-9947-ca8e35e7a9f2.png" 
           alt="Sécurité événementielle professionnelle" 
           className="w-full rounded-lg shadow-md"
         />
@@ -81,7 +80,7 @@ const SecuriteEvenementielle: React.FC = () => {
         author="Marie Laurent"
         date="2025-03-28"
         readTime="6"
-        featuredImage="https://images.unsplash.com/photo-1472396961693-142e6e269027?q=80&w=1562&auto=format&fit=crop"
+        featuredImage="/lovable-uploads/95d1d3d2-2323-40fb-9947-ca8e35e7a9f2.png"
         content={articleContent}
         tags={["Sécurité événementielle", "CNAPS", "Haute-Garonne", "Organisation événement"]}
         relatedArticles={[

@@ -1,4 +1,3 @@
-
 export const categories = [
   { name: 'Conseils de sécurité', count: 3 },
   { name: 'Surveillance', count: 2 },
@@ -17,7 +16,7 @@ export const blogPosts = [
     date: "2025-04-10",
     readTime: "8",
     categories: ["Conseils de sécurité", "Surveillance"],
-    featuredImage: "/lovable-uploads/3beb272a-6541-4eb8-b22e-a1c263954ff4.png",
+    featuredImage: "/lovable-uploads/95d1d3d2-2323-40fb-9947-ca8e35e7a9f2.png",
     slug: 'proteger-commerce-toulouse',
     excerpt: "Vous êtes commerçant à Toulouse ? La sécurité de votre boutique est essentielle face aux risques de vols ou d'intrusions. Découvrez nos conseils pour renforcer votre protection."
   },
@@ -29,7 +28,7 @@ export const blogPosts = [
     date: "2025-03-28",
     readTime: "6",
     categories: ["Événementiel", "Conseils de sécurité"],
-    featuredImage: "https://images.unsplash.com/photo-1472396961693-142e6e269027?q=80&w=1562&auto=format&fit=crop",
+    featuredImage: "/lovable-uploads/95d1d3d2-2323-40fb-9947-ca8e35e7a9f2.png",
     slug: 'securite-evenementielle-choisir',
     excerpt: "Organiser un événement, c'est aussi penser à la sécurité des participants. Comment s'assurer de choisir la bonne société de sécurité pour votre manifestation ?"
   },
