@@ -4,7 +4,7 @@ import React from 'react';
 const BlogHero: React.FC = () => {
   return (
     <section 
-      className="text-white py-16 mb-10 relative"
+      className="text-white py-16 mb-10 relative h-[600px]"
       style={{
         backgroundImage: "url('https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//blog-levigile.jpg')",
         backgroundSize: "cover",
