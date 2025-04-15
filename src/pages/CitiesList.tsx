@@ -10,14 +10,37 @@ import { Input } from '@/components/ui/input';
 import citiesData from '../data/cities.json';
 import { useState } from 'react';
 
+// Interface pour les départements
+interface Department {
+  id: string;
+  name: string;
+  code: string;
+}
+
 const CitiesList: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
+  
+  // Définition des départements
+  const departments: Department[] = [
+    { id: "haute-garonne", name: "Haute-Garonne", code: "31" },
+    { id: "lot", name: "Lot", code: "46" },
+    { id: "lozere", name: "Lozère", code: "48" },
+    { id: "hautes-pyrenees", name: "Hautes-Pyrénées", code: "65" },
+    { id: "pyrenees-orientales", name: "Pyrénées-Orientales", code: "66" },
+    { id: "tarn", name: "Tarn", code: "81" },
+    { id: "tarn-et-garonne", name: "Tarn-et-Garonne", code: "82" }
+  ];
   
   // Filter cities based on search term
   const filteredCities = citiesData.filter(city => 
     city.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
     city.postalCode.includes(searchTerm)
   );
+
+  // Regrouper les villes par code postal (département)
+  const getCitiesByDepartment = (departmentCode: string) => {
+    return filteredCities.filter(city => city.postalCode.startsWith(departmentCode));
+  };
 
   // Helper function to determine the correct link for each city
   const getCityLink = (cityId: string) => {
@@ -32,8 +55,8 @@ const CitiesList: React.FC = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Helmet>
-        <title>Nos zones d'intervention en Haute-Garonne | LeVigile</title>
-        <meta name="description" content="Découvrez les villes où LeVigile intervient pour assurer votre sécurité en Haute-Garonne. Services de gardiennage, surveillance et protection disponibles 24h/24." />
+        <title>Nos zones d'intervention en Occitanie | LeVigile</title>
+        <meta name="description" content="Découvrez les villes où LeVigile intervient pour assurer votre sécurité en Occitanie. Services de gardiennage, surveillance et protection disponibles 24h/24 dans 7 départements." />
       </Helmet>
       
       <Header />
@@ -42,12 +65,12 @@ const CitiesList: React.FC = () => {
         <section className="py-16">
           <div className="container mx-auto px-4">
             <h1 className="text-3xl font-bold mb-6 text-center text-levigile-blue">
-              Nos zones d'intervention en Haute-Garonne
+              Nos zones d'intervention en Occitanie
             </h1>
             
             <p className="text-lg mb-8 text-center max-w-3xl mx-auto">
-              LeVigile propose ses services de sécurité privée dans l'ensemble du département 
-              de la Haute-Garonne (31). Découvrez nos prestations adaptées à votre ville.
+              LeVigile propose ses services de sécurité privée dans plusieurs départements 
+              d'Occitanie. Découvrez nos prestations adaptées à votre ville.
             </p>
             
             <div className="max-w-md mx-auto mb-10 relative">
@@ -61,40 +84,57 @@ const CitiesList: React.FC = () => {
               />
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredCities.length > 0 ? (
-                filteredCities.map((city) => (
-                  <Link
-                    key={city.id}
-                    to={getCityLink(city.id)}
-                    className="block bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow border-t-4 border-levigile-blue hover:border-levigile-red"
-                  >
-                    <div className="flex items-start">
-                      <MapPin className="h-6 w-6 text-levigile-red shrink-0 mt-1" />
-                      <div className="ml-3">
-                        <h2 className="text-xl font-bold text-levigile-blue mb-2">
-                          Sécurité à {city.name}
-                        </h2>
-                        <p className="text-gray-600 text-sm mb-2">
-                          {city.postalCode} - Haute-Garonne
-                        </p>
-                        <p className="text-gray-700">
-                          {city.description.substring(0, 100)}
-                          {city.description.length > 100 ? '...' : ''}
-                        </p>
-                        <p className="mt-3 text-levigile-blue font-medium text-sm hover:underline">
-                          Découvrir nos services à {city.name} →
-                        </p>
-                      </div>
-                    </div>
-                  </Link>
-                ))
-              ) : (
-                <div className="col-span-full text-center p-8">
-                  <p className="text-lg">Aucune ville ne correspond à votre recherche.</p>
+            {departments.map(department => {
+              const departmentCities = getCitiesByDepartment(department.code);
+              
+              // Ne pas afficher les départements sans villes correspondant à la recherche
+              if (departmentCities.length === 0) {
+                return null;
+              }
+              
+              return (
+                <div key={department.id} className="mb-12">
+                  <h2 className="text-2xl font-semibold text-levigile-blue mb-6 border-b pb-2">
+                    {department.name} ({department.code})
+                  </h2>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {departmentCities.map((city) => (
+                      <Link
+                        key={city.id}
+                        to={getCityLink(city.id)}
+                        className="block bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow border-t-4 border-levigile-blue hover:border-levigile-red"
+                      >
+                        <div className="flex items-start">
+                          <MapPin className="h-6 w-6 text-levigile-red shrink-0 mt-1" />
+                          <div className="ml-3">
+                            <h2 className="text-xl font-bold text-levigile-blue mb-2">
+                              Sécurité à {city.name}
+                            </h2>
+                            <p className="text-gray-600 text-sm mb-2">
+                              {city.postalCode} - {department.name}
+                            </p>
+                            <p className="text-gray-700">
+                              {city.description.substring(0, 100)}
+                              {city.description.length > 100 ? '...' : ''}
+                            </p>
+                            <p className="mt-3 text-levigile-blue font-medium text-sm hover:underline">
+                              Découvrir nos services à {city.name} →
+                            </p>
+                          </div>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
                 </div>
-              )}
-            </div>
+              );
+            })}
+            
+            {filteredCities.length === 0 && (
+              <div className="text-center p-8">
+                <p className="text-lg">Aucune ville ne correspond à votre recherche.</p>
+              </div>
+            )}
           </div>
         </section>
       </main>

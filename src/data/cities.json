@@ -1,4 +1,3 @@
-
 [
   {
     "id": "toulouse",
@@ -329,5 +328,71 @@
     "specificServices": ["Gardiennage de sites", "Sécurité résidentielle", "Protection de commerces", "Rondes de surveillance"],
     "metaTitle": "Sécurité à Frouzins - Protection fiable | LeVigile",
     "metaDescription": "LeVigile assure votre sécurité à Frouzins. Gardiennage, surveillance et protection par des agents professionnels disponibles 24h/24."
+  },
+  {
+    "id": "cahors",
+    "name": "Cahors",
+    "postalCode": "46000",
+    "description": "Cahors, préfecture du Lot, bénéficie désormais de nos services de sécurité privée adaptés aux besoins locaux.",
+    "neighborhoods": ["Centre-ville", "Terre Rouge", "Bégoux", "Laberaudie"],
+    "nearbyAreas": ["Pradines", "Mercuès", "Laroque-des-Arcs", "Arcambal"],
+    "specificServices": ["Surveillance de sites touristiques", "Gardiennage de commerces", "Sécurité événementielle", "Protection résidentielle"],
+    "metaTitle": "Sécurité à Cahors - Services professionnels | LeVigile",
+    "metaDescription": "Services de sécurité privée à Cahors (46). Gardiennage, surveillance et protection par des agents certifiés pour particuliers et professionnels."
+  },
+  {
+    "id": "mende",
+    "name": "Mende",
+    "postalCode": "48000",
+    "description": "Mende, préfecture de la Lozère, est désormais desservie par nos équipes de sécurité pour tous types d'interventions.",
+    "neighborhoods": ["Centre-ville", "Fontanilles", "Chaldecoste", "Mirandol"],
+    "nearbyAreas": ["Badaroux", "Chastel-Nouvel", "Balsièges", "Barjac"],
+    "specificServices": ["Protection de commerces", "Gardiennage de sites sensibles", "Sécurité résidentielle", "Surveillance événementielle"],
+    "metaTitle": "Sécurité à Mende - Protection fiable | LeVigile",
+    "metaDescription": "LeVigile assure votre sécurité à Mende. Gardiennage, surveillance et protection par des agents professionnels disponibles 24h/24."
+  },
+  {
+    "id": "tarbes",
+    "name": "Tarbes",
+    "postalCode": "65000",
+    "description": "Tarbes, préfecture des Hautes-Pyrénées, bénéficie désormais de notre expertise en sécurité privée pour les entreprises et les particuliers.",
+    "neighborhoods": ["Centre-ville", "Quartier de l'Arsenal", "Bastillac", "Ormeau"],
+    "nearbyAreas": ["Aureilhan", "Séméac", "Laloubère", "Ibos"],
+    "specificServices": ["Gardiennage industriel", "Sécurité pour entreprises", "Protection de commerces", "Surveillance résidentielle"],
+    "metaTitle": "Sécurité à Tarbes - Agents professionnels | LeVigile",
+    "metaDescription": "Services de sécurité sur-mesure à Tarbes. Gardiennage, surveillance et protection adaptés aux besoins des professionnels et des particuliers."
+  },
+  {
+    "id": "perpignan",
+    "name": "Perpignan",
+    "postalCode": "66000",
+    "description": "Perpignan, préfecture des Pyrénées-Orientales, est désormais desservie par nos agents de sécurité pour tous types de prestations.",
+    "neighborhoods": ["Centre-ville", "Moulin à Vent", "Bas-Vernet", "Saint-Martin"],
+    "nearbyAreas": ["Cabestany", "Toulouges", "Saint-Estève", "Bompas"],
+    "specificServices": ["Gardiennage de zones commerciales", "Sécurité pour entreprises", "Protection résidentielle", "Surveillance événementielle"],
+    "metaTitle": "Sécurité à Perpignan - Protection professionnelle | LeVigile",
+    "metaDescription": "LeVigile, votre partenaire sécurité à Perpignan. Agents qualifiés pour la surveillance, le gardiennage et la protection de vos biens 24h/24."
+  },
+  {
+    "id": "albi",
+    "name": "Albi",
+    "postalCode": "81000",
+    "description": "Albi, préfecture du Tarn, bénéficie désormais de nos services de sécurité adaptés aux besoins locaux.",
+    "neighborhoods": ["Centre-ville", "Lapanouse", "Cantepau", "Rayssac"],
+    "nearbyAreas": ["Saint-Juéry", "Lescure-d'Albigeois", "Puygouzon", "Le Séquestre"],
+    "specificServices": ["Gardiennage de sites touristiques", "Sécurité pour entreprises", "Protection de commerces", "Surveillance résidentielle"],
+    "metaTitle": "Sécurité à Albi - Services adaptés | LeVigile",
+    "metaDescription": "Services de sécurité professionnels à Albi. Gardiennage, rondes et protection par des agents certifiés pour particuliers et entreprises."
+  },
+  {
+    "id": "montauban",
+    "name": "Montauban",
+    "postalCode": "82000",
+    "description": "Montauban, préfecture du Tarn-et-Garonne, est désormais desservie par nos équipes de sécurité pour tous types d'interventions.",
+    "neighborhoods": ["Centre-ville", "Villebourbon", "Sapiac", "Bas-Pays"],
+    "nearbyAreas": ["Bressols", "Montbeton", "Saint-Nauphary", "Albefeuille-Lagarde"],
+    "specificServices": ["Gardiennage de zones commerciales", "Sécurité pour entreprises", "Protection résidentielle", "Surveillance événementielle"],
+    "metaTitle": "Sécurité à Montauban - Protection fiable | LeVigile",
+    "metaDescription": "LeVigile assure votre sécurité à Montauban. Gardiennage, surveillance et protection par des agents professionnels disponibles 24h/24."
   }
 ]
