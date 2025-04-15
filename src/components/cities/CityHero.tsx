@@ -21,10 +21,12 @@ const CityHero: React.FC<CityHeroProps> = ({
 }) => {
   const [bgImage, setBgImage] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
     const loadImageFromSupabase = async () => {
       setIsLoading(true);
+      setHasError(false);
       try {
         let imagePath;
 
@@ -48,6 +50,7 @@ const CityHero: React.FC<CityHeroProps> = ({
         setBgImage(publicUrl);
       } catch (error) {
         console.error("Erreur lors du chargement de l'image:", error);
+        setHasError(true);
         // En cas d'erreur, utiliser l'image par défaut de Supabase
         setBgImage("https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images/gardiennage-hero.jpg");
       } finally {
@@ -83,6 +86,11 @@ const CityHero: React.FC<CityHeroProps> = ({
       {isLoading && (
         <div className="absolute inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50">
           <div className="animate-spin h-8 w-8 border-4 border-white border-t-transparent rounded-full"></div>
+        </div>
+      )}
+      {hasError && !isLoading && (
+        <div className="absolute bottom-4 right-4 bg-red-600 text-white px-3 py-1 rounded text-sm">
+          Image non disponible
         </div>
       )}
     </section>

@@ -11,7 +11,7 @@ import { supabase } from "@/integrations/supabase/client";
  */
 export type ImageType = 'hero' | 'thumbnail' | 'service' | 'icon';
 
-// Images par défaut disponibles dans l'application
+// Images par défaut disponibles dans l'application - URLs COMPLETES Supabase
 const DEFAULT_IMAGES = {
   hero: "https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images/gardiennage-hero.jpg",
   thumbnail: "https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images/agent-securite-thumbnail.jpg",
@@ -31,16 +31,21 @@ export const getCityImageUrl = (
   type: ImageType = 'hero',
   variant?: string
 ): string => {
+  // Si cityName est vide ou invalide, retourner l'image par défaut
+  if (!cityName || typeof cityName !== 'string') {
+    console.warn("Nom de ville invalide ou non fourni");
+    return DEFAULT_IMAGES[type];
+  }
+
   const basePath = '/images/cities/';
   const normalizedCityName = cityName.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
   
-  // Pour Toulouse, nous avons une gestion spéciale pour s'assurer que l'image est correctement chargée
+  // Cas spécial pour Toulouse
   if (normalizedCityName === 'toulouse' && type === 'hero') {
     return `${basePath}toulouse-hero.jpg`;
   }
   
   if (type === 'hero') {
-    // Les images hero ont un format standard
     return `${basePath}${normalizedCityName}-hero.jpg`;
   }
   
@@ -75,9 +80,26 @@ export const getSupabaseImageUrl = async (imagePath: string): Promise<string> =>
     // Si le chemin commence par '/', le supprimer
     const cleanPath = imagePath.startsWith('/') ? imagePath.substring(1) : imagePath;
     
-    const { data } = await supabase.storage
+    // Si l'image contient 'default', utiliser l'image par défaut
+    if (cleanPath.includes('default')) {
+      if (cleanPath.includes('hero')) {
+        return DEFAULT_IMAGES.hero;
+      } else if (cleanPath.includes('thumbnail')) {
+        return DEFAULT_IMAGES.thumbnail;
+      } else if (cleanPath.includes('service')) {
+        return DEFAULT_IMAGES.service;
+      }
+      return DEFAULT_IMAGES.hero;
+    }
+    
+    const { data, error } = await supabase.storage
       .from('images')
       .getPublicUrl(cleanPath);
+    
+    if (error) {
+      console.error("Erreur Supabase:", error);
+      throw error;
+    }
     
     return data.publicUrl;
   } catch (error) {
@@ -105,5 +127,12 @@ export const getGenericImageUrl = (category: string, name: string): string => {
   if (category === 'cities' && name.includes('default')) {
     return DEFAULT_IMAGES.hero;
   }
-  return `images/${category}/${name}.jpg`;
+  
+  // Pour les autres images génériques, essayer d'abord en local
+  try {
+    return `images/${category}/${name}.jpg`;
+  } catch (error) {
+    // Si l'image n'existe pas localement, utiliser l'image par défaut
+    return DEFAULT_IMAGES.hero;
+  }
 };
