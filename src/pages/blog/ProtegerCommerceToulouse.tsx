@@ -37,6 +37,17 @@ const ProtegerCommerceToulouse: React.FC = () => {
         complété par des détecteurs pour les zones moins visibles.
       </p>
 
+      <figure className="my-8">
+        <img 
+          src="/lovable-uploads/3beb272a-6541-4eb8-b22e-a1c263954ff4.png" 
+          alt="Sécurité d'un commerce à Toulouse" 
+          className="w-full rounded-lg shadow-md"
+        />
+        <figcaption className="text-center text-sm text-gray-600 mt-2">
+          La sécurité des commerces à Toulouse nécessite une approche globale
+        </figcaption>
+      </figure>
+
       <h2 className="text-2xl font-bold mt-8 mb-4 text-levigile-dark">4. Utiliser des alarmes connectées</h2>
       <p className="mb-6">
         Une alarme avec télésurveillance permet une intervention rapide d'un agent à Toulouse en cas d'alerte. 
@@ -77,20 +88,20 @@ const ProtegerCommerceToulouse: React.FC = () => {
         author="Thomas Dupont"
         date="2025-04-10"
         readTime="8"
-        featuredImage="https://images.unsplash.com/photo-1613599229399-c7a78c1f6309?q=80&w=1170&auto=format&fit=crop"
+        featuredImage="/lovable-uploads/3beb272a-6541-4eb8-b22e-a1c263954ff4.png"
         content={articleContent}
         tags={["Sécurité commerce", "Toulouse", "Protection magasin", "Vidéosurveillance"]}
         relatedArticles={[
           {
             id: "3",
             title: "Différences entre gardiennage et surveillance mobile",
-            image: "https://images.unsplash.com/photo-1513147122760-ad1d5bf68cdb?q=80&w=1470&auto=format&fit=crop",
+            image: "https://images.unsplash.com/photo-1505236858219-8359eb29e329?q=80&w=1470&auto=format&fit=crop",
             slug: "difference-gardiennage-surveillance-mobile"
           },
           {
             id: "4",
             title: "Pourquoi opter pour un agent de sécurité la nuit à Colomiers",
-            image: "https://images.unsplash.com/photo-1617391258031-f8d80b22fb15?q=80&w=1470&auto=format&fit=crop",
+            image: "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?q=80&w=1470&auto=format&fit=crop",
             slug: "agent-securite-nuit-colomiers"
           }
         ]}
