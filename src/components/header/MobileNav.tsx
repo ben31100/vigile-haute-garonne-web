@@ -35,7 +35,7 @@ const MobileNav: React.FC = () => {
       <Sheet>
         <SheetTrigger asChild>
           <Button variant="ghost" size="sm" aria-label="Menu">
-            <Menu size={28} /> {/* Increased size from default 24 to 28 */}
+            <Menu size={32} /> {/* Increased size from 28 to 32 */}
           </Button>
         </SheetTrigger>
         <SheetContent side="right" className="py-8 px-4 w-[280px]">
