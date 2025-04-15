@@ -9,6 +9,8 @@ import BlogPagination from '@/components/blog/BlogPagination';
 import BlogSidebar from '@/components/blog/BlogSidebar';
 import BlogSearch from '@/components/blog/BlogSearch';
 import { categories, blogPosts } from '@/data/blogData';
+import { AlertCircle } from 'lucide-react';
+import { Alert, AlertDescription } from '@/components/ui/alert';
 
 const BlogPage: React.FC = () => {
   return (
@@ -32,20 +34,29 @@ const BlogPage: React.FC = () => {
               </div>
               
               {/* Articles */}
-              <div className="grid md:grid-cols-2 gap-6 mb-10">
-                {blogPosts.map((post) => (
-                  <BlogArticleCard key={post.id} post={post} />
-                ))}
-              </div>
+              {blogPosts.length > 0 ? (
+                <div className="grid md:grid-cols-2 gap-6 mb-10">
+                  {blogPosts.map((post) => (
+                    <BlogArticleCard key={post.id} post={post} />
+                  ))}
+                </div>
+              ) : (
+                <Alert className="mb-10">
+                  <AlertCircle className="h-4 w-4" />
+                  <AlertDescription>
+                    Aucun article n'est disponible pour le moment. Revenez bientôt pour découvrir nos nouveaux contenus.
+                  </AlertDescription>
+                </Alert>
+              )}
               
-              {/* Pagination */}
-              <BlogPagination />
+              {/* Pagination - Afficher seulement s'il y a des articles */}
+              {blogPosts.length > 0 && <BlogPagination />}
             </div>
             
             {/* Sidebar */}
             <BlogSidebar 
               categories={categories} 
-              popularPosts={blogPosts} 
+              popularPosts={blogPosts.slice(0, 3)} 
             />
           </div>
         </div>

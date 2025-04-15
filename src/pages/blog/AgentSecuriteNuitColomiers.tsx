@@ -65,20 +65,20 @@ const AgentSecuriteNuitColomiers: React.FC = () => {
         author="Sophie Blanc"
         date="2025-02-25"
         readTime="5"
-        featuredImage="https://images.unsplash.com/photo-1617391258031-f8d80b22fb15?q=80&w=1470&auto=format&fit=crop"
+        featuredImage="https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?q=80&w=1470&auto=format&fit=crop"
         content={articleContent}
         tags={["Sécurité de nuit", "Colomiers", "Zones industrielles", "Agent de sécurité"]}
         relatedArticles={[
           {
             id: "3",
             title: "Différences entre gardiennage et surveillance mobile",
-            image: "https://images.unsplash.com/photo-1513147122760-ad1d5bf68cdb?q=80&w=1470&auto=format&fit=crop",
+            image: "https://images.unsplash.com/photo-1505236858219-8359eb29e329?q=80&w=1470&auto=format&fit=crop",
             slug: "difference-gardiennage-surveillance-mobile"
           },
           {
             id: "1",
             title: "5 conseils pour protéger votre commerce à Toulouse",
-            image: "https://images.unsplash.com/photo-1613599229399-c7a78c1f6309?q=80&w=1170&auto=format&fit=crop",
+            image: "/lovable-uploads/3beb272a-6541-4eb8-b22e-a1c263954ff4.png",
             slug: "proteger-commerce-toulouse"
           }
         ]}

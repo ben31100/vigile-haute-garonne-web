@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { CalendarIcon, ClockIcon, UserIcon } from 'lucide-react';
+import { CalendarIcon, ClockIcon, UserIcon, ImageIcon } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 
 export interface BlogPost {
@@ -27,14 +27,28 @@ const BlogArticleCard: React.FC<BlogArticleCardProps> = ({ post }) => {
     return new Date(dateString).toLocaleDateString('fr-FR', options);
   };
 
+  // Gestion des erreurs d'image
+  const [imageError, setImageError] = React.useState(false);
+
+  const handleImageError = () => {
+    setImageError(true);
+  };
+
   return (
     <article className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col hover:shadow-lg transition-shadow">
-      <div className="h-48 overflow-hidden">
-        <img 
-          src={post.featuredImage} 
-          alt={post.title} 
-          className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-        />
+      <div className="h-48 overflow-hidden relative">
+        {!imageError ? (
+          <img 
+            src={post.featuredImage} 
+            alt={post.title} 
+            className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+            onError={handleImageError}
+          />
+        ) : (
+          <div className="w-full h-full bg-gray-200 flex items-center justify-center">
+            <ImageIcon className="w-12 h-12 text-gray-400" />
+          </div>
+        )}
       </div>
       <div className="p-6 flex-1 flex flex-col">
         <div className="flex flex-wrap gap-2 mb-3">
