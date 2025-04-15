@@ -1,6 +1,9 @@
 
 import React from 'react';
-import BlogArticle from '../components/BlogArticle';
+import { Helmet } from 'react-helmet-async';
+import Header from '@/components/header/Header';
+import Footer from '@/components/Footer';
+import BlogArticle from '@/components/blog/BlogArticle';
 
 const BlogArticleExample: React.FC = () => {
   // Exemple de contenu d'article formaté en JSX
@@ -86,7 +89,7 @@ const BlogArticleExample: React.FC = () => {
     </>
   );
 
-  // Exemple d'articles connexes
+  // Articles connexes
   const relatedArticles = [
     {
       id: '1',
@@ -102,7 +105,7 @@ const BlogArticleExample: React.FC = () => {
     }
   ];
 
-  // Exemple de services connexes
+  // Services connexes
   const relatedServices = [
     {
       id: '1',
@@ -124,19 +127,32 @@ const BlogArticleExample: React.FC = () => {
     }
   ];
 
+  const articleData = {
+    title: "Les meilleures pratiques de sécurité pour les entreprises en 2025",
+    subtitle: "Guide complet pour optimiser votre dispositif de sécurité",
+    author: "Thomas Dupont",
+    date: "2025-03-15",
+    readTime: "8",
+    featuredImage: "https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//logo%20levigile%20securite.png",
+    content: articleContent,
+    tags: ["Sécurité entreprise", "Gardiennage", "Prévention"],
+    relatedArticles: relatedArticles,
+    relatedServices: relatedServices
+  };
+
   return (
-    <BlogArticle
-      title="Les meilleures pratiques de sécurité pour les entreprises en 2025"
-      subtitle="Guide complet pour optimiser votre dispositif de sécurité"
-      author="Thomas Dupont"
-      date="2025-03-15"
-      readTime="8"
-      featuredImage="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//logo%20levigile%20securite.png"
-      content={articleContent}
-      tags={["Sécurité entreprise", "Gardiennage", "Prévention"]}
-      relatedArticles={relatedArticles}
-      relatedServices={relatedServices}
-    />
+    <>
+      <Helmet>
+        <title>{articleData.title} | Blog LeVigile</title>
+        <meta name="description" content={articleData.subtitle} />
+      </Helmet>
+      
+      <Header />
+      
+      <BlogArticle {...articleData} />
+      
+      <Footer />
+    </>
   );
 };
 
