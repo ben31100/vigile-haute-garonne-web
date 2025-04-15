@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { MapPin, Search } from 'lucide-react';
@@ -6,7 +5,6 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Helmet } from 'react-helmet-async';
 import { Input } from '@/components/ui/input';
-
 import citiesData from '../data/cities.json';
 import { useState } from 'react';
 
@@ -16,32 +14,66 @@ interface Department {
   name: string;
   code: string;
 }
-
 const CitiesList: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  
+
   // Définition des départements
-  const departments: Department[] = [
-    { id: "ariege", name: "Ariège", code: "09" },
-    { id: "aude", name: "Aude", code: "11" },
-    { id: "aveyron", name: "Aveyron", code: "12" },
-    { id: "gard", name: "Gard", code: "30" },
-    { id: "haute-garonne", name: "Haute-Garonne", code: "31" },
-    { id: "gers", name: "Gers", code: "32" },
-    { id: "herault", name: "Hérault", code: "34" },
-    { id: "lot", name: "Lot", code: "46" },
-    { id: "lozere", name: "Lozère", code: "48" },
-    { id: "hautes-pyrenees", name: "Hautes-Pyrénées", code: "65" },
-    { id: "pyrenees-orientales", name: "Pyrénées-Orientales", code: "66" },
-    { id: "tarn", name: "Tarn", code: "81" },
-    { id: "tarn-et-garonne", name: "Tarn-et-Garonne", code: "82" }
-  ];
-  
+  const departments: Department[] = [{
+    id: "ariege",
+    name: "Ariège",
+    code: "09"
+  }, {
+    id: "aude",
+    name: "Aude",
+    code: "11"
+  }, {
+    id: "aveyron",
+    name: "Aveyron",
+    code: "12"
+  }, {
+    id: "gard",
+    name: "Gard",
+    code: "30"
+  }, {
+    id: "haute-garonne",
+    name: "Haute-Garonne",
+    code: "31"
+  }, {
+    id: "gers",
+    name: "Gers",
+    code: "32"
+  }, {
+    id: "herault",
+    name: "Hérault",
+    code: "34"
+  }, {
+    id: "lot",
+    name: "Lot",
+    code: "46"
+  }, {
+    id: "lozere",
+    name: "Lozère",
+    code: "48"
+  }, {
+    id: "hautes-pyrenees",
+    name: "Hautes-Pyrénées",
+    code: "65"
+  }, {
+    id: "pyrenees-orientales",
+    name: "Pyrénées-Orientales",
+    code: "66"
+  }, {
+    id: "tarn",
+    name: "Tarn",
+    code: "81"
+  }, {
+    id: "tarn-et-garonne",
+    name: "Tarn-et-Garonne",
+    code: "82"
+  }];
+
   // Filter cities based on search term
-  const filteredCities = citiesData.filter(city => 
-    city.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    city.postalCode.includes(searchTerm)
-  );
+  const filteredCities = citiesData.filter(city => city.name.toLowerCase().includes(searchTerm.toLowerCase()) || city.postalCode.includes(searchTerm));
 
   // Regrouper les villes par code postal (département)
   const getCitiesByDepartment = (departmentCode: string) => {
@@ -50,16 +82,10 @@ const CitiesList: React.FC = () => {
 
   // Helper function to determine the correct link for each city
   const getCityLink = (cityId: string) => {
-    const htmlPages = [
-      'toulouse', 'blagnac', 'colomiers', 'tournefeuille', 'muret', 
-      'ramonville', 'saint-gaudens', 'balma', 'cugnaux', 'lunion',
-      'saint-orens', 'plaisance'
-    ];
+    const htmlPages = ['toulouse', 'blagnac', 'colomiers', 'tournefeuille', 'muret', 'ramonville', 'saint-gaudens', 'balma', 'cugnaux', 'lunion', 'saint-orens', 'plaisance'];
     return htmlPages.includes(cityId) ? `/${cityId}.html` : `/securite-ville-${cityId}`;
   };
-
-  return (
-    <div className="flex flex-col min-h-screen">
+  return <div className="flex flex-col min-h-screen">
       <Helmet>
         <title>Nos zones d'intervention en Occitanie | LeVigile</title>
         <meta name="description" content="Découvrez les villes où LeVigile intervient pour assurer votre sécurité en Occitanie. Services de gardiennage, surveillance et protection disponibles 24h/24 dans 7 départements." />
@@ -81,36 +107,23 @@ const CitiesList: React.FC = () => {
             
             <div className="max-w-md mx-auto mb-10 relative">
               <Search className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
-              <Input
-                type="text"
-                placeholder="Rechercher une ville ou un code postal..."
-                className="pl-10"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-              />
+              <Input type="text" placeholder="Rechercher une ville ou un code postal..." value={searchTerm} onChange={e => setSearchTerm(e.target.value)} className="pl-10 bg-[#f20909] rounded-sm" />
             </div>
             
             {departments.map(department => {
-              const departmentCities = getCitiesByDepartment(department.code);
-              
-              // Ne pas afficher les départements sans villes correspondant à la recherche
-              if (departmentCities.length === 0) {
-                return null;
-              }
-              
-              return (
-                <div key={department.id} className="mb-12">
+            const departmentCities = getCitiesByDepartment(department.code);
+
+            // Ne pas afficher les départements sans villes correspondant à la recherche
+            if (departmentCities.length === 0) {
+              return null;
+            }
+            return <div key={department.id} className="mb-12">
                   <h2 className="text-2xl font-semibold text-levigile-blue mb-6 border-b pb-2">
                     {department.name} ({department.code})
                   </h2>
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {departmentCities.map((city) => (
-                      <Link
-                        key={city.id}
-                        to={getCityLink(city.id)}
-                        className="block bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow border-t-4 border-levigile-blue hover:border-levigile-red"
-                      >
+                    {departmentCities.map(city => <Link key={city.id} to={getCityLink(city.id)} className="block bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow border-t-4 border-levigile-blue hover:border-levigile-red">
                         <div className="flex items-start">
                           <MapPin className="h-6 w-6 text-levigile-red shrink-0 mt-1" />
                           <div className="ml-3">
@@ -129,25 +142,19 @@ const CitiesList: React.FC = () => {
                             </p>
                           </div>
                         </div>
-                      </Link>
-                    ))}
+                      </Link>)}
                   </div>
-                </div>
-              );
-            })}
+                </div>;
+          })}
             
-            {filteredCities.length === 0 && (
-              <div className="text-center p-8">
+            {filteredCities.length === 0 && <div className="text-center p-8">
                 <p className="text-lg">Aucune ville ne correspond à votre recherche.</p>
-              </div>
-            )}
+              </div>}
           </div>
         </section>
       </main>
       
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default CitiesList;
