@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import Header from '@/components/Header';
@@ -79,7 +78,7 @@ const SaintOrensPage = () => {
         <CityHero 
           cityName={cityName} 
           subtitle={`Services de sécurité privée professionnels à ${cityName} (${postalCode})`} 
-          backgroundImage="/images/cities/default-hero.jpg"
+          backgroundImage="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//incendie-hero.jpg"
         />
         
         <section className="py-16 bg-white">

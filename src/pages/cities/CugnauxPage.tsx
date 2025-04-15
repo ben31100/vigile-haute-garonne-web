@@ -55,7 +55,7 @@ const CugnauxPage: React.FC = () => {
         <CityHero 
           cityName="Cugnaux"
           subtitle="Des solutions de sécurité sur mesure pour cette ville du sud-ouest toulousain"
-          backgroundImage="/images/cities/cugnaux-hero.jpg"
+          backgroundImage="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//gardiennage-hero.jpg"
         />
         
         <section className="py-16">
