@@ -92,14 +92,10 @@ export const getSupabaseImageUrl = async (imagePath: string): Promise<string> =>
       return DEFAULT_IMAGES.hero;
     }
     
-    const { data, error } = await supabase.storage
+    // Corrigé pour résoudre l'erreur TS: La méthode getPublicUrl ne retourne pas d'erreur, seulement data
+    const { data } = await supabase.storage
       .from('images')
       .getPublicUrl(cleanPath);
-    
-    if (error) {
-      console.error("Erreur Supabase:", error);
-      throw error;
-    }
     
     return data.publicUrl;
   } catch (error) {

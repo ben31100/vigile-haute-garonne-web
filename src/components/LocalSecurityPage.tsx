@@ -1,6 +1,5 @@
-
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 import HeroSection from './local-security/HeroSection';
@@ -15,6 +14,7 @@ import cities from '../data/cities.json';
 const LocalSecurityPage: React.FC = () => {
   const { cityId } = useParams<{ cityId: string }>();
   const [loaded, setLoaded] = useState(false);
+  const location = useLocation();
   
   // Find the city data
   const city = cities.find(c => c.id === cityId);
@@ -45,11 +45,11 @@ const LocalSecurityPage: React.FC = () => {
     ];
   };
   
-  // Scroll to top on page load
+  // Scroll to top on page load or route change
   useEffect(() => {
     window.scrollTo(0, 0);
     setLoaded(true);
-  }, [cityId]);
+  }, [cityId, location.pathname]);
   
   if (!loaded) {
     return <div>Chargement...</div>;
