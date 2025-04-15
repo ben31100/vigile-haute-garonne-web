@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Menu, ChevronDown } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -34,7 +35,7 @@ const MobileNav: React.FC = () => {
       <Sheet>
         <SheetTrigger asChild>
           <Button variant="ghost" size="sm" aria-label="Menu">
-            <Menu />
+            <Menu size={28} /> {/* Increased size from default 24 to 28 */}
           </Button>
         </SheetTrigger>
         <SheetContent side="right" className="py-8 px-4 w-[280px]">
