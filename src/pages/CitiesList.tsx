@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { MapPin, Search } from 'lucide-react';
@@ -15,6 +14,7 @@ interface Department {
   name: string;
   code: string;
 }
+
 const CitiesList: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -74,7 +74,10 @@ const CitiesList: React.FC = () => {
   }];
 
   // Filter cities based on search term
-  const filteredCities = citiesData.filter(city => city.name.toLowerCase().includes(searchTerm.toLowerCase()) || city.postalCode.includes(searchTerm));
+  const filteredCities = citiesData.filter(city => 
+    city.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
+    city.postalCode.includes(searchTerm)
+  );
 
   // Regrouper les villes par code postal (département)
   const getCitiesByDepartment = (departmentCode: string) => {
@@ -86,11 +89,12 @@ const CitiesList: React.FC = () => {
     const htmlPages = ['toulouse', 'blagnac', 'colomiers', 'tournefeuille', 'muret', 'ramonville', 'saint-gaudens', 'balma', 'cugnaux', 'lunion', 'saint-orens', 'plaisance'];
     
     // Special handling for department pages
-    const departmentPages = ['ariege', 'aude', 'aveyron', 'gard'];
-    if (departmentPages.includes(cityId)) {
-      return `/${cityId}.html`;
-    }
+    if (cityId === 'foix') return '/ariege.html';
+    if (cityId === 'carcassonne') return '/aude.html';
+    if (cityId === 'rodez') return '/aveyron.html';
+    if (cityId === 'nimes') return '/gard.html';
     
+    // Regular city pages
     return htmlPages.includes(cityId) ? `/${cityId}.html` : `/securite-ville-${cityId}`;
   };
   
@@ -111,10 +115,14 @@ const CitiesList: React.FC = () => {
     return `Découvrir nos services à ${city.name} →`;
   };
   
-  return <div className="flex flex-col min-h-screen">
+  return (
+    <div className="flex flex-col min-h-screen">
       <Helmet>
         <title>Nos zones d'intervention en Occitanie | LeVigile</title>
-        <meta name="description" content="Découvrez les villes où LeVigile intervient pour assurer votre sécurité en Occitanie. Services de gardiennage, surveillance et protection disponibles 24h/24 dans 7 départements." />
+        <meta 
+          name="description" 
+          content="Découvrez les villes où LeVigile intervient pour assurer votre sécurité en Occitanie. Services de gardiennage, surveillance et protection disponibles 24h/24 dans 7 départements." 
+        />
       </Helmet>
       
       <Header />
@@ -143,19 +151,26 @@ const CitiesList: React.FC = () => {
             </div>
             
             {departments.map(department => {
-            const departmentCities = getCitiesByDepartment(department.code);
+              const departmentCities = getCitiesByDepartment(department.code);
 
-            // Ne pas afficher les départements sans villes correspondant à la recherche
-            if (departmentCities.length === 0) {
-              return null;
-            }
-            return <div key={department.id} className="mb-12">
+              // Ne pas afficher les départements sans villes correspondant à la recherche
+              if (departmentCities.length === 0) {
+                return null;
+              }
+              
+              return (
+                <div key={department.id} className="mb-12">
                   <h2 className="text-2xl font-semibold text-levigile-blue mb-6 border-b pb-2">
                     {department.name} ({department.code})
                   </h2>
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {departmentCities.map(city => <Link key={city.id} to={getCityLink(city.id === 'foix' ? 'ariege' : (city.id === 'carcassonne' ? 'aude' : (city.id === 'rodez' ? 'aveyron' : (city.id === 'nimes' ? 'gard' : city.id))))} className="block bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow border-t-4 border-levigile-blue hover:border-levigile-red">
+                    {departmentCities.map(city => (
+                      <Link 
+                        key={city.id} 
+                        to={getCityLink(city.id)} 
+                        className="block bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow border-t-4 border-levigile-blue hover:border-levigile-red"
+                      >
                         <div className="flex items-start">
                           <MapPin className="h-6 w-6 text-levigile-red shrink-0 mt-1" />
                           <div className="ml-3">
@@ -174,19 +189,25 @@ const CitiesList: React.FC = () => {
                             </p>
                           </div>
                         </div>
-                      </Link>)}
+                      </Link>
+                    ))}
                   </div>
-                </div>;
-          })}
+                </div>
+              );
+            })}
             
-            {filteredCities.length === 0 && <div className="text-center p-8">
+            {filteredCities.length === 0 && (
+              <div className="text-center p-8">
                 <p className="text-lg">Aucune ville ne correspond à votre recherche.</p>
-              </div>}
+              </div>
+            )}
           </div>
         </section>
       </main>
       
       <Footer />
-    </div>;
+    </div>
+  );
 };
+
 export default CitiesList;
