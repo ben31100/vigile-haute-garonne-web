@@ -1,25 +1,34 @@
+
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { useIsMobile } from '@/hooks/use-mobile';
+
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isVillesDropdownOpen, setIsVillesDropdownOpen] = useState(false);
   const isMobile = useIsMobile();
+  
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+  
   const toggleVillesDropdown = () => {
     setIsVillesDropdownOpen(!isVillesDropdownOpen);
   };
+  
   return <header className="bg-white shadow-md fixed w-full z-50">
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center">
           <Link to="/" className="flex items-center">
-            <img alt="LeVigile Logo" className="h-10 w-auto" src="/lovable-uploads/dc4a6e50-d420-4308-a7a4-442b41b2befb.png" />
+            <img 
+              alt="LeVigile Logo" 
+              className="h-10 w-auto" 
+              src="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//logo%20levigile%20securite.png" 
+            />
           </Link>
         </div>
 
@@ -79,4 +88,5 @@ const Header: React.FC = () => {
       </div>
     </header>;
 };
+
 export default Header;
