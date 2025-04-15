@@ -1,7 +1,6 @@
 
-import React, { useMemo } from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { useSearchParams } from 'react-router-dom';
 import Header from '@/components/header/Header';
 import Footer from '@/components/Footer';
 import BlogHero from '@/components/blog/BlogHero';
@@ -13,12 +12,7 @@ import { categories as staticCategories, blogPosts } from '@/data/blogData';
 import { AlertCircle } from 'lucide-react';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 
-const ITEMS_PER_PAGE = 6;
-
 const BlogPage: React.FC = () => {
-  const [searchParams] = useSearchParams();
-  const currentPage = Number(searchParams.get('page') || '1');
-
   // Calculate actual category counts based on blog posts
   const categoriesWithRealCounts = staticCategories.map(category => {
     const count = blogPosts.filter(post => 
@@ -30,13 +24,6 @@ const BlogPage: React.FC = () => {
       count
     };
   });
-
-  // Paginate posts
-  const paginatedPosts = useMemo(() => {
-    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-    const endIndex = startIndex + ITEMS_PER_PAGE;
-    return blogPosts.slice(startIndex, endIndex);
-  }, [currentPage]);
 
   return (
     <>
@@ -60,19 +47,11 @@ const BlogPage: React.FC = () => {
               
               {/* Articles */}
               {blogPosts.length > 0 ? (
-                <>
-                  <div className="grid md:grid-cols-2 gap-6 mb-10">
-                    {paginatedPosts.map((post) => (
-                      <BlogArticleCard key={post.id} post={post} />
-                    ))}
-                  </div>
-                  
-                  {/* Pagination - Afficher seulement s'il y a des articles */}
-                  <BlogPagination 
-                    totalItems={blogPosts.length} 
-                    itemsPerPage={ITEMS_PER_PAGE} 
-                  />
-                </>
+                <div className="grid md:grid-cols-2 gap-6 mb-10">
+                  {blogPosts.map((post) => (
+                    <BlogArticleCard key={post.id} post={post} />
+                  ))}
+                </div>
               ) : (
                 <Alert className="mb-10">
                   <AlertCircle className="h-4 w-4" />
@@ -81,6 +60,9 @@ const BlogPage: React.FC = () => {
                   </AlertDescription>
                 </Alert>
               )}
+              
+              {/* Pagination - Afficher seulement s'il y a des articles */}
+              {blogPosts.length > 0 && <BlogPagination />}
             </div>
             
             {/* Sidebar */}
