@@ -21,6 +21,17 @@ const DifferenceGardiennageSurveillance: React.FC = () => {
         comme l'accueil des visiteurs, la gestion des entrées/sorties ou la surveillance des systèmes de sécurité.
       </p>
 
+      <figure className="my-8">
+        <img 
+          src="https://images.unsplash.com/photo-1505236858219-8359eb29e329?q=80&w=1470&auto=format&fit=crop" 
+          alt="Surveillance et gardiennage" 
+          className="w-full rounded-lg shadow-md"
+        />
+        <figcaption className="text-center text-sm text-gray-600 mt-2">
+          Différentes approches pour la sécurité de vos locaux
+        </figcaption>
+      </figure>
+
       <h2 className="text-2xl font-bold mt-8 mb-4 text-levigile-dark">Surveillance mobile : rondes à horaires définis ou aléatoires</h2>
       <p className="mb-6">
         L'agent se déplace d'un site à l'autre, souvent la nuit, pour contrôler que tout est en ordre. Cette solution 
@@ -74,20 +85,20 @@ const DifferenceGardiennageSurveillance: React.FC = () => {
         author="Jean Moreau"
         date="2025-03-15"
         readTime="7"
-        featuredImage="https://images.unsplash.com/photo-1513147122760-ad1d5bf68cdb?q=80&w=1470&auto=format&fit=crop"
+        featuredImage="https://images.unsplash.com/photo-1505236858219-8359eb29e329?q=80&w=1470&auto=format&fit=crop"
         content={articleContent}
         tags={["Gardiennage", "Surveillance mobile", "Sécurité privée", "Rondes de nuit"]}
         relatedArticles={[
           {
             id: "4",
             title: "Pourquoi opter pour un agent de sécurité la nuit à Colomiers",
-            image: "https://images.unsplash.com/photo-1617391258031-f8d80b22fb15?q=80&w=1470&auto=format&fit=crop",
+            image: "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?q=80&w=1470&auto=format&fit=crop",
             slug: "agent-securite-nuit-colomiers"
           },
           {
             id: "1",
             title: "5 conseils pour protéger votre commerce à Toulouse",
-            image: "https://images.unsplash.com/photo-1613599229399-c7a78c1f6309?q=80&w=1170&auto=format&fit=crop",
+            image: "/lovable-uploads/3beb272a-6541-4eb8-b22e-a1c263954ff4.png",
             slug: "proteger-commerce-toulouse"
           }
         ]}

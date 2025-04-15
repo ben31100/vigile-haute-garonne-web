@@ -23,6 +23,17 @@ const Reglementation2025: React.FC = () => {
         sous peine de sanctions administratives et financières.
       </p>
 
+      <figure className="my-8">
+        <img 
+          src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=1470&auto=format&fit=crop" 
+          alt="Réglementation sécurité privée" 
+          className="w-full rounded-lg shadow-md"
+        />
+        <figcaption className="text-center text-sm text-gray-600 mt-2">
+          Les nouvelles règles de 2025 impactent tous les acteurs du secteur
+        </figcaption>
+      </figure>
+
       <h2 className="text-2xl font-bold mt-8 mb-4 text-levigile-dark">Renforcement du contrôle par le CNAPS</h2>
       <p className="mb-6">
         Des vérifications renforcées sont prévues pour les entreprises de sécurité. Le Conseil National des Activités Privées 
@@ -84,13 +95,13 @@ const Reglementation2025: React.FC = () => {
           {
             id: "2",
             title: "Sécurité événementielle : comment choisir la bonne société ?",
-            image: "https://images.unsplash.com/photo-1505236858219-8359eb29e329?q=80&w=1562&auto=format&fit=crop",
+            image: "https://images.unsplash.com/photo-1472396961693-142e6e269027?q=80&w=1562&auto=format&fit=crop",
             slug: "securite-evenementielle-choisir"
           },
           {
             id: "3",
             title: "Différences entre gardiennage et surveillance mobile",
-            image: "https://images.unsplash.com/photo-1513147122760-ad1d5bf68cdb?q=80&w=1470&auto=format&fit=crop",
+            image: "https://images.unsplash.com/photo-1505236858219-8359eb29e329?q=80&w=1470&auto=format&fit=crop",
             slug: "difference-gardiennage-surveillance-mobile"
           }
         ]}

@@ -21,6 +21,17 @@ const SecuriteEvenementielle: React.FC = () => {
         avec des professionnels reconnus par l'État.
       </p>
 
+      <figure className="my-8">
+        <img 
+          src="https://images.unsplash.com/photo-1472396961693-142e6e269027?q=80&w=1562&auto=format&fit=crop" 
+          alt="Sécurité événementielle professionnelle" 
+          className="w-full rounded-lg shadow-md"
+        />
+        <figcaption className="text-center text-sm text-gray-600 mt-2">
+          La sécurité événementielle requiert des professionnels qualifiés
+        </figcaption>
+      </figure>
+
       <h2 className="text-2xl font-bold mt-8 mb-4 text-levigile-dark">Évaluez leur expérience dans l'événementiel</h2>
       <p className="mb-6">
         Chaque type d'événement (festif, politique, professionnel) nécessite un savoir-faire spécifique. Une société 
@@ -70,14 +81,14 @@ const SecuriteEvenementielle: React.FC = () => {
         author="Marie Laurent"
         date="2025-03-28"
         readTime="6"
-        featuredImage="https://images.unsplash.com/photo-1505236858219-8359eb29e329?q=80&w=1562&auto=format&fit=crop"
+        featuredImage="https://images.unsplash.com/photo-1472396961693-142e6e269027?q=80&w=1562&auto=format&fit=crop"
         content={articleContent}
         tags={["Sécurité événementielle", "CNAPS", "Haute-Garonne", "Organisation événement"]}
         relatedArticles={[
           {
             id: "1",
             title: "5 conseils pour protéger votre commerce à Toulouse",
-            image: "https://images.unsplash.com/photo-1613599229399-c7a78c1f6309?q=80&w=1170&auto=format&fit=crop",
+            image: "/lovable-uploads/3beb272a-6541-4eb8-b22e-a1c263954ff4.png",
             slug: "proteger-commerce-toulouse"
           },
           {
