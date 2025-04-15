@@ -1,5 +1,5 @@
 
-import React, { useMemo, useState } from 'react';
+import React, { useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Header from '@/components/header/Header';
@@ -11,9 +11,6 @@ import BlogSearch from '@/components/blog/BlogSearch';
 import { categories as staticCategories, blogPosts } from '@/data/blogData';
 
 const BlogCategoryPage: React.FC = () => {
-  // Articles per page - augmenté à 6
-  const itemsPerPage = 6;
-  const [currentPage, setCurrentPage] = useState(1);
   const { categorySlug } = useParams<{ categorySlug: string }>();
   
   // Convert slug back to category name for display and filtering
@@ -33,17 +30,6 @@ const BlogCategoryPage: React.FC = () => {
       post.categories.some(cat => cat.toLowerCase() === categoryName.toLowerCase())
     );
   }, [categoryName]);
-
-  // Pagination logic
-  const totalPages = Math.ceil(filteredPosts.length / itemsPerPage);
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
-  const currentPosts = filteredPosts.slice(startIndex, endIndex);
-
-  const handlePageChange = (page: number) => {
-    setCurrentPage(page);
-    window.scrollTo(0, 0);
-  };
 
   // Calculate actual category counts based on blog posts
   const categoriesWithRealCounts = staticCategories.map(category => {
@@ -90,17 +76,13 @@ const BlogCategoryPage: React.FC = () => {
                 <>
                   {/* Articles */}
                   <div className="grid md:grid-cols-2 gap-6 mb-10">
-                    {currentPosts.map((post) => (
+                    {filteredPosts.map((post) => (
                       <BlogArticleCard key={post.id} post={post} />
                     ))}
                   </div>
                   
                   {/* Pagination */}
-                  <BlogPagination 
-                    currentPage={currentPage} 
-                    totalPages={totalPages} 
-                    onPageChange={handlePageChange} 
-                  />
+                  <BlogPagination />
                 </>
               ) : (
                 <div className="bg-white p-8 rounded-lg shadow-md text-center">

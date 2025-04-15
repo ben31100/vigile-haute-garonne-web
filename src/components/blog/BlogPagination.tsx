@@ -1,71 +1,17 @@
 
 import React from 'react';
-import {
-  Pagination,
-  PaginationContent,
-  PaginationItem,
-  PaginationLink,
-  PaginationNext,
-  PaginationPrevious,
-} from "@/components/ui/pagination";
+import { Button } from '@/components/ui/button';
 
-interface BlogPaginationProps {
-  currentPage: number;
-  totalPages: number;
-  onPageChange: (page: number) => void;
-}
-
-const BlogPagination: React.FC<BlogPaginationProps> = ({ 
-  currentPage, 
-  totalPages,
-  onPageChange
-}) => {
-  // Don't render pagination if there's only one page
-  if (totalPages <= 1) return null;
-
+const BlogPagination: React.FC = () => {
   return (
     <div className="flex justify-center mt-10">
-      <Pagination>
-        <PaginationContent>
-          <PaginationItem>
-            <PaginationPrevious 
-              onClick={(e) => {
-                e.preventDefault();
-                if (currentPage > 1) onPageChange(currentPage - 1);
-              }}
-              className={currentPage <= 1 ? "pointer-events-none opacity-50" : "cursor-pointer"}
-              href="#"
-            />
-          </PaginationItem>
-          
-          {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-            <PaginationItem key={page}>
-              <PaginationLink 
-                onClick={(e) => {
-                  e.preventDefault();
-                  onPageChange(page);
-                }}
-                isActive={page === currentPage}
-                href="#"
-                className={`cursor-pointer ${page === currentPage ? "bg-levigile-blue text-white hover:bg-levigile-dark" : ""}`}
-              >
-                {page}
-              </PaginationLink>
-            </PaginationItem>
-          ))}
-          
-          <PaginationItem>
-            <PaginationNext 
-              onClick={(e) => {
-                e.preventDefault();
-                if (currentPage < totalPages) onPageChange(currentPage + 1);
-              }}
-              className={currentPage >= totalPages ? "pointer-events-none opacity-50" : "cursor-pointer"}
-              href="#"
-            />
-          </PaginationItem>
-        </PaginationContent>
-      </Pagination>
+      <nav className="flex items-center space-x-2">
+        <Button variant="outline" size="sm" disabled>Précédent</Button>
+        <Button variant="default" size="sm" className="bg-levigile-blue hover:bg-levigile-dark">1</Button>
+        <Button variant="outline" size="sm">2</Button>
+        <Button variant="outline" size="sm">3</Button>
+        <Button variant="outline" size="sm">Suivant</Button>
+      </nav>
     </div>
   );
 };

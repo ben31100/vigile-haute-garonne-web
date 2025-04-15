@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import Header from '@/components/header/Header';
 import Footer from '@/components/Footer';
@@ -13,10 +13,6 @@ import { AlertCircle } from 'lucide-react';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 
 const BlogPage: React.FC = () => {
-  // Articles per page - augmenté à 6
-  const itemsPerPage = 6;
-  const [currentPage, setCurrentPage] = useState(1);
-
   // Calculate actual category counts based on blog posts
   const categoriesWithRealCounts = staticCategories.map(category => {
     const count = blogPosts.filter(post => 
@@ -28,17 +24,6 @@ const BlogPage: React.FC = () => {
       count
     };
   });
-
-  // Pagination logic
-  const totalPages = Math.ceil(blogPosts.length / itemsPerPage);
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
-  const currentPosts = blogPosts.slice(startIndex, endIndex);
-
-  const handlePageChange = (page: number) => {
-    setCurrentPage(page);
-    window.scrollTo(0, 0);
-  };
 
   return (
     <>
@@ -63,7 +48,7 @@ const BlogPage: React.FC = () => {
               {/* Articles */}
               {blogPosts.length > 0 ? (
                 <div className="grid md:grid-cols-2 gap-6 mb-10">
-                  {currentPosts.map((post) => (
+                  {blogPosts.map((post) => (
                     <BlogArticleCard key={post.id} post={post} />
                   ))}
                 </div>
@@ -77,13 +62,7 @@ const BlogPage: React.FC = () => {
               )}
               
               {/* Pagination - Afficher seulement s'il y a des articles */}
-              {blogPosts.length > 0 && 
-                <BlogPagination 
-                  currentPage={currentPage} 
-                  totalPages={totalPages} 
-                  onPageChange={handlePageChange} 
-                />
-              }
+              {blogPosts.length > 0 && <BlogPagination />}
             </div>
             
             {/* Sidebar */}
