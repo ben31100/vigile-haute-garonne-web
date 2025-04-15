@@ -5,6 +5,8 @@ import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { useIsMobile } from '@/hooks/use-mobile';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -79,11 +81,65 @@ const Header: React.FC = () => {
           <a href="/#contact" className="text-levigile-dark hover:text-levigile-blue font-medium">Contact</a>
         </nav>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Menu Button with Sheet */}
         <div className="md:hidden">
-          <Button variant="ghost" size="sm" onClick={toggleMenu} aria-label={isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}>
-            {isMenuOpen ? <X /> : <Menu />}
-          </Button>
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="sm" aria-label="Menu">
+                <Menu />
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="py-8 px-4 w-[280px]">
+              <div className="flex flex-col space-y-4">
+                <Link 
+                  to="/" 
+                  className="text-levigile-dark hover:text-levigile-blue font-medium py-2"
+                >
+                  Accueil
+                </Link>
+                <a 
+                  href="/#services" 
+                  className="text-levigile-dark hover:text-levigile-blue font-medium py-2"
+                >
+                  Nos services
+                </a>
+                
+                <Collapsible className="w-full">
+                  <CollapsibleTrigger className="flex w-full justify-between items-center text-levigile-dark hover:text-levigile-blue font-medium py-2">
+                    <span>Villes</span>
+                    <ChevronDown className="h-4 w-4" />
+                  </CollapsibleTrigger>
+                  <CollapsibleContent className="pl-4 pt-2 flex flex-col space-y-2">
+                    <Link to="/toulouse.html" className="text-sm text-gray-700 hover:text-levigile-blue py-1">
+                      Toulouse
+                    </Link>
+                    <Link to="/blagnac.html" className="text-sm text-gray-700 hover:text-levigile-blue py-1">
+                      Blagnac
+                    </Link>
+                    <Link to="/colomiers.html" className="text-sm text-gray-700 hover:text-levigile-blue py-1">
+                      Colomiers
+                    </Link>
+                    <Link to="/tournefeuille.html" className="text-sm text-gray-700 hover:text-levigile-blue py-1">
+                      Tournefeuille
+                    </Link>
+                    <Link to="/muret.html" className="text-sm text-gray-700 hover:text-levigile-blue py-1">
+                      Muret
+                    </Link>
+                    <Link to="/villes" className="text-sm font-medium text-levigile-blue hover:text-levigile-dark py-1">
+                      Toutes les villes
+                    </Link>
+                  </CollapsibleContent>
+                </Collapsible>
+                
+                <a 
+                  href="/#contact" 
+                  className="text-levigile-dark hover:text-levigile-blue font-medium py-2"
+                >
+                  Contact
+                </a>
+              </div>
+            </SheetContent>
+          </Sheet>
         </div>
       </div>
     </header>;
