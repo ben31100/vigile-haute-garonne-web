@@ -6,6 +6,7 @@ import Footer from '@/components/Footer';
 import CityHero from '@/components/cities/CityHero';
 import SpecificitesSection, { SpecificiteItem } from '@/components/cities/SpecificitesSection';
 import CtaSection from '@/components/cities/CtaSection';
+import FaqSection from '@/components/cities/FaqSection';
 import { Shield, MapPin, Calendar, Building, Users } from 'lucide-react';
 
 const AriegePage: React.FC = () => {
@@ -38,6 +39,26 @@ const AriegePage: React.FC = () => {
       icon: Users,
       title: "Surveillance des établissements publics",
       description: "Protection des écoles, gymnases et infrastructures municipales dans tout le département."
+    }
+  ];
+
+  // FAQ items for Ariège
+  const faqItems = [
+    {
+      question: "Quels sont les services de sécurité proposés par LeVigile en Ariège ?",
+      answer: `LeVigile propose en Ariège (${postalCode}) des services complets de sécurité privée incluant la protection des zones résidentielles, la sécurité des commerces, le gardiennage de sites industriels, la sécurité événementielle et la surveillance des établissements publics dans tout le département.`
+    },
+    {
+      question: "Comment contacter LeVigile pour un devis de sécurité en Ariège ?",
+      answer: "Pour obtenir un devis gratuit et personnalisé pour vos besoins en sécurité en Ariège, contactez-nous au 05 54 54 64 28 ou par email à contact@levigile.fr. Notre équipe locale vous répondra sous 24h avec une proposition adaptée à votre situation."
+    },
+    {
+      question: "LeVigile intervient-il en urgence dans les zones rurales de l'Ariège ?",
+      answer: "Oui, LeVigile dispose d'agents répartis stratégiquement sur tout le territoire ariégeois pour garantir des interventions rapides, même dans les zones rurales et montagneuses. Nous maintenons un maillage territorial qui permet d'assurer une présence réactive sur l'ensemble du département."
+    },
+    {
+      question: "Proposez-vous des services adaptés à la saisonnalité touristique en Ariège ?",
+      answer: "Absolument, LeVigile adapte ses dispositifs de sécurité en fonction de la saisonnalité touristique en Ariège. Nous renforçons nos équipes pendant les périodes d'affluence et proposons des prestations spécifiques pour les sites touristiques, stations de montagne et événements saisonniers."
     }
   ];
 
@@ -116,6 +137,11 @@ const AriegePage: React.FC = () => {
         </section>
         
         <SpecificitesSection items={specificitesItems} />
+        
+        <FaqSection 
+          items={faqItems} 
+          title={`Questions fréquentes sur nos services en ${departmentName}`}
+        />
         
         <CtaSection 
           title={`Besoin d'un devis pour votre sécurité en ${departmentName} ?`}

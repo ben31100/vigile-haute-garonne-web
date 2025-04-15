@@ -6,6 +6,7 @@ import Footer from '@/components/Footer';
 import CityHero from '@/components/cities/CityHero';
 import SpecificitesSection, { SpecificiteItem } from '@/components/cities/SpecificitesSection';
 import CtaSection from '@/components/cities/CtaSection';
+import FaqSection from '@/components/cities/FaqSection';
 import { Shield, MapPin, Calendar, Building, Users } from 'lucide-react';
 
 const AveyronPage: React.FC = () => {
@@ -38,6 +39,30 @@ const AveyronPage: React.FC = () => {
       icon: Users,
       title: "Protection du patrimoine",
       description: "Surveillance des sites historiques et touristiques du département, notamment à Rodez, Conques et Millau."
+    }
+  ];
+
+  // FAQ items for Aveyron
+  const faqItems = [
+    {
+      question: "Quels sont les services de sécurité proposés par LeVigile en Aveyron ?",
+      answer: `LeVigile propose en Aveyron (${postalCode}) des services complets de sécurité privée incluant la protection des zones résidentielles rurales et urbaines, la sécurité des commerces, le gardiennage de sites industriels et agricoles, la sécurité événementielle et la protection du patrimoine touristique.`
+    },
+    {
+      question: "Comment contacter LeVigile pour un devis de sécurité en Aveyron ?",
+      answer: "Pour obtenir un devis gratuit et personnalisé pour vos besoins en sécurité en Aveyron, contactez-nous au 05 54 54 64 28 ou par email à contact@levigile.fr. Notre équipe locale vous répondra sous 24h avec une proposition adaptée à votre situation."
+    },
+    {
+      question: "LeVigile propose-t-il des services adaptés au milieu rural aveyronnais ?",
+      answer: "Absolument, LeVigile a développé une expertise spécifique pour la sécurité en milieu rural. Nos services comprennent la surveillance des exploitations agricoles, la protection du matériel et du bétail, la sécurisation des stocks et la prévention des vols dans les zones isolées de l'Aveyron."
+    },
+    {
+      question: "Comment assurez-vous la sécurité pour les événements touristiques comme les festivals aveyronnais ?",
+      answer: "Pour les événements touristiques et festivals en Aveyron, LeVigile déploie des équipes formées à la gestion des foules et à la sécurité événementielle. Nous travaillons en étroite collaboration avec les organisateurs pour établir des plans de sécurité adaptés, assurer le contrôle d'accès et maintenir un environnement sûr pour tous les participants."
+    },
+    {
+      question: "Proposez-vous des services pour la protection des sites patrimoniaux en Aveyron ?",
+      answer: "Oui, LeVigile offre des services spécialisés pour la protection des sites patrimoniaux aveyronnais comme Conques, le viaduc de Millau ou les bastides. Nos agents sont formés à la préservation des lieux historiques tout en assurant la sécurité des visiteurs et la prévention des dégradations."
     }
   ];
 
@@ -116,6 +141,11 @@ const AveyronPage: React.FC = () => {
         </section>
         
         <SpecificitesSection items={specificitesItems} />
+        
+        <FaqSection 
+          items={faqItems} 
+          title={`Questions fréquentes sur nos services en ${departmentName}`}
+        />
         
         <CtaSection 
           title={`Besoin d'un devis pour votre sécurité en ${departmentName} ?`}

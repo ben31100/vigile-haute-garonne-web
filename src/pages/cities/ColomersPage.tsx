@@ -6,6 +6,7 @@ import Footer from '@/components/Footer';
 import CityHero from '@/components/cities/CityHero';
 import SpecificitesSection, { SpecificiteItem } from '@/components/cities/SpecificitesSection';
 import CtaSection from '@/components/cities/CtaSection';
+import FaqSection from '@/components/cities/FaqSection';
 import { MapPin, Users, Building, Star, Activity } from 'lucide-react';
 
 const ColomersPage: React.FC = () => {
@@ -36,6 +37,26 @@ const ColomersPage: React.FC = () => {
       description: "Patrouilles régulières dans les zones résidentielles et commerciales pour prévenir les actes de malveillance."
     }
   ];
+  
+  // FAQ items for Colomiers
+  const faqItems = [
+    {
+      question: "Quels sont les services de sécurité proposés par LeVigile à Colomiers ?",
+      answer: "LeVigile propose à Colomiers des services complets de sécurité privée incluant la protection des zones d'activités (Perget, En Jacca), la sécurité des sites industriels aéronautiques, le gardiennage d'immeubles, la sécurité événementielle et les rondes de surveillance. Nos agents sont formés spécifiquement pour intervenir sur Colomiers et ses spécificités locales."
+    },
+    {
+      question: "Comment contacter LeVigile pour un devis de sécurité à Colomiers ?",
+      answer: "Pour obtenir un devis gratuit et personnalisé pour vos besoins en sécurité à Colomiers, contactez-nous au 05 54 54 64 28 ou par email à contact@levigile.fr. Notre équipe locale vous répondra sous 24h avec une proposition adaptée à votre situation."
+    },
+    {
+      question: "Proposez-vous des services adaptés aux sous-traitants aéronautiques de Colomiers ?",
+      answer: "Oui, LeVigile propose des solutions spécifiques pour les sous-traitants aéronautiques implantés à Colomiers, comprenant la protection des installations sensibles, le contrôle d'accès, la surveillance des secrets industriels et la sécurisation des chaînes de production."
+    },
+    {
+      question: "Assurez-vous la sécurité pour les événements au Hall Comminges ?",
+      answer: "Oui, LeVigile dispose d'une équipe expérimentée pour la sécurité événementielle à Colomiers, notamment au Hall Comminges. Nos agents assurent le contrôle d'accès, la gestion des flux de visiteurs et la surveillance générale pour tous types d'événements, salons et manifestations culturelles."
+    }
+  ];
 
   return (
     <>
@@ -56,6 +77,11 @@ const ColomersPage: React.FC = () => {
           />
           
           <SpecificitesSection items={specificites} />
+          
+          <FaqSection 
+            items={faqItems} 
+            title="Questions fréquentes sur nos services à Colomiers"
+          />
           
           <CtaSection 
             title="Besoin de sécurité à Colomiers ?" 

@@ -6,6 +6,7 @@ import Footer from '@/components/Footer';
 import CityHero from '@/components/cities/CityHero';
 import SpecificitesSection, { SpecificiteItem } from '@/components/cities/SpecificitesSection';
 import CtaSection from '@/components/cities/CtaSection';
+import FaqSection from '@/components/cities/FaqSection';
 import { Shield, MapPin, Calendar, Building, Users } from 'lucide-react';
 
 const GardPage: React.FC = () => {
@@ -38,6 +39,30 @@ const GardPage: React.FC = () => {
       icon: Users,
       title: "Protection du patrimoine",
       description: "Surveillance des sites historiques et touristiques comme le Pont du Gard, les arènes de Nîmes et autres monuments."
+    }
+  ];
+
+  // FAQ items for Gard
+  const faqItems = [
+    {
+      question: "Quels sont les services de sécurité proposés par LeVigile dans le Gard ?",
+      answer: `LeVigile propose dans le Gard (${postalCode}) des services complets de sécurité privée incluant la protection des zones résidentielles, la sécurité des zones commerciales, le gardiennage de sites viticoles, la sécurité événementielle pour les ferias et festivals, et la protection du patrimoine historique.`
+    },
+    {
+      question: "Comment contacter LeVigile pour un devis de sécurité dans le Gard ?",
+      answer: "Pour obtenir un devis gratuit et personnalisé pour vos besoins en sécurité dans le Gard, contactez-nous au 05 54 54 64 28 ou par email à contact@levigile.fr. Notre équipe locale vous répondra sous 24h avec une proposition adaptée à votre situation."
+    },
+    {
+      question: "LeVigile propose-t-il des services spécifiques pour les ferias et événements taurins du Gard ?",
+      answer: "Oui, LeVigile a développé une expertise particulière pour la sécurité des ferias et événements taurins si caractéristiques du Gard. Nos agents sont formés aux spécificités de ces manifestations, à la gestion des foules festives et à la coordination avec les autorités locales pour assurer le bon déroulement de ces événements traditionnels."
+    },
+    {
+      question: "Comment assurez-vous la sécurité des sites touristiques comme le Pont du Gard ?",
+      answer: "Pour les sites patrimoniaux majeurs comme le Pont du Gard, LeVigile déploie des dispositifs de sécurité discrets mais efficaces, respectueux de la qualité du site. Nos agents assurent la régulation des flux de visiteurs, la prévention des actes de vandalisme et la protection générale du site en coordination avec les gestionnaires du monument."
+    },
+    {
+      question: "Proposez-vous des services adaptés aux domaines viticoles gardois ?",
+      answer: "Absolument, LeVigile offre des services sur mesure pour les domaines viticoles du Gard, comprenant la surveillance des vignobles, la protection des chais, la sécurisation des stocks et équipements, et des dispositifs renforcés pendant les vendanges et événements œnotouristiques. Nos agents connaissent parfaitement les enjeux spécifiques de la filière viticole gardoise."
     }
   ];
 
@@ -116,6 +141,11 @@ const GardPage: React.FC = () => {
         </section>
         
         <SpecificitesSection items={specificitesItems} />
+        
+        <FaqSection 
+          items={faqItems} 
+          title={`Questions fréquentes sur nos services dans le ${departmentName}`}
+        />
         
         <CtaSection 
           title={`Besoin d'un devis pour votre sécurité dans le ${departmentName} ?`}
