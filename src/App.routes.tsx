@@ -6,6 +6,7 @@ import NotFound from './pages/NotFound';
 import MediaManager from './pages/MediaManager';
 import CitiesList from './pages/CitiesList';
 import BlogPage from './pages/BlogPage';
+import BlogCategoryPage from './pages/BlogCategoryPage';
 
 // City pages
 import ToulousePage from './pages/cities/ToulousePage';
@@ -35,6 +36,7 @@ const AppRoutes: React.FC = () => {
       <Route path="/media-manager" element={<MediaManager />} />
       <Route path="/villes" element={<CitiesList />} />
       <Route path="/blog" element={<BlogPage />} />
+      <Route path="/blog/categorie/:categorySlug" element={<BlogCategoryPage />} />
       
       {/* Routes des villes */}
       <Route path="/toulouse.html" element={<ToulousePage />} />
