@@ -8,7 +8,7 @@ import BlogArticleCard from '@/components/blog/BlogArticleCard';
 import BlogPagination from '@/components/blog/BlogPagination';
 import BlogSidebar from '@/components/blog/BlogSidebar';
 import BlogSearch from '@/components/blog/BlogSearch';
-import { categories, blogPosts } from '@/data/blogData';
+import { categories as staticCategories, blogPosts } from '@/data/blogData';
 
 const BlogCategoryPage: React.FC = () => {
   const { categorySlug } = useParams<{ categorySlug: string }>();
@@ -30,6 +30,18 @@ const BlogCategoryPage: React.FC = () => {
       post.categories.some(cat => cat.toLowerCase() === categoryName.toLowerCase())
     );
   }, [categoryName]);
+
+  // Calculate actual category counts based on blog posts
+  const categoriesWithRealCounts = staticCategories.map(category => {
+    const count = blogPosts.filter(post => 
+      post.categories.some(cat => cat === category.name)
+    ).length;
+    
+    return {
+      ...category,
+      count
+    };
+  });
 
   return (
     <>
@@ -87,7 +99,7 @@ const BlogCategoryPage: React.FC = () => {
             
             {/* Sidebar */}
             <BlogSidebar 
-              categories={categories} 
+              categories={categoriesWithRealCounts} 
               popularPosts={blogPosts} 
             />
           </div>

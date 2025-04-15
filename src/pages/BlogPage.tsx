@@ -8,11 +8,23 @@ import BlogArticleCard from '@/components/blog/BlogArticleCard';
 import BlogPagination from '@/components/blog/BlogPagination';
 import BlogSidebar from '@/components/blog/BlogSidebar';
 import BlogSearch from '@/components/blog/BlogSearch';
-import { categories, blogPosts } from '@/data/blogData';
+import { categories as staticCategories, blogPosts } from '@/data/blogData';
 import { AlertCircle } from 'lucide-react';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 
 const BlogPage: React.FC = () => {
+  // Calculate actual category counts based on blog posts
+  const categoriesWithRealCounts = staticCategories.map(category => {
+    const count = blogPosts.filter(post => 
+      post.categories.some(cat => cat === category.name)
+    ).length;
+    
+    return {
+      ...category,
+      count
+    };
+  });
+
   return (
     <>
       <Helmet>
@@ -55,7 +67,7 @@ const BlogPage: React.FC = () => {
             
             {/* Sidebar */}
             <BlogSidebar 
-              categories={categories} 
+              categories={categoriesWithRealCounts} 
               popularPosts={blogPosts.slice(0, 3)} 
             />
           </div>
