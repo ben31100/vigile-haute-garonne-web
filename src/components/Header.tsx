@@ -5,20 +5,20 @@ import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { useIsMobile } from '@/hooks/use-mobile';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 
 const Header: React.FC = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isVillesDropdownOpen, setIsVillesDropdownOpen] = useState(false);
+  const [isCollapsibleOpen, setIsCollapsibleOpen] = useState(false);
   const isMobile = useIsMobile();
-  
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
   
   const toggleVillesDropdown = () => {
     setIsVillesDropdownOpen(!isVillesDropdownOpen);
+  };
+  
+  const toggleCollapsible = () => {
+    setIsCollapsibleOpen(!isCollapsibleOpen);
   };
   
   return <header className="bg-white shadow-md fixed w-full z-50">
@@ -39,7 +39,7 @@ const Header: React.FC = () => {
           <Link to="/" className="text-levigile-dark hover:text-levigile-blue font-medium">Accueil</Link>
           <a href="/#services" className="text-levigile-dark hover:text-levigile-blue font-medium">Nos services</a>
           
-          <DropdownMenu>
+          <DropdownMenu open={isVillesDropdownOpen} onOpenChange={setIsVillesDropdownOpen}>
             <DropdownMenuTrigger className="text-levigile-dark hover:text-levigile-blue font-medium bg-transparent hover:bg-transparent focus:bg-transparent inline-flex items-center">
               Villes <ChevronDown className="ml-1 h-4 w-4" />
             </DropdownMenuTrigger>
@@ -91,52 +91,78 @@ const Header: React.FC = () => {
             </SheetTrigger>
             <SheetContent side="right" className="py-8 px-4 w-[280px]">
               <div className="flex flex-col space-y-4">
-                <Link 
-                  to="/" 
-                  className="text-levigile-dark hover:text-levigile-blue font-medium py-2"
-                >
-                  Accueil
-                </Link>
-                <a 
-                  href="/#services" 
-                  className="text-levigile-dark hover:text-levigile-blue font-medium py-2"
-                >
-                  Nos services
-                </a>
+                <SheetClose asChild>
+                  <Link 
+                    to="/" 
+                    className="text-levigile-dark hover:text-levigile-blue font-medium py-2"
+                  >
+                    Accueil
+                  </Link>
+                </SheetClose>
                 
-                <Collapsible className="w-full">
-                  <CollapsibleTrigger className="flex w-full justify-between items-center text-levigile-dark hover:text-levigile-blue font-medium py-2">
+                <SheetClose asChild>
+                  <a 
+                    href="/#services" 
+                    className="text-levigile-dark hover:text-levigile-blue font-medium py-2"
+                  >
+                    Nos services
+                  </a>
+                </SheetClose>
+                
+                <Collapsible 
+                  className="w-full" 
+                  open={isCollapsibleOpen} 
+                  onOpenChange={setIsCollapsibleOpen}
+                >
+                  <CollapsibleTrigger 
+                    className="flex w-full justify-between items-center text-levigile-dark hover:text-levigile-blue font-medium py-2"
+                    onClick={toggleCollapsible}
+                  >
                     <span>Villes</span>
-                    <ChevronDown className="h-4 w-4" />
+                    <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isCollapsibleOpen ? 'rotate-180' : ''}`} />
                   </CollapsibleTrigger>
                   <CollapsibleContent className="pl-4 pt-2 flex flex-col space-y-2">
-                    <Link to="/toulouse.html" className="text-sm text-gray-700 hover:text-levigile-blue py-1">
-                      Toulouse
-                    </Link>
-                    <Link to="/blagnac.html" className="text-sm text-gray-700 hover:text-levigile-blue py-1">
-                      Blagnac
-                    </Link>
-                    <Link to="/colomiers.html" className="text-sm text-gray-700 hover:text-levigile-blue py-1">
-                      Colomiers
-                    </Link>
-                    <Link to="/tournefeuille.html" className="text-sm text-gray-700 hover:text-levigile-blue py-1">
-                      Tournefeuille
-                    </Link>
-                    <Link to="/muret.html" className="text-sm text-gray-700 hover:text-levigile-blue py-1">
-                      Muret
-                    </Link>
-                    <Link to="/villes" className="text-sm font-medium text-levigile-blue hover:text-levigile-dark py-1">
-                      Toutes les villes
-                    </Link>
+                    <SheetClose asChild>
+                      <Link to="/toulouse.html" className="text-sm text-gray-700 hover:text-levigile-blue py-1">
+                        Toulouse
+                      </Link>
+                    </SheetClose>
+                    <SheetClose asChild>
+                      <Link to="/blagnac.html" className="text-sm text-gray-700 hover:text-levigile-blue py-1">
+                        Blagnac
+                      </Link>
+                    </SheetClose>
+                    <SheetClose asChild>
+                      <Link to="/colomiers.html" className="text-sm text-gray-700 hover:text-levigile-blue py-1">
+                        Colomiers
+                      </Link>
+                    </SheetClose>
+                    <SheetClose asChild>
+                      <Link to="/tournefeuille.html" className="text-sm text-gray-700 hover:text-levigile-blue py-1">
+                        Tournefeuille
+                      </Link>
+                    </SheetClose>
+                    <SheetClose asChild>
+                      <Link to="/muret.html" className="text-sm text-gray-700 hover:text-levigile-blue py-1">
+                        Muret
+                      </Link>
+                    </SheetClose>
+                    <SheetClose asChild>
+                      <Link to="/villes" className="text-sm font-medium text-levigile-blue hover:text-levigile-dark py-1">
+                        Toutes les villes
+                      </Link>
+                    </SheetClose>
                   </CollapsibleContent>
                 </Collapsible>
                 
-                <a 
-                  href="/#contact" 
-                  className="text-levigile-dark hover:text-levigile-blue font-medium py-2"
-                >
-                  Contact
-                </a>
+                <SheetClose asChild>
+                  <a 
+                    href="/#contact" 
+                    className="text-levigile-dark hover:text-levigile-blue font-medium py-2"
+                  >
+                    Contact
+                  </a>
+                </SheetClose>
               </div>
             </SheetContent>
           </Sheet>
