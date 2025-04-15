@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useState } from "react";
 import { useLocation, Link } from "react-router-dom";
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
@@ -9,6 +9,7 @@ import Footer from "../components/Footer";
 
 const NotFound = () => {
   const location = useLocation();
+  const [isClicked, setIsClicked] = useState(false);
 
   useEffect(() => {
     console.error(
@@ -28,12 +29,26 @@ const NotFound = () => {
           <p className="mb-8 max-w-md mx-auto text-gray-500">
             La page que vous recherchez est actuellement en développement.
           </p>
-          <Button asChild>
-            <Link to="/">
-              <Home className="mr-2 h-4 w-4" />
-              Retour à l'accueil
-            </Link>
-          </Button>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button 
+              asChild
+              className="mb-4 sm:mb-0"
+            >
+              <Link to="/">
+                <Home className="mr-2 h-4 w-4" />
+                Retour à l'accueil
+              </Link>
+            </Button>
+            
+            <Button 
+              variant={isClicked ? "clicked" : "default"}
+              onClick={() => setIsClicked(!isClicked)}
+              className="transition-colors duration-300"
+            >
+              {isClicked ? "Bouton cliqué" : "Cliquez-moi"}
+            </Button>
+          </div>
         </div>
       </main>
       

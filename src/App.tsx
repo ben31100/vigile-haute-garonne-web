@@ -25,6 +25,9 @@ import AriegePage from "./pages/cities/AriegePage";
 import AudePage from "./pages/cities/AudePage";
 import AveyronPage from "./pages/cities/AveyronPage";
 import GardPage from "./pages/cities/GardPage";
+import BlogPage from "./pages/BlogPage";
+import BlogCategoryPage from "./pages/BlogCategoryPage";
+import BlogArticleExample from "./pages/BlogArticleExample";
 
 const queryClient = new QueryClient();
 
@@ -43,6 +46,12 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/villes" element={<CitiesList />} />
             <Route path="/securite-ville-:cityId" element={<LocalSecurityPage />} />
+            
+            {/* Routes du blog */}
+            <Route path="/blog" element={<BlogPage />} />
+            <Route path="/blog/categorie/:categorySlug" element={<BlogCategoryPage />} />
+            <Route path="/blog/exemple" element={<BlogArticleExample />} />
+            <Route path="/blog/:slug" element={<BlogArticleExample />} />
             
             {/* Routes HTML-like pour les villes */}
             <Route path="/toulouse.html" element={<ToulousePage />} />
