@@ -19,8 +19,8 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        // New variant for clicked/active state using a soft purple
-        clicked: "bg-[#E5DEFF] text-primary hover:bg-[#D6BCFA]",
+        // Modification de la variante "clicked" pour un contraste plus marqué
+        clicked: "bg-purple-200 text-purple-800 hover:bg-purple-300 border border-purple-300",
       },
       size: {
         default: "h-10 px-4 py-2",
