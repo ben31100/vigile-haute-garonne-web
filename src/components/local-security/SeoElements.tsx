@@ -2,7 +2,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
-interface SeoElementsProps {
+export interface SeoElementsProps {
   cityName: string;
   cityId: string;
   postalCode: string;
@@ -10,7 +10,7 @@ interface SeoElementsProps {
   metaDescription: string;
 }
 
-interface FaqItem {
+export interface FaqItem {
   question: string;
   answer: string;
 }
