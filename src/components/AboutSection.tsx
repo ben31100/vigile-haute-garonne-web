@@ -68,7 +68,7 @@ const AboutSection: React.FC = () => {
               <img alt="Équipe de sécurité LeVigile" className="object-cover w-full h-full" onError={e => {
               const target = e.target as HTMLImageElement;
               target.src = "https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80";
-            }} src="/lovable-uploads/785d38e5-66eb-4aac-8e4e-01699fe04297.jpg" />
+            }} src="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//gardiennage-hero.jpg" />
             </div>
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
               <p className="text-white font-semibold">Notre équipe d'agents qualifiés</p>
