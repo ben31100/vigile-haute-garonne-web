@@ -52,7 +52,7 @@ const ColomersPage: React.FC = () => {
           <CityHero 
             cityName="Colomiers" 
             subtitle="Protection sur mesure pour la deuxième ville de Haute-Garonne"
-            backgroundImage="https://images.unsplash.com/photo-1571866651698-9fca013a7cda?auto=format&fit=crop&w=1920"
+            backgroundImage="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//incendie-hero.jpg"
           />
           
           <SpecificitesSection items={specificites} />

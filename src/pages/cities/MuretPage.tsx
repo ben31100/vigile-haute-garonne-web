@@ -52,7 +52,7 @@ const MuretPage: React.FC = () => {
           <CityHero 
             cityName="Muret" 
             subtitle="Services de sécurité pour la troisième ville de Haute-Garonne"
-            backgroundImage="https://images.unsplash.com/photo-1619170743049-2f988e1977c4?auto=format&fit=crop&w=1920"
+            backgroundImage="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//Toulouse-hero.jpg"
           />
           
           <SpecificitesSection items={specificites} />
