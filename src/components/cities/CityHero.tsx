@@ -43,12 +43,12 @@ const CityHero: React.FC<CityHeroProps> = ({
 
         // Récupérer l'image depuis le bucket Supabase
         const cleanPath = imagePath.startsWith('/') ? imagePath.substring(1) : imagePath;
-        const { data, error } = supabase.storage
+        const { data } = supabase.storage
           .from('images')
           .getPublicUrl(cleanPath);
 
-        if (error || !data?.publicUrl) {
-          console.warn("Erreur ou image introuvable dans Supabase, fallback local:", error);
+        if (!data?.publicUrl) {
+          console.warn("Image introuvable dans Supabase, fallback local");
           setBgImage(`/${imagePath}`);
         } else {
           console.log("Image récupérée depuis Supabase:", data.publicUrl);
