@@ -1,6 +1,6 @@
 
 import React, { useMemo } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useSearchParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Header from '@/components/header/Header';
 import Footer from '@/components/Footer';
@@ -10,8 +10,12 @@ import BlogSidebar from '@/components/blog/BlogSidebar';
 import BlogSearch from '@/components/blog/BlogSearch';
 import { categories as staticCategories, blogPosts } from '@/data/blogData';
 
+const ITEMS_PER_PAGE = 6;
+
 const BlogCategoryPage: React.FC = () => {
   const { categorySlug } = useParams<{ categorySlug: string }>();
+  const [searchParams] = useSearchParams();
+  const currentPage = Number(searchParams.get('page') || '1');
   
   // Convert slug back to category name for display and filtering
   const categoryName = useMemo(() => {
@@ -30,6 +34,13 @@ const BlogCategoryPage: React.FC = () => {
       post.categories.some(cat => cat.toLowerCase() === categoryName.toLowerCase())
     );
   }, [categoryName]);
+
+  // Paginate filtered posts
+  const paginatedPosts = useMemo(() => {
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+    const endIndex = startIndex + ITEMS_PER_PAGE;
+    return filteredPosts.slice(startIndex, endIndex);
+  }, [currentPage, filteredPosts]);
 
   // Calculate actual category counts based on blog posts
   const categoriesWithRealCounts = staticCategories.map(category => {
@@ -76,13 +87,13 @@ const BlogCategoryPage: React.FC = () => {
                 <>
                   {/* Articles */}
                   <div className="grid md:grid-cols-2 gap-6 mb-10">
-                    {filteredPosts.map((post) => (
+                    {paginatedPosts.map((post) => (
                       <BlogArticleCard key={post.id} post={post} />
                     ))}
                   </div>
                   
                   {/* Pagination */}
-                  <BlogPagination />
+                  <BlogPagination totalItems={filteredPosts.length} itemsPerPage={ITEMS_PER_PAGE} />
                 </>
               ) : (
                 <div className="bg-white p-8 rounded-lg shadow-md text-center">
