@@ -68,9 +68,10 @@ const BlogPage: React.FC = () => {
                   </div>
                   
                   {/* Pagination - Afficher seulement s'il y a des articles */}
-                  {blogPosts.length > ITEMS_PER_PAGE && (
-                    <BlogPagination totalItems={blogPosts.length} itemsPerPage={ITEMS_PER_PAGE} />
-                  )}
+                  <BlogPagination 
+                    totalItems={blogPosts.length} 
+                    itemsPerPage={ITEMS_PER_PAGE} 
+                  />
                 </>
               ) : (
                 <Alert className="mb-10">

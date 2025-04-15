@@ -93,9 +93,10 @@ const BlogCategoryPage: React.FC = () => {
                   </div>
                   
                   {/* Pagination */}
-                  {filteredPosts.length > ITEMS_PER_PAGE && (
-                    <BlogPagination totalItems={filteredPosts.length} itemsPerPage={ITEMS_PER_PAGE} />
-                  )}
+                  <BlogPagination 
+                    totalItems={filteredPosts.length} 
+                    itemsPerPage={ITEMS_PER_PAGE} 
+                  />
                 </>
               ) : (
                 <div className="bg-white p-8 rounded-lg shadow-md text-center">
