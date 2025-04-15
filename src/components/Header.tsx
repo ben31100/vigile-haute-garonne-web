@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -12,6 +11,13 @@ const Header: React.FC = () => {
   const [isVillesDropdownOpen, setIsVillesDropdownOpen] = useState(false);
   const [isCollapsibleOpen, setIsCollapsibleOpen] = useState(false);
   const isMobile = useIsMobile();
+
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <header className="bg-white shadow-md fixed w-full z-50">
@@ -27,11 +33,15 @@ const Header: React.FC = () => {
           </Link>
         </div>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-8">
-          <Link to="/" className="text-levigile-dark hover:text-levigile-blue font-medium">Accueil</Link>
-          <a href="/#services" className="text-levigile-dark hover:text-levigile-blue font-medium">Nos services</a>
-          
+      
+      <nav className="hidden md:flex space-x-8">
+        <Link to="/" onClick={() => window.scrollTo(0, 0)} className="text-levigile-dark hover:text-levigile-blue font-medium">Accueil</Link>
+        <a href="/#services" onClick={(e) => {
+          e.preventDefault();
+          scrollToSection('services');
+        }} className="text-levigile-dark hover:text-levigile-blue font-medium">Nos services</a>
+        
+        
           <DropdownMenu open={isVillesDropdownOpen} onOpenChange={setIsVillesDropdownOpen}>
             <DropdownMenuTrigger className="text-levigile-dark hover:text-levigile-blue font-medium bg-transparent hover:bg-transparent focus:bg-transparent inline-flex items-center">
               Villes <ChevronDown className="ml-1 h-4 w-4" />
@@ -71,37 +81,46 @@ const Header: React.FC = () => {
             </DropdownMenuContent>
           </DropdownMenu>
           
-          <a href="/#contact" className="text-levigile-dark hover:text-levigile-blue font-medium">Contact</a>
-        </nav>
+        <a href="/#contact" onClick={(e) => {
+          e.preventDefault();
+          scrollToSection('contact');
+        }} className="text-levigile-dark hover:text-levigile-blue font-medium">Contact</a>
+      </nav>
 
-        {/* Mobile Menu Button with Sheet */}
-        <div className="md:hidden">
-          <Sheet>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="sm" aria-label="Menu">
-                <Menu />
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right" className="py-8 px-4 w-[280px]">
-              <div className="flex flex-col space-y-4">
-                <SheetClose asChild>
-                  <Link 
-                    to="/" 
-                    className="text-levigile-dark hover:text-levigile-blue font-medium py-2"
-                  >
-                    Accueil
-                  </Link>
-                </SheetClose>
-                
-                <SheetClose asChild>
-                  <a 
-                    href="/#services" 
-                    className="text-levigile-dark hover:text-levigile-blue font-medium py-2"
-                  >
-                    Nos services
-                  </a>
-                </SheetClose>
-                
+      {/* Mobile Menu Button with Sheet */}
+      <div className="md:hidden">
+        <Sheet>
+          <SheetTrigger asChild>
+            <Button variant="ghost" size="sm" aria-label="Menu">
+              <Menu />
+            </Button>
+          </SheetTrigger>
+          <SheetContent side="right" className="py-8 px-4 w-[280px]">
+            <div className="flex flex-col space-y-4">
+              <SheetClose asChild>
+                <Link 
+                  to="/" 
+                  onClick={() => window.scrollTo(0, 0)}
+                  className="text-levigile-dark hover:text-levigile-blue font-medium py-2"
+                >
+                  Accueil
+                </Link>
+              </SheetClose>
+              
+              <SheetClose asChild>
+                <a 
+                  href="/#services"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection('services');
+                  }}
+                  className="text-levigile-dark hover:text-levigile-blue font-medium py-2"
+                >
+                  Nos services
+                </a>
+              </SheetClose>
+              
+              
                 <Collapsible 
                   className="w-full" 
                   open={isCollapsibleOpen} 
@@ -147,19 +166,24 @@ const Header: React.FC = () => {
                   </CollapsibleContent>
                 </Collapsible>
                 
-                <SheetClose asChild>
-                  <a 
-                    href="/#contact" 
-                    className="text-levigile-dark hover:text-levigile-blue font-medium py-2"
-                  >
-                    Contact
-                  </a>
-                </SheetClose>
-              </div>
-            </SheetContent>
-          </Sheet>
-        </div>
+              
+              <SheetClose asChild>
+                <a 
+                  href="/#contact"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection('contact');
+                  }}
+                  className="text-levigile-dark hover:text-levigile-blue font-medium py-2"
+                >
+                  Contact
+                </a>
+              </SheetClose>
+            </div>
+          </SheetContent>
+        </Sheet>
       </div>
+    </div>
     </header>
   );
 };
