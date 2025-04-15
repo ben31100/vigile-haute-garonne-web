@@ -394,5 +394,12 @@
     "specificServices": ["Gardiennage de zones commerciales", "Sécurité pour entreprises", "Protection résidentielle", "Surveillance événementielle"],
     "metaTitle": "Sécurité à Montauban - Protection fiable | LeVigile",
     "metaDescription": "LeVigile assure votre sécurité à Montauban. Gardiennage, surveillance et protection par des agents professionnels disponibles 24h/24."
-  }
-]
+  },
+  {
+    "id": "foix",
+    "name": "Foix",
+    "postalCode": "09000",
+    "description": "Foix, préfecture de l'Ariège, bénéficie désormais de nos services de sécurité adaptés aux besoins locaux.",
+    "neighborhoods": ["Centre-ville", "Le Courbet", "Cadirac", "Labarre"],
+    "nearbyAreas": ["Montgaillard", "Saint-Jean-de-Verges", "Ferrières", "Ganac"],
+    "specificServices": ["Gardiennage de sites touristiques", "Surveillance de commer

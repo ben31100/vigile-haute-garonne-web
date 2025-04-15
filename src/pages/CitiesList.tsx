@@ -22,7 +22,13 @@ const CitiesList: React.FC = () => {
   
   // Définition des départements
   const departments: Department[] = [
+    { id: "ariege", name: "Ariège", code: "09" },
+    { id: "aude", name: "Aude", code: "11" },
+    { id: "aveyron", name: "Aveyron", code: "12" },
+    { id: "gard", name: "Gard", code: "30" },
     { id: "haute-garonne", name: "Haute-Garonne", code: "31" },
+    { id: "gers", name: "Gers", code: "32" },
+    { id: "herault", name: "Hérault", code: "34" },
     { id: "lot", name: "Lot", code: "46" },
     { id: "lozere", name: "Lozère", code: "48" },
     { id: "hautes-pyrenees", name: "Hautes-Pyrénées", code: "65" },
