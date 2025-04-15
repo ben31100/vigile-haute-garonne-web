@@ -13,8 +13,8 @@ import { AlertCircle } from 'lucide-react';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 
 const BlogPage: React.FC = () => {
-  // Articles per page - augmenté à 6
-  const itemsPerPage = 6;
+  // Articles per page
+  const itemsPerPage = 4;
   const [currentPage, setCurrentPage] = useState(1);
 
   // Calculate actual category counts based on blog posts

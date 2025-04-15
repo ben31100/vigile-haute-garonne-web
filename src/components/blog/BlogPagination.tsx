@@ -29,11 +29,8 @@ const BlogPagination: React.FC<BlogPaginationProps> = ({
         <PaginationContent>
           <PaginationItem>
             <PaginationPrevious 
-              onClick={(e) => {
-                e.preventDefault();
-                if (currentPage > 1) onPageChange(currentPage - 1);
-              }}
-              className={currentPage <= 1 ? "pointer-events-none opacity-50" : "cursor-pointer"}
+              onClick={() => currentPage > 1 && onPageChange(currentPage - 1)}
+              className={currentPage <= 1 ? "pointer-events-none opacity-50" : ""}
               href="#"
             />
           </PaginationItem>
@@ -41,13 +38,10 @@ const BlogPagination: React.FC<BlogPaginationProps> = ({
           {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
             <PaginationItem key={page}>
               <PaginationLink 
-                onClick={(e) => {
-                  e.preventDefault();
-                  onPageChange(page);
-                }}
+                onClick={() => onPageChange(page)}
                 isActive={page === currentPage}
                 href="#"
-                className={`cursor-pointer ${page === currentPage ? "bg-levigile-blue text-white hover:bg-levigile-dark" : ""}`}
+                className={page === currentPage ? "bg-levigile-blue text-white hover:bg-levigile-dark" : ""}
               >
                 {page}
               </PaginationLink>
@@ -56,11 +50,8 @@ const BlogPagination: React.FC<BlogPaginationProps> = ({
           
           <PaginationItem>
             <PaginationNext 
-              onClick={(e) => {
-                e.preventDefault();
-                if (currentPage < totalPages) onPageChange(currentPage + 1);
-              }}
-              className={currentPage >= totalPages ? "pointer-events-none opacity-50" : "cursor-pointer"}
+              onClick={() => currentPage < totalPages && onPageChange(currentPage + 1)}
+              className={currentPage >= totalPages ? "pointer-events-none opacity-50" : ""}
               href="#"
             />
           </PaginationItem>

@@ -11,8 +11,8 @@ import BlogSearch from '@/components/blog/BlogSearch';
 import { categories as staticCategories, blogPosts } from '@/data/blogData';
 
 const BlogCategoryPage: React.FC = () => {
-  // Articles per page - augmenté à 6
-  const itemsPerPage = 6;
+  // Articles per page
+  const itemsPerPage = 4;
   const [currentPage, setCurrentPage] = useState(1);
   const { categorySlug } = useParams<{ categorySlug: string }>();
   
