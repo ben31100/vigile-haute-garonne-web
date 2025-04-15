@@ -9,6 +9,10 @@ import CtaSection from '../../components/cities/CtaSection';
 import { Shield, MapPin, Calendar, Building, Users } from 'lucide-react';
 
 const SaintGaudensPage: React.FC = () => {
+  const cityName = "Saint-Gaudens";
+  const departmentName = "Haute-Garonne";
+  const postalCode = "31800";
+  
   // Define the specificités items with proper structure
   const specificitesItems: SpecificiteItem[] = [
     {
@@ -38,22 +42,77 @@ const SaintGaudensPage: React.FC = () => {
     }
   ];
 
+  // Structured data for Saint-Gaudens
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": `LeVigile - Sécurité privée à ${cityName}`,
+    "description": `Services professionnels de sécurité privée à ${cityName} (${postalCode}). Gardiennage, surveillance, rondes de sécurité et protection 24h/24 pour professionnels et particuliers.`,
+    "url": `https://levigile.fr/saint-gaudens.html`,
+    "logo": "https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//logo%20levigile%20securite.png",
+    "image": "https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//incendie-hero.jpg",
+    "telephone": "+33554546428",
+    "email": "contact@levigile.fr",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "15 Rue de la Sécurité",
+      "addressLocality": cityName,
+      "postalCode": postalCode,
+      "addressRegion": departmentName,
+      "addressCountry": "FR"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": cityName,
+      "postalCode": postalCode
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
+      ],
+      "opens": "00:00",
+      "closes": "23:59"
+    },
+    "priceRange": "€€",
+    "knowsLanguage": ["fr-FR"],
+    "serviceArea": {
+      "@type": "GeoCircle",
+      "geoMidpoint": {
+        "@type": "GeoCoordinates",
+        "latitude": 43.1059,
+        "longitude": 0.7237
+      },
+      "geoRadius": "30000"
+    }
+  };
+
+  const nearbyAreas = ["Montréjeau", "Valentine", "Miramont-de-Comminges", "Estancarbon", "Villeneuve-de-Rivière"];
+
   return (
     <div className="flex flex-col min-h-screen">
       <Helmet>
-        <title>Sécurité à Saint-Gaudens - Protection professionnelle | LeVigile</title>
+        <title>Sécurité à Saint-Gaudens (31800) - Protection professionnelle | LeVigile</title>
         <meta 
           name="description" 
-          content="Entreprise de sécurité à Saint-Gaudens. Gardiennage, rondes et surveillance 24/7 pour particuliers et professionnels par des agents certifiés."
+          content="Entreprise de sécurité à Saint-Gaudens (31800). Gardiennage, rondes et surveillance 24/7 pour particuliers et professionnels par des agents certifiés."
         />
+        <meta name="keywords" content={`sécurité ${cityName}, gardiennage ${cityName}, agent sécurité ${postalCode}, surveillance ${cityName}, protection ${departmentName}, sécurité privée ${cityName}, ${nearbyAreas.join(', ')}`} />
         <link rel="canonical" href="https://www.levigile.fr/saint-gaudens.html" />
+        <meta property="og:title" content={`Sécurité à ${cityName} (${postalCode}) - Services de protection | LeVigile`} />
+        <meta property="og:description" content={`Services de sécurité privée à ${cityName}. Gardiennage, surveillance et protection 24h/24 adaptés à vos besoins.`} />
+        <meta property="og:url" content="https://www.levigile.fr/saint-gaudens.html" />
+        <meta property="og:type" content="website" />
+        <script type="application/ld+json">
+          {JSON.stringify(structuredData)}
+        </script>
       </Helmet>
       
       <Header />
       
       <main className="flex-grow pt-24">
         <CityHero 
-          cityName="Saint-Gaudens"
+          cityName={cityName}
           subtitle="Des solutions de sécurité sur mesure dans la sous-préfecture de Haute-Garonne"
           backgroundImage="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//incendie-hero.jpg"
         />
@@ -115,7 +174,7 @@ const SaintGaudensPage: React.FC = () => {
         <SpecificitesSection items={specificitesItems} />
         
         <CtaSection 
-          title="Besoin d'un devis pour votre sécurité à Saint-Gaudens ?"
+          title={`Besoin d'un devis pour votre sécurité à ${cityName} ?`}
           subtitle="Nos experts sont disponibles pour étudier vos besoins spécifiques et vous proposer une solution sur mesure."
         />
       </main>

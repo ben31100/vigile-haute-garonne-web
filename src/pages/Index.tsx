@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import HeroSection from '../components/HeroSection';
@@ -13,11 +14,11 @@ const Index: React.FC = () => {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": "LeVigile",
-    "description": "Entreprise de sécurité privée en Haute-Garonne. Services de gardiennage, surveillance, rondes de sécurité et sécurité événementielle à Toulouse et dans tout le département 31.",
+    "name": "LeVigile - Sécurité privée en Haute-Garonne et Occitanie",
+    "description": "Entreprise de sécurité privée en Haute-Garonne et Occitanie. Services de gardiennage, surveillance, rondes de sécurité et sécurité événementielle à Toulouse et dans toute la région Occitanie.",
     "url": "https://levigile.fr",
-    "logo": "https://levigile.fr/logo.png",
-    "image": "https://levigile.fr/security-company.jpg",
+    "logo": "https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//logo%20levigile%20securite.png",
+    "image": "https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//gardiennage-hero.jpg",
     "telephone": "+33554546428",
     "email": "contact@levigile.fr",
     "address": {
@@ -33,15 +34,21 @@ const Index: React.FC = () => {
       "latitude": 43.6047,
       "longitude": 1.4442
     },
-    "areaServed": {
-      "@type": "GeoCircle",
-      "geoMidpoint": {
-        "@type": "GeoCoordinates",
-        "latitude": 43.6047,
-        "longitude": 1.4442
+    "areaServed": [
+      {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": 43.6047,
+          "longitude": 1.4442
+        },
+        "geoRadius": "50000"
       },
-      "geoRadius": "50000"
-    },
+      {
+        "@type": "State",
+        "name": "Occitanie"
+      }
+    ],
     "openingHoursSpecification": {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": [
@@ -68,15 +75,32 @@ const Index: React.FC = () => {
       "https://x.com/levigile31/",
       "https://www.facebook.com/LevigileToulousain?locale=fr_FR"
     ],
-    "priceRange": "€€"
+    "priceRange": "€€",
+    "knowsLanguage": ["fr-FR"]
   };
+
+  const localCities = [
+    "Toulouse", "Blagnac", "Colomiers", "Tournefeuille", "Muret", 
+    "Ramonville-Saint-Agne", "Saint-Gaudens", "Balma", "Cugnaux", "L'Union", 
+    "Saint-Orens-de-Gameville", "Plaisance-du-Touch"
+  ];
 
   return (
     <>
-      <script 
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-      />
+      <Helmet>
+        <title>LeVigile - Sécurité privée en Haute-Garonne et Occitanie | Gardiennage, Surveillance</title>
+        <meta name="description" content="Entreprise de sécurité privée en Haute-Garonne et Occitanie. Services professionnels de gardiennage, surveillance, rondes de sécurité et sécurité événementielle 24h/24 et 7j/7." />
+        <meta name="keywords" content="sécurité privée, gardiennage, surveillance, agent de sécurité, Toulouse, Haute-Garonne, Occitanie, protection, SSIAP, événementiel" />
+        <meta property="og:title" content="LeVigile - Sécurité privée en Haute-Garonne et Occitanie" />
+        <meta property="og:description" content="Services professionnels de gardiennage, surveillance et sécurité en Occitanie. Protection 24h/24 et 7j/7." />
+        <meta property="og:url" content="https://levigile.fr" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//logo%20levigile%20securite.png" />
+        <link rel="canonical" href="https://levigile.fr" />
+        <script type="application/ld+json">
+          {JSON.stringify(structuredData)}
+        </script>
+      </Helmet>
       <div className="flex flex-col min-h-screen">
         <Header />
         <main className="flex-grow">
@@ -90,6 +114,26 @@ const Index: React.FC = () => {
           />
         </main>
         <Footer />
+        
+        {/* Hidden SEO content for local cities */}
+        <div className="hidden">
+          <h2>Zones d'intervention en Occitanie</h2>
+          <p>LeVigile intervient dans toute l'Occitanie, particulièrement dans les départements suivants:</p>
+          <ul>
+            {["Haute-Garonne (31)", "Ariège (09)", "Aude (11)", "Aveyron (12)", "Gard (30)", 
+              "Gers (32)", "Hérault (34)", "Lot (46)", "Lozère (48)", "Hautes-Pyrénées (65)", 
+              "Pyrénées-Orientales (66)", "Tarn (81)", "Tarn-et-Garonne (82)"].map((dep, i) => (
+              <li key={i}>{dep}</li>
+            ))}
+          </ul>
+          
+          <h3>Services de sécurité dans les principales villes</h3>
+          <ul>
+            {localCities.map((city, i) => (
+              <li key={i}>Sécurité privée à {city}</li>
+            ))}
+          </ul>
+        </div>
       </div>
     </>
   );
