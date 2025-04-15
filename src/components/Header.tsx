@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -39,15 +38,23 @@ const Header: React.FC = () => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
 
+  // Fonction pour naviguer et remonter en haut de la page d'accueil
+  const navigateToHomeAndScrollTop = (e: React.MouseEvent) => {
+    e.preventDefault();
+    navigate('/');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <header className="bg-white shadow-md fixed w-full z-50">
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
-        {/* Logo - Modifié pour utiliser navigateAndScrollTop */}
+        {/* Logo - Modifié pour utiliser navigateToHomeAndScrollTop */}
         <div className="flex items-center">
-          <a href="#" onClick={(e) => {
-            e.preventDefault();
-            navigateAndScrollTop('/');
-          }} className="flex items-center">
+          <a 
+            href="#" 
+            onClick={navigateToHomeAndScrollTop} 
+            className="flex items-center"
+          >
             <img 
               alt="LeVigile Logo" 
               className="h-10 w-auto cursor-pointer" 
