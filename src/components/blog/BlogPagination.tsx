@@ -78,12 +78,12 @@ const BlogPagination: React.FC<BlogPaginationProps> = ({
   const pageNumbers = getPageNumbers();
   
   return (
-    <Pagination className="mt-8">
+    <Pagination className="mt-8 mb-4 bg-white rounded-lg shadow-md p-4">
       <PaginationContent>
         <PaginationItem>
           <PaginationPrevious 
             onClick={() => currentPage > 1 && handlePageChange(currentPage - 1)}
-            className={currentPage <= 1 ? "pointer-events-none opacity-50" : "cursor-pointer"}
+            className={`${currentPage <= 1 ? "pointer-events-none opacity-50" : "cursor-pointer"} text-levigile-dark`}
             aria-disabled={currentPage <= 1}
           />
         </PaginationItem>
@@ -105,7 +105,7 @@ const BlogPagination: React.FC<BlogPaginationProps> = ({
                 className={
                   currentPage === page 
                     ? "bg-levigile-blue hover:bg-levigile-dark text-white border-levigile-blue" 
-                    : "cursor-pointer"
+                    : "cursor-pointer bg-white hover:bg-gray-100 text-levigile-dark border border-gray-200"
                 }
               >
                 {page}
@@ -117,7 +117,7 @@ const BlogPagination: React.FC<BlogPaginationProps> = ({
         <PaginationItem>
           <PaginationNext 
             onClick={() => currentPage < totalPages && handlePageChange(currentPage + 1)}
-            className={currentPage >= totalPages ? "pointer-events-none opacity-50" : "cursor-pointer"}
+            className={`${currentPage >= totalPages ? "pointer-events-none opacity-50" : "cursor-pointer"} text-levigile-dark`}
             aria-disabled={currentPage >= totalPages}
           />
         </PaginationItem>
