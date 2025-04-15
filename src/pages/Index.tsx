@@ -128,6 +128,54 @@ const Index: React.FC = () => {
     }
   };
 
+  // FAQ Schema pour la page d'accueil - idéal pour Position 0
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Quels sont les services de sécurité proposés par LeVigile en Occitanie ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "LeVigile propose une gamme complète de services de sécurité privée en Occitanie incluant le gardiennage de sites, la surveillance physique, les rondes de sécurité, la sécurité événementielle, l'intervention sur alarme, la protection de personnalités et la sécurité incendie avec des agents SSIAP. Nous intervenons 24h/24 et 7j/7 dans toute la région Occitanie."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Dans quelles villes LeVigile est-il présent en Haute-Garonne ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "LeVigile est présent dans toute la Haute-Garonne, avec une couverture renforcée à Toulouse, Blagnac, Colomiers, Tournefeuille, Muret, Ramonville-Saint-Agne, Saint-Gaudens, Balma, Cugnaux, L'Union, Saint-Orens-de-Gameville et Plaisance-du-Touch. Notre équipe locale intervient rapidement sur l'ensemble du département."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Comment obtenir un devis pour des services de sécurité privée ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Pour obtenir un devis gratuit et personnalisé, vous pouvez nous contacter au 05 54 54 64 28, par email à contact@levigile.fr ou via le formulaire de contact sur notre site. Notre équipe étudiera vos besoins spécifiques et vous proposera une solution adaptée dans un délai de 24h ouvrées."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quelles certifications possèdent les agents de sécurité de LeVigile ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tous nos agents possèdent la carte professionnelle délivrée par le CNAPS, obligatoire pour exercer dans la sécurité privée. Ils sont également formés aux premiers secours (SST), et certains disposent de qualifications supplémentaires comme SSIAP (sécurité incendie), cynophile ou palpation de sécurité. Leur formation continue est assurée pour maintenir un haut niveau de compétence."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "LeVigile intervient-il dans les autres départements d'Occitanie ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oui, LeVigile intervient dans tous les départements d'Occitanie : Haute-Garonne (31), Ariège (09), Aude (11), Aveyron (12), Gard (30), Gers (32), Hérault (34), Lot (46), Lozère (48), Hautes-Pyrénées (65), Pyrénées-Orientales (66), Tarn (81) et Tarn-et-Garonne (82). Notre expertise régionale nous permet d'offrir un service de proximité dans toute l'Occitanie."
+        }
+      }
+    ]
+  };
+
   const localCities = [
     "Toulouse", "Blagnac", "Colomiers", "Tournefeuille", "Muret", 
     "Ramonville-Saint-Agne", "Saint-Gaudens", "Balma", "Cugnaux", "L'Union", 
@@ -165,6 +213,9 @@ const Index: React.FC = () => {
         <link rel="canonical" href="https://levigile.fr" />
         <script type="application/ld+json">
           {JSON.stringify(structuredData)}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify(faqSchema)}
         </script>
       </Helmet>
       <div className="flex flex-col min-h-screen">
