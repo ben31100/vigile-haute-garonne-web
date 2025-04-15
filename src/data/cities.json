@@ -1,3 +1,4 @@
+
 [
   {
     "id": "toulouse",
@@ -402,4 +403,63 @@
     "description": "Foix, préfecture de l'Ariège, bénéficie désormais de nos services de sécurité adaptés aux besoins locaux.",
     "neighborhoods": ["Centre-ville", "Le Courbet", "Cadirac", "Labarre"],
     "nearbyAreas": ["Montgaillard", "Saint-Jean-de-Verges", "Ferrières", "Ganac"],
-    "specificServices": ["Gardiennage de sites touristiques", "Surveillance de commer
+    "specificServices": ["Gardiennage de sites touristiques", "Surveillance de commerces", "Protection de zones résidentielles", "Sécurité événementielle"],
+    "metaTitle": "Sécurité à Foix - Services adaptés | LeVigile",
+    "metaDescription": "Services de sécurité privée à Foix (09). Gardiennage, rondes et protection par des agents certifiés pour particuliers et professionnels."
+  },
+  {
+    "id": "carcassonne",
+    "name": "Carcassonne",
+    "postalCode": "11000",
+    "description": "Carcassonne, préfecture de l'Aude, est désormais desservie par nos équipes de sécurité pour tous types d'interventions.",
+    "neighborhoods": ["Centre-ville", "La Cité", "Bastide Saint-Louis", "Le Viguier"],
+    "nearbyAreas": ["Trèbes", "Pennautier", "Palaja", "Berriac"],
+    "specificServices": ["Protection de sites touristiques", "Gardiennage de commerces", "Sécurité pour événements", "Surveillance résidentielle"],
+    "metaTitle": "Sécurité à Carcassonne - Agents professionnels | LeVigile",
+    "metaDescription": "LeVigile assure votre sécurité à Carcassonne. Gardiennage, surveillance et protection par des agents qualifiés disponibles 24h/24."
+  },
+  {
+    "id": "rodez",
+    "name": "Rodez",
+    "postalCode": "12000",
+    "description": "Rodez, préfecture de l'Aveyron, bénéficie désormais de notre expertise en sécurité privée pour les entreprises et les particuliers.",
+    "neighborhoods": ["Centre-ville", "Bourran", "Saint-Eloi", "Calcomier"],
+    "nearbyAreas": ["Onet-le-Château", "Le Monastère", "Sainte-Radegonde", "Luc-la-Primaube"],
+    "specificServices": ["Gardiennage de sites sensibles", "Sécurité pour entreprises", "Protection de commerces", "Surveillance événementielle"],
+    "metaTitle": "Sécurité à Rodez - Protection professionnelle | LeVigile",
+    "metaDescription": "Services de sécurité sur-mesure à Rodez. Gardiennage, surveillance et protection par des agents certifiés pour entreprises et particuliers."
+  },
+  {
+    "id": "nimes",
+    "name": "Nîmes",
+    "postalCode": "30000",
+    "description": "Nîmes, préfecture du Gard, est désormais desservie par nos agents de sécurité pour tous types de prestations.",
+    "neighborhoods": ["Centre-ville", "Castanet", "Pissevin", "Valdegour"],
+    "nearbyAreas": ["Caveirac", "Marguerittes", "Garons", "Milhaud"],
+    "specificServices": ["Gardiennage de sites touristiques", "Sécurité pour entreprises", "Protection résidentielle", "Surveillance d'événements"],
+    "metaTitle": "Sécurité à Nîmes - Services fiables | LeVigile",
+    "metaDescription": "LeVigile, votre partenaire sécurité à Nîmes. Agents qualifiés pour la surveillance, le gardiennage et la protection de vos biens 24h/24."
+  },
+  {
+    "id": "auch",
+    "name": "Auch",
+    "postalCode": "32000",
+    "description": "Auch, préfecture du Gers, bénéficie désormais de nos services de sécurité adaptés aux besoins locaux.",
+    "neighborhoods": ["Centre-ville", "Le Garros", "Endoumingue", "La Hourre"],
+    "nearbyAreas": ["Pavie", "Preignan", "Duran", "Castin"],
+    "specificServices": ["Gardiennage de sites", "Sécurité pour entreprises", "Protection de commerces", "Surveillance événementielle"],
+    "metaTitle": "Sécurité à Auch - Protection sur-mesure | LeVigile",
+    "metaDescription": "Services de sécurité professionnels à Auch. Gardiennage, rondes et protection par des agents certifiés pour particuliers et entreprises."
+  },
+  {
+    "id": "montpellier",
+    "name": "Montpellier",
+    "postalCode": "34000",
+    "description": "Montpellier, préfecture de l'Hérault, est désormais desservie par nos équipes de sécurité pour tous types d'interventions, y compris la protection des locations de vacances sur le littoral.",
+    "neighborhoods": ["Centre historique", "Antigone", "Port Marianne", "La Mosson"],
+    "nearbyAreas": ["Lattes", "Castelnau-le-Lez", "Saint-Jean-de-Védas", "Juvignac"],
+    "specificServices": ["Protection de résidences de vacances", "Gardiennage de zones commerciales", "Sécurité pour entreprises", "Surveillance d'événements"],
+    "metaTitle": "Sécurité à Montpellier - Services adaptés | LeVigile",
+    "metaDescription": "LeVigile assure votre sécurité à Montpellier et sur le littoral héraultais. Gardiennage, surveillance et protection par des agents professionnels disponibles 24h/24."
+  }
+]
