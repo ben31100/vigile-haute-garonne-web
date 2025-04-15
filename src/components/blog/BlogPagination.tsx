@@ -1,17 +1,62 @@
 
 import React from 'react';
-import { Button } from '@/components/ui/button';
+import {
+  Pagination,
+  PaginationContent,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/components/ui/pagination";
 
-const BlogPagination: React.FC = () => {
+interface BlogPaginationProps {
+  currentPage: number;
+  totalPages: number;
+  onPageChange: (page: number) => void;
+}
+
+const BlogPagination: React.FC<BlogPaginationProps> = ({ 
+  currentPage, 
+  totalPages,
+  onPageChange
+}) => {
+  // Don't render pagination if there's only one page
+  if (totalPages <= 1) return null;
+
   return (
     <div className="flex justify-center mt-10">
-      <nav className="flex items-center space-x-2">
-        <Button variant="outline" size="sm" disabled>Précédent</Button>
-        <Button variant="default" size="sm" className="bg-levigile-blue hover:bg-levigile-dark">1</Button>
-        <Button variant="outline" size="sm">2</Button>
-        <Button variant="outline" size="sm">3</Button>
-        <Button variant="outline" size="sm">Suivant</Button>
-      </nav>
+      <Pagination>
+        <PaginationContent>
+          <PaginationItem>
+            <PaginationPrevious 
+              onClick={() => currentPage > 1 && onPageChange(currentPage - 1)}
+              className={currentPage <= 1 ? "pointer-events-none opacity-50" : ""}
+              href="#"
+            />
+          </PaginationItem>
+          
+          {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+            <PaginationItem key={page}>
+              <PaginationLink 
+                onClick={() => onPageChange(page)}
+                isActive={page === currentPage}
+                href="#"
+                className={page === currentPage ? "bg-levigile-blue text-white hover:bg-levigile-dark" : ""}
+              >
+                {page}
+              </PaginationLink>
+            </PaginationItem>
+          ))}
+          
+          <PaginationItem>
+            <PaginationNext 
+              onClick={() => currentPage < totalPages && onPageChange(currentPage + 1)}
+              className={currentPage >= totalPages ? "pointer-events-none opacity-50" : ""}
+              href="#"
+            />
+          </PaginationItem>
+        </PaginationContent>
+      </Pagination>
     </div>
   );
 };
