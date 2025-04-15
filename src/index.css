@@ -119,3 +119,78 @@
 .service-card:nth-child(4) {
   animation-delay: 800ms;
 }
+
+/* Styles spécifiques pour le contenu des articles de blog */
+.article-content {
+  @apply text-gray-700 leading-relaxed;
+}
+
+.article-content h2 {
+  @apply text-2xl font-bold text-levigile-dark mt-8 mb-4;
+}
+
+.article-content h3 {
+  @apply text-xl font-semibold text-levigile-dark mt-6 mb-3;
+}
+
+.article-content p {
+  @apply mb-6;
+}
+
+.article-content ul, .article-content ol {
+  @apply mb-6 ml-6;
+}
+
+.article-content ul {
+  @apply list-disc;
+}
+
+.article-content ol {
+  @apply list-decimal;
+}
+
+.article-content li {
+  @apply mb-2;
+}
+
+.article-content blockquote {
+  @apply pl-4 py-1 border-l-4 border-levigile-blue bg-gray-50 italic my-6;
+}
+
+.article-content img {
+  @apply rounded-lg my-6 mx-auto;
+}
+
+.article-content a {
+  @apply text-levigile-blue hover:underline;
+}
+
+.article-content pre {
+  @apply bg-gray-900 text-white p-4 rounded-lg overflow-x-auto my-6;
+}
+
+.article-content code {
+  @apply bg-gray-100 text-gray-800 px-1 py-0.5 rounded;
+}
+
+/* Pour les tableaux */
+.article-content table {
+  @apply w-full border-collapse my-6;
+}
+
+.article-content th {
+  @apply bg-gray-100 text-left p-3 font-semibold border border-gray-200;
+}
+
+.article-content td {
+  @apply p-3 border border-gray-200;
+}
+
+/* Pour les images avec légende */
+.article-content figure {
+  @apply my-8;
+}
+
+.article-content figcaption {
+  @apply text-sm text-center text-gray-500 mt-2;
+}
