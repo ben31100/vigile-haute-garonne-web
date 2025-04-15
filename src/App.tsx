@@ -21,6 +21,10 @@ import CugnauxPage from "./pages/cities/CugnauxPage";
 import LUnionPage from "./pages/cities/LUnionPage";
 import SaintOrensPage from "./pages/cities/SaintOrensPage";
 import PlaisancePage from "./pages/cities/PlaisancePage";
+import AriegePage from "./pages/cities/AriegePage";
+import AudePage from "./pages/cities/AudePage";
+import AveyronPage from "./pages/cities/AveyronPage";
+import GardPage from "./pages/cities/GardPage";
 
 const queryClient = new QueryClient();
 
@@ -54,6 +58,12 @@ const App = () => (
             <Route path="/saint-orens.html" element={<SaintOrensPage />} />
             <Route path="/plaisance.html" element={<PlaisancePage />} />
             
+            {/* Routes pour les départements */}
+            <Route path="/ariege.html" element={<AriegePage />} />
+            <Route path="/aude.html" element={<AudePage />} />
+            <Route path="/aveyron.html" element={<AveyronPage />} />
+            <Route path="/gard.html" element={<GardPage />} />
+            
             {/* Redirection des anciennes routes pour compatibilité */}
             <Route path="/securite-ville-toulouse" element={<Navigate to="/toulouse.html" />} />
             <Route path="/securite-ville-blagnac" element={<Navigate to="/blagnac.html" />} />
@@ -67,6 +77,10 @@ const App = () => (
             <Route path="/securite-ville-lunion" element={<Navigate to="/lunion.html" />} />
             <Route path="/securite-ville-saint-orens" element={<Navigate to="/saint-orens.html" />} />
             <Route path="/securite-ville-plaisance" element={<Navigate to="/plaisance.html" />} />
+            <Route path="/securite-ville-ariege" element={<Navigate to="/ariege.html" />} />
+            <Route path="/securite-ville-aude" element={<Navigate to="/aude.html" />} />
+            <Route path="/securite-ville-aveyron" element={<Navigate to="/aveyron.html" />} />
+            <Route path="/securite-ville-gard" element={<Navigate to="/gard.html" />} />
             
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
