@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
@@ -12,16 +12,9 @@ const Header: React.FC = () => {
   const [isVillesDropdownOpen, setIsVillesDropdownOpen] = useState(false);
   const [isCollapsibleOpen, setIsCollapsibleOpen] = useState(false);
   const isMobile = useIsMobile();
-  
-  const toggleVillesDropdown = () => {
-    setIsVillesDropdownOpen(!isVillesDropdownOpen);
-  };
-  
-  const toggleCollapsible = () => {
-    setIsCollapsibleOpen(!isCollapsibleOpen);
-  };
-  
-  return <header className="bg-white shadow-md fixed w-full z-50">
+
+  return (
+    <header className="bg-white shadow-md fixed w-full z-50">
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center">
@@ -116,7 +109,6 @@ const Header: React.FC = () => {
                 >
                   <CollapsibleTrigger 
                     className="flex w-full justify-between items-center text-levigile-dark hover:text-levigile-blue font-medium py-2"
-                    onClick={toggleCollapsible}
                   >
                     <span>Villes</span>
                     <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isCollapsibleOpen ? 'rotate-180' : ''}`} />
@@ -168,7 +160,8 @@ const Header: React.FC = () => {
           </Sheet>
         </div>
       </div>
-    </header>;
+    </header>
+  );
 };
 
 export default Header;
