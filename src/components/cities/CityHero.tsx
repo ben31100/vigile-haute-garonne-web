@@ -43,12 +43,17 @@ const CityHero: React.FC<CityHeroProps> = ({
 
         // Récupérer l'image depuis le bucket Supabase
         const cleanPath = imagePath.startsWith('/') ? imagePath.substring(1) : imagePath;
-        const { data } = await supabase.storage
+        const { data, error } = supabase.storage
           .from('images')
           .getPublicUrl(cleanPath);
 
-        console.log("Image récupérée depuis Supabase:", data.publicUrl);
-        setBgImage(data.publicUrl);
+        if (error || !data?.publicUrl) {
+          console.warn("Erreur ou image introuvable dans Supabase, fallback local:", error);
+          setBgImage(`/${imagePath}`);
+        } else {
+          console.log("Image récupérée depuis Supabase:", data.publicUrl);
+          setBgImage(data.publicUrl);
+        }
       } catch (error) {
         console.error("Erreur inattendue:", error);
         // Utiliser le chemin local en cas d'erreur
@@ -68,7 +73,7 @@ const CityHero: React.FC<CityHeroProps> = ({
         backgroundRepeat: 'no-repeat',
         backgroundColor: '#333' // Fallback si l'image ne charge pas - gris foncé plus adapté
       }} 
-      className="relative h-[60vh] md:h-[70vh] flex items-center justify-center text-white bg-black"
+      className="relative h-[60vh] md:h-[70vh] flex items-center justify-center text-white"
     >
       <div className="container mx-auto px-4 text-center z-10">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 animate-fade-in">
