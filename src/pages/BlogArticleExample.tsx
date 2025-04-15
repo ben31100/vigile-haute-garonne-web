@@ -53,7 +53,7 @@ const BlogArticleExample: React.FC = () => {
       
       <figure>
         <img 
-          src="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//logo%20levigile%20securite.png" 
+          src="https://images.unsplash.com/photo-1466442929976-97f336a657be?q=80&w=1470&auto=format&fit=crop" 
           alt="Services de sécurité adaptés" 
           className="w-full max-w-2xl"
         />
@@ -94,13 +94,13 @@ const BlogArticleExample: React.FC = () => {
     {
       id: '1',
       title: 'Les tendances en sécurité privée pour 2025',
-      image: 'https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//logo%20levigile%20securite.png',
+      image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=1470&auto=format&fit=crop",
       slug: 'tendances-securite-privee-2025'
     },
     {
       id: '2',
       title: 'Comment sécuriser efficacement un événement',
-      image: 'https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//logo%20levigile%20securite.png',
+      image: "https://images.unsplash.com/photo-1472396961693-142e6e269027?q=80&w=1562&auto=format&fit=crop",
       slug: 'securiser-evenement'
     }
   ];
@@ -133,7 +133,7 @@ const BlogArticleExample: React.FC = () => {
     author: "Thomas Dupont",
     date: "2025-03-15",
     readTime: "8",
-    featuredImage: "https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//logo%20levigile%20securite.png",
+    featuredImage: "https://images.unsplash.com/photo-1466442929976-97f336a657be?q=80&w=1470&auto=format&fit=crop",
     content: articleContent,
     tags: ["Sécurité entreprise", "Gardiennage", "Prévention"],
     relatedArticles: relatedArticles,

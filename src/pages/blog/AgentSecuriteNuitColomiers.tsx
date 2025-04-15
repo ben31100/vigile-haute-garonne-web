@@ -22,6 +22,17 @@ const AgentSecuriteNuitColomiers: React.FC = () => {
         risques de vol ou de dégradation.
       </p>
 
+      <figure className="my-8">
+        <img 
+          src="https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?q=80&w=1470&auto=format&fit=crop" 
+          alt="Zone industrielle de nuit à Colomiers" 
+          className="w-full rounded-lg shadow-md"
+        />
+        <figcaption className="text-center text-sm text-gray-600 mt-2">
+          La sécurité de nuit est essentielle pour protéger les zones industrielles
+        </figcaption>
+      </figure>
+
       <h2 className="text-2xl font-bold mt-8 mb-4 text-levigile-dark">Rassurer vos employés et partenaires</h2>
       <p className="mb-6">
         Un site sécurisé attire la confiance de tous. La présence d'un agent de sécurité la nuit montre votre engagement 
