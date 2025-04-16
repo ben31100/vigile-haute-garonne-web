@@ -1,9 +1,10 @@
-
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import Header from '@/components/header/Header';
 import Footer from '@/components/Footer';
 import BlogArticle from '@/components/BlogArticle';
+
+const FIXED_IMAGE_URL = "https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//securite%20commerce%20levigie.webp";
 
 const ProtegerCommerceToulouse: React.FC = () => {
   // Contenu de l'article formaté en JSX
@@ -67,35 +68,13 @@ const ProtegerCommerceToulouse: React.FC = () => {
     </>
   );
 
-  // Articles connexes
+  // Articles connexes avec l'image fixe
   const relatedArticles = [
     {
       id: 'ex1',
       title: 'Les meilleures pratiques de sécurité pour les entreprises en 2025',
-      image: "https://images.unsplash.com/photo-1466442929976-97f336a657be?q=80&w=1470&auto=format&fit=crop",
+      image: FIXED_IMAGE_URL,
       slug: 'exemple'
-    }
-  ];
-
-  // Services connexes
-  const relatedServices = [
-    {
-      id: '1',
-      title: 'Surveillance de commerces',
-      description: 'Protection adaptée aux commerces toulousains',
-      slug: 'surveillance-commerces'
-    },
-    {
-      id: '2',
-      title: 'Agents de sécurité',
-      description: 'Personnel qualifié disponible 24h/24',
-      slug: 'agents-securite'
-    },
-    {
-      id: '3',
-      title: 'Télésurveillance',
-      description: 'Systèmes d\'alarme connectés avec intervention',
-      slug: 'telesurveillance'
     }
   ];
 
@@ -105,11 +84,30 @@ const ProtegerCommerceToulouse: React.FC = () => {
     author: "A. Benhalima",
     date: "2025-02-15",
     readTime: "6",
-    featuredImage: "https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//securite%20commerce%20levigie.webp",
+    featuredImage: FIXED_IMAGE_URL,
     content: articleContent,
     tags: ["Sécurité commerce", "Toulouse", "Protection magasin", "Vidéosurveillance"],
     relatedArticles: relatedArticles,
-    relatedServices: relatedServices
+    relatedServices: [
+      {
+        id: '1',
+        title: 'Surveillance de commerces',
+        description: 'Protection adaptée aux commerces toulousains',
+        slug: 'surveillance-commerces'
+      },
+      {
+        id: '2',
+        title: 'Agents de sécurité',
+        description: 'Personnel qualifié disponible 24h/24',
+        slug: 'agents-securite'
+      },
+      {
+        id: '3',
+        title: 'Télésurveillance',
+        description: 'Systèmes d\'alarme connectés avec intervention',
+        slug: 'telesurveillance'
+      }
+    ]
   };
 
   return (
@@ -121,7 +119,7 @@ const ProtegerCommerceToulouse: React.FC = () => {
         <link rel="canonical" href="https://www.levigile.fr/blog/proteger-commerce-toulouse" />
         <meta property="og:title" content="5 conseils pour protéger votre commerce à Toulouse | LeVigile" />
         <meta property="og:description" content="Découvrez 5 conseils essentiels pour sécuriser efficacement votre commerce à Toulouse. Solutions adaptées aux commerces toulousains." />
-        <meta property="og:image" content="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//securite%20commerce%20levigie.webp" />
+        <meta property="og:image" content={FIXED_IMAGE_URL} />
         <meta property="og:url" content="https://www.levigile.fr/blog/proteger-commerce-toulouse" />
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary_large_image" />
