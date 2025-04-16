@@ -1,5 +1,6 @@
 
 import { getUnsplashImage, isValidImageUrl } from '@/utils/unsplashUtils';
+import { supabase } from '@/integrations/supabase/client';
 
 export const categories = [
   { name: 'Conseils de sécurité', count: 3 },
@@ -14,6 +15,17 @@ const FIXED_IMAGE_URL = "https://dwugopridureefyyiyss.supabase.co/storage/v1/obj
 
 const assignConsistentImage = (post: any): string => {
   return FIXED_IMAGE_URL;
+};
+
+// Fonction utilitaire pour récupérer une image depuis Supabase
+export const getSupabaseImage = async (path: string) => {
+  try {
+    const { data } = await supabase.storage.from('images').getPublicUrl(path);
+    return data.publicUrl;
+  } catch (error) {
+    console.error('Erreur lors de la récupération de l\'image:', error);
+    return FIXED_IMAGE_URL; // Retourner l'image par défaut en cas d'erreur
+  }
 };
 
 export const blogPostsBase = [

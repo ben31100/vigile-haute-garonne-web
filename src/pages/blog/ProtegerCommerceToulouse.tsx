@@ -1,12 +1,36 @@
-import React from 'react';
+
+import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import Header from '@/components/header/Header';
 import Footer from '@/components/Footer';
 import BlogArticle from '@/components/BlogArticle';
+import { supabase } from '@/integrations/supabase/client';
 
 const FIXED_IMAGE_URL = "https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//securite%20commerce%20levigie.webp";
 
 const ProtegerCommerceToulouse: React.FC = () => {
+  const [imageUrl, setImageUrl] = useState<string>(FIXED_IMAGE_URL);
+
+  useEffect(() => {
+    // Cette fonction permet de récupérer l'image de manière dynamique si nécessaire
+    const fetchImage = async () => {
+      try {
+        const { data } = await supabase.storage
+          .from('images')
+          .getPublicUrl('securite commerce levigie.webp');
+        
+        if (data?.publicUrl) {
+          setImageUrl(data.publicUrl);
+        }
+      } catch (error) {
+        console.error('Erreur lors du chargement de l\'image:', error);
+      }
+    };
+
+    // Charger l'image dynamiquement (commenté pour l'instant car nous utilisons une URL fixe)
+    // fetchImage();
+  }, []);
+
   // Contenu de l'article formaté en JSX
   const articleContent = (
     <>
@@ -73,7 +97,7 @@ const ProtegerCommerceToulouse: React.FC = () => {
     {
       id: 'ex1',
       title: 'Les meilleures pratiques de sécurité pour les entreprises en 2025',
-      image: FIXED_IMAGE_URL,
+      image: imageUrl,
       slug: 'exemple'
     }
   ];
@@ -84,7 +108,7 @@ const ProtegerCommerceToulouse: React.FC = () => {
     author: "A. Benhalima",
     date: "2025-02-15",
     readTime: "6",
-    featuredImage: FIXED_IMAGE_URL,
+    featuredImage: imageUrl,
     content: articleContent,
     tags: ["Sécurité commerce", "Toulouse", "Protection magasin", "Vidéosurveillance"],
     relatedArticles: relatedArticles,
@@ -119,7 +143,7 @@ const ProtegerCommerceToulouse: React.FC = () => {
         <link rel="canonical" href="https://www.levigile.fr/blog/proteger-commerce-toulouse" />
         <meta property="og:title" content="5 conseils pour protéger votre commerce à Toulouse | LeVigile" />
         <meta property="og:description" content="Découvrez 5 conseils essentiels pour sécuriser efficacement votre commerce à Toulouse. Solutions adaptées aux commerces toulousains." />
-        <meta property="og:image" content={FIXED_IMAGE_URL} />
+        <meta property="og:image" content={imageUrl} />
         <meta property="og:url" content="https://www.levigile.fr/blog/proteger-commerce-toulouse" />
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary_large_image" />
