@@ -5,12 +5,6 @@ import Index from './pages/Index';
 import NotFound from './pages/NotFound';
 import MediaManager from './pages/MediaManager';
 import CitiesList from './pages/CitiesList';
-import BlogPage from './pages/BlogPage';
-import BlogCategoryPage from './pages/BlogCategoryPage';
-
-// Pages d'articles de blog
-import BlogArticleExample from './pages/BlogArticleExample';
-import ProtegerCommerceToulouse from './pages/blog/ProtegerCommerceToulouse';
 
 // City pages
 import ToulousePage from './pages/cities/ToulousePage';
@@ -36,15 +30,6 @@ const AppRoutes: React.FC = () => {
       <Route path="/" element={<Index />} />
       <Route path="/media-manager" element={<MediaManager />} />
       <Route path="/villes" element={<CitiesList />} />
-      <Route path="/blog" element={<BlogPage />} />
-      <Route path="/blog/categorie/:categorySlug" element={<BlogCategoryPage />} />
-      
-      {/* Routes des articles de blog */}
-      <Route path="/blog/exemple" element={<BlogArticleExample />} />
-      <Route path="/blog/proteger-commerce-toulouse" element={<ProtegerCommerceToulouse />} />
-      
-      {/* Route générique pour les autres slugs (utilise l'exemple comme fallback) */}
-      <Route path="/blog/:slug" element={<BlogArticleExample />} />
       
       {/* Routes des villes */}
       <Route path="/toulouse.html" element={<ToulousePage />} />
