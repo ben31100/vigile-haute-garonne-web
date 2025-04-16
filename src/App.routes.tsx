@@ -10,6 +10,7 @@ import BlogCategoryPage from './pages/BlogCategoryPage';
 
 // Pages d'articles de blog
 import BlogArticleExample from './pages/BlogArticleExample';
+import ProtegerCommerceToulouse from './pages/blog/ProtegerCommerceToulouse';
 
 // City pages
 import ToulousePage from './pages/cities/ToulousePage';
@@ -40,6 +41,7 @@ const AppRoutes: React.FC = () => {
       
       {/* Routes des articles de blog */}
       <Route path="/blog/exemple" element={<BlogArticleExample />} />
+      <Route path="/blog/proteger-commerce-toulouse" element={<ProtegerCommerceToulouse />} />
       
       {/* Route générique pour les autres slugs (utilise l'exemple comme fallback) */}
       <Route path="/blog/:slug" element={<BlogArticleExample />} />
