@@ -6,7 +6,7 @@ import Footer from '@/components/Footer';
 import BlogArticle from '@/components/BlogArticle';
 import { supabase } from '@/integrations/supabase/client';
 
-const FIXED_IMAGE_URL = "https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//securite%20commerce%20levigie.webp";
+const FIXED_IMAGE_URL = "/public/lovable-uploads/b429d3c8-5c88-41f8-b9a9-9a60f4bf2ce0.png";
 
 const ProtegerCommerceToulouse: React.FC = () => {
   const [imageUrl, setImageUrl] = useState<string>(FIXED_IMAGE_URL);
