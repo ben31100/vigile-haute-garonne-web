@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { CalendarIcon, ClockIcon, UserIcon, ImageIcon } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
+import { isValidImageUrl, getFallbackImage } from '@/utils/unsplashUtils';
 
 export interface BlogPost {
   id: number;
@@ -34,12 +35,20 @@ const BlogArticleCard: React.FC<BlogArticleCardProps> = ({ post }) => {
     setImageError(true);
   };
 
+  // Vérifier et préparer l'URL de l'image
+  const imageUrl = React.useMemo(() => {
+    if (imageError || !isValidImageUrl(post.featuredImage)) {
+      return getFallbackImage(post.categories, post.id);
+    }
+    return post.featuredImage;
+  }, [post.featuredImage, post.categories, post.id, imageError]);
+
   return (
     <article className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col hover:shadow-lg transition-shadow">
       <div className="h-48 overflow-hidden relative">
         {!imageError ? (
           <img 
-            src={post.featuredImage} 
+            src={imageUrl} 
             alt={post.title} 
             className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
             onError={handleImageError}

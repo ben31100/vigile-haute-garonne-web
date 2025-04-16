@@ -1,4 +1,6 @@
 
+import { getUnsplashImage, isValidImageUrl } from '@/utils/unsplashUtils';
+
 export const categories = [
   { name: 'Conseils de sécurité', count: 3 },
   { name: 'Surveillance', count: 2 },
@@ -8,7 +10,19 @@ export const categories = [
   { name: 'Réglementation', count: 1 }
 ];
 
-export const blogPosts = [
+// Fonction pour assigner une image cohérente à chaque article
+const assignConsistentImage = (post: any): string => {
+  // Si l'image est déjà une URL Unsplash valide, la conserver
+  if (isValidImageUrl(post.featuredImage)) {
+    return post.featuredImage;
+  }
+  
+  // Sinon, générer une nouvelle URL d'image basée sur les catégories et l'ID
+  return getUnsplashImage(post.categories, post.id);
+};
+
+// Articles de blog avec leurs données
+export const blogPostsBase = [
   {
     id: 1,
     title: "5 conseils pour protéger votre commerce à Toulouse",
@@ -17,7 +31,7 @@ export const blogPosts = [
     date: "2025-04-10",
     readTime: "8",
     categories: ["Conseils de sécurité", "Surveillance"],
-    featuredImage: "/lovable-uploads/95d1d3d2-2323-40fb-9947-ca8e35e7a9f2.png",
+    featuredImage: "",
     slug: 'proteger-commerce-toulouse',
     excerpt: "Vous êtes commerçant à Toulouse ? La sécurité de votre boutique est essentielle face aux risques de vols ou d'intrusions. Découvrez nos conseils pour renforcer votre protection."
   },
@@ -29,7 +43,7 @@ export const blogPosts = [
     date: "2025-03-28",
     readTime: "6",
     categories: ["Événementiel", "Conseils de sécurité"],
-    featuredImage: "/lovable-uploads/95d1d3d2-2323-40fb-9947-ca8e35e7a9f2.png",
+    featuredImage: "",
     slug: 'securite-evenementielle-choisir',
     excerpt: "Organiser un événement, c'est aussi penser à la sécurité des participants. Comment s'assurer de choisir la bonne société de sécurité pour votre manifestation ?"
   },
@@ -89,7 +103,7 @@ export const blogPosts = [
     date: "2025-04-05",
     readTime: "7",
     categories: ["Incendie", "Réglementation"],
-    featuredImage: "/lovable-uploads/95d1d3d2-2323-40fb-9947-ca8e35e7a9f2.png",
+    featuredImage: "",
     slug: 'securite-incendie-obligations-legales',
     excerpt: "En Haute-Garonne, toutes les entreprises ont des obligations strictes en matière de sécurité incendie. Découvrez quelles sont ces obligations et comment les respecter."
   },
@@ -101,7 +115,7 @@ export const blogPosts = [
     date: "2025-03-20",
     readTime: "6",
     categories: ["Surveillance", "Conseils de sécurité"],
-    featuredImage: "/lovable-uploads/95d1d3d2-2323-40fb-9947-ca8e35e7a9f2.png",
+    featuredImage: "",
     slug: 'agent-cynophile-maitre-chien',
     excerpt: "L'agent cynophile est un professionnel redoutablement efficace dans certaines situations de sécurité. Découvrez quand il est vraiment indispensable."
   },
@@ -113,7 +127,7 @@ export const blogPosts = [
     date: "2025-03-08",
     readTime: "5",
     categories: ["Surveillance", "Conseils de sécurité"],
-    featuredImage: "/lovable-uploads/95d1d3d2-2323-40fb-9947-ca8e35e7a9f2.png",
+    featuredImage: "",
     slug: 'securiser-chantier-erreurs-eviter',
     excerpt: "Les chantiers sont des cibles fréquentes de vols et de dégradations. Découvrez les erreurs courantes à ne pas commettre pour protéger votre site."
   },
@@ -125,7 +139,7 @@ export const blogPosts = [
     date: "2025-02-20",
     readTime: "6",
     categories: ["Surveillance", "Gardiennage"],
-    featuredImage: "/lovable-uploads/95d1d3d2-2323-40fb-9947-ca8e35e7a9f2.png",
+    featuredImage: "",
     slug: 'surveillance-residences-cambriolages',
     excerpt: "Face aux cambriolages et incivilités dans les communes périphériques de Toulouse, la surveillance privée devient une solution privilégiée par de nombreux résidents."
   },
@@ -137,8 +151,14 @@ export const blogPosts = [
     date: "2025-02-05",
     readTime: "7",
     categories: ["Surveillance", "Conseils de sécurité"],
-    featuredImage: "/lovable-uploads/95d1d3d2-2323-40fb-9947-ca8e35e7a9f2.png",
+    featuredImage: "",
     slug: 'securite-grande-surface-dispositifs',
     excerpt: "Vols à l'étalage, incivilités, gestion de flux : une grande surface nécessite un dispositif de sécurité professionnel et bien pensé. Découvrez comment protéger clients et employés."
   }
 ];
+
+// Appliquer des images cohérentes à tous les articles
+export const blogPosts = blogPostsBase.map(post => ({
+  ...post,
+  featuredImage: assignConsistentImage(post)
+}));

@@ -4,8 +4,13 @@ import { Helmet } from 'react-helmet-async';
 import Header from '@/components/header/Header';
 import Footer from '@/components/Footer';
 import BlogArticle from '@/components/blog/BlogArticle';
+import { blogPosts } from '@/data/blogData';
 
 const SecuriteIncendieObligations: React.FC = () => {
+  // Récupérer l'image cohérente depuis les données du blog
+  const article = blogPosts.find(post => post.slug === 'securite-incendie-obligations-legales');
+  const featuredImage = article?.featuredImage || 'https://images.unsplash.com/photo-1598141246732-27a939a34cf8?q=80&w=1470&auto=format&fit=crop';
+
   const articleContent = (
     <>
       <p className="mb-6 text-lg">
@@ -24,7 +29,7 @@ const SecuriteIncendieObligations: React.FC = () => {
 
       <figure className="my-8">
         <img 
-          src="/lovable-uploads/95d1d3d2-2323-40fb-9947-ca8e35e7a9f2.png" 
+          src={featuredImage} 
           alt="Équipements de sécurité incendie obligatoires" 
           className="w-full rounded-lg shadow-md"
         />
@@ -102,6 +107,20 @@ const SecuriteIncendieObligations: React.FC = () => {
     </>
   );
 
+  // Trouver des articles similaires dans la même catégorie
+  const relatedArticles = blogPosts
+    .filter(post => 
+      post.slug !== 'securite-incendie-obligations-legales' && 
+      (post.categories.includes('Réglementation') || post.categories.includes('Conseils de sécurité'))
+    )
+    .slice(0, 2)
+    .map(post => ({
+      id: post.id.toString(),
+      title: post.title,
+      image: post.featuredImage,
+      slug: post.slug
+    }));
+
   return (
     <>
       <Helmet>
@@ -118,23 +137,10 @@ const SecuriteIncendieObligations: React.FC = () => {
         author="Samir Benhalima"
         date="2025-04-05"
         readTime="7"
-        featuredImage="/lovable-uploads/95d1d3d2-2323-40fb-9947-ca8e35e7a9f2.png"
+        featuredImage={featuredImage}
         content={articleContent}
         tags={["Sécurité incendie", "SSIAP", "Réglementation", "Haute-Garonne"]}
-        relatedArticles={[
-          {
-            id: "5",
-            title: "Règlementation 2025 : ce que dit la loi sur la sécurité privée",
-            image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=1470&auto=format&fit=crop",
-            slug: "reglementation-2025-securite-privee"
-          },
-          {
-            id: "6",
-            title: "Les meilleures pratiques de sécurité pour les entreprises en 2025",
-            image: "https://images.unsplash.com/photo-1466442929976-97f336a657be?q=80&w=1470&auto=format&fit=crop",
-            slug: "pratiques-securite-2025"
-          }
-        ]}
+        relatedArticles={relatedArticles}
         relatedServices={[
           {
             id: "1",
