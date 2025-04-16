@@ -1,5 +1,5 @@
 
-import { getUnsplashImage, isValidImageUrl } from '@/utils/unsplashUtils';
+import { isValidImageUrl } from '@/utils/unsplashUtils';
 import { supabase } from '@/integrations/supabase/client';
 
 export const categories = [
