@@ -36,12 +36,7 @@ const DesktopNav: React.FC = () => {
         scrollToSection('services');
       }} className="text-levigile-dark hover:text-levigile-blue font-medium">Nos services</a>
       
-      <Link 
-        to="/blog" 
-        className="text-levigile-dark hover:text-levigile-blue font-medium"
-      >
-        Blog
-      </Link>
+
       
       <DropdownMenu open={isVillesDropdownOpen} onOpenChange={setIsVillesDropdownOpen}>
         <DropdownMenuTrigger className="text-levigile-dark hover:text-levigile-blue font-medium bg-transparent hover:bg-transparent focus:bg-transparent inline-flex items-center">
