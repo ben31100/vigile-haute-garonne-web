@@ -76,7 +76,7 @@ export const blogArticles: BlogArticle[] = [
     `,
     publishedAt: '2025-03-15T10:00:00Z',
     readingTime: 8,
-    coverImage: 'https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//securite%20commerce%20levigie.webp',
+    coverImage: 'https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//ronde-hero.jpg',
     author: blogAuthors.expert,
     tags: [blogTags.securite, blogTags.entreprise],
     relatedArticles: ['2', '3']
