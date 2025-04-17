@@ -1,7 +1,7 @@
 
 import { BlogArticle, BlogAuthor, BlogTag } from '../types/blog';
 
-// Auteurs du blog
+// Blog authors
 export const blogAuthors: Record<string, BlogAuthor> = {
   admin: {
     id: 'admin',
@@ -16,7 +16,7 @@ export const blogAuthors: Record<string, BlogAuthor> = {
   }
 };
 
-// Tags du blog
+// Blog tags
 export const blogTags: Record<string, BlogTag> = {
   securite: {
     id: 'securite',
@@ -40,7 +40,7 @@ export const blogTags: Record<string, BlogTag> = {
   }
 };
 
-// Articles du blog
+// Blog articles
 export const blogArticles: BlogArticle[] = [
   {
     id: '1',
@@ -283,7 +283,7 @@ export const getArticleBySlug = (slug: string): BlogArticle | undefined => {
 };
 
 // Fonction utilitaire pour récupérer les articles liés
-export const getRelatedArticles = (articleId: string): BlogArticlePreview[] => {
+export const getRelatedArticles = (articleId: string): BlogArticle[] => {
   const article = blogArticles.find(a => a.id === articleId);
   if (!article || !article.relatedArticles || article.relatedArticles.length === 0) {
     return [];
@@ -291,15 +291,13 @@ export const getRelatedArticles = (articleId: string): BlogArticlePreview[] => {
   
   return article.relatedArticles
     .map(id => blogArticles.find(a => a.id === id))
-    .filter((a): a is BlogArticle => a !== undefined)
-    .map(({ content, relatedArticles, ...rest }) => rest);
+    .filter((a): a is BlogArticle => a !== undefined);
 };
 
 // Fonction utilitaire pour récupérer les articles par tag
-export const getArticlesByTag = (tagSlug: string): BlogArticlePreview[] => {
+export const getArticlesByTag = (tagSlug: string): BlogArticle[] => {
   return blogArticles
-    .filter(article => article.tags?.some(tag => tag.slug === tagSlug))
-    .map(({ content, relatedArticles, ...rest }) => rest);
+    .filter(article => article.tags?.some(tag => tag.slug === tagSlug));
 };
 
 // Fonction utilitaire pour formater la date
