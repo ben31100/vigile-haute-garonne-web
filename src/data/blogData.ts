@@ -1,4 +1,3 @@
-
 import { BlogArticle, BlogAuthor, BlogTag } from '../types/blog';
 
 // Blog authors
@@ -41,7 +40,7 @@ export const blogTags: Record<string, BlogTag> = {
 };
 
 // Blog articles
-export const blogArticles: BlogArticle[] = [
+const blogArticles: BlogArticle[] = [
   {
     id: '1',
     slug: 'comment-securiser-son-entreprise',
@@ -76,7 +75,7 @@ export const blogArticles: BlogArticle[] = [
     `,
     publishedAt: '2025-03-15T10:00:00Z',
     readingTime: 8,
-    coverImage: 'https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//ronde-hero.jpg',
+    coverImage: 'https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//securitE-Evenementiel.jpg',
     author: blogAuthors.expert,
     tags: [blogTags.securite, blogTags.entreprise],
     relatedArticles: ['2', '3']
