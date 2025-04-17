@@ -47,7 +47,7 @@ export const blogArticles: BlogArticle[] = [
     slug: 'comment-securiser-son-entreprise',
     title: 'Comment sécuriser efficacement son entreprise en 2025',
     subtitle: 'Découvrez les meilleures pratiques pour protéger votre entreprise',
-    excerpt: 'La sécurité des entreprises est devenue un enjeu majeur face à l'augmentation des risques. Cet article présente les solutions les plus efficaces pour protéger votre entreprise.',
+    excerpt: "La sécurité des entreprises est devenue un enjeu majeur face à l'augmentation des risques. Cet article présente les solutions les plus efficaces pour protéger votre entreprise.",
     content: `
       <h2>Les risques actuels pour les entreprises</h2>
       <p>Dans un contexte où les menaces évoluent constamment, les entreprises doivent adapter leur stratégie de sécurité. Les risques d'intrusion, de vol de données ou de dégradation sont réels et peuvent avoir des conséquences désastreuses sur l'activité.</p>
@@ -86,7 +86,7 @@ export const blogArticles: BlogArticle[] = [
     slug: 'securite-evenementielle',
     title: 'Sécurité événementielle : garantir le bon déroulement de vos manifestations',
     subtitle: 'Les clés pour organiser des événements sécurisés',
-    excerpt: 'Organiser un événement implique une responsabilité importante en matière de sécurité. Découvrez comment assurer la protection de vos participants et le bon déroulement de votre manifestation.',
+    excerpt: "Organiser un événement implique une responsabilité importante en matière de sécurité. Découvrez comment assurer la protection de vos participants et le bon déroulement de votre manifestation.",
     content: `
       <h2>Les enjeux de la sécurité événementielle</h2>
       <p>L'organisation d'un événement, qu'il s'agisse d'un salon professionnel, d'une convention d'entreprise ou d'un concert, comporte de nombreux défis en matière de sécurité. La protection des participants, des intervenants et des infrastructures nécessite une préparation minutieuse.</p>
@@ -128,7 +128,7 @@ export const blogArticles: BlogArticle[] = [
     slug: 'protection-commerces-toulouse',
     title: 'Protection des commerces à Toulouse : solutions adaptées',
     subtitle: 'Comment sécuriser efficacement votre commerce dans la ville rose',
-    excerpt: 'Face à l'augmentation des actes de malveillance, les commerces toulousains doivent renforcer leur sécurité. Découvrez les solutions spécifiquement adaptées au contexte local.',
+    excerpt: "Face à l'augmentation des actes de malveillance, les commerces toulousains doivent renforcer leur sécurité. Découvrez les solutions spécifiquement adaptées au contexte local.",
     content: `
       <h2>La situation sécuritaire des commerces toulousains</h2>
       <p>Les commerces de Toulouse, comme dans de nombreuses grandes villes françaises, sont confrontés à diverses menaces : cambriolages, vols à l'étalage, agressions. Selon les statistiques récentes, le nombre d'incidents a augmenté de 15% au cours des deux dernières années.</p>
@@ -173,7 +173,7 @@ export const blogArticles: BlogArticle[] = [
     slug: 'tendances-securite-2025',
     title: 'Les grandes tendances de la sécurité privée en 2025',
     subtitle: 'Innovations et évolutions du secteur',
-    excerpt: 'Le secteur de la sécurité privée connaît une transformation majeure portée par les innovations technologiques et l\'évolution des menaces. Découvrez les tendances qui façonnent le marché en 2025.',
+    excerpt: "Le secteur de la sécurité privée connaît une transformation majeure portée par les innovations technologiques et l'évolution des menaces. Découvrez les tendances qui façonnent le marché en 2025.",
     content: `
       <h2>L'intelligence artificielle au service de la sécurité</h2>
       <p>L'IA transforme profondément le secteur de la sécurité privée. Les systèmes de vidéosurveillance intelligents peuvent désormais analyser en temps réel les comportements suspects, identifier des objets abandonnés ou encore reconnaître des personnes recherchées.</p>
@@ -222,7 +222,7 @@ export const blogArticles: BlogArticle[] = [
     slug: 'recrutement-agents-securite',
     title: 'Comment recruter et fidéliser les meilleurs agents de sécurité',
     subtitle: 'Stratégies RH pour le secteur de la sécurité privée',
-    excerpt: 'Dans un marché en tension, attirer et conserver les talents est un défi majeur pour les entreprises de sécurité. Découvrez les meilleures pratiques pour constituer et maintenir une équipe d\'agents qualifiés.',
+    excerpt: "Dans un marché en tension, attirer et conserver les talents est un défi majeur pour les entreprises de sécurité. Découvrez les meilleures pratiques pour constituer et maintenir une équipe d'agents qualifiés.",
     content: `
       <h2>Un secteur en tension</h2>
       <p>Le secteur de la sécurité privée fait face à un paradoxe : alors que la demande ne cesse de croître, le recrutement d'agents qualifiés devient de plus en plus difficile. Cette situation s'explique par plusieurs facteurs :</p>
