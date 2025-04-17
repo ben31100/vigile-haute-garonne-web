@@ -1,6 +1,7 @@
-
 import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { ChevronLeft } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 import { getArticleBySlug, getRelatedArticles, formatBlogDate } from '@/data/blogData';
 import BlogLayout from '@/components/blog/BlogLayout';
 import BlogContent from '@/components/blog/BlogContent';
@@ -29,6 +30,11 @@ const BlogArticle: React.FC = () => {
   // Récupération des articles liés
   const relatedArticles = getRelatedArticles(article.id);
   
+  // Fonction pour retourner à la page de blog
+  const handleGoBack = () => {
+    navigate('/blog');
+  };
+  
   return (
     <BlogLayout 
       title={article.title}
@@ -37,7 +43,19 @@ const BlogArticle: React.FC = () => {
       ogImage={article.coverImage}
     >
       <article>
-        {/* En-tête de l'article avec l'image */}
+        {/* Bouton Retour */}
+        <div className="container mx-auto px-4 mb-6">
+          <Button 
+            variant="outline" 
+            onClick={handleGoBack} 
+            className="flex items-center gap-2"
+          >
+            <ChevronLeft className="h-4 w-4" />
+            Retour au blog
+          </Button>
+        </div>
+
+        {/* Le reste du contenu reste le même */}
         <div className="relative">
           <div className="w-full h-64 md:h-96 overflow-hidden">
             <img 
