@@ -1,11 +1,15 @@
+
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Clock, MapPin, Phone, Mail, Shield, Building2 } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import InterventionMap from '@/components/InterventionMap';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const ContactPage = () => {
+  const isMobile = useIsMobile();
+
   return (
     <>
       <Helmet>
@@ -20,10 +24,10 @@ const ContactPage = () => {
 
       <main className="pt-8 pb-16">
         {/* Hero Section */}
-        <section className="bg-gray-100 py-16 mb-12 h-[500px] flex items-center">
-          <div className="container mx-auto px-4 flex items-center">
-            <div className="w-1/2">
-              <h1 className="text-4xl font-bold text-levigile-dark mb-4">
+        <section className="bg-gray-100 py-12 md:py-16 mb-12 min-h-[300px] md:h-[500px] flex items-center">
+          <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div className="w-full md:w-1/2 mb-8 md:mb-0">
+              <h1 className="text-3xl md:text-4xl font-bold text-levigile-dark mb-4">
                 Contactez-nous
               </h1>
               <p className="text-gray-600 max-w-2xl mb-6">
@@ -31,11 +35,11 @@ const ContactPage = () => {
                 et vous accompagner dans vos besoins en sécurité.
               </p>
             </div>
-            <div className="w-1/2">
+            <div className="w-full md:w-1/2">
               <img 
                 src="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//Contactez%20Levigile.png" 
                 alt="Contact LeVigile" 
-                className="w-full h-full object-cover rounded-lg shadow-lg"
+                className="w-full h-auto object-cover rounded-lg shadow-lg"
               />
             </div>
           </div>
@@ -43,7 +47,7 @@ const ContactPage = () => {
 
         {/* Contact Information Section */}
         <section className="container mx-auto px-4 mb-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Phone */}
             <div className="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center">
               <div className="bg-levigile-blue/10 p-4 rounded-full mb-4">
