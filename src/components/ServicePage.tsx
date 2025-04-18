@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
@@ -63,7 +62,7 @@ const ServicePage: React.FC<ServicePageProps> = ({
                   asChild 
                   variant="outline" 
                   size="lg" 
-                  className="border-2 border-levigile-dark text-levigile-dark hover:bg-levigile-dark hover:text-white transition-all duration-300 group cursor-pointer font-semibold px-8 py-6 text-base shadow-lg hover:shadow-xl"
+                  className="border-2 border-[#0EA5E9] text-[#0EA5E9] hover:bg-[#0EA5E9] hover:text-white transition-all duration-300 group cursor-pointer font-semibold px-8 py-6 text-base shadow-lg hover:shadow-xl"
                 >
                   <a 
                     href="tel:+33554546428" 
