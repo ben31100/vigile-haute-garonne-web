@@ -42,6 +42,11 @@ export const blogTags: Record<string, BlogTag> = {
     name: 'Sécurité Incendie',
     slug: 'incendie'
   },
+  cynophile: {
+    id: 'cynophile',
+    name: 'Agent Cynophile',
+    slug: 'cynophile'
+  }
 };
 
 // Blog articles
@@ -506,6 +511,58 @@ export const blogArticles: BlogArticle[] = [
     author: blogAuthors.expert,
     tags: [blogTags.securite, blogTags.entreprise, blogTags.incendie],
     relatedArticles: ['1', '8']
+  },
+  {
+    id: '10',
+    slug: 'agent-cynophile-maitre-chien',
+    title: 'Agent cynophile : dans quels cas faire appel à un maître-chien ?',
+    subtitle: 'Découvrez quand un agent de sécurité avec chien devient indispensable',
+    excerpt: "L'agent cynophile (ou maître-chien) est un professionnel redoutablement efficace dans certaines situations. Mais quand est-il réellement indispensable ?",
+    content: `
+      <h2>Surveillance de chantiers ou entrepôts isolés la nuit</h2>
+      <p>Les sites isolés sont particulièrement vulnérables aux intrusions nocturnes. L'agent cynophile apporte une solution de sécurité optimale grâce à :</p>
+      <ul>
+        <li>La capacité de détection accrue du chien</li>
+        <li>L'effet dissuasif de la présence canine</li>
+        <li>La mobilité et la rapidité d'intervention du binôme</li>
+        <li>La couverture efficace de grandes surfaces</li>
+      </ul>
+      
+      <h2>Sécurisation d'événements avec risques d'intrusion</h2>
+      <p>Lors d'événements majeurs, l'agent cynophile renforce significativement le dispositif de sécurité :</p>
+      <ul>
+        <li>Contrôle des accès et des périmètres</li>
+        <li>Détection précoce des comportements suspects</li>
+        <li>Dissuasion efficace des tentatives d'intrusion</li>
+        <li>Intervention rapide en cas d'incident</li>
+      </ul>
+      
+      <h2>Patrouilles dissuasives en zones industrielles</h2>
+      <p>Les zones industrielles nécessitent une surveillance particulière que les équipes cynophiles assurent efficacement :</p>
+      <ul>
+        <li>Rondes régulières sur l'ensemble du site</li>
+        <li>Vérification approfondie des points sensibles</li>
+        <li>Détection des anomalies grâce aux capacités canines</li>
+        <li>Présence visible et dissuasive</li>
+      </ul>
+      
+      <h2>Capacité à détecter rapidement les intrusions</h2>
+      <p>Les capacités sensorielles du chien, combinées à l'expertise du maître, offrent des avantages uniques :</p>
+      <ul>
+        <li>Détection olfactive supérieure</li>
+        <li>Repérage auditif performant</li>
+        <li>Réactivité immédiate aux situations suspectes</li>
+        <li>Efficacité même dans l'obscurité</li>
+      </ul>
+      
+      <blockquote>LeVigile dispose d'équipes cynophiles professionnelles, disponibles 7j/7 pour répondre à vos besoins spécifiques de sécurité. Contactez-nous pour une évaluation personnalisée de vos besoins.</blockquote>
+    `,
+    publishedAt: '2025-04-19T08:00:00Z',
+    readingTime: 6,
+    coverImage: 'https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//Agent%20cynophile%20levigile.png',
+    author: blogAuthors.expert,
+    tags: [blogTags.securite, blogTags.cynophile],
+    relatedArticles: ['1', '7']
   }
 ];
 
