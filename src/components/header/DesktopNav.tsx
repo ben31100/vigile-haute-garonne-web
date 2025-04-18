@@ -32,14 +32,25 @@ const DesktopNav: React.FC = () => {
   };
 
   return (
-    <nav className="hidden md:flex space-x-8">
-      <Link to="/" className="text-levigile-dark hover:text-levigile-blue font-medium">Accueil</Link>
+    <nav className="flex items-center space-x-8">
+      <Link 
+        to="/" 
+        className={cn(
+          "text-levigile-dark hover:text-levigile-blue font-medium text-base transition-colors",
+          location.pathname === "/" && "text-levigile-blue"
+        )}
+      >
+        Accueil
+      </Link>
       
       <NavigationMenu>
-        <NavigationMenuList>
+        <NavigationMenuList className="space-x-8">
           <NavigationMenuItem>
             <NavigationMenuTrigger 
-              className="text-levigile-dark hover:text-levigile-blue font-medium bg-transparent hover:bg-transparent focus:bg-transparent"
+              className={cn(
+                "text-levigile-dark hover:text-levigile-blue font-medium text-base bg-transparent hover:bg-transparent focus:bg-transparent transition-colors",
+                location.pathname.includes("/services") && "text-levigile-blue"
+              )}
               onClick={() => scrollToSection('services')}
             >
               Nos services
@@ -149,10 +160,27 @@ const DesktopNav: React.FC = () => {
         </NavigationMenuList>
       </NavigationMenu>
       
-      <Link to="/blog" className="text-levigile-dark hover:text-levigile-blue font-medium">Blog</Link>
+      <Link 
+        to="/blog" 
+        className={cn(
+          "text-levigile-dark hover:text-levigile-blue font-medium text-base transition-colors",
+          location.pathname.includes("/blog") && "text-levigile-blue"
+        )}
+      >
+        Blog
+      </Link>
       
       <DropdownMenu open={isVillesDropdownOpen} onOpenChange={setIsVillesDropdownOpen}>
-        <DropdownMenuTrigger className="text-levigile-dark hover:text-levigile-blue font-medium bg-transparent hover:bg-transparent focus:bg-transparent inline-flex items-center">
+        <DropdownMenuTrigger 
+          className={cn(
+            "text-levigile-dark hover:text-levigile-blue font-medium text-base bg-transparent hover:bg-transparent focus:bg-transparent inline-flex items-center transition-colors",
+            (location.pathname.includes("/toulouse") || 
+             location.pathname.includes("/blagnac") ||
+             location.pathname.includes("/colomiers") ||
+             location.pathname.includes("/tournefeuille") ||
+             location.pathname.includes("/muret")) && "text-levigile-blue"
+          )}
+        >
           Villes <ChevronDown className="ml-1 h-4 w-4" />
         </DropdownMenuTrigger>
         <DropdownMenuContent align="start" className="bg-white w-48 p-1 z-50">
@@ -232,10 +260,16 @@ const DesktopNav: React.FC = () => {
         </DropdownMenuContent>
       </DropdownMenu>
         
-      <a href="#contact" onClick={(e) => {
-        e.preventDefault();
-        scrollToSection('contact');
-      }} className="text-levigile-dark hover:text-levigile-blue font-medium">Contact</a>
+      <a 
+        href="#contact" 
+        onClick={(e) => {
+          e.preventDefault();
+          scrollToSection('contact');
+        }} 
+        className="text-levigile-dark hover:text-levigile-blue font-medium text-base transition-colors"
+      >
+        Contact
+      </a>
     </nav>
   );
 };

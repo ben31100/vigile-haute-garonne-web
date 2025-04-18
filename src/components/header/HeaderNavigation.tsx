@@ -8,9 +8,9 @@ const HeaderNavigation: React.FC = () => {
   const isMobile = useIsMobile();
 
   return (
-    <>
+    <div className="flex items-center justify-end flex-1">
       {isMobile ? <MobileNav /> : <DesktopNav />}
-    </>
+    </div>
   );
 };
 
