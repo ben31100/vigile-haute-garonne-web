@@ -388,6 +388,60 @@ export const blogArticles: BlogArticle[] = [
     author: blogAuthors.expert,
     tags: [blogTags.securite, blogTags.entreprise],
     relatedArticles: ['6', '2']
+  },
+  {
+    id: '8',
+    slug: 'reglementation-securite-privee-2025',
+    title: 'Règlementation 2025 : ce que dit la loi sur la sécurité privée',
+    subtitle: 'Les nouvelles exigences légales pour la sécurité privée',
+    excerpt: "Le secteur de la sécurité privée est encadré par la loi, et 2025 apporte son lot de nouveautés. Voici ce qu'il faut savoir.",
+    content: `
+      <h2>Mise à jour des formations obligatoires</h2>
+      <p>Les agents doivent suivre des formations continues certifiées pour maintenir leur niveau de compétence et leur autorisation d'exercer. Ces formations incluent :</p>
+      <ul>
+        <li>La mise à niveau des compétences techniques</li>
+        <li>L'actualisation des connaissances juridiques</li>
+        <li>Le recyclage des gestes de premiers secours</li>
+        <li>Les nouvelles procédures de sécurité</li>
+      </ul>
+      
+      <h2>Renforcement du contrôle par le CNAPS</h2>
+      <p>Le Conseil National des Activités Privées de Sécurité (CNAPS) renforce ses contrôles en 2025. Les points clés incluent :</p>
+      <ul>
+        <li>Des audits plus fréquents des sociétés de sécurité</li>
+        <li>Des vérifications approfondies des antécédents du personnel</li>
+        <li>Un suivi régulier des autorisations et agréments</li>
+        <li>Des sanctions renforcées en cas de non-conformité</li>
+      </ul>
+      
+      <h2>Équipements réglementés</h2>
+      <p>La réglementation précise les équipements obligatoires et leurs normes :</p>
+      <ul>
+        <li>Uniformes aux couleurs et insignes réglementaires</li>
+        <li>Badges d'identification visibles et conformes</li>
+        <li>Équipements de communication homologués</li>
+        <li>Registres et documents obligatoires à jour</li>
+      </ul>
+      
+      <h2>Impact pour les clients</h2>
+      <p>Les entreprises faisant appel à des services de sécurité privée doivent également se conformer à certaines obligations :</p>
+      <ul>
+        <li>Vérification de l'agrément du prestataire</li>
+        <li>Contrôle des autorisations individuelles des agents</li>
+        <li>Respect des conditions d'exercice sur site</li>
+        <li>Conservation des documents contractuels obligatoires</li>
+      </ul>
+      
+      <blockquote>Chez LeVigile, nous anticipons chaque évolution réglementaire pour vous garantir une sécurité 100% légale et à jour. N'hésitez pas à nous contacter pour plus d'informations sur la conformité de nos services.</blockquote>
+      
+      <p>Pour plus d'informations officielles, consultez le site du <a href="https://www.cnaps.interieur.gouv.fr/" target="_blank" rel="noopener noreferrer">CNAPS</a>.</p>
+    `,
+    publishedAt: '2025-04-17T09:00:00Z',
+    readingTime: 7,
+    coverImage: 'https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//Le-CNAPS-Reglementation%202025.jpg',
+    author: blogAuthors.expert,
+    tags: [blogTags.securite, blogTags.conseil],
+    relatedArticles: ['1', '4']
   }
 ];
 
