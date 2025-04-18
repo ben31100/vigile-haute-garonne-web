@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -65,11 +66,21 @@ const PartnerRegistrationPage = () => {
  
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
+      toast({
+        title: "Envoi en cours...",
+        description: "Veuillez patienter pendant que nous envoyons votre demande.",
+      });
+
       const { data, error } = await supabase.functions.invoke('send-partner-registration', {
         body: values
       });
 
-      if (error) throw error;
+      if (error) {
+        console.error('Error from edge function:', error);
+        throw error;
+      }
+
+      console.log('Response from edge function:', data);
 
       toast({
         title: "Formulaire envoyé avec succès !",

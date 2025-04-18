@@ -31,8 +31,8 @@ const handler = async (req: Request): Promise<Response> => {
     console.log("Received registration data:", data);
 
     // Email to the applicant
-    const applicantEmailResponse = await resend.emails.send({
-      from: "LeVigile <contact@levigile.fr>",
+    const applicantEmailPromise = resend.emails.send({
+      from: "LeVigile <onboarding@resend.dev>", // Utilisation du domaine par défaut de Resend
       to: [data.email],
       subject: "Confirmation de votre demande d'inscription - LeVigile",
       html: `
@@ -52,8 +52,8 @@ const handler = async (req: Request): Promise<Response> => {
     });
 
     // Email to LeVigile
-    const adminEmailResponse = await resend.emails.send({
-      from: "LeVigile <contact@levigile.fr>",
+    const adminEmailPromise = resend.emails.send({
+      from: "LeVigile <onboarding@resend.dev>", // Utilisation du domaine par défaut de Resend
       to: ["contact@levigile.fr"],
       subject: "Nouvelle inscription rapporteur d'affaires",
       html: `
@@ -71,10 +71,23 @@ const handler = async (req: Request): Promise<Response> => {
       `,
     });
 
-    console.log("Emails sent successfully:", { applicantEmailResponse, adminEmailResponse });
+    // Attendre que les deux emails soient envoyés
+    const [applicantEmailResponse, adminEmailResponse] = await Promise.all([
+      applicantEmailPromise,
+      adminEmailPromise
+    ]);
+
+    console.log("Emails sent successfully:", { 
+      applicantEmail: applicantEmailResponse, 
+      adminEmail: adminEmailResponse 
+    });
 
     return new Response(
-      JSON.stringify({ message: "Emails sent successfully" }),
+      JSON.stringify({ 
+        message: "Emails sent successfully",
+        applicantEmail: applicantEmailResponse,
+        adminEmail: adminEmailResponse
+      }),
       {
         status: 200,
         headers: { "Content-Type": "application/json", ...corsHeaders },
