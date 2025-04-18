@@ -36,7 +36,12 @@ export const blogTags: Record<string, BlogTag> = {
     id: 'conseil',
     name: 'Conseils',
     slug: 'conseil'
-  }
+  },
+  incendie: {
+    id: 'incendie',
+    name: 'Sécurité Incendie',
+    slug: 'incendie'
+  },
 };
 
 // Blog articles
@@ -442,6 +447,65 @@ export const blogArticles: BlogArticle[] = [
     author: blogAuthors.expert,
     tags: [blogTags.securite, blogTags.conseil],
     relatedArticles: ['1', '4']
+  },
+  {
+    id: '9',
+    slug: 'securite-incendie-obligations-entreprises-haute-garonne',
+    title: 'Sécurité incendie : les obligations légales pour les entreprises en Haute-Garonne',
+    subtitle: 'Guide complet des responsabilités et obligations en matière de sécurité incendie',
+    excerpt: "En Haute-Garonne, toutes les entreprises ont des obligations strictes en matière de sécurité incendie. Quelles sont-elles ? Quels sont les risques en cas de non-respect ? On vous explique tout.",
+    content: `
+      <h2>Connaître la réglementation ERP et code du travail</h2>
+      <p>La réglementation en matière de sécurité incendie repose sur deux piliers principaux :</p>
+      <ul>
+        <li>Le Code du Travail qui impose des obligations pour la protection des salariés</li>
+        <li>La réglementation ERP (Établissement Recevant du Public) pour les entreprises accueillant du public</li>
+      </ul>
+      
+      <h2>Installer les équipements obligatoires</h2>
+      <p>Plusieurs équipements sont obligatoires selon la taille et l'activité de votre entreprise :</p>
+      <ul>
+        <li>Extincteurs adaptés aux types de risques présents</li>
+        <li>Système d'alarme incendie conforme aux normes</li>
+        <li>Plans d'évacuation et consignes de sécurité</li>
+        <li>Éclairage de sécurité et issues de secours</li>
+      </ul>
+      
+      <h2>Former les salariés à la sécurité incendie</h2>
+      <p>La formation du personnel est une obligation légale qui comprend :</p>
+      <ul>
+        <li>Formation aux gestes de premiers secours</li>
+        <li>Exercices réguliers d'évacuation</li>
+        <li>Sensibilisation à l'utilisation des extincteurs</li>
+        <li>Connaissance des procédures d'urgence</li>
+      </ul>
+      
+      <h2>L'importance des agents SSIAP</h2>
+      <p>Pour certains établissements, la présence d'agents SSIAP (Service de Sécurité Incendie et d'Assistance à Personnes) est obligatoire :</p>
+      <ul>
+        <li>Surveillance permanente des systèmes de sécurité</li>
+        <li>Intervention rapide en cas de début d'incendie</li>
+        <li>Organisation des évacuations</li>
+        <li>Accueil et guidage des secours</li>
+      </ul>
+      
+      <h2>Les risques en cas de non-respect</h2>
+      <p>Le non-respect des obligations en matière de sécurité incendie peut entraîner :</p>
+      <ul>
+        <li>Des sanctions administratives</li>
+        <li>Des amendes importantes</li>
+        <li>La fermeture temporaire ou définitive de l'établissement</li>
+        <li>Des poursuites pénales en cas d'accident</li>
+      </ul>
+      
+      <blockquote>Chez LeVigile, nos agents SSIAP qualifiés vous accompagnent dans la mise en conformité de votre établissement. Contactez-nous pour une étude personnalisée de vos besoins en sécurité incendie.</blockquote>
+    `,
+    publishedAt: '2025-04-18T10:30:00Z',
+    readingTime: 8,
+    coverImage: 'https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//Securite%20incendie%20levigile.jpg',
+    author: blogAuthors.expert,
+    tags: [blogTags.securite, blogTags.entreprise, blogTags.incendie],
+    relatedArticles: ['1', '8']
   }
 ];
 
