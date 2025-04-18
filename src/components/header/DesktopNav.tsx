@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -56,104 +55,104 @@ const DesktopNav: React.FC = () => {
             >
               Nos services
             </NavigationMenuTrigger>
-            <NavigationMenuContent className="bg-white p-6 rounded-md shadow-lg w-[650px] z-50">
-              <ScrollArea className="max-h-[500px]">
-                <div className="grid grid-cols-2 gap-4">
-                  <Link to="/services/gardiennage" className="group flex items-start space-x-3 p-3 rounded-md hover:bg-gray-50 transition-colors">
-                    <div className="w-14 h-14 rounded-md overflow-hidden flex-shrink-0">
+            <NavigationMenuContent className="bg-white p-4 rounded-lg shadow-lg w-[800px] z-50">
+              <ScrollArea className="max-h-[600px]">
+                <div className="grid grid-cols-2 gap-6">
+                  <Link to="/services/gardiennage" className="group flex items-center space-x-4 p-4 rounded-lg hover:bg-gray-50 transition-colors">
+                    <div className="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 bg-gray-100">
                       <img 
                         src="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//ronde-hero.jpg" 
                         alt="Gardiennage" 
                         className="w-full h-full object-cover"
                       />
                     </div>
-                    <div className="flex-1 min-w-0">
-                      <h3 className="font-medium text-levigile-dark group-hover:text-levigile-blue truncate">Gardiennage</h3>
-                      <p className="text-sm text-gray-500">Surveillance et protection de vos locaux</p>
+                    <div className="flex-1">
+                      <h3 className="font-semibold text-levigile-dark group-hover:text-levigile-blue mb-1">Gardiennage</h3>
+                      <p className="text-sm text-gray-600">Surveillance et protection de vos locaux</p>
                     </div>
                   </Link>
                   
-                  <Link to="/services/securite-evenementielle" className="group flex items-start space-x-3 p-3 rounded-md hover:bg-gray-50 transition-colors">
-                    <div className="w-14 h-14 rounded-md overflow-hidden flex-shrink-0">
+                  <Link to="/services/securite-evenementielle" className="group flex items-center space-x-4 p-4 rounded-lg hover:bg-gray-50 transition-colors">
+                    <div className="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 bg-gray-100">
                       <img 
                         src="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//Securite%20evenementielle%20levigile.png" 
                         alt="Sécurité événementielle" 
                         className="w-full h-full object-cover"
                       />
                     </div>
-                    <div className="flex-1 min-w-0">
-                      <h3 className="font-medium text-levigile-dark group-hover:text-levigile-blue truncate">Sécurité événementielle</h3>
-                      <p className="text-sm text-gray-500">Protection lors de vos événements</p>
+                    <div className="flex-1">
+                      <h3 className="font-semibold text-levigile-dark group-hover:text-levigile-blue mb-1">Sécurité événementielle</h3>
+                      <p className="text-sm text-gray-600">Protection lors de vos événements</p>
                     </div>
                   </Link>
                   
-                  <Link to="/services/intervention" className="group flex items-start space-x-3 p-3 rounded-md hover:bg-gray-50 transition-colors">
-                    <div className="w-14 h-14 rounded-md overflow-hidden flex-shrink-0">
+                  <Link to="/services/intervention" className="group flex items-center space-x-4 p-4 rounded-lg hover:bg-gray-50 transition-colors">
+                    <div className="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 bg-gray-100">
                       <img 
                         src="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//Securiser%20un%20chantier%20par%20Levigile.png" 
                         alt="Intervention" 
                         className="w-full h-full object-cover"
                       />
                     </div>
-                    <div className="flex-1 min-w-0">
-                      <h3 className="font-medium text-levigile-dark group-hover:text-levigile-blue truncate">Intervention</h3>
-                      <p className="text-sm text-gray-500">Réponse rapide en cas d'incidents</p>
+                    <div className="flex-1">
+                      <h3 className="font-semibold text-levigile-dark group-hover:text-levigile-blue mb-1">Intervention</h3>
+                      <p className="text-sm text-gray-600">Réponse rapide en cas d'incidents</p>
                     </div>
                   </Link>
                   
-                  <Link to="/services/securite-cynophile" className="group flex items-start space-x-3 p-3 rounded-md hover:bg-gray-50 transition-colors">
-                    <div className="w-14 h-14 rounded-md overflow-hidden flex-shrink-0">
+                  <Link to="/services/securite-cynophile" className="group flex items-center space-x-4 p-4 rounded-lg hover:bg-gray-50 transition-colors">
+                    <div className="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 bg-gray-100">
                       <img 
                         src="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//Agent%20cynophile%20levigile.png" 
                         alt="Sécurité cynophile" 
                         className="w-full h-full object-cover"
                       />
                     </div>
-                    <div className="flex-1 min-w-0">
-                      <h3 className="font-medium text-levigile-dark group-hover:text-levigile-blue truncate">Sécurité cynophile</h3>
-                      <p className="text-sm text-gray-500">Protection avec maîtres-chiens</p>
+                    <div className="flex-1">
+                      <h3 className="font-semibold text-levigile-dark group-hover:text-levigile-blue mb-1">Sécurité cynophile</h3>
+                      <p className="text-sm text-gray-600">Protection avec maîtres-chiens</p>
                     </div>
                   </Link>
                   
-                  <Link to="/services/securite-magasin" className="group flex items-start space-x-3 p-3 rounded-md hover:bg-gray-50 transition-colors">
-                    <div className="w-14 h-14 rounded-md overflow-hidden flex-shrink-0">
+                  <Link to="/services/securite-magasin" className="group flex items-center space-x-4 p-4 rounded-lg hover:bg-gray-50 transition-colors">
+                    <div className="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 bg-gray-100">
                       <img 
                         src="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//Securite%20en%20grande%20surface%20Levigile.png" 
                         alt="Sécurité magasin" 
                         className="w-full h-full object-cover"
                       />
                     </div>
-                    <div className="flex-1 min-w-0">
-                      <h3 className="font-medium text-levigile-dark group-hover:text-levigile-blue truncate">Sécurité magasin</h3>
-                      <p className="text-sm text-gray-500">Protection des commerces et boutiques</p>
+                    <div className="flex-1">
+                      <h3 className="font-semibold text-levigile-dark group-hover:text-levigile-blue mb-1">Sécurité magasin</h3>
+                      <p className="text-sm text-gray-600">Protection des commerces et boutiques</p>
                     </div>
                   </Link>
                   
-                  <Link to="/services/securite-residentielle" className="group flex items-start space-x-3 p-3 rounded-md hover:bg-gray-50 transition-colors">
-                    <div className="w-14 h-14 rounded-md overflow-hidden flex-shrink-0">
+                  <Link to="/services/securite-residentielle" className="group flex items-center space-x-4 p-4 rounded-lg hover:bg-gray-50 transition-colors">
+                    <div className="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 bg-gray-100">
                       <img 
                         src="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//Surveillance%20de%20residences%20Levigile.png" 
                         alt="Sécurité résidentielle" 
                         className="w-full h-full object-cover"
                       />
                     </div>
-                    <div className="flex-1 min-w-0">
-                      <h3 className="font-medium text-levigile-dark group-hover:text-levigile-blue truncate">Sécurité résidentielle</h3>
-                      <p className="text-sm text-gray-500">Protection de résidences et immeubles</p>
+                    <div className="flex-1">
+                      <h3 className="font-semibold text-levigile-dark group-hover:text-levigile-blue mb-1">Sécurité résidentielle</h3>
+                      <p className="text-sm text-gray-600">Protection de résidences et immeubles</p>
                     </div>
                   </Link>
                   
-                  <Link to="/services/securite-incendie" className="group flex items-start space-x-3 p-3 rounded-md hover:bg-gray-50 transition-colors">
-                    <div className="w-14 h-14 rounded-md overflow-hidden flex-shrink-0">
+                  <Link to="/services/securite-incendie" className="group flex items-center space-x-4 p-4 rounded-lg hover:bg-gray-50 transition-colors">
+                    <div className="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 bg-gray-100">
                       <img 
                         src="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//Securite%20incendie%20levigile.jpg" 
                         alt="Sécurité incendie" 
                         className="w-full h-full object-cover"
                       />
                     </div>
-                    <div className="flex-1 min-w-0">
-                      <h3 className="font-medium text-levigile-dark group-hover:text-levigile-blue truncate">Sécurité incendie</h3>
-                      <p className="text-sm text-gray-500">Prévention et gestion des risques incendie</p>
+                    <div className="flex-1">
+                      <h3 className="font-semibold text-levigile-dark group-hover:text-levigile-blue mb-1">Sécurité incendie</h3>
+                      <p className="text-sm text-gray-600">Prévention et gestion des risques incendie</p>
                     </div>
                   </Link>
                 </div>
