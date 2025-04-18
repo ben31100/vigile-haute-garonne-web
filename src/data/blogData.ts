@@ -55,6 +55,11 @@ export const blogTags: Record<string, BlogTag> = {
     id: 'residence',
     name: 'Résidentiel',
     slug: 'residence'
+  },
+  gms: {
+    id: 'gms',
+    name: 'Grande Distribution',
+    slug: 'grande-distribution'
   }
 };
 
@@ -180,7 +185,7 @@ export const blogArticles: BlogArticle[] = [
     `,
     publishedAt: '2025-01-10T09:15:00Z',
     readingTime: 7,
-    coverImage: 'https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//securite%20commerce%20levigie.webp',
+    coverImage: 'https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//securite%20commerce%20levigile.webp',
     author: blogAuthors.admin,
     tags: [blogTags.securite, blogTags.conseil],
     relatedArticles: ['1', '2']
@@ -607,6 +612,3 @@ export const blogArticles: BlogArticle[] = [
       </ul>
       
       <h2>Ne pas prévoir de rondes ou gardiennage le week-end</h2>
-      <p>Les périodes d'inactivité sont les plus risquées pour un chantier :</p>
-      <ul>
-        <li>Organisation de rondes
