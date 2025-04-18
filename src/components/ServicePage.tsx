@@ -62,7 +62,7 @@ const ServicePage: React.FC<ServicePageProps> = ({
                   asChild 
                   variant="outline" 
                   size="lg" 
-                  className="border-2 border-[#0EA5E9] bg-[#0EA5E9]/10 text-[#0EA5E9] hover:bg-[#0EA5E9] hover:text-white transition-all duration-300 group cursor-pointer font-semibold px-8 py-6 text-base shadow-lg hover:shadow-xl"
+                  className="border-2 border-levigile-blue bg-white text-levigile-blue hover:bg-levigile-blue hover:text-white transition-all duration-300 group cursor-pointer font-semibold px-8 py-6 text-base shadow-lg hover:shadow-xl"
                 >
                   <a 
                     href="tel:+33554546428" 
