@@ -1,4 +1,3 @@
-
 import { BlogArticle, BlogAuthor, BlogTag } from '../types/blog';
 
 // Blog authors
@@ -118,7 +117,7 @@ export const blogArticles: BlogArticle[] = [
     `,
     publishedAt: '2025-02-20T14:30:00Z',
     readingTime: 10,
-    coverImage: 'https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//agent%20de%20securite%20event.jpg',
+    coverImage: 'https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//Securite%20evenementielle%20levigile.png',
     author: blogAuthors.expert,
     tags: [blogTags.securite, blogTags.evenement],
     relatedArticles: ['1', '3']
