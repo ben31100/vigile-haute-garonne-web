@@ -47,23 +47,29 @@ const ServicePage: React.FC<ServicePageProps> = ({
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-levigile-dark mb-4">{title}</h1>
-              <p className="text-gray-600 text-lg mb-6">{description}</p>
+              <p className="text-gray-600 text-lg mb-8">{description}</p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button asChild size="lg" className="bg-levigile-blue hover:bg-blue-800">
-                  <a href="#contact">Demander un devis</a>
+                <Button 
+                  asChild 
+                  size="lg"
+                  className="bg-levigile-blue hover:bg-blue-800 text-white font-semibold px-8 py-6 text-base shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+                >
+                  <a href="#contact" className="flex items-center justify-center gap-2">
+                    Demander un devis
+                  </a>
                 </Button>
                 <Button 
                   asChild 
                   variant="outline" 
                   size="lg" 
-                  className="border-levigile-blue text-levigile-blue hover:bg-levigile-blue hover:text-white transition-all duration-300 group cursor-pointer"
+                  className="border-2 border-levigile-blue text-levigile-blue hover:bg-levigile-blue hover:text-white transition-all duration-300 group cursor-pointer font-semibold px-8 py-6 text-base shadow-lg hover:shadow-xl"
                 >
                   <a 
                     href="tel:+33561000000" 
-                    className="flex items-center gap-2 group-hover:scale-105 transition-transform"
+                    className="flex items-center justify-center gap-2 group-hover:scale-105 transition-transform"
                   >
                     <PhoneCall 
-                      size={20} 
+                      size={24} 
                       className="group-hover:rotate-12 transition-transform duration-300"
                     />
                     Nous appeler
@@ -121,7 +127,7 @@ const ServicePage: React.FC<ServicePageProps> = ({
         </div>
       </section>
       
-      {/* CTA section */}
+      {/* CTA section - Bottom buttons */}
       <section id="contact" className="py-16 bg-levigile-blue text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">{cta.title}</h2>
@@ -130,7 +136,7 @@ const ServicePage: React.FC<ServicePageProps> = ({
             <Button 
               asChild 
               size="lg" 
-              className="bg-white text-levigile-blue hover:bg-gray-100 font-semibold px-8 py-6 text-base"
+              className="bg-white text-levigile-blue hover:bg-gray-100 font-semibold px-8 py-6 text-base shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
             >
               <a href="mailto:contact@levigile.fr">Demander un devis</a>
             </Button>
@@ -138,10 +144,13 @@ const ServicePage: React.FC<ServicePageProps> = ({
               asChild 
               variant="outline" 
               size="lg" 
-              className="border-white text-white hover:bg-white hover:text-levigile-blue font-semibold px-8 py-6 text-base"
+              className="border-2 border-white text-white hover:bg-white hover:text-levigile-blue font-semibold px-8 py-6 text-base shadow-lg hover:shadow-xl group"
             >
-              <a href="tel:+33561000000" className="flex items-center gap-2">
-                <PhoneCall size={20} />
+              <a href="tel:+33561000000" className="flex items-center justify-center gap-2 group-hover:scale-105 transition-transform">
+                <PhoneCall 
+                  size={24} 
+                  className="group-hover:rotate-12 transition-transform duration-300"
+                />
                 05 61 00 00 00
               </a>
             </Button>
