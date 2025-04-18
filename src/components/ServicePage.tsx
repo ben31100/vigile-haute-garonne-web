@@ -117,10 +117,19 @@ const ServicePage: React.FC<ServicePageProps> = ({
           <h2 className="text-2xl md:text-3xl font-bold mb-4">{cta.title}</h2>
           <p className="text-lg mb-8 max-w-2xl mx-auto">{cta.description}</p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Button asChild size="lg" className="bg-white text-levigile-blue hover:bg-gray-100">
+            <Button 
+              asChild 
+              size="lg" 
+              className="bg-white text-levigile-blue hover:bg-gray-100 font-semibold px-8 py-6 text-base"
+            >
               <a href="mailto:contact@levigile.fr">Demander un devis</a>
             </Button>
-            <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-levigile-blue">
+            <Button 
+              asChild 
+              variant="outline" 
+              size="lg" 
+              className="border-white text-white hover:bg-white hover:text-levigile-blue font-semibold px-8 py-6 text-base"
+            >
               <a href="tel:+33561000000" className="flex items-center gap-2">
                 <PhoneCall size={20} />
                 05 61 00 00 00
