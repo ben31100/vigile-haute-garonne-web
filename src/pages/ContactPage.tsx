@@ -114,7 +114,7 @@ const ContactPage = () => {
             <img
               src="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images/carte-intervention.jpg"
               alt="Carte des zones d'intervention"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-contain bg-gray-100 p-4"
             />
           </div>
         </section>
