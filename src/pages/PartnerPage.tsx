@@ -176,7 +176,7 @@ const PartnerPage = () => {
               </ul>
               <div className="bg-gray-50 p-6 rounded-lg mt-4">
                 <p className="font-semibold">👉 Par exemple :</p>
-                <p>Pour un contrat de 10 000 € signé, vous pouvez percevoir jusqu'à 7 % de commission, soit 700 €.</p>
+                <p>Pour un contrat de 25000 € signé, vous pouvez percevoir jusqu'à 5 % de commission, soit 1250 €.</p>
               </div>
             </div>
 
