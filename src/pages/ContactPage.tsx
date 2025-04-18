@@ -110,11 +110,11 @@ const ContactPage = () => {
         {/* Map Section */}
         <section className="container mx-auto px-4 mb-16">
           <h2 className="text-2xl font-bold text-center mb-8">Zone d'intervention</h2>
-          <div className="bg-gray-100 p-4 rounded-lg shadow-lg">
+          <div className="relative w-full" style={{ paddingBottom: "56.25%" }}> {/* 16:9 aspect ratio */}
             <img
-              src="/lovable-uploads/9735ff87-c37e-40db-afb7-b51306120a64.png"
+              src="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images/carte-intervention.jpg"
               alt="Carte des zones d'intervention"
-              className="w-full h-auto mx-auto"
+              className="absolute inset-0 w-full h-full object-contain bg-gray-100 p-4 rounded-lg shadow-lg"
             />
           </div>
         </section>
