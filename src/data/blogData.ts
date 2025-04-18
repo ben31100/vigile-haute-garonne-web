@@ -273,6 +273,72 @@ export const blogArticles: BlogArticle[] = [
     author: blogAuthors.admin,
     tags: [blogTags.entreprise, blogTags.conseil],
     relatedArticles: ['1', '4']
+  },
+  {
+    id: '6',
+    slug: 'differences-gardiennage-surveillance-mobile',
+    title: 'Différences entre gardiennage et surveillance mobile',
+    subtitle: 'Comprendre les spécificités de chaque service pour mieux choisir',
+    excerpt: "Gardiennage ou surveillance mobile ? Ces deux prestations sont souvent confondues. Voici leurs différences, pour mieux choisir votre solution de sécurité.",
+    content: `
+      <h2>Gardiennage : présence continue sur site</h2>
+      <p>Un agent reste en poste sur votre site (commerce, chantier, entrepôt), 24h/24 ou en horaires définis. Cette présence permanente offre plusieurs avantages :</p>
+      <ul>
+        <li>Réactivité immédiate en cas d'incident</li>
+        <li>Effet dissuasif renforcé</li>
+        <li>Possibilité d'assurer des tâches complémentaires (accueil, contrôle d'accès)</li>
+      </ul>
+      
+      <h2>Surveillance mobile : rondes à horaires définis ou aléatoires</h2>
+      <p>L'agent se déplace d'un site à l'autre, souvent la nuit, pour contrôler que tout est en ordre. Cette solution présente des caractéristiques spécifiques :</p>
+      <ul>
+        <li>Couverture de plusieurs sites</li>
+        <li>Flexibilité des horaires de passage</li>
+        <li>Rapport détaillé après chaque ronde</li>
+      </ul>
+      
+      <h2>Coûts et flexibilité</h2>
+      <p>Le gardiennage est plus coûteux mais permanent ; la surveillance mobile est plus souple. Voici un comparatif des aspects économiques :</p>
+      
+      <h3>Gardiennage</h3>
+      <ul>
+        <li>Coût plus élevé (présence continue)</li>
+        <li>Engagement sur une durée déterminée</li>
+        <li>Service personnalisable selon vos besoins</li>
+      </ul>
+      
+      <h3>Surveillance mobile</h3>
+      <ul>
+        <li>Coût optimisé (mutualisation entre clients)</li>
+        <li>Formules flexibles</li>
+        <li>Adaptable selon les périodes</li>
+      </ul>
+      
+      <h2>Quel choix selon vos besoins ?</h2>
+      <p>Commerce, chantier, immeuble : chaque contexte a une solution adaptée. Voici quelques recommandations :</p>
+      
+      <h3>Optez pour le gardiennage si :</h3>
+      <ul>
+        <li>Vous avez des biens de grande valeur</li>
+        <li>Vous souhaitez une présence humaine permanente</li>
+        <li>Vous avez besoin d'un service d'accueil en parallèle</li>
+      </ul>
+      
+      <h3>La surveillance mobile est préférable pour :</h3>
+      <ul>
+        <li>Les petites structures</li>
+        <li>Les sites fermés la nuit</li>
+        <li>Les budgets plus restreints</li>
+      </ul>
+      
+      <blockquote>La meilleure solution dépend de vos besoins spécifiques et de votre budget. N'hésitez pas à nous contacter pour une étude personnalisée.</blockquote>
+    `,
+    publishedAt: '2025-04-15T09:00:00Z',
+    readingTime: 6,
+    coverImage: 'https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//gardiennage-hero.jpg',
+    author: blogAuthors.expert,
+    tags: [blogTags.securite, blogTags.conseil],
+    relatedArticles: ['1', '2']
   }
 ];
 
