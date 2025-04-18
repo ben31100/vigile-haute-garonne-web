@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
@@ -53,9 +52,20 @@ const ServicePage: React.FC<ServicePageProps> = ({
                 <Button asChild size="lg" className="bg-levigile-blue hover:bg-blue-800">
                   <a href="#contact">Demander un devis</a>
                 </Button>
-                <Button asChild variant="outline" size="lg" className="border-levigile-blue text-levigile-blue hover:bg-levigile-blue hover:text-white">
-                  <a href="tel:+33561000000" className="flex items-center gap-2">
-                    <PhoneCall size={20} />
+                <Button 
+                  asChild 
+                  variant="outline" 
+                  size="lg" 
+                  className="border-levigile-blue text-levigile-blue hover:bg-levigile-blue hover:text-white transition-all duration-300 group cursor-pointer"
+                >
+                  <a 
+                    href="tel:+33561000000" 
+                    className="flex items-center gap-2 group-hover:scale-105 transition-transform"
+                  >
+                    <PhoneCall 
+                      size={20} 
+                      className="group-hover:rotate-12 transition-transform duration-300"
+                    />
                     Nous appeler
                   </a>
                 </Button>
