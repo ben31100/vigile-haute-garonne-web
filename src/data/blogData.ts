@@ -1,3 +1,4 @@
+
 import { BlogArticle, BlogAuthor, BlogTag } from '../types/blog';
 
 // Blog authors
@@ -40,7 +41,7 @@ export const blogTags: Record<string, BlogTag> = {
 };
 
 // Blog articles
-const blogArticles: BlogArticle[] = [
+export const blogArticles: BlogArticle[] = [
   {
     id: '1',
     slug: 'comment-securiser-son-entreprise',
