@@ -1,3 +1,4 @@
+
 import { BlogArticle, BlogAuthor, BlogTag } from '../types/blog';
 
 // Blog authors
@@ -612,3 +613,140 @@ export const blogArticles: BlogArticle[] = [
       </ul>
       
       <h2>Ne pas prévoir de rondes ou gardiennage le week-end</h2>
+      <p>Les périodes d'inactivité sont les plus risquées pour un chantier :</p>
+      <ul>
+        <li>Organisation de rondes régulières pendant les jours non travaillés</li>
+        <li>Présence dissuasive d'agents de sécurité</li>
+        <li>Coordination avec les forces de l'ordre locales</li>
+        <li>Installation de systèmes de détection temporaires</li>
+      </ul>
+      
+      <blockquote>Protéger votre chantier, c'est protéger votre investissement. Contactez LeVigile pour une étude personnalisée de vos besoins en sécurité de chantier.</blockquote>
+    `,
+    publishedAt: '2025-04-20T09:30:00Z',
+    readingTime: 6,
+    coverImage: 'https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//securite-chantier.jpg',
+    author: blogAuthors.expert,
+    tags: [blogTags.securite, blogTags.chantier],
+    relatedArticles: ['6', '10']
+  },
+  {
+    id: '12',
+    slug: 'securite-grande-distribution',
+    title: 'Sécurité en grande distribution : enjeux et solutions',
+    subtitle: 'Comment sécuriser efficacement votre espace commercial',
+    excerpt: "La grande distribution fait face à des défis spécifiques en matière de sécurité. Découvrez les meilleures pratiques pour protéger votre commerce, vos employés et vos clients.",
+    content: `
+      <h2>Les enjeux de sécurité spécifiques à la grande distribution</h2>
+      <p>Les grandes surfaces et centres commerciaux sont confrontés à de multiples risques sécuritaires :</p>
+      <ul>
+        <li>Vol à l'étalage et démarque inconnue</li>
+        <li>Incivilités et agressions</li>
+        <li>Fraudes diverses (moyens de paiement, étiquettes)</li>
+        <li>Risques liés aux flux importants de personnes</li>
+      </ul>
+      
+      <h2>Solutions de sécurité adaptées</h2>
+      <p>Pour faire face à ces défis, plusieurs dispositifs complémentaires sont nécessaires :</p>
+      
+      <h3>Présence humaine qualifiée</h3>
+      <ul>
+        <li>Agents de sécurité en tenue ou en civil</li>
+        <li>Personnel formé à la gestion des conflits</li>
+        <li>Coordination avec les équipes de vente</li>
+      </ul>
+      
+      <h3>Systèmes techniques performants</h3>
+      <ul>
+        <li>Vidéosurveillance intelligente</li>
+        <li>Antivols et portiques de détection</li>
+        <li>Miroirs de surveillance et aménagements préventifs</li>
+      </ul>
+      
+      <h2>La formation du personnel comme première ligne de défense</h2>
+      <p>Les employés jouent un rôle essentiel dans la sécurité quotidienne :</p>
+      <ul>
+        <li>Détection des comportements suspects</li>
+        <li>Prévention des risques courants</li>
+        <li>Procédures en cas d'incident</li>
+        <li>Vigilance sur les zones sensibles</li>
+      </ul>
+      
+      <h2>L'approche LeVigile pour la grande distribution</h2>
+      <p>Nous proposons des solutions intégrées et personnalisées :</p>
+      <ul>
+        <li>Audit de sécurité préalable</li>
+        <li>Agents spécialisés en environnement commercial</li>
+        <li>Coordination avec votre système de sécurité interne</li>
+        <li>Reporting détaillé des incidents</li>
+      </ul>
+      
+      <blockquote>La sécurité en grande distribution doit être à la fois efficace et discrète pour préserver l'expérience client. Contactez-nous pour une étude personnalisée de vos besoins.</blockquote>
+    `,
+    publishedAt: '2025-04-21T08:15:00Z',
+    readingTime: 7,
+    coverImage: 'https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//securite-grande-distribution.jpg',
+    author: blogAuthors.expert,
+    tags: [blogTags.securite, blogTags.gms],
+    relatedArticles: ['3', '1']
+  },
+  {
+    id: '13',
+    slug: 'securite-residence-toulouse',
+    title: 'Sécurité résidentielle à Toulouse : solutions pour copropriétés',
+    subtitle: 'Comment protéger efficacement votre immeuble et ses résidents',
+    excerpt: "La sécurité des immeubles résidentiels devient une préoccupation majeure à Toulouse. Découvrez les solutions adaptées aux copropriétés pour garantir la tranquillité des résidents.",
+    content: `
+      <h2>Les menaces spécifiques aux résidences toulousaines</h2>
+      <p>Les immeubles résidentiels à Toulouse font face à plusieurs types de risques :</p>
+      <ul>
+        <li>Intrusions dans les parties communes</li>
+        <li>Dégradations et vandalisme</li>
+        <li>Vols dans les caves et parkings</li>
+        <li>Occupations illicites des espaces communs</li>
+      </ul>
+      
+      <h2>Solutions de contrôle d'accès modernes</h2>
+      <p>Sécuriser les accès est la première étape pour protéger une résidence :</p>
+      <ul>
+        <li>Systèmes d'interphonie avec vidéo</li>
+        <li>Badges et lecteurs de proximité</li>
+        <li>Portes sécurisées et résistantes</li>
+        <li>Gestion des accès à distance</li>
+      </ul>
+      
+      <h2>La surveillance humaine : gardien ou agent de sécurité ?</h2>
+      <p>Selon la taille et les besoins de votre résidence, différentes options sont possibles :</p>
+      
+      <h3>Le gardien traditionnel</h3>
+      <ul>
+        <li>Présence rassurante et dissuasive</li>
+        <li>Connaissance des résidents</li>
+        <li>Multiplicité des fonctions (entretien, courrier, etc.)</li>
+      </ul>
+      
+      <h3>L'agent de sécurité professionnel</h3>
+      <ul>
+        <li>Formation spécifique aux risques sécuritaires</li>
+        <li>Rondes régulières dans les zones sensibles</li>
+        <li>Intervention en cas d'incident</li>
+      </ul>
+      
+      <h2>Les solutions mutualisées pour réduire les coûts</h2>
+      <p>Pour les copropriétés aux budgets limités, des options économiques existent :</p>
+      <ul>
+        <li>Surveillance partagée entre plusieurs immeubles voisins</li>
+        <li>Rondes ponctuelles à des horaires variables</li>
+        <li>Télésurveillance avec intervention sur alarme</li>
+      </ul>
+      
+      <blockquote>Chaque résidence a ses spécificités et mérite une solution sur mesure. Notre équipe toulousaine vous accompagne dans l'élaboration d'un dispositif adapté à votre copropriété.</blockquote>
+    `,
+    publishedAt: '2025-04-22T14:00:00Z',
+    readingTime: 7,
+    coverImage: 'https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//securite-residences.jpg',
+    author: blogAuthors.admin,
+    tags: [blogTags.securite, blogTags.residence],
+    relatedArticles: ['3', '6']
+  }
+];
