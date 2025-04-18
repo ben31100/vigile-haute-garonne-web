@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { Clock, MapPin, Phone, Mail, Shield, Building2 } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import InterventionMap from '@/components/InterventionMap'; // Nouveau composant
+import InterventionMap from '@/components/InterventionMap';
 
 const ContactPage = () => {
   return (
@@ -20,15 +20,24 @@ const ContactPage = () => {
 
       <main className="pt-8 pb-16">
         {/* Hero Section */}
-        <section className="bg-gray-100 py-12 mb-12">
-          <div className="container mx-auto px-4">
-            <h1 className="text-4xl font-bold text-center text-levigile-dark mb-4">
-              Contactez-nous
-            </h1>
-            <p className="text-center text-gray-600 max-w-2xl mx-auto">
-              Notre équipe est à votre disposition pour répondre à toutes vos questions 
-              et vous accompagner dans vos besoins en sécurité.
-            </p>
+        <section className="bg-gray-100 py-16 mb-12 h-[500px] flex items-center">
+          <div className="container mx-auto px-4 flex items-center">
+            <div className="w-1/2">
+              <h1 className="text-4xl font-bold text-levigile-dark mb-4">
+                Contactez-nous
+              </h1>
+              <p className="text-gray-600 max-w-2xl mb-6">
+                Notre équipe est à votre disposition pour répondre à toutes vos questions 
+                et vous accompagner dans vos besoins en sécurité.
+              </p>
+            </div>
+            <div className="w-1/2">
+              <img 
+                src="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//Contactez%20Levigile.png" 
+                alt="Contact LeVigile" 
+                className="w-full h-full object-cover rounded-lg shadow-lg"
+              />
+            </div>
           </div>
         </section>
 
