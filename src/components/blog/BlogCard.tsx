@@ -5,6 +5,7 @@ import { formatBlogDate } from '@/data/blogData';
 import { BlogArticlePreview } from '@/types/blog';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
 
 interface BlogCardProps {
   article: BlogArticlePreview;
@@ -15,13 +16,14 @@ const BlogCard: React.FC<BlogCardProps> = ({ article, className = '' }) => {
   return (
     <Card className={`overflow-hidden transition-all duration-300 hover:shadow-md ${className}`}>
       <Link to={`/blog/${article.slug}`} className="block">
-        <div className="aspect-video overflow-hidden">
+        <AspectRatio ratio={16/9} className="bg-gray-100">
           <img 
             src={article.coverImage} 
             alt={article.title}
             className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+            loading="lazy"
           />
-        </div>
+        </AspectRatio>
       </Link>
       
       <CardHeader className="pb-2">

@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { ChevronLeft } from 'lucide-react';
@@ -7,6 +8,7 @@ import BlogLayout from '@/components/blog/BlogLayout';
 import BlogContent from '@/components/blog/BlogContent';
 import BlogRelatedArticles from '@/components/blog/BlogRelatedArticles';
 import { Badge } from '@/components/ui/badge';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
 
 const BlogArticle: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -55,14 +57,16 @@ const BlogArticle: React.FC = () => {
           </Button>
         </div>
 
-        {/* Le reste du contenu reste le même */}
+        {/* Image de couverture */}
         <div className="relative">
           <div className="w-full h-64 md:h-96 overflow-hidden">
-            <img 
-              src={article.coverImage}
-              alt={article.title}
-              className="w-full h-full object-cover"
-            />
+            <AspectRatio ratio={16/9} className="bg-gray-100">
+              <img 
+                src={article.coverImage}
+                alt={article.title}
+                className="w-full h-full object-cover"
+              />
+            </AspectRatio>
           </div>
           
           {/* Overlay pour assurer la lisibilité du texte */}

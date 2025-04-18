@@ -1,4 +1,3 @@
-
 import { BlogArticle, BlogArticlePreview, BlogAuthor, BlogTag } from '../types/blog';
 
 // Blog authors
@@ -612,46 +611,4 @@ export const blogArticles: BlogArticle[] = [
         <li>Traçabilité des entrées/sorties</li>
       </ul>
       
-      <h2>Ne pas prévoir de rondes ou gardiennage le week-end</h2>
-      <p>Les week-ends sont des périodes particulièrement à risque pour les chantiers. Une absence totale de surveillance pendant ces périodes peut avoir des conséquences coûteuses :</p>
-      <ul>
-        <li>Risque accru de vols ou de dégradations</li>
-        <li>Retards potentiels dans l'avancement des travaux</li>
-        <li>Pertes financières importantes</li>
-        <li>Impact sur les délais de livraison</li>
-      </ul>
-      
-      <blockquote>Une sécurité efficace sur un chantier n'est pas une dépense superflue, mais un investissement qui protège votre matériel et garantit le respect de vos délais. - Association des Entreprises du BTP</blockquote>
-    `,
-    publishedAt: '2025-04-20T09:00:00Z',
-    readingTime: 7,
-    coverImage: 'https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//securiser-chantier-hero.jpg',
-    author: blogAuthors.expert,
-    tags: [blogTags.securite, blogTags.chantier],
-    relatedArticles: ['10', '6']
-  }
-];
-
-// Helper functions for blog data
-export const getArticleBySlug = (slug: string): BlogArticle | undefined => {
-  return blogArticles.find(article => article.slug === slug);
-};
-
-export const getRelatedArticles = (articleId: string): BlogArticlePreview[] => {
-  const article = blogArticles.find(a => a.id === articleId);
-  if (!article || !article.relatedArticles) return [];
-  
-  return article.relatedArticles
-    .map(id => blogArticles.find(a => a.id === id))
-    .filter((a): a is BlogArticle => a !== undefined)
-    .map(({ content, relatedArticles, ...rest }) => rest);
-};
-
-export const formatBlogDate = (dateString: string): string => {
-  const options: Intl.DateTimeFormatOptions = { 
-    year: 'numeric', 
-    month: 'long', 
-    day: 'numeric' 
-  };
-  return new Date(dateString).toLocaleDateString('fr-FR', options);
-};
+      <h2>Ne pas prévoir de rondes ou gardiennage le week-end
