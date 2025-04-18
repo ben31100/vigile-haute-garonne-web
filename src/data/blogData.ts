@@ -1,3 +1,4 @@
+
 import { BlogArticle, BlogAuthor, BlogTag } from '../types/blog';
 
 // Blog authors
@@ -612,4 +613,100 @@ export const blogArticles: BlogArticle[] = [
       </ul>
       
       <h2>Ne pas prévoir de rondes ou gardiennage le week-end</h2>
-      <
+      <p>Les périodes d'inactivité sont les plus risquées pour un chantier :</p>
+      <ul>
+        <li>Organisation de rondes régulières</li>
+        <li>Présence d'agents de sécurité qualifiés</li>
+        <li>Surveillance renforcée les week-ends et jours fériés</li>
+        <li>Installation de systèmes de détection connectés</li>
+      </ul>
+      
+      <blockquote>Chez LeVigile, nos experts sécurisent vos chantiers avec des solutions adaptées à votre budget et à vos contraintes spécifiques. Contactez-nous pour une évaluation gratuite de vos besoins.</blockquote>
+    `,
+    publishedAt: '2025-04-20T10:30:00Z',
+    readingTime: 7,
+    coverImage: 'https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//Securiser%20un%20chantier%20-%204%20erreurs%20a%20eviter%20absolument.png',
+    author: blogAuthors.expert,
+    tags: [blogTags.securite, blogTags.chantier],
+    relatedArticles: ['6', '8']
+  },
+  {
+    id: '12',
+    slug: 'securite-grande-surface-dispositifs',
+    title: 'Sécurité en grande surface : quels dispositifs pour protéger clients et employés ?',
+    subtitle: "Solutions adaptées aux spécificités de la grande distribution",
+    excerpt: "Vols à l'étalage, incivilités, gestion de flux : une grande surface nécessite un dispositif de sécurité professionnel et bien pensé. Découvrez les meilleures pratiques pour protéger efficacement votre magasin.",
+    content: `
+      <h2>Présence dissuasive à l'entrée</h2>
+      <p>La position stratégique d'un agent de sécurité à l'entrée du magasin remplit plusieurs fonctions essentielles :</p>
+      <ul>
+        <li>Effet dissuasif immédiat pour les personnes mal intentionnées</li>
+        <li>Contrôle visuel des entrées et sorties</li>
+        <li>Première interaction avec la clientèle</li>
+        <li>Gestion des flux en périodes d'affluence</li>
+      </ul>
+      
+      <h2>Rondes régulières et discrètes dans les rayons</h2>
+      <p>La surveillance mobile au sein du magasin permet de couvrir l'ensemble de la surface de vente :</p>
+      <ul>
+        <li>Détection précoce des comportements suspects</li>
+        <li>Présence rassurante pour les clients et le personnel</li>
+        <li>Vérification des zones sensibles (produits à forte valeur)</li>
+        <li>Intervention rapide en cas d'incident</li>
+      </ul>
+      
+      <h2>Maîtrise des situations conflictuelles ou violentes</h2>
+      <p>Les agents de sécurité en grande surface sont formés à la gestion des incidents :</p>
+      <ul>
+        <li>Désamorçage des conflits entre clients</li>
+        <li>Protection du personnel en cas d'agression verbale ou physique</li>
+        <li>Interpellation conforme à la législation des personnes en flagrant délit</li>
+        <li>Gestion des situations d'urgence (malaise, accident, incendie)</li>
+      </ul>
+      
+      <h2>Coordination avec la vidéosurveillance et les vigiles internes</h2>
+      <p>L'efficacité d'un dispositif de sécurité repose sur la complémentarité des moyens mis en œuvre :</p>
+      <ul>
+        <li>Communication permanente entre agents et équipe interne</li>
+        <li>Utilisation optimale des systèmes de vidéosurveillance</li>
+        <li>Procédures coordonnées en cas d'incident</li>
+        <li>Reporting quotidien des événements et situations à risque</li>
+      </ul>
+      
+      <blockquote>LeVigile fournit des agents spécialisés pour la surveillance des grandes surfaces en Haute-Garonne. Nos équipes connaissent parfaitement les problématiques spécifiques de ce secteur et mettent en place des dispositifs adaptés à vos besoins et à votre budget.</blockquote>
+    `,
+    publishedAt: '2025-04-21T09:15:00Z',
+    readingTime: 7,
+    coverImage: 'https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//Securite%20en%20grande%20surface%20Levigile.png',
+    author: blogAuthors.expert,
+    tags: [blogTags.securite, blogTags.retail],
+    relatedArticles: ['1', '3']
+  }
+];
+
+// Utility functions for blog data
+export const getArticleBySlug = (slug: string): BlogArticle | undefined => {
+  return blogArticles.find(article => article.slug === slug);
+};
+
+export const getRelatedArticles = (articleId: string): BlogArticlePreview[] => {
+  const article = blogArticles.find(a => a.id === articleId);
+  
+  if (!article || !article.relatedArticles) {
+    return [];
+  }
+  
+  return article.relatedArticles
+    .map(id => blogArticles.find(a => a.id === id))
+    .filter((a): a is BlogArticle => a !== undefined)
+    .map(({ content, relatedArticles, ...rest }) => rest);
+};
+
+export const formatBlogDate = (dateString: string): string => {
+  const options: Intl.DateTimeFormatOptions = { 
+    year: 'numeric', 
+    month: 'long', 
+    day: 'numeric' 
+  };
+  return new Date(dateString).toLocaleDateString('fr-FR', options);
+};
