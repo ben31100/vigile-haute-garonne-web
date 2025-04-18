@@ -15,7 +15,7 @@ import { Checkbox } from "@/components/ui/checkbox"
 import { Textarea } from "@/components/ui/textarea"
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { supabase } from '@/lib/supabaseClient';
+import { supabase } from '@/integrations/supabase/client';
 
 const formSchema = z.object({
   fullName: z.string().min(2, {
