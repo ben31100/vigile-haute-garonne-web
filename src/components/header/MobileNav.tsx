@@ -39,6 +39,7 @@ const MobileNav: React.FC = () => {
             <Menu size={32} />
           </Button>
         </SheetTrigger>
+        
         <SheetContent side="right" className="py-8 px-4 w-[280px]">
           <div className="flex flex-col space-y-4">
             <SheetClose asChild>
@@ -252,6 +253,15 @@ const MobileNav: React.FC = () => {
                 </SheetClose>
               </CollapsibleContent>
             </Collapsible>
+            
+            <SheetClose asChild>
+              <Link 
+                to="/devenir-partenaire"
+                className="text-levigile-dark hover:text-levigile-blue font-bold py-2"
+              >
+                Devenir partenaire
+              </Link>
+            </SheetClose>
             
             <SheetClose asChild>
               <Link 

@@ -39,6 +39,7 @@ import ContactPage from './pages/ContactPage';
 import WhyJoinUs from './pages/career/WhyJoinUs';
 import OurJobs from './pages/career/OurJobs';
 import JobOffers from './pages/career/JobOffers';
+import PartnerPage from './pages/PartnerPage';
 
 const AppRoutes: React.FC = () => {
   return (
@@ -82,7 +83,7 @@ const AppRoutes: React.FC = () => {
       <Route path="/carriere/pourquoi-nous-rejoindre" element={<WhyJoinUs />} />
       <Route path="/carriere/nos-metiers" element={<OurJobs />} />
       <Route path="/carriere/nos-offres" element={<JobOffers />} />
-      
+      <Route path="/devenir-partenaire" element={<PartnerPage />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

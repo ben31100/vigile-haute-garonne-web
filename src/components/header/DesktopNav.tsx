@@ -207,6 +207,16 @@ const DesktopNav: React.FC = () => {
       </DropdownMenu>
 
       <CareerMenu />
+      
+      <Link 
+        to="/devenir-partenaire" 
+        className={cn(
+          "text-levigile-dark hover:text-levigile-blue font-medium text-base transition-colors font-bold",
+          location.pathname === "/devenir-partenaire" && "text-levigile-blue"
+        )}
+      >
+        Devenir partenaire
+      </Link>
         
       <Link to="/contact" className="text-levigile-dark hover:text-levigile-blue font-medium text-base transition-colors">
         Contact
