@@ -611,4 +611,4 @@ export const blogArticles: BlogArticle[] = [
         <li>Traçabilité des entrées/sorties</li>
       </ul>
       
-      <h2>Ne pas prévoir de rondes ou gardiennage le week-end
+      <h2>Ne pas prévoir de rondes ou gardiennage le
