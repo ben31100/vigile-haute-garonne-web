@@ -269,7 +269,7 @@ export const blogArticles: BlogArticle[] = [
     `,
     publishedAt: '2024-12-12T08:30:00Z',
     readingTime: 8,
-    coverImage: 'https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//agent%20de%20securite.jpg',
+    coverImage: 'https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//Comment%20recruter,levigile.png',
     author: blogAuthors.admin,
     tags: [blogTags.entreprise, blogTags.conseil],
     relatedArticles: ['1', '4']
