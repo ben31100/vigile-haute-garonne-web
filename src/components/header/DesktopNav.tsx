@@ -122,7 +122,8 @@ const DesktopNav: React.FC = () => {
         <DropdownMenuTrigger 
           className={cn(
             "text-levigile-dark hover:text-levigile-blue font-medium text-base bg-transparent hover:bg-transparent focus:bg-transparent inline-flex items-center transition-colors",
-            (location.pathname.includes("/toulouse") || 
+            (location.pathname.includes("/villes") || 
+             location.pathname.includes("/toulouse") || 
              location.pathname.includes("/blagnac") ||
              location.pathname.includes("/colomiers") ||
              location.pathname.includes("/tournefeuille") ||
@@ -194,16 +195,12 @@ const DesktopNav: React.FC = () => {
           </DropdownMenuItem>
           <DropdownMenuSeparator />
           <DropdownMenuItem asChild>
-            <a 
-              href="#" 
-              onClick={(e) => {
-                e.preventDefault();
-                navigateAndScrollTop('/villes');
-              }} 
+            <Link 
+              to="/villes" 
               className="cursor-pointer w-full px-4 py-2 text-sm font-medium text-levigile-blue hover:bg-gray-100 rounded-md"
             >
               Toutes les villes
-            </a>
+            </Link>
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
