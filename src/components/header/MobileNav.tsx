@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Menu, ChevronDown } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -6,7 +7,8 @@ import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/s
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 
 const MobileNav: React.FC = () => {
-  const [isCollapsibleOpen, setIsCollapsibleOpen] = useState(false);
+  const [isVillesCollapsibleOpen, setIsVillesCollapsibleOpen] = useState(false);
+  const [isServicesCollapsibleOpen, setIsServicesCollapsibleOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -34,7 +36,7 @@ const MobileNav: React.FC = () => {
       <Sheet>
         <SheetTrigger asChild>
           <Button variant="ghost" size="sm" aria-label="Menu">
-            <Menu size={32} /> {/* Increased size from 28 to 32 */}
+            <Menu size={32} />
           </Button>
         </SheetTrigger>
         <SheetContent side="right" className="py-8 px-4 w-[280px]">
@@ -44,20 +46,78 @@ const MobileNav: React.FC = () => {
                 Accueil
               </Link>
             </SheetClose>
-            
-            <SheetClose asChild>
-              <a 
-                href="#services"
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection('services');
-                }}
-                className="text-levigile-dark hover:text-levigile-blue font-medium py-2"
+
+            <Collapsible 
+              className="w-full" 
+              open={isServicesCollapsibleOpen} 
+              onOpenChange={setIsServicesCollapsibleOpen}
+            >
+              <CollapsibleTrigger 
+                className="flex w-full justify-between items-center text-levigile-dark hover:text-levigile-blue font-medium py-2"
               >
-                Nos services
-              </a>
-            </SheetClose>
-            
+                <span>Nos services</span>
+                <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isServicesCollapsibleOpen ? 'rotate-180' : ''}`} />
+              </CollapsibleTrigger>
+              <CollapsibleContent className="pl-4 pt-2 flex flex-col space-y-2">
+                <SheetClose asChild>
+                  <Link 
+                    to="/services/gardiennage" 
+                    className="text-sm text-gray-700 hover:text-levigile-blue py-1"
+                  >
+                    Gardiennage
+                  </Link>
+                </SheetClose>
+                <SheetClose asChild>
+                  <Link 
+                    to="/services/securite-evenementielle" 
+                    className="text-sm text-gray-700 hover:text-levigile-blue py-1"
+                  >
+                    Sécurité événementielle
+                  </Link>
+                </SheetClose>
+                <SheetClose asChild>
+                  <Link 
+                    to="/services/intervention" 
+                    className="text-sm text-gray-700 hover:text-levigile-blue py-1"
+                  >
+                    Intervention
+                  </Link>
+                </SheetClose>
+                <SheetClose asChild>
+                  <Link 
+                    to="/services/securite-cynophile" 
+                    className="text-sm text-gray-700 hover:text-levigile-blue py-1"
+                  >
+                    Sécurité cynophile
+                  </Link>
+                </SheetClose>
+                <SheetClose asChild>
+                  <Link 
+                    to="/services/securite-magasin" 
+                    className="text-sm text-gray-700 hover:text-levigile-blue py-1"
+                  >
+                    Sécurité magasin
+                  </Link>
+                </SheetClose>
+                <SheetClose asChild>
+                  <Link 
+                    to="/services/securite-residentielle" 
+                    className="text-sm text-gray-700 hover:text-levigile-blue py-1"
+                  >
+                    Sécurité résidentielle
+                  </Link>
+                </SheetClose>
+                <SheetClose asChild>
+                  <Link 
+                    to="/services/securite-incendie" 
+                    className="text-sm text-gray-700 hover:text-levigile-blue py-1"
+                  >
+                    Sécurité incendie
+                  </Link>
+                </SheetClose>
+              </CollapsibleContent>
+            </Collapsible>
+
             <SheetClose asChild>
               <Link 
                 to="/blog"
@@ -69,14 +129,14 @@ const MobileNav: React.FC = () => {
             
             <Collapsible 
               className="w-full" 
-              open={isCollapsibleOpen} 
-              onOpenChange={setIsCollapsibleOpen}
+              open={isVillesCollapsibleOpen} 
+              onOpenChange={setIsVillesCollapsibleOpen}
             >
               <CollapsibleTrigger 
                 className="flex w-full justify-between items-center text-levigile-dark hover:text-levigile-blue font-medium py-2"
               >
                 <span>Villes</span>
-                <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isCollapsibleOpen ? 'rotate-180' : ''}`} />
+                <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isVillesCollapsibleOpen ? 'rotate-180' : ''}`} />
               </CollapsibleTrigger>
               <CollapsibleContent className="pl-4 pt-2 flex flex-col space-y-2">
                 <SheetClose asChild>
