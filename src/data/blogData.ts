@@ -339,6 +339,55 @@ export const blogArticles: BlogArticle[] = [
     author: blogAuthors.expert,
     tags: [blogTags.securite, blogTags.conseil],
     relatedArticles: ['1', '2']
+  },
+  {
+    id: '7',
+    slug: 'agent-securite-nuit-colomiers',
+    title: 'Pourquoi opter pour un agent de sécurité la nuit à Colomiers',
+    subtitle: 'Protection nocturne adaptée pour les entreprises columérines',
+    excerpt: "Colomiers, deuxième ville de Haute-Garonne, connaît une forte activité nocturne, mais aussi des risques accrus pour les entreprises. Voici pourquoi un agent de sécurité la nuit est une solution à envisager.",
+    content: `
+      <h2>Prévenir les intrusions en zones industrielles</h2>
+      <p>Les parcs d'activités de Colomiers sont souvent ciblés en dehors des heures ouvrées. Une présence de sécurité nocturne permet :</p>
+      <ul>
+        <li>La dissuasion des tentatives d'intrusion</li>
+        <li>Une intervention immédiate en cas d'incident</li>
+        <li>Des rondes régulières sur l'ensemble du site</li>
+        <li>La vérification des points sensibles</li>
+      </ul>
+      
+      <h2>Rassurer vos employés et partenaires</h2>
+      <p>Un site sécurisé attire la confiance de tous. La présence d'un agent de sécurité la nuit apporte :</p>
+      <ul>
+        <li>Un sentiment de sécurité pour les employés en horaires décalés</li>
+        <li>Une image professionnelle auprès des clients et partenaires</li>
+        <li>Une garantie de protection de vos biens et équipements</li>
+      </ul>
+      
+      <h2>Réduction des coûts avec une surveillance mutualisée</h2>
+      <p>LeVigile propose des agents partagés pour des sites proches, permettant :</p>
+      <ul>
+        <li>Une optimisation des coûts de sécurité</li>
+        <li>Une couverture efficace de plusieurs sites</li>
+        <li>Une flexibilité des horaires selon vos besoins</li>
+      </ul>
+      
+      <h3>Les avantages de notre service de sécurité nocturne à Colomiers</h3>
+      <ul>
+        <li>Agents qualifiés et formés</li>
+        <li>Intervention rapide en cas d'alerte</li>
+        <li>Rapport détaillé des activités nocturnes</li>
+        <li>Coordination avec les forces de l'ordre si nécessaire</li>
+      </ul>
+      
+      <blockquote>Vous avez un commerce, un entrepôt ou un bureau à Colomiers ? Un agent de sécurité de nuit est votre meilleur allié. Contactez-nous pour une étude personnalisée de vos besoins.</blockquote>
+    `,
+    publishedAt: '2025-04-16T10:00:00Z',
+    readingTime: 5,
+    coverImage: 'https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//ronde-hero.jpg',
+    author: blogAuthors.expert,
+    tags: [blogTags.securite, blogTags.entreprise],
+    relatedArticles: ['6', '2']
   }
 ];
 
