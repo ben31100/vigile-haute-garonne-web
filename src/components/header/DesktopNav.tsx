@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from "@/components/ui/dropdown-menu";
+import { cn } from "@/lib/utils";
 
 const DesktopNav: React.FC = () => {
   const [isVillesDropdownOpen, setIsVillesDropdownOpen] = useState(false);
