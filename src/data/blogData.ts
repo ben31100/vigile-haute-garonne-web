@@ -1,3 +1,4 @@
+
 import { BlogArticle, BlogAuthor, BlogTag } from '../types/blog';
 
 // Blog authors
@@ -50,6 +51,11 @@ export const blogTags: Record<string, BlogTag> = {
     id: 'chantier',
     name: 'Chantier',
     slug: 'chantier'
+  },
+  residence: {
+    id: 'residence',
+    name: 'Résidentiel',
+    slug: 'residence'
   }
 };
 
@@ -607,3 +613,101 @@ export const blogArticles: BlogArticle[] = [
         <li>Organisation de rondes régulières</li>
         <li>Présence d'agents de sécurité qualifiés</li>
         <li>Surveillance renforcée les week-ends et jours fériés</li>
+        <li>Utilisation de systèmes d'alarme connectés</li>
+      </ul>
+      
+      <blockquote>Anticipez les risques avec un plan de sécurité adapté par LeVigile. Devis rapide pour tout chantier en Haute-Garonne.</blockquote>
+    `,
+    publishedAt: '2025-04-20T10:00:00Z',
+    readingTime: 7,
+    coverImage: 'https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//Securiser%20un%20chantier%20par%20Levigile.png',
+    author: blogAuthors.expert,
+    tags: [blogTags.securite, blogTags.conseil, blogTags.chantier],
+    relatedArticles: ['6', '10']
+  },
+  {
+    id: '12',
+    slug: 'surveillance-residences-cambriolages-toulouse',
+    title: 'Surveillance de résidences : une solution contre les cambriolages en périphérie toulousaine',
+    subtitle: 'Sécurité résidentielle adaptée pour les quartiers de l\'agglomération',
+    excerpt: "Cambriolages, incivilités, rodéos urbains... Les résidents des communes périphériques de Toulouse s'inquiètent. La surveillance privée est-elle une solution viable ?",
+    content: `
+      <h2>Rondes de nuit en voiture ou à pied</h2>
+      <p>Pour sécuriser efficacement un quartier résidentiel, les rondes régulières constituent une première ligne de défense essentielle :</p>
+      <ul>
+        <li>Passages aléatoires pour prévenir les cambriolages</li>
+        <li>Vérification des accès communs</li>
+        <li>Contrôle des équipements sensibles</li>
+        <li>Détection d'anomalies ou de situations suspectes</li>
+      </ul>
+      
+      <h2>Présence visible pour dissuasion</h2>
+      <p>L'effet dissuasif d'une présence humaine identifiable reste inégalé pour protéger les résidences :</p>
+      <ul>
+        <li>Agents en uniforme clairement identifiables</li>
+        <li>Véhicules de patrouille aux couleurs de la société</li>
+        <li>Signalétique de sécurité dans le quartier</li>
+        <li>Communication régulière avec les résidents</li>
+      </ul>
+      
+      <h2>Intervention rapide en cas d'alerte</h2>
+      <p>En cas d'incident, la réactivité des équipes de sécurité fait toute la différence :</p>
+      <ul>
+        <li>Délais d'intervention optimisés</li>
+        <li>Agents formés à la gestion des situations d'urgence</li>
+        <li>Coordination avec les forces de l'ordre</li>
+        <li>Rapport détaillé après chaque intervention</li>
+      </ul>
+      
+      <h2>Collaboration avec les syndics ou les copropriétés</h2>
+      <p>La sécurisation efficace d'un quartier résidentiel repose sur une collaboration étroite :</p>
+      <ul>
+        <li>Contrats adaptés aux besoins spécifiques de chaque résidence</li>
+        <li>Échanges réguliers avec les représentants des résidents</li>
+        <li>Ajustements du dispositif selon les retours d'expérience</li>
+        <li>Solutions de mutualisation pour optimiser les coûts</li>
+      </ul>
+      
+      <blockquote>LeVigile accompagne déjà plusieurs quartiers à Colomiers, Blagnac et Tournefeuille. Pourquoi pas le vôtre ? Contactez-nous pour une étude personnalisée.</blockquote>
+    `,
+    publishedAt: '2025-04-21T09:30:00Z',
+    readingTime: 6,
+    coverImage: 'https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//Surveillance%20de%20residences%20Levigile.png',
+    author: blogAuthors.expert,
+    tags: [blogTags.securite, blogTags.residence],
+    relatedArticles: ['7', '3']
+  }
+];
+
+// Fonction utilitaire pour récupérer un article par son slug
+export const getArticleBySlug = (slug: string): BlogArticle | undefined => {
+  return blogArticles.find(article => article.slug === slug);
+};
+
+// Fonction utilitaire pour récupérer les articles liés
+export const getRelatedArticles = (articleId: string): BlogArticle[] => {
+  const article = blogArticles.find(a => a.id === articleId);
+  if (!article || !article.relatedArticles || article.relatedArticles.length === 0) {
+    return [];
+  }
+  
+  return article.relatedArticles
+    .map(id => blogArticles.find(a => a.id === id))
+    .filter((a): a is BlogArticle => a !== undefined);
+};
+
+// Fonction utilitaire pour récupérer les articles par tag
+export const getArticlesByTag = (tagSlug: string): BlogArticle[] => {
+  return blogArticles
+    .filter(article => article.tags?.some(tag => tag.slug === tagSlug));
+};
+
+// Fonction utilitaire pour formater la date
+export const formatBlogDate = (dateString: string): string => {
+  const date = new Date(dateString);
+  return new Intl.DateTimeFormat('fr-FR', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric'
+  }).format(date);
+};
