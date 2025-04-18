@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Menu, ChevronDown } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -156,16 +155,12 @@ const MobileNav: React.FC = () => {
             </Collapsible>
             
             <SheetClose asChild>
-              <a 
-                href="#contact"
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection('contact');
-                }}
+              <Link 
+                to="/contact"
                 className="text-levigile-dark hover:text-levigile-blue font-medium py-2"
               >
                 Contact
-              </a>
+              </Link>
             </SheetClose>
           </div>
         </SheetContent>

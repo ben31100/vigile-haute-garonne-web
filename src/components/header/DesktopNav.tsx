@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -209,16 +208,12 @@ const DesktopNav: React.FC = () => {
         </DropdownMenuContent>
       </DropdownMenu>
         
-      <a 
-        href="#contact" 
-        onClick={(e) => {
-          e.preventDefault();
-          scrollToSection('contact');
-        }} 
+      <Link 
+        to="/contact" 
         className="text-levigile-dark hover:text-levigile-blue font-medium text-base transition-colors"
       >
         Contact
-      </a>
+      </Link>
     </nav>
   );
 };

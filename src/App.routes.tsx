@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Index from './pages/Index';
@@ -34,13 +33,13 @@ import AriegePage from './pages/cities/AriegePage';
 import AudePage from './pages/cities/AudePage';
 import AveyronPage from './pages/cities/AveyronPage';
 import GardPage from './pages/cities/GardPage';
+import ContactPage from './pages/ContactPage';
 
 const AppRoutes: React.FC = () => {
   return (
     <Routes>
       <Route path="/" element={<Index />} />
-      <Route path="/media-manager" element={<MediaManager />} />
-      <Route path="/villes" element={<CitiesList />} />
+      <Route path="/contact" element={<ContactPage />} />
       
       {/* Routes du blog */}
       <Route path="/blog" element={<BlogIndex />} />
