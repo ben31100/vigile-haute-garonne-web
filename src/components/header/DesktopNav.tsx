@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuLink, NavigationMenuTrigger, NavigationMenuContent } from "@/components/ui/navigation-menu";
+import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuTrigger, NavigationMenuContent } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
 
 const DesktopNav: React.FC = () => {
@@ -44,7 +44,7 @@ const DesktopNav: React.FC = () => {
             >
               Nos services
             </NavigationMenuTrigger>
-            <NavigationMenuContent className="bg-white p-4 rounded-md shadow-lg w-[500px]">
+            <NavigationMenuContent className="bg-white p-4 rounded-md shadow-lg w-[500px] z-50">
               <div className="grid grid-cols-2 gap-4 p-2">
                 <Link to="/services/gardiennage" className="group flex items-start space-x-3 p-2 rounded-md hover:bg-gray-50 transition-colors">
                   <div className="w-12 h-12 rounded-md overflow-hidden flex-shrink-0">
@@ -155,7 +155,7 @@ const DesktopNav: React.FC = () => {
         <DropdownMenuTrigger className="text-levigile-dark hover:text-levigile-blue font-medium bg-transparent hover:bg-transparent focus:bg-transparent inline-flex items-center">
           Villes <ChevronDown className="ml-1 h-4 w-4" />
         </DropdownMenuTrigger>
-        <DropdownMenuContent align="start" className="bg-white w-48 p-1">
+        <DropdownMenuContent align="start" className="bg-white w-48 p-1 z-50">
           <DropdownMenuItem asChild>
             <a 
               href="#" 
