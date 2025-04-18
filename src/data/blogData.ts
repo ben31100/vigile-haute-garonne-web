@@ -1,3 +1,4 @@
+
 import { BlogArticle, BlogAuthor, BlogTag } from '../types/blog';
 
 // Blog authors
@@ -612,4 +613,100 @@ export const blogArticles: BlogArticle[] = [
       </ul>
       
       <h2>Ne pas prévoir de rondes ou gardiennage le week-end</h2>
-      <
+      <p>Les week-ends sont des périodes particulièrement vulnérables pour les chantiers. Une protection adaptée comprend :</p>
+      <ul>
+        <li>Planning de surveillance continue</li>
+        <li>Rondes aléatoires de dissuasion</li>
+        <li>Système d'alarme connecté</li>
+        <li>Intervention rapide sur alerte</li>
+      </ul>
+      
+      <blockquote>Un chantier bien sécurisé représente un investissement bien inférieur aux coûts potentiels d'un vol ou d'un acte de vandalisme. LeVigile vous aide à mettre en place une solution adaptée à vos besoins spécifiques.</blockquote>
+    `,
+    publishedAt: '2025-04-20T09:00:00Z',
+    readingTime: 7,
+    coverImage: 'https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//securite-chantier-levigile.jpg',
+    author: blogAuthors.expert,
+    tags: [blogTags.securite, blogTags.chantier],
+    relatedArticles: ['7', '10']
+  },
+  {
+    id: '12',
+    slug: 'securite-grande-surface',
+    title: 'Sécurité en grande surface : quels dispositifs pour protéger clients et employés ?',
+    subtitle: 'Solutions adaptées pour sécuriser les commerces de détail',
+    excerpt: "Vols à l'étalage, incivilités, gestion de flux : une grande surface nécessite un dispositif de sécurité professionnel et bien pensé.",
+    content: `
+      <h2>Présence dissuasive à l'entrée</h2>
+      <p>Un agent de sécurité positionné stratégiquement à l'entrée de votre commerce remplit plusieurs fonctions essentielles :</p>
+      <ul>
+        <li>Dissuasion immédiate des individus mal intentionnés</li>
+        <li>Première impression de sécurité pour les clients</li>
+        <li>Détection précoce des comportements suspects</li>
+        <li>Assistance aux clients en cas de besoin</li>
+      </ul>
+      
+      <h2>Rondes régulières et discrètes dans les rayons</h2>
+      <p>La circulation des agents dans les différents secteurs de votre magasin permet :</p>
+      <ul>
+        <li>Une couverture complète de la surface de vente</li>
+        <li>Une présence visible mais non intrusive</li>
+        <li>Une intervention rapide en cas d'incident</li>
+        <li>Une surveillance des zones à risque (produits de valeur, angles morts)</li>
+      </ul>
+      
+      <h2>Maîtrise des situations conflictuelles ou violentes</h2>
+      <p>Nos agents sont formés spécifiquement pour gérer les situations délicates :</p>
+      <ul>
+        <li>Désamorçage des conflits entre clients</li>
+        <li>Gestion des comportements agressifs</li>
+        <li>Intervention adaptée en cas d'incivilités</li>
+        <li>Protection du personnel en cas de menace</li>
+      </ul>
+      
+      <h2>Coordination avec la vidéosurveillance et les vigiles internes</h2>
+      <p>L'efficacité d'un dispositif de sécurité repose sur une coordination parfaite :</p>
+      <ul>
+        <li>Communication constante avec le PC sécurité</li>
+        <li>Travail en équipe avec les vigiles internes</li>
+        <li>Utilisation optimale des outils technologiques disponibles</li>
+        <li>Procédures claires en cas d'incident</li>
+      </ul>
+      
+      <blockquote>Chez LeVigile, nous comprenons les enjeux spécifiques de la grande distribution. Nos agents sont sélectionnés et formés pour répondre aux exigences particulières de ce secteur. Contactez-nous pour une étude personnalisée de vos besoins.</blockquote>
+    `,
+    publishedAt: '2025-04-21T10:00:00Z',
+    readingTime: 6,
+    coverImage: 'https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//Securite%20en%20grande%20surface%20Levigile.png',
+    author: blogAuthors.expert,
+    tags: [blogTags.securite, blogTags.retail],
+    relatedArticles: ['3', '4']
+  }
+];
+
+// Helper functions for accessing blog data
+export const getArticleBySlug = (slug: string): BlogArticle | undefined => {
+  return blogArticles.find(article => article.slug === slug);
+};
+
+export const getRelatedArticles = (articleId: string): BlogArticlePreview[] => {
+  const article = blogArticles.find(article => article.id === articleId);
+  
+  if (!article || !article.relatedArticles || article.relatedArticles.length === 0) {
+    return [];
+  }
+  
+  return article.relatedArticles
+    .map(id => blogArticles.find(article => article.id === id))
+    .filter((article): article is BlogArticle => !!article)
+    .map(({ content, relatedArticles, ...rest }) => rest);
+};
+
+export const formatBlogDate = (dateString: string): string => {
+  const date = new Date(dateString);
+  return date.toLocaleDateString('fr-FR', { 
+    day: 'numeric', 
+    month: 'long', 
+    year: 'numeric' 
+  });
+};
