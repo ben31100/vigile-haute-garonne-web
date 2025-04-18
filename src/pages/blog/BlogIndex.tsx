@@ -25,11 +25,10 @@ const BlogIndex: React.FC = () => {
   return (
     <BlogLayout title="Blog - Actualités et conseils sécurité">
       <BlogHero 
-        title="Blog LeVigile" 
         subtitle="Actualités, conseils et expertise en matière de sécurité privée"
         background="bg-white"
         backgroundImage="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//blog%20du%20vigile.png"
-        className="h-[600px]"
+        className="h-[450px] mb-16"
       />
       
       <div className="container mx-auto px-4">
