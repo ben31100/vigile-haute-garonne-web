@@ -52,7 +52,7 @@ const ServicePage: React.FC<ServicePageProps> = ({
                 <Button 
                   asChild 
                   size="lg"
-                  className="bg-levigile-blue hover:bg-blue-800 text-white font-semibold px-8 py-6 text-base shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+                  className="bg-gray-700 hover:bg-gray-800 text-white font-semibold px-8 py-6 text-base shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
                 >
                   <a href="#contact" className="flex items-center justify-center gap-2">
                     Demander un devis
@@ -62,7 +62,7 @@ const ServicePage: React.FC<ServicePageProps> = ({
                   asChild 
                   variant="outline" 
                   size="lg" 
-                  className="border-2 border-levigile-blue text-levigile-blue hover:bg-levigile-blue hover:text-white transition-all duration-300 group cursor-pointer font-semibold px-8 py-6 text-base shadow-lg hover:shadow-xl"
+                  className="border-2 border-gray-700 text-gray-700 hover:bg-gray-700 hover:text-white transition-all duration-300 group cursor-pointer font-semibold px-8 py-6 text-base shadow-lg hover:shadow-xl"
                 >
                   <a 
                     href="tel:+33561000000" 
@@ -72,7 +72,7 @@ const ServicePage: React.FC<ServicePageProps> = ({
                       size={24} 
                       className="group-hover:rotate-12 transition-transform duration-300"
                     />
-                    Nous appeler
+                    05 61 00 00 00
                   </a>
                 </Button>
               </div>
@@ -128,7 +128,7 @@ const ServicePage: React.FC<ServicePageProps> = ({
       </section>
       
       {/* CTA section - Bottom buttons */}
-      <section id="contact" className="py-16 bg-levigile-blue text-white">
+      <section id="contact" className="py-16 bg-gray-800 text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">{cta.title}</h2>
           <p className="text-lg mb-8 max-w-2xl mx-auto">{cta.description}</p>
@@ -136,7 +136,7 @@ const ServicePage: React.FC<ServicePageProps> = ({
             <Button 
               asChild 
               size="lg" 
-              className="bg-white text-levigile-blue hover:bg-gray-100 font-semibold px-8 py-6 text-base shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+              className="bg-white text-gray-800 hover:bg-gray-100 font-semibold px-8 py-6 text-base shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
             >
               <a href="mailto:contact@levigile.fr">Demander un devis</a>
             </Button>
@@ -144,7 +144,7 @@ const ServicePage: React.FC<ServicePageProps> = ({
               asChild 
               variant="outline" 
               size="lg" 
-              className="border-2 border-white text-white hover:bg-white hover:text-levigile-blue font-semibold px-8 py-6 text-base shadow-lg hover:shadow-xl group"
+              className="border-2 border-white text-white hover:bg-white hover:text-gray-800 font-semibold px-8 py-6 text-base shadow-lg hover:shadow-xl group"
             >
               <a href="tel:+33561000000" className="flex items-center justify-center gap-2 group-hover:scale-105 transition-transform">
                 <PhoneCall 
