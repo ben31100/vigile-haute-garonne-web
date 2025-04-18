@@ -1,6 +1,4 @@
-import { BlogArticle, BlogAuthor, BlogTag, BlogArticlePreview } from '../types/blog';
-import { format, parseISO } from 'date-fns';
-import { fr } from 'date-fns/locale';
+import { BlogArticle, BlogAuthor, BlogTag } from '../types/blog';
 
 // Blog authors
 export const blogAuthors: Record<string, BlogAuthor> = {
@@ -52,16 +50,6 @@ export const blogTags: Record<string, BlogTag> = {
     id: 'chantier',
     name: 'Chantier',
     slug: 'chantier'
-  },
-  residence: {
-    id: 'residence',
-    name: 'Résidentiel',
-    slug: 'residence'
-  },
-  gms: {
-    id: 'gms',
-    name: 'Grande Distribution',
-    slug: 'grande-distribution'
   }
 };
 
@@ -187,7 +175,7 @@ export const blogArticles: BlogArticle[] = [
     `,
     publishedAt: '2025-01-10T09:15:00Z',
     readingTime: 7,
-    coverImage: 'https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//securite%20commerce%20levigile.webp',
+    coverImage: 'https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//securite%20commerce%20levigie.webp',
     author: blogAuthors.admin,
     tags: [blogTags.securite, blogTags.conseil],
     relatedArticles: ['1', '2']
@@ -610,4 +598,12 @@ export const blogArticles: BlogArticle[] = [
         <li>Inventaire régulier du matériel</li>
         <li>Zone de stockage sécurisée et surveillée</li>
         <li>Système d'alarme spécifique</li>
-        <li>Traçabilité
+        <li>Traçabilité des entrées/sorties</li>
+      </ul>
+      
+      <h2>Ne pas prévoir de rondes ou gardiennage le week-end</h2>
+      <p>Les périodes d'inactivité sont les plus risquées pour un chantier :</p>
+      <ul>
+        <li>Organisation de rondes régulières</li>
+        <li>Présence d'agents de sécurité qualifiés</li>
+        <li>Surveillance renforcée les week-ends et jours fériés</li>
