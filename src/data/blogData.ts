@@ -15,7 +15,6 @@ export const blogAuthors: Record<string, BlogAuthor> = {
   }
 };
 
-// Blog tags
 export const blogTags: Record<string, BlogTag> = {
   securite: {
     id: 'securite',
@@ -46,10 +45,14 @@ export const blogTags: Record<string, BlogTag> = {
     id: 'cynophile',
     name: 'Agent Cynophile',
     slug: 'cynophile'
+  },
+  chantier: {
+    id: 'chantier',
+    name: 'Chantier',
+    slug: 'chantier'
   }
 };
 
-// Blog articles
 export const blogArticles: BlogArticle[] = [
   {
     id: '1',
@@ -563,38 +566,44 @@ export const blogArticles: BlogArticle[] = [
     author: blogAuthors.expert,
     tags: [blogTags.securite, blogTags.cynophile],
     relatedArticles: ['1', '7']
-  }
-];
-
-// Fonction utilitaire pour récupérer un article par son slug
-export const getArticleBySlug = (slug: string): BlogArticle | undefined => {
-  return blogArticles.find(article => article.slug === slug);
-};
-
-// Fonction utilitaire pour récupérer les articles liés
-export const getRelatedArticles = (articleId: string): BlogArticle[] => {
-  const article = blogArticles.find(a => a.id === articleId);
-  if (!article || !article.relatedArticles || article.relatedArticles.length === 0) {
-    return [];
-  }
-  
-  return article.relatedArticles
-    .map(id => blogArticles.find(a => a.id === id))
-    .filter((a): a is BlogArticle => a !== undefined);
-};
-
-// Fonction utilitaire pour récupérer les articles par tag
-export const getArticlesByTag = (tagSlug: string): BlogArticle[] => {
-  return blogArticles
-    .filter(article => article.tags?.some(tag => tag.slug === tagSlug));
-};
-
-// Fonction utilitaire pour formater la date
-export const formatBlogDate = (dateString: string): string => {
-  const date = new Date(dateString);
-  return new Intl.DateTimeFormat('fr-FR', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric'
-  }).format(date);
-};
+  },
+  {
+    id: '11',
+    slug: 'securiser-chantier-erreurs-eviter',
+    title: 'Sécuriser un chantier : 4 erreurs à éviter absolument',
+    subtitle: 'Guide pratique pour les professionnels du BTP et maîtres d\'ouvrage',
+    excerpt: "Les chantiers sont des cibles fréquentes de vols de matériel ou de dégradations. Voici les erreurs courantes à ne pas commettre.",
+    content: `
+      <h2>Négliger la fermeture du site en dehors des horaires</h2>
+      <p>La première et plus courante des erreurs est de ne pas sécuriser correctement les accès du chantier après les heures de travail. Voici les points essentiels :</p>
+      <ul>
+        <li>Vérification systématique de toutes les entrées</li>
+        <li>Installation de clôtures adaptées et solides</li>
+        <li>Mise en place d'un contrôle d'accès fiable</li>
+        <li>Registre des personnes autorisées à jour</li>
+      </ul>
+      
+      <h2>Ne pas éclairer suffisamment les accès</h2>
+      <p>Un chantier mal éclairé est une invitation aux intrusions. L'éclairage joue plusieurs rôles essentiels :</p>
+      <ul>
+        <li>Dissuasion des tentatives d'intrusion</li>
+        <li>Facilitation de la surveillance vidéo</li>
+        <li>Aide au travail des agents de sécurité</li>
+        <li>Sécurisation des déplacements autorisés</li>
+      </ul>
+      
+      <h2>Stocker du matériel précieux sans surveillance</h2>
+      <p>Le matériel et les matériaux de valeur nécessitent une attention particulière :</p>
+      <ul>
+        <li>Inventaire régulier du matériel</li>
+        <li>Zone de stockage sécurisée et surveillée</li>
+        <li>Système d'alarme spécifique</li>
+        <li>Traçabilité des entrées/sorties</li>
+      </ul>
+      
+      <h2>Ne pas prévoir de rondes ou gardiennage le week-end</h2>
+      <p>Les périodes d'inactivité sont les plus risquées pour un chantier :</p>
+      <ul>
+        <li>Organisation de rondes régulières</li>
+        <li>Présence d'agents de sécurité qualifiés</li>
+        <li>Surveillance renforcée les week-ends et jours fériés</li>
