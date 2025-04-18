@@ -1,4 +1,3 @@
-
 import { BlogArticle, BlogAuthor, BlogTag } from '../types/blog';
 
 // Blog authors
@@ -51,6 +50,11 @@ export const blogTags: Record<string, BlogTag> = {
     id: 'chantier',
     name: 'Chantier',
     slug: 'chantier'
+  },
+  residence: {
+    id: 'residence',
+    name: 'Résidentiel',
+    slug: 'residence'
   }
 };
 
@@ -605,57 +609,4 @@ export const blogArticles: BlogArticle[] = [
       <h2>Ne pas prévoir de rondes ou gardiennage le week-end</h2>
       <p>Les périodes d'inactivité sont les plus risquées pour un chantier :</p>
       <ul>
-        <li>Organisation de rondes régulières</li>
-        <li>Présence d'agents de sécurité qualifiés</li>
-        <li>Surveillance renforcée les week-ends et jours fériés</li>
-        <li>Système d'alarme relié à un centre de télésurveillance</li>
-      </ul>
-      
-      <blockquote>LeVigile propose des solutions adaptées à tous types de chantiers, du petit projet résidentiel au grand chantier industriel. Contactez-nous pour une étude personnalisée.</blockquote>
-    `,
-    publishedAt: '2025-04-20T09:00:00Z',
-    readingTime: 7,
-    coverImage: 'https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//chantier-securite.jpg',
-    author: blogAuthors.expert,
-    tags: [blogTags.securite, blogTags.chantier],
-    relatedArticles: ['7', '6']
-  }
-];
-
-// Helper functions
-export const getArticleBySlug = (slug: string): BlogArticle | undefined => {
-  return blogArticles.find(article => article.slug === slug);
-};
-
-export const getRelatedArticles = (currentArticleId: string): BlogArticle[] => {
-  const article = blogArticles.find(article => article.id === currentArticleId);
-  if (!article || !article.relatedArticles) return [];
-  
-  return article.relatedArticles
-    .map(id => blogArticles.find(article => article.id === id))
-    .filter((article): article is BlogArticle => !!article);
-};
-
-export const formatBlogDate = (dateString: string): string => {
-  const date = new Date(dateString);
-  return date.toLocaleDateString('fr-FR', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric'
-  });
-};
-
-export const getArticlesByTag = (tagSlug: string): BlogArticle[] => {
-  const tag = Object.values(blogTags).find(tag => tag.slug === tagSlug);
-  if (!tag) return [];
-  
-  return blogArticles.filter(article => 
-    article.tags && article.tags.some(t => t.id === tag.id)
-  );
-};
-
-export const getRecentArticles = (limit = 3): BlogArticle[] => {
-  return [...blogArticles]
-    .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
-    .slice(0, limit);
-};
+        <li>Organisation de rondes
