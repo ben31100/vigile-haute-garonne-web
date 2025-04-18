@@ -212,7 +212,7 @@ export const blogArticles: BlogArticle[] = [
     `,
     publishedAt: '2025-04-05T11:45:00Z',
     readingTime: 9,
-    coverImage: 'https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//videoprotection.webp',
+    coverImage: 'https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//Les%20grandes%20tendances%20de%20la%20securite%20privee%20en%202025.png',
     author: blogAuthors.expert,
     tags: [blogTags.securite, blogTags.conseil],
     relatedArticles: ['1', '3']
