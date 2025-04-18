@@ -3,6 +3,7 @@ import { ChevronDown } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
+import CareerMenu from './CareerMenu';
 
 const DesktopNav: React.FC = () => {
   const [isVillesDropdownOpen, setIsVillesDropdownOpen] = useState(false);
@@ -204,11 +205,10 @@ const DesktopNav: React.FC = () => {
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
+
+      <CareerMenu />
         
-      <Link 
-        to="/contact" 
-        className="text-levigile-dark hover:text-levigile-blue font-medium text-base transition-colors"
-      >
+      <Link to="/contact" className="text-levigile-dark hover:text-levigile-blue font-medium text-base transition-colors">
         Contact
       </Link>
     </nav>

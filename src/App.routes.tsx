@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Index from './pages/Index';
@@ -35,6 +34,11 @@ import AudePage from './pages/cities/AudePage';
 import AveyronPage from './pages/cities/AveyronPage';
 import GardPage from './pages/cities/GardPage';
 import ContactPage from './pages/ContactPage';
+
+// Career pages
+import WhyJoinUs from './pages/career/WhyJoinUs';
+import OurJobs from './pages/career/OurJobs';
+import JobOffers from './pages/career/JobOffers';
 
 const AppRoutes: React.FC = () => {
   return (
@@ -73,6 +77,11 @@ const AppRoutes: React.FC = () => {
       <Route path="/aude.html" element={<AudePage />} />
       <Route path="/aveyron.html" element={<AveyronPage />} />
       <Route path="/gard.html" element={<GardPage />} />
+      
+      {/* Career routes */}
+      <Route path="/carriere/pourquoi-nous-rejoindre" element={<WhyJoinUs />} />
+      <Route path="/carriere/nos-metiers" element={<OurJobs />} />
+      <Route path="/carriere/nos-offres" element={<JobOffers />} />
       
       <Route path="*" element={<NotFound />} />
     </Routes>

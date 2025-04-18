@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Menu, ChevronDown } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -9,6 +8,7 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/component
 const MobileNav: React.FC = () => {
   const [isVillesCollapsibleOpen, setIsVillesCollapsibleOpen] = useState(false);
   const [isServicesCollapsibleOpen, setIsServicesCollapsibleOpen] = useState(false);
+  const [isCareerCollapsibleOpen, setIsCareerCollapsibleOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -210,6 +210,45 @@ const MobileNav: React.FC = () => {
                   >
                     Toutes les villes
                   </a>
+                </SheetClose>
+              </CollapsibleContent>
+            </Collapsible>
+
+            <Collapsible 
+              className="w-full" 
+              open={isCareerCollapsibleOpen} 
+              onOpenChange={setIsCareerCollapsibleOpen}
+            >
+              <CollapsibleTrigger 
+                className="flex w-full justify-between items-center text-levigile-dark hover:text-levigile-blue font-medium py-2"
+              >
+                <span>Carrière</span>
+                <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isCareerCollapsibleOpen ? 'rotate-180' : ''}`} />
+              </CollapsibleTrigger>
+              <CollapsibleContent className="pl-4 pt-2 flex flex-col space-y-2">
+                <SheetClose asChild>
+                  <Link 
+                    to="/carriere/pourquoi-nous-rejoindre" 
+                    className="text-sm text-gray-700 hover:text-levigile-blue py-1"
+                  >
+                    Pourquoi nous rejoindre
+                  </Link>
+                </SheetClose>
+                <SheetClose asChild>
+                  <Link 
+                    to="/carriere/nos-metiers" 
+                    className="text-sm text-gray-700 hover:text-levigile-blue py-1"
+                  >
+                    Nos métiers
+                  </Link>
+                </SheetClose>
+                <SheetClose asChild>
+                  <Link 
+                    to="/carriere/nos-offres" 
+                    className="text-sm text-gray-700 hover:text-levigile-blue py-1"
+                  >
+                    Nos offres d'emploi
+                  </Link>
                 </SheetClose>
               </CollapsibleContent>
             </Collapsible>
