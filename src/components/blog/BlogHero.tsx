@@ -5,15 +5,30 @@ interface BlogHeroProps {
   title: string;
   subtitle?: string;
   background?: string;
+  backgroundImage?: string;
+  className?: string;
 }
 
 const BlogHero: React.FC<BlogHeroProps> = ({ 
   title, 
   subtitle,
-  background = 'bg-gradient-to-r from-levigile-blue to-levigile-gray'
+  background = 'bg-gradient-to-r from-levigile-blue to-levigile-gray',
+  backgroundImage,
+  className = 'py-16 md:py-24 mb-12'
 }) => {
+  const backgroundStyle = backgroundImage 
+    ? { 
+        backgroundImage: `url('${backgroundImage}')`, 
+        backgroundSize: 'cover', 
+        backgroundPosition: 'center' 
+      } 
+    : {};
+
   return (
-    <div className={`${background} py-16 md:py-24 mb-12`}>
+    <div 
+      className={`${background} ${className} flex items-center`} 
+      style={backgroundStyle}
+    >
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">

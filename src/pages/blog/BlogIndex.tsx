@@ -13,7 +13,6 @@ const BlogIndex: React.FC = () => {
   const [displayCount, setDisplayCount] = useState(ARTICLES_PER_PAGE);
   const hasMoreArticles = displayCount < blogArticles.length;
   
-  // Préparation des articles pour l'affichage (version preview sans le contenu complet)
   const articlesToDisplay: BlogArticlePreview[] = blogArticles
     .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
     .slice(0, displayCount)
@@ -28,6 +27,9 @@ const BlogIndex: React.FC = () => {
       <BlogHero 
         title="Blog LeVigile" 
         subtitle="Actualités, conseils et expertise en matière de sécurité privée"
+        background="bg-white"
+        backgroundImage="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//blog%20du%20vigile.png"
+        className="h-[600px]"
       />
       
       <div className="container mx-auto px-4">
