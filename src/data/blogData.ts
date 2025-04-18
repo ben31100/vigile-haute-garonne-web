@@ -1,7 +1,29 @@
-
-import { BlogArticle, BlogAuthor, BlogTag } from '../types/blog';
+import { BlogArticle, BlogAuthor, BlogTag, BlogArticlePreview } from '../types/blog';
 import { format, parseISO } from 'date-fns';
 import { fr } from 'date-fns/locale';
+
+// Helper functions for blog data
+export const formatBlogDate = (dateString: string): string => {
+  const date = parseISO(dateString);
+  return format(date, 'dd MMMM yyyy', { locale: fr });
+};
+
+export const getArticleBySlug = (slug: string): BlogArticle | undefined => {
+  return blogArticles.find(article => article.slug === slug);
+};
+
+export const getRelatedArticles = (articleId: string): BlogArticlePreview[] => {
+  const article = blogArticles.find(a => a.id === articleId);
+  
+  if (!article || !article.relatedArticles) {
+    return [];
+  }
+  
+  return article.relatedArticles
+    .map(id => blogArticles.find(a => a.id === id))
+    .filter((a): a is BlogArticle => !!a)
+    .map(({ content, relatedArticles, ...rest }) => rest);
+};
 
 // Blog authors
 export const blogAuthors: Record<string, BlogAuthor> = {
@@ -59,29 +81,6 @@ export const blogTags: Record<string, BlogTag> = {
     name: 'Résidentiel',
     slug: 'residence'
   }
-};
-
-// Helper functions for blog data
-export const formatBlogDate = (dateString: string): string => {
-  const date = parseISO(dateString);
-  return format(date, 'dd MMMM yyyy', { locale: fr });
-};
-
-export const getArticleBySlug = (slug: string): BlogArticle | undefined => {
-  return blogArticles.find(article => article.slug === slug);
-};
-
-export const getRelatedArticles = (articleId: string): BlogArticlePreview[] => {
-  const article = blogArticles.find(a => a.id === articleId);
-  
-  if (!article || !article.relatedArticles) {
-    return [];
-  }
-  
-  return article.relatedArticles
-    .map(id => blogArticles.find(a => a.id === id))
-    .filter((a): a is BlogArticle => !!a)
-    .map(({ content, relatedArticles, ...rest }) => rest);
 };
 
 export const blogArticles: BlogArticle[] = [
@@ -611,104 +610,3 @@ export const blogArticles: BlogArticle[] = [
         <li>Vérification systématique de toutes les entrées</li>
         <li>Installation de clôtures adaptées et solides</li>
         <li>Mise en place d'un contrôle d'accès fiable</li>
-        <li>Registre des personnes autorisées à jour</li>
-      </ul>
-      
-      <h2>Ne pas éclairer suffisamment les accès</h2>
-      <p>Un chantier mal éclairé est une invitation aux intrusions. L'éclairage joue plusieurs rôles essentiels :</p>
-      <ul>
-        <li>Dissuasion des tentatives d'intrusion</li>
-        <li>Facilitation de la surveillance vidéo</li>
-        <li>Aide au travail des agents de sécurité</li>
-        <li>Sécurisation des déplacements autorisés</li>
-      </ul>
-      
-      <h2>Stocker du matériel précieux sans surveillance</h2>
-      <p>Le matériel et les matériaux de valeur nécessitent une attention particulière :</p>
-      <ul>
-        <li>Inventaire régulier du matériel</li>
-        <li>Zone de stockage sécurisée et surveillée</li>
-        <li>Système d'alarme spécifique</li>
-        <li>Traçabilité des entrées/sorties de matériel</li>
-      </ul>
-      
-      <h2>Ne pas prévoir de rondes ou gardiennage le week-end</h2>
-      <p>Les périodes d'inactivité sont les plus risquées pour un chantier :</p>
-      <ul>
-        <li>Organisation de rondes régulières</li>
-        <li>Présence d'agents de sécurité qualifiés</li>
-        <li>Surveillance renforcée les week-ends et jours fériés</li>
-        <li>Solution de vidéosurveillance avec levée de doute</li>
-      </ul>
-      
-      <blockquote>La sécurité d'un chantier est un investissement, pas une dépense. Elle protège non seulement vos biens, mais aussi la réputation de votre entreprise. - Fédération Française du Bâtiment</blockquote>
-    `,
-    publishedAt: '2025-04-20T09:30:00Z',
-    readingTime: 7,
-    coverImage: 'https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//securite-chantier.jpg',
-    author: blogAuthors.expert,
-    tags: [blogTags.securite, blogTags.chantier],
-    relatedArticles: ['7', '10']
-  },
-  {
-    id: '12',
-    slug: 'securite-residences-appartements',
-    title: 'Sécurité résidentielle : protéger efficacement votre immeuble',
-    subtitle: 'Solutions adaptées pour les copropriétés et résidences',
-    excerpt: "Les immeubles résidentiels nécessitent une approche spécifique en matière de sécurité. Découvrez comment protéger efficacement votre résidence contre les intrusions et les actes de malveillance.",
-    content: `
-      <h2>Les vulnérabilités spécifiques aux immeubles résidentiels</h2>
-      <p>Les résidences et copropriétés présentent des défis particuliers en matière de sécurité. Les principaux points de vigilance sont :</p>
-      <ul>
-        <li>Les accès multiples (entrée principale, parkings, issues de secours)</li>
-        <li>Les zones communes souvent peu surveillées</li>
-        <li>La multiplicité des résidents et visiteurs</li>
-        <li>Les périodes d'absence pendant les vacances</li>
-      </ul>
-      
-      <h2>Le contrôle d'accès adapté aux résidences</h2>
-      <p>Un système de contrôle d'accès efficace constitue la première ligne de défense :</p>
-      <ul>
-        <li>Interphonie ou vidéophonie pour filtrer les visiteurs</li>
-        <li>Badges ou clés électroniques traçables</li>
-        <li>Sas d'entrée pour éviter les passages forcés</li>
-        <li>Gestion différenciée des accès (résidents, prestataires, visiteurs)</li>
-      </ul>
-      
-      <h2>La vidéoprotection des espaces communs</h2>
-      <p>L'installation de caméras dans les zones stratégiques renforce considérablement la sécurité :</p>
-      <ul>
-        <li>Entrées et sorties de l'immeuble</li>
-        <li>Parkings et garages</li>
-        <li>Locaux techniques et à poubelles</li>
-        <li>Couloirs et cages d'escalier (selon la réglementation)</li>
-      </ul>
-      
-      <h2>L'importance de la surveillance humaine</h2>
-      <p>La présence d'agents de sécurité apporte une dimension supplémentaire à la protection :</p>
-      <ul>
-        <li>Gardien d'immeuble pour les résidences de standing</li>
-        <li>Rondes de surveillance nocturnes</li>
-        <li>Accueil et filtrage des visiteurs</li>
-        <li>Intervention en cas d'incident</li>
-      </ul>
-      
-      <h2>La prévention technique et organisationnelle</h2>
-      <p>Au-delà des équipements, certaines mesures organisationnelles renforcent la sécurité :</p>
-      <ul>
-        <li>Éclairage adapté des abords et parties communes</li>
-        <li>Entretien régulier pour éviter les zones délabrées</li>
-        <li>Sensibilisation des résidents aux bonnes pratiques</li>
-        <li>Protocole de signalement des incidents</li>
-      </ul>
-      
-      <blockquote>La sécurité d'une résidence repose autant sur les équipements que sur la vigilance collective. Contactez LeVigile pour une étude personnalisée des besoins de votre copropriété.</blockquote>
-    `,
-    publishedAt: '2025-04-22T14:00:00Z',
-    readingTime: 8,
-    coverImage: 'https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//residence-securite.jpg',
-    author: blogAuthors.expert,
-    tags: [blogTags.securite, blogTags.residence],
-    relatedArticles: ['1', '3']
-  }
-];
