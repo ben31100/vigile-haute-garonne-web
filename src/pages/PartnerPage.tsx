@@ -1,10 +1,10 @@
-
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Phone, Mail, CheckCircle2, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { Link } from 'react-router-dom';
 
 const PartnerPage = () => {
   const handlePhoneCall = () => {
@@ -102,7 +102,15 @@ const PartnerPage = () => {
               <ul className="space-y-2 text-gray-600">
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="text-levigile-blue h-5 w-5 flex-shrink-0" />
-                  Remplissez le formulaire d'inscription en ligne
+                  <div>
+                    Remplissez le formulaire d'inscription en ligne{" "}
+                    <Link 
+                      to="/devenir-partenaire/inscription" 
+                      className="text-levigile-blue hover:underline font-medium"
+                    >
+                      (Cliquez ici)
+                    </Link>
+                  </div>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="text-levigile-blue h-5 w-5 flex-shrink-0" />
