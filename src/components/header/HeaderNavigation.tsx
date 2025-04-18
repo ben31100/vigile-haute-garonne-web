@@ -9,8 +9,7 @@ const HeaderNavigation: React.FC = () => {
 
   return (
     <>
-      <DesktopNav />
-      <MobileNav />
+      {isMobile ? <MobileNav /> : <DesktopNav />}
     </>
   );
 };

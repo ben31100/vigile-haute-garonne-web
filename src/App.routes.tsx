@@ -8,6 +8,15 @@ import CitiesList from './pages/CitiesList';
 import BlogIndex from './pages/blog/BlogIndex';
 import BlogArticle from './pages/blog/BlogArticle';
 
+// Service pages
+import GardiennagePage from './pages/services/GardiennagePage';
+import SecuriteEvenementielle from './pages/services/SecuriteEvenementielle';
+import InterventionPage from './pages/services/InterventionPage';
+import SecuriteCynophilePage from './pages/services/SecuriteCynophilePage';
+import SecuriteMagasinPage from './pages/services/SecuriteMagasinPage';
+import SecuriteResidentiellePage from './pages/services/SecuriteResidentiellePage';
+import SecuriteIncendiePage from './pages/services/SecuriteIncendiePage';
+
 // City pages
 import ToulousePage from './pages/cities/ToulousePage';
 import BlagnacPage from './pages/cities/BlagnacPage';
@@ -36,6 +45,15 @@ const AppRoutes: React.FC = () => {
       {/* Routes du blog */}
       <Route path="/blog" element={<BlogIndex />} />
       <Route path="/blog/:slug" element={<BlogArticle />} />
+      
+      {/* Routes des services */}
+      <Route path="/services/gardiennage" element={<GardiennagePage />} />
+      <Route path="/services/securite-evenementielle" element={<SecuriteEvenementielle />} />
+      <Route path="/services/intervention" element={<InterventionPage />} />
+      <Route path="/services/securite-cynophile" element={<SecuriteCynophilePage />} />
+      <Route path="/services/securite-magasin" element={<SecuriteMagasinPage />} />
+      <Route path="/services/securite-residentielle" element={<SecuriteResidentiellePage />} />
+      <Route path="/services/securite-incendie" element={<SecuriteIncendiePage />} />
       
       {/* Routes des villes */}
       <Route path="/toulouse.html" element={<ToulousePage />} />
