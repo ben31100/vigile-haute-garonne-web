@@ -32,7 +32,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Email to the applicant
     const applicantEmailPromise = resend.emails.send({
-      from: "LeVigile <onboarding@resend.dev>", // Utilisation du domaine par défaut de Resend
+      from: "LeVigile <contact@levigile.fr>",
       to: [data.email],
       subject: "Confirmation de votre demande d'inscription - LeVigile",
       html: `
@@ -53,7 +53,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Email to LeVigile
     const adminEmailPromise = resend.emails.send({
-      from: "LeVigile <onboarding@resend.dev>", // Utilisation du domaine par défaut de Resend
+      from: "LeVigile <contact@levigile.fr>",
       to: ["contact@levigile.fr"],
       subject: "Nouvelle inscription rapporteur d'affaires",
       html: `
@@ -106,3 +106,4 @@ const handler = async (req: Request): Promise<Response> => {
 };
 
 serve(handler);
+
