@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -16,6 +15,7 @@ import { Checkbox } from "@/components/ui/checkbox"
 import { Textarea } from "@/components/ui/textarea"
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { supabase } from '@/lib/supabaseClient';
 
 const formSchema = z.object({
   fullName: z.string().min(2, {
@@ -63,19 +63,31 @@ const PartnerRegistrationPage = () => {
     },
   })
  
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // Here we would typically send the data to a backend
-    console.log(values);
-    
-    toast({
-      title: "Formulaire envoyé avec succès !",
-      description: "Nous vous contacterons prochainement pour discuter des opportunités de collaboration.",
-    });
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    try {
+      const { data, error } = await supabase.functions.invoke('send-partner-registration', {
+        body: values
+      });
 
-    // Redirect to the partner page after submission
-    setTimeout(() => {
-      navigate('/devenir-partenaire');
-    }, 2000);
+      if (error) throw error;
+
+      toast({
+        title: "Formulaire envoyé avec succès !",
+        description: "Vous allez recevoir un email de confirmation. Nous vous contacterons prochainement.",
+      });
+
+      // Redirect to the partner page after submission
+      setTimeout(() => {
+        navigate('/devenir-partenaire');
+      }, 2000);
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast({
+        variant: "destructive",
+        title: "Erreur lors de l'envoi",
+        description: "Une erreur est survenue lors de l'envoi du formulaire. Veuillez réessayer.",
+      });
+    }
   }
 
   return (
