@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Briefcase, MapPin, Calendar, Mail } from 'lucide-react';
@@ -23,21 +22,30 @@ const JobOffers = () => {
 
       <Header />
 
-      <main className="pt-8 pb-16">
+      <main>
         {/* Hero Section */}
-        <section className="bg-gray-100 py-12 md:py-16 mb-12">
-          <div className="container mx-auto px-4">
-            <h1 className="text-3xl md:text-4xl font-bold text-levigile-dark mb-4">
-              Nos offres d'emploi
-            </h1>
-            <p className="text-gray-600 max-w-2xl mb-6">
-              Découvrez nos opportunités d'emploi actuelles et rejoignez une entreprise 
-              en pleine croissance.
-            </p>
+        <section className="relative bg-gradient-to-r from-levigile-blue to-levigile-gray text-white">
+          <div className="container mx-auto px-4 grid md:grid-cols-2 items-center py-16 gap-8">
+            <div className="space-y-6 z-10">
+              <h1 className="text-3xl md:text-4xl font-bold">
+                Nos offres d'emploi
+              </h1>
+              <p className="text-lg opacity-90">
+                Découvrez nos opportunités d'emploi actuelles et rejoignez une entreprise 
+                en pleine croissance. Développez votre carrière dans la sécurité privée.
+              </p>
+            </div>
+            <div className="relative">
+              <img 
+                src="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//offres%20emploi%20Levigile.png" 
+                alt="LeVigile Offres d'emploi" 
+                className="w-full h-auto rounded-lg shadow-xl"
+              />
+            </div>
           </div>
         </section>
 
-        {/* Liste des offres */}
+        {/* Existing Job Listings Section */}
         <section className="container mx-auto px-4 mb-16">
           <div className="space-y-6">
             {/* Offre 1 */}

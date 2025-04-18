@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Trophy, Heart, Users, GraduationCap } from 'lucide-react';
@@ -18,21 +17,31 @@ const WhyJoinUs = () => {
 
       <Header />
 
-      <main className="pt-8 pb-16">
+      <main>
         {/* Hero Section */}
-        <section className="bg-gray-100 py-12 md:py-16 mb-12">
-          <div className="container mx-auto px-4">
-            <h1 className="text-3xl md:text-4xl font-bold text-levigile-dark mb-4">
-              Pourquoi nous rejoindre ?
-            </h1>
-            <p className="text-gray-600 max-w-2xl mb-6">
-              Rejoignez une équipe passionnée et professionnelle. Chez LeVigile, nous valorisons 
-              nos collaborateurs et leur offrons un environnement de travail stimulant.
-            </p>
+        <section className="relative bg-gradient-to-r from-levigile-blue to-levigile-gray text-white">
+          <div className="container mx-auto px-4 grid md:grid-cols-2 items-center py-16 gap-8">
+            <div className="space-y-6 z-10">
+              <h1 className="text-3xl md:text-4xl font-bold">
+                Pourquoi nous rejoindre ?
+              </h1>
+              <p className="text-lg opacity-90">
+                Rejoignez une équipe passionnée et professionnelle. 
+                Chez LeVigile, nous valorisons nos collaborateurs et leur offrons 
+                un environnement de travail stimulant et épanouissant.
+              </p>
+            </div>
+            <div className="relative">
+              <img 
+                src="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//offres%20emploi%20Levigile.png" 
+                alt="LeVigile Équipe" 
+                className="w-full h-auto rounded-lg shadow-xl"
+              />
+            </div>
           </div>
         </section>
 
-        {/* Avantages */}
+        {/* Existing Avantages Section */}
         <section className="container mx-auto px-4 mb-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-white p-6 rounded-lg shadow-md">
