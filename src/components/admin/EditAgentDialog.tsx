@@ -9,6 +9,7 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
+  DialogDescription,
 } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import {
@@ -87,11 +88,18 @@ export function EditAgentDialog({ agent, open, onOpenChange }: EditAgentDialogPr
     }
   };
 
+  const dialogDescriptionId = 'edit-agent-dialog-description';
+
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent>
+      <DialogContent 
+        aria-describedby={dialogDescriptionId}
+      >
         <DialogHeader>
           <DialogTitle>Modifier un agent</DialogTitle>
+          <DialogDescription id={dialogDescriptionId}>
+            Modifiez les informations de l'agent dans le formulaire ci-dessous.
+          </DialogDescription>
         </DialogHeader>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
