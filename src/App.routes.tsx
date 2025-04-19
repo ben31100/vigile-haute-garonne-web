@@ -181,6 +181,7 @@ const AppRoutes: React.FC = () => {
       {/* Perpignan routes */}
       <Route path="/perpignan.html" element={<PerpignanPage />} />
       <Route path="/securite-ville-perpignan" element={<PerpignanPage />} />
+      <Route path="/perpignan" element={<PerpignanPage />} />
       
       {/* Department routes */}
       <Route path="/lot.html" element={<LotPage />} />
@@ -206,6 +207,11 @@ const AppRoutes: React.FC = () => {
       <Route path="/tarn-et-garonne.html" element={<TarnEtGaronnePage />} />
       <Route path="/tarn-et-garonne" element={<TarnEtGaronnePage />} />
       <Route path="/securite-departement-tarn-et-garonne" element={<TarnEtGaronnePage />} />
+      
+      {/* Extra route for Tarbes */}
+      <Route path="/tarbes.html" element={<HautesPyreneesPage />} />
+      <Route path="/tarbes" element={<HautesPyreneesPage />} />
+      <Route path="/securite-ville-tarbes" element={<HautesPyreneesPage />} />
       
       <Route path="*" element={<NotFound />} />
     </Routes>
