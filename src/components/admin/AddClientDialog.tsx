@@ -64,16 +64,34 @@ export function AddClientDialog() {
         password: data.password,
       });
 
-      if (authError) throw authError;
+      // Handle case where user already exists
+      if (authError) {
+        if (authError.status === 422 && authError.message.includes('User already registered')) {
+          toast({
+            title: "Email déjà utilisé",
+            description: "Un compte existe déjà avec cet email. Veuillez utiliser une autre adresse email.",
+            variant: "destructive",
+          });
+        } else {
+          toast({
+            title: "Erreur d'authentification",
+            description: authError.message || "Une erreur est survenue lors de la création du compte",
+            variant: "destructive",
+          });
+        }
+        return;
+      }
+      
       if (!authData.user) throw new Error("Erreur lors de la création du compte");
 
-      // Create client record - note we're saving telephone in a separate field now
+      // Create client record with telephone
       const { error: clientError } = await supabase
         .from('clients')
         .insert({
           email: data.email,
           nom_entreprise: data.nom_entreprise,
           contact: data.contact,
+          téléphone: data.telephone, // Save telephone in the téléphone field
           password_hash: data.password // Store password hash for reference
         });
 
