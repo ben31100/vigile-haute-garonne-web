@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { supabase } from '@/integrations/supabase/client';
@@ -29,6 +28,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 const formSchema = z.object({
   nom_entreprise: z.string().min(1, 'Le nom de l\'entreprise est requis'),
   contact: z.string().min(1, 'Le nom du contact est requis'),
+  telephone: z.string().min(10, 'Le numéro de téléphone est requis').max(15, 'Numéro de téléphone invalide'),
   email: z.string().email('Email invalide'),
   password: z.string().min(6, 'Le mot de passe doit contenir au moins 6 caractères'),
   confirmPassword: z.string()
@@ -48,6 +48,7 @@ export function AddClientDialog() {
     defaultValues: {
       nom_entreprise: '',
       contact: '',
+      telephone: '',
       email: '',
       password: '',
       confirmPassword: '',
@@ -72,6 +73,7 @@ export function AddClientDialog() {
           email: data.email,
           nom_entreprise: data.nom_entreprise,
           contact: data.contact,
+          téléphone: data.telephone, // Ajout du numéro de téléphone
           password_hash: data.password // Store password hash for reference
         });
 
@@ -137,6 +139,19 @@ export function AddClientDialog() {
                   <FormLabel>Nom du contact</FormLabel>
                   <FormControl>
                     <Input {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="telephone"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Numéro de téléphone</FormLabel>
+                  <FormControl>
+                    <Input type="tel" {...field} placeholder="Entrez le numéro de téléphone" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
