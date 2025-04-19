@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { MapPin, Clock, Shield, PhoneCall } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -15,10 +14,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({ cityName, postalCode }) => {
   };
 
   return (
-    <section className="bg-gradient-to-r from-levigile-blue to-levigile-gray py-16 text-white relative overflow-hidden">
+    <section className="bg-gradient-to-r from-levigile-blue to-levigile-gray pt-16 pb-16 text-white relative overflow-hidden">
       {/* Background pattern */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC40Ij48cGF0aCBkPSJNMzYgMzRjMC0yLjIxLTEuNzktNC00LTRzLTQgMS43OS00IDQgMS43OSA0IDQgNCA0LTEuNzkgNC00ek0yNCAzMGMwLTIuMjEtMS43OS00LTQtNHMtNCAxLjc5LTQgNCAoMS43OSA0IDQgNCA0LTEuNzkgNC00ek0yNCA0NmMwLTIuMjEtMS43OS00LTQtNHMtNCAxLjc5LTQgNCAoMS43OSA0IDQgNCA0LTEuNzkgNC00ek00OCAzMGMwLTIuMjEtMS43OS00LTQtNHMtNCAxLjc5LTQgNCAoMS43OSA0IDQgNCA0LTEuNzkgNC00ek00OCA0NmMwLTIuMjEtMS43OS00LTQtNHMtNCAxLjc5LTQgNCAoMS43OSA0IDQgNCA0LTEuNzkgNC00ek0xMiAxNGMwLTIuMjEtMS43OS00LTQtNHMtNCAxLjc5LTQgNCAoMS43OSA0IDQgNCA0LTEuNzkgNC00eiI:PC9wYXRoPjwvZz48L2c+PC9zdmc+')] rotate-45"></div>
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC40Ij48cGF0aCBkPSJNMzYgMzRjMC0yLjIxLTEuNzktNC00LTRzLTQgMS43OS00IDQgMS43OSA0IDQgNCA0LTEuNzkgNC00ek0yNCAzMGMwLTIuMjEtMS43OS00LTQtNHMtNCAxLjc5LTQgNCAoMS43OSA0IDQgNCA0LTEuNzkgNC00ek0yNCA0NmMwLTIuMjEtMS43OS00LTQtNHMtNCAxLjc5LTQgNCAoMS43OSA0IDQgNCA0LTEuNzkgNC00ek00OCAzzMGMwLTIuMjEtMS43OS00LTQtNHMtNCAxLjc5LTQgNCAoMS43OSA0IDQgNCA0LTEuNzkgNC00ek00OCA0NmMwLTIuMjEtMS43OS00LTQtNHMtNCAxLjc5LTQgNCAoMS43OSA0IDQgNCA0LTEuNzkgNC00ek0xMiAxNGMwLTIuMjEtMS43OS00LTQtNHMtNCAxLjc5LTQgNCAoMS43OSA0IDQgNCA0LTEuNzkgNC00eiI:PC9wYXRoPjwvZz48L2c+PC9zdmc+')] rotate-45"></div>
       </div>
       
       <div className="container mx-auto px-4 relative z-10">

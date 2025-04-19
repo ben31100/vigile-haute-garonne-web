@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Shield, Phone } from 'lucide-react';
@@ -10,7 +9,7 @@ const HeroSection: React.FC = () => {
   };
 
   return (
-    <section className="bg-gradient-to-r from-levigile-blue to-levigile-gray pt-24 pb-16 text-white">
+    <section className="bg-gradient-to-r from-levigile-blue to-levigile-gray pt-16 pb-16 text-white">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6 opacity-0 animate-fade-in">

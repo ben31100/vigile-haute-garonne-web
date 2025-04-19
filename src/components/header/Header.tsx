@@ -13,16 +13,12 @@ const Header: React.FC = () => {
   }, [location.pathname]);
 
   return (
-    <>
-      <header className="bg-white shadow-md fixed w-full z-50">
-        <div className="container mx-auto px-4 py-3 flex justify-between items-center">
-          <HeaderLogo />
-          <HeaderNavigation />
-        </div>
-      </header>
-      {/* Spacer to prevent content from being hidden behind fixed header */}
-      <div className="h-[60px]" />
-    </>
+    <header className="bg-white shadow-md fixed w-full z-50">
+      <div className="container mx-auto px-4 py-3 flex justify-between items-center">
+        <HeaderLogo />
+        <HeaderNavigation />
+      </div>
+    </header>
   );
 };
 

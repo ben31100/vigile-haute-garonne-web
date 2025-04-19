@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import Header from '@/components/Header';
@@ -41,7 +40,7 @@ const BlogLayout: React.FC<BlogLayoutProps> = ({
       
       <Header />
       
-      <main className="mt-20 pb-12">
+      <main>
         {children}
       </main>
       
