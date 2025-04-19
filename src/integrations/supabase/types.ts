@@ -116,34 +116,67 @@ export type Database = {
         Row: {
           assigned_site_id: string | null
           company_name: string | null
+          contact_name: string | null
+          contact_phone: string | null
           created_at: string
+          email: string | null
           first_name: string | null
           id: string
           last_name: string | null
+          managed_by: string | null
+          nom_entreprise: string | null
           role: Database["public"]["Enums"]["user_role"]
+          site_affecte: string | null
           updated_at: string
         }
         Insert: {
           assigned_site_id?: string | null
           company_name?: string | null
+          contact_name?: string | null
+          contact_phone?: string | null
           created_at?: string
+          email?: string | null
           first_name?: string | null
           id: string
           last_name?: string | null
+          managed_by?: string | null
+          nom_entreprise?: string | null
           role: Database["public"]["Enums"]["user_role"]
+          site_affecte?: string | null
           updated_at?: string
         }
         Update: {
           assigned_site_id?: string | null
           company_name?: string | null
+          contact_name?: string | null
+          contact_phone?: string | null
           created_at?: string
+          email?: string | null
           first_name?: string | null
           id?: string
           last_name?: string | null
+          managed_by?: string | null
+          nom_entreprise?: string | null
           role?: Database["public"]["Enums"]["user_role"]
+          site_affecte?: string | null
           updated_at?: string
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "profiles_managed_by_fkey"
+            columns: ["managed_by"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "profiles_site_affecte_fkey"
+            columns: ["site_affecte"]
+            isOneToOne: false
+            referencedRelation: "sites"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       sites: {
         Row: {
@@ -177,6 +210,10 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      is_admin: {
+        Args: { user_id: string }
+        Returns: boolean
+      }
       is_agent: {
         Args: { profile_id: string }
         Returns: boolean

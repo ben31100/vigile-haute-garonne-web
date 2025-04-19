@@ -33,19 +33,15 @@ const AdminLogin = () => {
         password: data.password
       });
       
-      if (error) {
-        console.error("Erreur d'authentification:", error.message);
-        throw error;
-      }
+      if (error) throw error;
 
       console.log("Authentification réussie, vérification du profil...");
       
-      // Vérifier si l'utilisateur a un profil admin
       const { data: profile, error: profileError } = await supabase
         .from('profiles')
         .select('*')
         .eq('id', authData.user.id)
-        .maybeSingle();
+        .single();
 
       if (profileError) {
         console.error("Erreur de récupération du profil:", profileError.message);
@@ -55,18 +51,22 @@ const AdminLogin = () => {
       console.log("Profil récupéré:", profile);
 
       if (!profile) {
-        console.error("Aucun profil trouvé pour cet utilisateur");
         await supabase.auth.signOut();
-        setAuthError("Aucun profil trouvé. Configurez votre compte administrateur via la page de configuration.");
+        setAuthError("Aucun profil administrateur trouvé pour cet utilisateur.");
         return;
       }
 
       if (profile.role !== 'admin') {
         console.error("Rôle non autorisé:", profile.role);
         await supabase.auth.signOut();
-        setAuthError(`Accès non autorisé. Votre compte a le rôle "${profile.role}" mais un rôle "admin" est requis.`);
+        setAuthError("Accès non autorisé. Seuls les administrateurs peuvent accéder à cet espace.");
         return;
       }
+
+      toast({
+        title: "Connexion réussie",
+        description: `Bienvenue ${profile.first_name || 'Administrateur'}`,
+      });
 
       console.log("Redirection vers le dashboard...");
       navigate('/admin/dashboard');
