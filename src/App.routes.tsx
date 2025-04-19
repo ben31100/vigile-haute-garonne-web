@@ -1,4 +1,3 @@
-
 import AccessPage from '@/pages/espace';
 import AgentLoginPage from '@/pages/agent/login';
 import AgentDashboardPage from '@/pages/agent/dashboard';
@@ -30,6 +29,7 @@ import SecuriteIncendiePage from '@/pages/services/SecuriteIncendiePage';
 
 // Import city pages
 import ToulousePage from '@/pages/cities/ToulousePage';
+import BlagnacPage from '@/pages/cities/BlagnacPage';
 import LocalSecurityPage from '@/components/LocalSecurityPage';
 
 export const routes = [
@@ -141,10 +141,10 @@ export const routes = [
     path: "/villes/:cityId",
     element: <LocalSecurityPage />
   },
-  // Add support for .html extension for specific cities
+  // Add support for .html extension for specific cities with dedicated pages
   {
     path: "/blagnac.html",
-    element: <LocalSecurityPage cityId="blagnac" />
+    element: <BlagnacPage />
   },
   {
     path: "/colomiers.html",
