@@ -1,6 +1,6 @@
-
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import { useGeoRedirect } from '../hooks/useGeoRedirect';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import HeroSection from '../components/HeroSection';
@@ -10,6 +10,8 @@ import TestimonialsSection from '../components/TestimonialsSection';
 import CtaSection from '../components/cities/CtaSection';
 
 const Index: React.FC = () => {
+  useGeoRedirect();
+
   // Structured data for SEO
   const structuredData = {
     "@context": "https://schema.org",

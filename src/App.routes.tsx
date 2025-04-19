@@ -41,11 +41,14 @@ import OurJobs from './pages/career/OurJobs';
 import JobOffers from './pages/career/JobOffers';
 import PartnerPage from './pages/PartnerPage';
 import PartnerRegistrationPage from './pages/PartnerRegistrationPage';
+import LocalSecurityPage from './components/LocalSecurityPage';
 
 const AppRoutes: React.FC = () => {
   return (
     <Routes>
       <Route path="/" element={<Index />} />
+      <Route path="/villes/:cityId" element={<LocalSecurityPage />} />
+      
       <Route path="/contact" element={<ContactPage />} />
       
       {/* Routes du blog */}
