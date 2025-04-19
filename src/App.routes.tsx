@@ -59,6 +59,12 @@ import RoquesPage from './pages/cities/RoquesPage';
 import CastelginestPage from './pages/cities/CastelginestPage';
 import FenouilletPage from './pages/cities/FenouilletPage';
 
+// Import new city pages
+import PibracPage from './pages/cities/PibracPage';
+import BruguieresPage from './pages/cities/BruguieresPage';
+import FrouzinsPage from './pages/cities/FrouzinsPage';
+import LotPage from './pages/cities/LotPage';
+
 const AppRoutes: React.FC = () => {
   return (
     <Routes>
@@ -141,6 +147,19 @@ const AppRoutes: React.FC = () => {
       
       <Route path="/fenouillet.html" element={<FenouilletPage />} />
       <Route path="/securite-ville-fenouillet" element={<FenouilletPage />} />
+      
+      {/* New city routes */}
+      <Route path="/pibrac.html" element={<PibracPage />} />
+      <Route path="/securite-ville-pibrac" element={<PibracPage />} />
+      
+      <Route path="/bruguieres.html" element={<BruguieresPage />} />
+      <Route path="/securite-ville-bruguieres" element={<BruguieresPage />} />
+      
+      <Route path="/frouzins.html" element={<FrouzinsPage />} />
+      <Route path="/securite-ville-frouzins" element={<FrouzinsPage />} />
+      
+      <Route path="/lot.html" element={<LotPage />} />
+      <Route path="/securite-departement-lot" element={<LotPage />} />
       
       <Route path="*" element={<NotFound />} />
     </Routes>
