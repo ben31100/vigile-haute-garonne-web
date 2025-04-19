@@ -85,6 +85,58 @@ export const blogTags: Record<string, BlogTag> = {
 
 export const blogArticles: BlogArticle[] = [
   {
+    id: '11',
+    slug: 'surveillance-residences-toulouse',
+    title: 'Surveillance de résidences : une solution contre les cambriolages en périphérie toulousaine',
+    subtitle: 'Comment sécuriser efficacement votre quartier résidentiel',
+    excerpt: "Face à l'augmentation des cambriolages et incivilités dans les communes périphériques de Toulouse, la surveillance privée s'impose comme une solution efficace pour protéger votre résidence.",
+    content: `
+      <h2>Une préoccupation croissante en périphérie toulousaine</h2>
+      <p>Cambriolages, incivilités, rodéos urbains... Les résidents des communes périphériques de Toulouse font face à des défis sécuritaires grandissants. Dans ce contexte, de plus en plus de copropriétés et de quartiers résidentiels se tournent vers des solutions de surveillance privée professionnelle.</p>
+
+      <h2>Des rondes régulières pour une sécurité optimale</h2>
+      <p>Notre service de surveillance résidentielle s'appuie sur plusieurs dispositifs complémentaires :</p>
+      <ul>
+        <li>Rondes motorisées régulières de nuit</li>
+        <li>Patrouilles pédestres dans les parties communes</li>
+        <li>Points de contrôle à horaires variables</li>
+        <li>Vérification des accès et points sensibles</li>
+      </ul>
+
+      <h2>Une présence dissuasive efficace</h2>
+      <p>La présence visible de nos agents en uniforme constitue un puissant facteur de dissuasion. Nos véhicules sérigraphiés et nos agents équipés participent à créer un environnement sécurisé pour tous les résidents.</p>
+
+      <h2>Intervention rapide sur alerte</h2>
+      <p>En cas d'incident, nos équipes peuvent intervenir rapidement :</p>
+      <ul>
+        <li>Délai d'intervention moyen de moins de 15 minutes</li>
+        <li>Agents formés à la gestion des conflits</li>
+        <li>Coordination avec les forces de l'ordre si nécessaire</li>
+        <li>Rapport détaillé après chaque intervention</li>
+      </ul>
+
+      <h2>Un partenariat étroit avec les gestionnaires</h2>
+      <p>Nous travaillons en étroite collaboration avec :</p>
+      <ul>
+        <li>Les syndics de copropriété</li>
+        <li>Les conseils syndicaux</li>
+        <li>Les associations de résidents</li>
+        <li>Les bailleurs sociaux</li>
+      </ul>
+
+      <h2>Une solution déjà éprouvée</h2>
+      <p>LeVigile assure déjà la sécurité de nombreux quartiers résidentiels à Colomiers, Blagnac et Tournefeuille. Notre expertise locale et notre connaissance du terrain nous permettent d'adapter nos prestations aux spécificités de chaque résidence.</p>
+
+      <blockquote>La sécurité résidentielle n'est plus un luxe mais une nécessité pour garantir la tranquillité des habitants.</blockquote>
+    `,
+    publishedAt: '2025-04-19T08:30:00Z',
+    readingTime: 6,
+    coverImage: 'https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//Surveillance%20de%20residences%20Levigile.png',
+    author: blogAuthors.expert,
+    tags: [blogTags.securite, blogTags.residence],
+    relatedArticles: ['1', '3', '6']
+  },
+  {
     id: '1',
     slug: 'comment-securiser-son-entreprise',
     title: 'Comment sécuriser efficacement son entreprise en 2025',
@@ -555,46 +607,3 @@ export const blogArticles: BlogArticle[] = [
       <h2>Surveillance de chantiers ou entrepôts isolés la nuit</h2>
       <p>Les sites isolés sont particulièrement vulnérables aux intrusions nocturnes. L'agent cynophile apporte une solution de sécurité optimale grâce à :</p>
       <ul>
-        <li>La capacité de détection accrue du chien</li>
-        <li>L'effet dissuasif de la présence canine</li>
-        <li>La mobilité et la rapidité d'intervention du binôme</li>
-        <li>La couverture efficace de grandes surfaces</li>
-      </ul>
-      
-      <h2>Sécurisation d'événements avec risques d'intrusion</h2>
-      <p>Lors d'événements majeurs, l'agent cynophile renforce significativement le dispositif de sécurité :</p>
-      <ul>
-        <li>Contrôle des accès et des périmètres</li>
-        <li>Détection précoce des comportements suspects</li>
-        <li>Dissuasion efficace des tentatives d'intrusion</li>
-        <li>Intervention rapide en cas d'incident</li>
-      </ul>
-      
-      <h2>Patrouilles dissuasives en zones industrielles</h2>
-      <p>Les zones industrielles nécessitent une surveillance particulière que les équipes cynophiles assurent efficacement :</p>
-      <ul>
-        <li>Rondes régulières sur l'ensemble du site</li>
-        <li>Vérification approfondie des points sensibles</li>
-        <li>Détection des anomalies grâce aux capacités canines</li>
-        <li>Présence visible et dissuasive</li>
-      </ul>
-      
-      <h2>Capacité à détecter rapidement les intrusions</h2>
-      <p>Les capacités sensorielles du chien, combinées à l'expertise du maître, offrent des avantages uniques :</p>
-      <ul>
-        <li>Détection olfactive supérieure</li>
-        <li>Repérage auditif performant</li>
-        <li>Réactivité immédiate aux situations suspectes</li>
-        <li>Efficacité même dans l'obscurité</li>
-      </ul>
-      
-      <blockquote>LeVigile dispose d'équipes cynophiles professionnelles, disponibles 7j/7 pour répondre à vos besoins spécifiques de sécurité. Contactez-nous pour une évaluation personnalisée de vos besoins.</blockquote>
-    `,
-    publishedAt: '2025-04-19T08:00:00Z',
-    readingTime: 6,
-    coverImage: 'https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//Agent%20cynophile%20levigile.png',
-    author: blogAuthors.expert,
-    tags: [blogTags.securite, blogTags.cynophile],
-    relatedArticles: ['1', '7']
-  }
-];
