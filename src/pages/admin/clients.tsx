@@ -24,10 +24,9 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-  AlertDialogTrigger,
 } from '@/components/ui/alert-dialog';
 
-// Define the client type to match the database structure
+// Update Client interface to include telephone
 interface Client {
   id: string;
   nom_entreprise: string | null;
@@ -35,7 +34,7 @@ interface Client {
   email: string;
   password_hash: string;
   administrator_id: string | null;
-  // Note: téléphone is not available in the database schema
+  telephone: string | null; // Add telephone field
 }
 
 const ClientsPage = () => {
@@ -107,6 +106,7 @@ const ClientsPage = () => {
                 <TableHead>Entreprise</TableHead>
                 <TableHead>Contact</TableHead>
                 <TableHead>Email</TableHead>
+                <TableHead>Téléphone</TableHead>
                 <TableHead className="w-[100px]">Actions</TableHead>
               </TableRow>
             </TableHeader>
@@ -116,6 +116,7 @@ const ClientsPage = () => {
                   <TableCell>{client.nom_entreprise || '-'}</TableCell>
                   <TableCell>{client.contact || '-'}</TableCell>
                   <TableCell>{client.email}</TableCell>
+                  <TableCell>{client.telephone || '-'}</TableCell>
                   <TableCell>
                     <div className="flex gap-2">
                       <Button variant="outline" size="icon">

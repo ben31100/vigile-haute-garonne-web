@@ -89,14 +89,15 @@ export function AddClientDialog() {
         if (authError.status === 422 && authError.message.includes('User already registered')) {
           console.log("Auth user already exists, creating client record only");
           
-          // Create client record without needing auth user creation - NOTE: not using téléphone field as it doesn't exist
+          // Create client record with telephone
           const { error: clientError } = await supabase
             .from('clients')
             .insert({
               email: data.email,
               nom_entreprise: data.nom_entreprise,
               contact: data.contact,
-              password_hash: data.password // Store password hash for reference
+              telephone: data.telephone, // Add telephone to client record
+              password_hash: data.password
             });
             
           if (clientError) throw clientError;
@@ -123,13 +124,14 @@ export function AddClientDialog() {
       
       if (!authData.user) throw new Error("Erreur lors de la création du compte");
 
-      // Create client record without the téléphone field since it doesn't exist in the database
+      // Create client record with telephone
       const { error: clientError } = await supabase
         .from('clients')
         .insert({
           email: data.email,
           nom_entreprise: data.nom_entreprise,
           contact: data.contact,
+          telephone: data.telephone, // Add telephone to client record
           password_hash: data.password
         });
 

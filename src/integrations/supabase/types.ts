@@ -85,6 +85,7 @@ export type Database = {
           id: string
           nom_entreprise: string | null
           password_hash: string
+          telephone: string | null
         }
         Insert: {
           administrator_id?: string | null
@@ -93,6 +94,7 @@ export type Database = {
           id?: string
           nom_entreprise?: string | null
           password_hash: string
+          telephone?: string | null
         }
         Update: {
           administrator_id?: string | null
@@ -101,6 +103,7 @@ export type Database = {
           id?: string
           nom_entreprise?: string | null
           password_hash?: string
+          telephone?: string | null
         }
         Relationships: [
           {
