@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Phone, Mail, PhoneCall, MessageSquare } from 'lucide-react';
+import { MapPin, Phone, Mail, PhoneCall, Send, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import citiesData from '../data/cities.json';
@@ -17,12 +17,12 @@ const Footer: React.FC = () => {
     window.location.href = 'mailto:contact@levigile.fr';
   };
 
-  const handleWhatsAppClick = () => {
-    window.open('https://wa.me/33780817979', '_blank');
-  };
-
   const handleTelegramClick = () => {
     window.open('https://t.me/levigile', '_blank');
+  };
+
+  const handleWhatsAppClick = () => {
+    window.open('https://wa.me/33780817979', '_blank');
   };
 
   return (
@@ -63,21 +63,21 @@ const Footer: React.FC = () => {
               <li className="flex items-center space-x-4">
                 <Button
                   variant="outline"
-                  size="icon"
-                  className="bg-white hover:bg-gray-100"
+                  className="bg-[#1EAEDB] text-white hover:bg-[#17a2b8] px-4 py-2 rounded-md flex items-center space-x-2"
                   onClick={handleTelegramClick}
-                  aria-label="Contactez-nous sur Telegram"
+                  aria-label="Nous contacter sur Telegram"
                 >
-                  <MessageSquare className="h-5 w-5 text-levigile-blue" />
+                  <Send className="h-5 w-5" />
+                  <span>Nous contacter sur Telegram</span>
                 </Button>
                 <Button
                   variant="outline"
-                  size="icon"
-                  className="bg-white hover:bg-gray-100"
+                  className="bg-[#25D366] text-white hover:bg-[#20c85e] px-4 py-2 rounded-md flex items-center space-x-2"
                   onClick={handleWhatsAppClick}
-                  aria-label="Contactez-nous sur WhatsApp"
+                  aria-label="Nous contacter sur WhatsApp"
                 >
-                  <MessageSquare className="h-5 w-5 text-levigile-blue" />
+                  <MessageCircle className="h-5 w-5" />
+                  <span>Nous contacter sur WhatsApp</span>
                 </Button>
               </li>
               
