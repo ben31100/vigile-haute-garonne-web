@@ -1,3 +1,4 @@
+
 [
   {
     "id": "toulouse",
@@ -402,4 +403,8 @@
     "description": "Foix, préfecture de l'Ariège, bénéficie désormais de nos services de sécurité adaptés aux besoins locaux.",
     "neighborhoods": ["Centre-ville", "Le Courbet", "Cadirac", "Labarre"],
     "nearbyAreas": ["Montgaillard", "Saint-Jean-de-Verges", "Ferrières", "Ganac"],
-    "specificServices": ["Gardiennage de sites touristiques", "Surveillance de commer
+    "specificServices": ["Gardiennage de sites touristiques", "Surveillance de commerces", "Protection résidentielle", "Sécurité événementielle"],
+    "metaTitle": "Sécurité à Foix - Services professionnels | LeVigile",
+    "metaDescription": "Services de sécurité privée à Foix (09). Gardiennage, surveillance et protection par des agents certifiés pour particuliers et professionnels."
+  }
+]
