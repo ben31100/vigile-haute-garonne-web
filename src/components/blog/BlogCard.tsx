@@ -13,7 +13,7 @@ interface BlogCardProps {
 
 const BlogCard: React.FC<BlogCardProps> = ({ article, className = '' }) => {
   return (
-    <Card className={`overflow-hidden transition-all duration-300 hover:shadow-md ${className}`}>
+    <Card className={`overflow-hidden transition-all duration-300 hover:shadow-md h-full flex flex-col ${className}`}>
       <Link to={`/blog/${article.slug}`} className="block">
         <div className="aspect-video overflow-hidden">
           <img 
@@ -24,8 +24,8 @@ const BlogCard: React.FC<BlogCardProps> = ({ article, className = '' }) => {
         </div>
       </Link>
       
-      <CardHeader className="pb-2">
-        <div className="flex gap-2 mb-2">
+      <CardHeader className="pb-2 flex-grow">
+        <div className="flex flex-wrap gap-2 mb-2">
           {article.tags?.map((tag) => (
             <Badge key={tag.id} variant="outline" className="text-xs">
               {tag.name}
@@ -33,21 +33,21 @@ const BlogCard: React.FC<BlogCardProps> = ({ article, className = '' }) => {
           ))}
         </div>
         <Link to={`/blog/${article.slug}`} className="block">
-          <h3 className="text-xl font-bold text-levigile-blue hover:text-levigile-gray transition-colors">
+          <h3 className="text-lg font-bold text-levigile-blue hover:text-levigile-gray transition-colors line-clamp-2">
             {article.title}
           </h3>
         </Link>
       </CardHeader>
       
       <CardContent className="pb-2">
-        <p className="text-sm text-gray-600 mb-2 line-clamp-3">
+        <p className="text-sm text-gray-600 line-clamp-3">
           {article.excerpt}
         </p>
       </CardContent>
       
-      <CardFooter className="flex justify-between items-center pt-0 text-xs text-gray-500">
-        <div className="flex items-center">
-          <span className="mr-1">Par {article.author.name}</span>
+      <CardFooter className="flex flex-col items-start pt-0 text-xs text-gray-500 mt-auto">
+        <div className="flex items-center mb-1">
+          <span className="mr-1">Par <span className="font-medium">{article.author.name}</span></span>
         </div>
         <div className="flex items-center">
           <span>{formatBlogDate(article.publishedAt)}</span>
