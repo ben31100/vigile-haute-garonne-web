@@ -15,6 +15,15 @@ import ContactPage from '@/pages/ContactPage';
 import NotFound from '@/pages/NotFound';
 import Index from '@/pages/Index';
 
+// Import des pages de services
+import GardiennagePage from '@/pages/services/GardiennagePage';
+import InterventionPage from '@/pages/services/InterventionPage';
+import SecuriteEvenementielle from '@/pages/services/SecuriteEvenementielle';
+import SecuriteCynophilePage from '@/pages/services/SecuriteCynophilePage';
+import SecuriteIncendiePage from '@/pages/services/SecuriteIncendiePage';
+import SecuriteMagasinPage from '@/pages/services/SecuriteMagasinPage';
+import SecuriteResidentiellePage from '@/pages/services/SecuriteResidentiellePage';
+
 export const routes = [
   {
     path: "/",
@@ -71,6 +80,35 @@ export const routes = [
   {
     path: "/contact",
     element: <ContactPage />
+  },
+  // Ajout des routes pour les pages de services
+  {
+    path: "/services/gardiennage",
+    element: <GardiennagePage />
+  },
+  {
+    path: "/services/intervention",
+    element: <InterventionPage />
+  },
+  {
+    path: "/services/evenementiel",
+    element: <SecuriteEvenementielle />
+  },
+  {
+    path: "/services/cynophile",
+    element: <SecuriteCynophilePage />
+  },
+  {
+    path: "/services/incendie",
+    element: <SecuriteIncendiePage />
+  },
+  {
+    path: "/services/magasin",
+    element: <SecuriteMagasinPage />
+  },
+  {
+    path: "/services/residentielle",
+    element: <SecuriteResidentiellePage />
   },
   {
     path: "*",

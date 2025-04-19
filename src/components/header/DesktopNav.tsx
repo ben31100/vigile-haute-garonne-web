@@ -1,235 +1,52 @@
-import React, { useState } from 'react';
+
+import React from 'react';
+import { Link } from 'react-router-dom';
 import { ChevronDown } from 'lucide-react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from "@/components/ui/dropdown-menu";
-import { cn } from "@/lib/utils";
-import CareerMenu from './CareerMenu';
 
 const DesktopNav: React.FC = () => {
-  const [isVillesDropdownOpen, setIsVillesDropdownOpen] = useState(false);
-  const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
-  const location = useLocation();
-  const navigate = useNavigate();
-
-  // Function for scrolling to a section
-  const scrollToSection = (sectionId: string) => {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  // Function for navigation with scroll to top
-  const navigateAndScrollTop = (path: string) => {
-    if (location.pathname === path) {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else {
-      navigate(path);
-    }
-  };
-
   return (
-    <nav className="flex items-center space-x-8">
-      <Link 
-        to="/" 
-        className={cn(
-          "text-levigile-dark hover:text-levigile-blue font-medium text-base transition-colors",
-          location.pathname === "/" && "text-levigile-blue"
-        )}
-      >
+    <nav className="hidden md:flex items-center space-x-8">
+      <Link to="/" className="text-gray-800 hover:text-levigile-blue transition-colors font-medium">
         Accueil
       </Link>
       
-      <DropdownMenu open={isServicesDropdownOpen} onOpenChange={setIsServicesDropdownOpen}>
-        <DropdownMenuTrigger 
-          className={cn(
-            "text-levigile-dark hover:text-levigile-blue font-medium text-base bg-transparent hover:bg-transparent focus:bg-transparent inline-flex items-center transition-colors",
-            location.pathname.includes("/services") && "text-levigile-blue"
-          )}
-        >
-          Nos services <ChevronDown className="ml-1 h-4 w-4" />
-        </DropdownMenuTrigger>
-        <DropdownMenuContent align="start" className="bg-white w-48 p-1 z-50">
-          <DropdownMenuItem asChild>
-            <Link 
-              to="/services/gardiennage"
-              className="cursor-pointer w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md"
-            >
+      <div className="relative group">
+        <button className="flex items-center text-gray-800 hover:text-levigile-blue transition-colors font-medium">
+          Services <ChevronDown className="ml-1 h-4 w-4" />
+        </button>
+        <div className="absolute left-0 mt-2 w-64 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+          <div className="py-1 grid gap-1">
+            <Link to="/services/gardiennage" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">
               Gardiennage
             </Link>
-          </DropdownMenuItem>
-          <DropdownMenuItem asChild>
-            <Link 
-              to="/services/securite-evenementielle"
-              className="cursor-pointer w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md"
-            >
-              Sécurité événementielle
-            </Link>
-          </DropdownMenuItem>
-          <DropdownMenuItem asChild>
-            <Link 
-              to="/services/intervention"
-              className="cursor-pointer w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md"
-            >
+            <Link to="/services/intervention" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">
               Intervention
             </Link>
-          </DropdownMenuItem>
-          <DropdownMenuItem asChild>
-            <Link 
-              to="/services/securite-cynophile"
-              className="cursor-pointer w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md"
-            >
-              Sécurité cynophile
+            <Link to="/services/evenementiel" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">
+              Sécurité Événementielle
             </Link>
-          </DropdownMenuItem>
-          <DropdownMenuItem asChild>
-            <Link 
-              to="/services/securite-magasin"
-              className="cursor-pointer w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md"
-            >
-              Sécurité magasin
+            <Link to="/services/cynophile" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">
+              Sécurité Cynophile
             </Link>
-          </DropdownMenuItem>
-          <DropdownMenuItem asChild>
-            <Link 
-              to="/services/securite-residentielle"
-              className="cursor-pointer w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md"
-            >
-              Sécurité résidentielle
+            <Link to="/services/incendie" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">
+              Sécurité Incendie
             </Link>
-          </DropdownMenuItem>
-          <DropdownMenuItem asChild>
-            <Link 
-              to="/services/securite-incendie"
-              className="cursor-pointer w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md"
-            >
-              Sécurité incendie
+            <Link to="/services/magasin" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">
+              Sécurité Magasin
             </Link>
-          </DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenu>
+            <Link to="/services/residentielle" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md">
+              Sécurité Résidentielle
+            </Link>
+          </div>
+        </div>
+      </div>
       
-      <Link 
-        to="/blog" 
-        className={cn(
-          "text-levigile-dark hover:text-levigile-blue font-medium text-base transition-colors",
-          location.pathname.includes("/blog") && "text-levigile-blue"
-        )}
-      >
-        Blog
-      </Link>
-      
-      <DropdownMenu open={isVillesDropdownOpen} onOpenChange={setIsVillesDropdownOpen}>
-        <DropdownMenuTrigger 
-          className={cn(
-            "text-levigile-dark hover:text-levigile-blue font-medium text-base bg-transparent hover:bg-transparent focus:bg-transparent inline-flex items-center transition-colors",
-            (location.pathname.includes("/villes") || 
-             location.pathname.includes("/toulouse") || 
-             location.pathname.includes("/blagnac") ||
-             location.pathname.includes("/colomiers") ||
-             location.pathname.includes("/tournefeuille") ||
-             location.pathname.includes("/muret")) && "text-levigile-blue"
-          )}
-        >
-          Villes <ChevronDown className="ml-1 h-4 w-4" />
-        </DropdownMenuTrigger>
-        <DropdownMenuContent align="start" className="bg-white w-48 p-1 z-50">
-          <DropdownMenuItem asChild>
-            <a 
-              href="#" 
-              onClick={(e) => {
-                e.preventDefault();
-                navigateAndScrollTop('/toulouse.html');
-              }} 
-              className="cursor-pointer w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md"
-            >
-              Toulouse
-            </a>
-          </DropdownMenuItem>
-          <DropdownMenuItem asChild>
-            <a 
-              href="#" 
-              onClick={(e) => {
-                e.preventDefault();
-                navigateAndScrollTop('/blagnac.html');
-              }} 
-              className="cursor-pointer w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md"
-            >
-              Blagnac
-            </a>
-          </DropdownMenuItem>
-          <DropdownMenuItem asChild>
-            <a 
-              href="#" 
-              onClick={(e) => {
-                e.preventDefault();
-                navigateAndScrollTop('/colomiers.html');
-              }} 
-              className="cursor-pointer w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md"
-            >
-              Colomiers
-            </a>
-          </DropdownMenuItem>
-          <DropdownMenuItem asChild>
-            <a 
-              href="#" 
-              onClick={(e) => {
-                e.preventDefault();
-                navigateAndScrollTop('/tournefeuille.html');
-              }} 
-              className="cursor-pointer w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md"
-            >
-              Tournefeuille
-            </a>
-          </DropdownMenuItem>
-          <DropdownMenuItem asChild>
-            <a 
-              href="#" 
-              onClick={(e) => {
-                e.preventDefault();
-                navigateAndScrollTop('/muret.html');
-              }} 
-              className="cursor-pointer w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md"
-            >
-              Muret
-            </a>
-          </DropdownMenuItem>
-          <DropdownMenuSeparator />
-          <DropdownMenuItem asChild>
-            <Link 
-              to="/villes" 
-              className="cursor-pointer w-full px-4 py-2 text-sm font-medium text-levigile-blue hover:bg-gray-100 rounded-md"
-            >
-              Toutes les villes
-            </Link>
-          </DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenu>
-
-      <CareerMenu />
-      
-      <Link 
-        to="/devenir-partenaire" 
-        className={cn(
-          "text-levigile-dark hover:text-levigile-blue font-medium text-base transition-colors font-bold",
-          location.pathname === "/devenir-partenaire" && "text-levigile-blue"
-        )}
-      >
-        Devenir partenaire
-      </Link>
-        
-      <Link to="/contact" className="text-levigile-dark hover:text-levigile-blue font-medium text-base transition-colors">
+      <Link to="/contact" className="text-gray-800 hover:text-levigile-blue transition-colors font-medium">
         Contact
       </Link>
       
-      <Link 
-        to="/espace" 
-        className={cn(
-          "text-levigile-dark hover:text-levigile-blue font-medium text-base transition-colors",
-          location.pathname === "/espace" && "text-levigile-blue"
-        )}
-      >
-        Espace sécurisé
+      <Link to="/espace" className="bg-levigile-blue text-white px-4 py-2 rounded hover:bg-levigile-blue-dark transition-colors">
+        Espace Client
       </Link>
     </nav>
   );
