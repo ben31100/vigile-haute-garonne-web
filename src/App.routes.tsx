@@ -13,11 +13,12 @@ import ReportsPage from '@/pages/admin/reports';
 import SettingsPage from '@/pages/admin/settings';
 import ContactPage from '@/pages/ContactPage';
 import NotFound from '@/pages/NotFound';
+import Index from '@/pages/Index';
 
 export const routes = [
   {
     path: "/",
-    element: <AccessPage />,
+    element: <Index />,
   },
   {
     path: "/espace",
