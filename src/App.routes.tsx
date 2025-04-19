@@ -15,6 +15,10 @@ import ContactPage from '@/pages/ContactPage';
 import NotFound from '@/pages/NotFound';
 import Index from '@/pages/Index';
 
+// Import blog pages
+import BlogIndex from '@/pages/blog/BlogIndex';
+import BlogArticle from '@/pages/blog/BlogArticle';
+
 // Import service pages
 import GardiennagePage from '@/pages/services/GardiennagePage';
 import SecuriteEvenementielle from '@/pages/services/SecuriteEvenementielle';
@@ -80,6 +84,15 @@ export const routes = [
   {
     path: "/contact",
     element: <ContactPage />
+  },
+  // Blog routes
+  {
+    path: "/blog",
+    element: <BlogIndex />
+  },
+  {
+    path: "/blog/:slug",
+    element: <BlogArticle />
   },
   // Service routes
   {
