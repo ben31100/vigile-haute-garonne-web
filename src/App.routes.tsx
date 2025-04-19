@@ -28,6 +28,10 @@ import SecuriteMagasinPage from '@/pages/services/SecuriteMagasinPage';
 import SecuriteResidentiellePage from '@/pages/services/SecuriteResidentiellePage';
 import SecuriteIncendiePage from '@/pages/services/SecuriteIncendiePage';
 
+// Import city pages
+import ToulousePage from '@/pages/cities/ToulousePage';
+import LocalSecurityPage from '@/components/LocalSecurityPage';
+
 export const routes = [
   {
     path: "/",
@@ -122,6 +126,15 @@ export const routes = [
   {
     path: "/services/securite-incendie",
     element: <SecuriteIncendiePage />
+  },
+  // City routes
+  {
+    path: "/toulouse",
+    element: <ToulousePage />
+  },
+  {
+    path: "/villes/:cityId",
+    element: <LocalSecurityPage />
   },
   {
     path: "*",

@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -135,64 +136,44 @@ const DesktopNav: React.FC = () => {
         </DropdownMenuTrigger>
         <DropdownMenuContent align="start" className="bg-white w-48 p-1 z-50">
           <DropdownMenuItem asChild>
-            <a 
-              href="#" 
-              onClick={(e) => {
-                e.preventDefault();
-                navigateAndScrollTop('/toulouse.html');
-              }} 
+            <Link 
+              to="/toulouse" 
               className="cursor-pointer w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md"
             >
               Toulouse
-            </a>
+            </Link>
           </DropdownMenuItem>
           <DropdownMenuItem asChild>
-            <a 
-              href="#" 
-              onClick={(e) => {
-                e.preventDefault();
-                navigateAndScrollTop('/blagnac.html');
-              }} 
+            <Link 
+              to="/villes/blagnac" 
               className="cursor-pointer w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md"
             >
               Blagnac
-            </a>
+            </Link>
           </DropdownMenuItem>
           <DropdownMenuItem asChild>
-            <a 
-              href="#" 
-              onClick={(e) => {
-                e.preventDefault();
-                navigateAndScrollTop('/colomiers.html');
-              }} 
+            <Link 
+              to="/villes/colomiers" 
               className="cursor-pointer w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md"
             >
               Colomiers
-            </a>
+            </Link>
           </DropdownMenuItem>
           <DropdownMenuItem asChild>
-            <a 
-              href="#" 
-              onClick={(e) => {
-                e.preventDefault();
-                navigateAndScrollTop('/tournefeuille.html');
-              }} 
+            <Link 
+              to="/villes/tournefeuille" 
               className="cursor-pointer w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md"
             >
               Tournefeuille
-            </a>
+            </Link>
           </DropdownMenuItem>
           <DropdownMenuItem asChild>
-            <a 
-              href="#" 
-              onClick={(e) => {
-                e.preventDefault();
-                navigateAndScrollTop('/muret.html');
-              }} 
+            <Link 
+              to="/villes/muret" 
               className="cursor-pointer w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md"
             >
               Muret
-            </a>
+            </Link>
           </DropdownMenuItem>
           <DropdownMenuSeparator />
           <DropdownMenuItem asChild>
