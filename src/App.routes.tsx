@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Index from './pages/Index';
@@ -46,10 +45,15 @@ import LocalSecurityPage from './components/LocalSecurityPage';
 import CastanetTolosanPage from './pages/cities/CastanetTolosanPage';
 import FonsorbesPage from './pages/cities/FonsorbesPage';
 import PortetSurGaronnePage from './pages/cities/PortetSurGaronnePage';
+import SaintJeanPage from './pages/cities/SaintJeanPage';
+import AucamvillePage from './pages/cities/AucamvillePage';
+import LabegePage from './pages/cities/LabegePage';
+import VilleneuveTolosanePage from './pages/cities/VilleneuveTolosanePage';
 
 const AppRoutes: React.FC = () => {
   return (
     <Routes>
+      {/* Keep existing routes */}
       <Route path="/" element={<Index />} />
       <Route path="/villes/:cityId" element={<LocalSecurityPage />} />
       
@@ -67,8 +71,8 @@ const AppRoutes: React.FC = () => {
       <Route path="/services/securite-magasin" element={<SecuriteMagasinPage />} />
       <Route path="/services/securite-residentielle" element={<SecuriteResidentiellePage />} />
       <Route path="/services/securite-incendie" element={<SecuriteIncendiePage />} />
-      
-      {/* Routes des villes */}
+
+      {/* City pages */}
       <Route path="/villes" element={<CitiesList />} />
       <Route path="/toulouse.html" element={<ToulousePage />} />
       <Route path="/blagnac.html" element={<BlagnacPage />} />
@@ -76,29 +80,34 @@ const AppRoutes: React.FC = () => {
       <Route path="/tournefeuille.html" element={<TournefeuilePage />} />
       <Route path="/muret.html" element={<MuretPage />} />
       <Route path="/ramonville.html" element={<RamonvillePage />} />
-      <Route path="/saint-orens.html" element={<SaintOrensPage />} />
+      <Route path="/saint-gaudens.html" element={<SaintGaudensPage />} />
       <Route path="/balma.html" element={<BalmaPage />} />
       <Route path="/cugnaux.html" element={<CugnauxPage />} />
-      <Route path="/plaisance.html" element={<PlaisancePage />} />
       <Route path="/l-union.html" element={<LUnionPage />} />
       <Route path="/securite-ville-union" element={<LUnionPage />} />
-      <Route path="/saint-gaudens.html" element={<SaintGaudensPage />} />
+      <Route path="/saint-orens.html" element={<SaintOrensPage />} />
+      <Route path="/plaisance.html" element={<PlaisancePage />} />
+      <Route path="/castanet-tolosan.html" element={<CastanetTolosanPage />} />
+      <Route path="/securite-ville-castanet" element={<CastanetTolosanPage />} />
+      <Route path="/fonsorbes.html" element={<FonsorbesPage />} />
+      <Route path="/securite-ville-fonsorbes" element={<FonsorbesPage />} />
+      <Route path="/portet-sur-garonne.html" element={<PortetSurGaronnePage />} />
+      <Route path="/securite-ville-portet" element={<PortetSurGaronnePage />} />
+      <Route path="/saint-jean.html" element={<SaintJeanPage />} />
+      <Route path="/securite-ville-saint-jean" element={<SaintJeanPage />} />
+      <Route path="/aucamville.html" element={<AucamvillePage />} />
+      <Route path="/securite-ville-aucamville" element={<AucamvillePage />} />
+      <Route path="/labege.html" element={<LabegePage />} />
+      <Route path="/securite-ville-labege" element={<LabegePage />} />
+      <Route path="/villeneuve-tolosane.html" element={<VilleneuveTolosanePage />} />
+      <Route path="/securite-ville-villeneuve" element={<VilleneuveTolosanePage />} />
+
+      {/* Departments pages */}
       <Route path="/ariege.html" element={<AriegePage />} />
       <Route path="/aude.html" element={<AudePage />} />
       <Route path="/aveyron.html" element={<AveyronPage />} />
       <Route path="/gard.html" element={<GardPage />} />
       
-      {/* Career routes */}
-      <Route path="/carriere/pourquoi-nous-rejoindre" element={<WhyJoinUs />} />
-      <Route path="/carriere/nos-metiers" element={<OurJobs />} />
-      <Route path="/carriere/nos-offres" element={<JobOffers />} />
-      <Route path="/devenir-partenaire" element={<PartnerPage />} />
-      <Route path="/devenir-partenaire/inscription" element={<PartnerRegistrationPage />} />
-      <Route path="/castanet-tolosan.html" element={<CastanetTolosanPage />} />
-      <Route path="/securite-ville-castanet" element={<CastanetTolosanPage />} />
-      <Route path="/fonsorbes.html" element={<FonsorbesPage />} />
-      <Route path="/portet-sur-garonne.html" element={<PortetSurGaronnePage />} />
-      <Route path="/securite-ville-portet" element={<PortetSurGaronnePage />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
