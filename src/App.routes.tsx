@@ -31,6 +31,7 @@ import SecuriteIncendiePage from '@/pages/services/SecuriteIncendiePage';
 import ToulousePage from '@/pages/cities/ToulousePage';
 import BlagnacPage from '@/pages/cities/BlagnacPage';
 import LocalSecurityPage from '@/components/LocalSecurityPage';
+import CitiesList from '@/pages/CitiesList'; // We'll use the existing CitiesList component
 
 export const routes = [
   {
@@ -157,6 +158,10 @@ export const routes = [
   {
     path: "/muret.html",
     element: <LocalSecurityPage cityId="muret" />
+  },
+  {
+    path: "/villes",
+    element: <CitiesList />
   },
   {
     path: "*",
