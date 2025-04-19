@@ -76,7 +76,6 @@ import TarnEtGaronnePage from './pages/cities/TarnEtGaronnePage';
 import AccessPage from './pages/espace';
 import AdminLogin from './pages/admin/login';
 import AdminDashboard from './pages/admin/dashboard';
-import AdminSetup from './pages/admin/setup';
 import AgentLogin from './pages/agent/login';
 import AgentDashboardPage from './pages/agent/dashboard';
 import ClientLogin from './pages/client/login';
@@ -228,7 +227,6 @@ const AppRoutes: React.FC = () => {
       {/* Admin routes */}
       <Route path="/admin/login" element={<AdminLogin />} />
       <Route path="/admin/dashboard" element={<AdminDashboard />} />
-      <Route path="/admin/setup" element={<AdminSetup />} />
       
       {/* Agent routes */}
       <Route path="/agent/login" element={<AgentLogin />} />
