@@ -32,16 +32,16 @@ const handler = async (req: Request): Promise<Response> => {
     const data: PartnerRegistrationRequest = await req.json();
     console.log("Received registration data:", data);
 
-    const sentFrom = new Sender("contact@levigile.fr", "LeVigile");
+    const sentFrom = new Sender("contact@levigile.fr", "Levigile");
 
     // Email to the applicant
     const applicantEmailParams = new EmailParams()
       .setFrom(sentFrom)
       .setTo([new Recipient(data.email)])
-      .setSubject("Confirmation de votre demande d'inscription - LeVigile")
+      .setSubject("Confirmation de votre demande d'inscription - Levigile")
       .setHtml(`
         <h1>Merci pour votre inscription, ${data.fullName} !</h1>
-        <p>Nous avons bien reçu votre demande pour devenir rapporteur d'affaires chez LeVigile.</p>
+        <p>Nous avons bien reçu votre demande pour devenir rapporteur d'affaires chez Levigile.</p>
         <p>Récapitulatif de vos informations :</p>
         <ul>
           <li>Nom complet : ${data.fullName}</li>
@@ -51,10 +51,10 @@ const handler = async (req: Request): Promise<Response> => {
           <li>Zone géographique : ${data.geographicArea}</li>
         </ul>
         <p>Notre équipe va étudier votre candidature et vous recontactera très prochainement.</p>
-        <p>Cordialement,<br>L'équipe LeVigile</p>
+        <p>Cordialement,<br>L'équipe Levigile</p>
       `);
 
-    // Email to LeVigile
+    // Email to Levigile
     const adminEmailParams = new EmailParams()
       .setFrom(sentFrom)
       .setTo([new Recipient("contact@levigile.fr")])

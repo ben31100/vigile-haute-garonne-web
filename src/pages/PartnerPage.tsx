@@ -18,10 +18,10 @@ const PartnerPage = () => {
   return (
     <>
       <Helmet>
-        <title>Devenir partenaire | LeVigile - Sécurité privée</title>
+        <title>Devenir partenaire | Levigile - Sécurité privée</title>
         <meta 
           name="description" 
-          content="Devenez rapporteur d'affaires avec LeVigile et gagnez des commissions en nous aidant à identifier de nouveaux besoins en sécurité." 
+          content="Devenez rapporteur d'affaires avec Levigile et gagnez des commissions en nous aidant à identifier de nouveaux besoins en sécurité." 
         />
       </Helmet>
 
@@ -59,7 +59,7 @@ const PartnerPage = () => {
             <div className="relative">
               <img 
                 src="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//Devenir%20partenaire%20levigile.webp"
-                alt="Devenir partenaire LeVigile" 
+                alt="Devenir partenaire Levigile" 
                 className="w-full h-auto rounded-lg shadow-xl"
               />
             </div>

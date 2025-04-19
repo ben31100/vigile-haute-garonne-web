@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -104,10 +103,10 @@ const PartnerRegistrationPage = () => {
   return (
     <>
       <Helmet>
-        <title>Formulaire d'inscription - Rapporteur d'affaires | LeVigile</title>
+        <title>Formulaire d'inscription - Rapporteur d'affaires | Levigile</title>
         <meta 
           name="description" 
-          content="Inscrivez-vous comme rapporteur d'affaires chez LeVigile et commencez à gagner des commissions en nous aidant à identifier de nouveaux besoins en sécurité." 
+          content="Inscrivez-vous comme rapporteur d'affaires chez Levigile et commencez à gagner des commissions en nous aidant à identifier de nouveaux besoins en sécurité." 
         />
       </Helmet>
 
@@ -315,6 +314,7 @@ const PartnerRegistrationPage = () => {
                             Je certifie avoir plus de 18 ans et ne pas être en conflit d'intérêts avec Levigile Sécurité Privée *
                           </FormLabel>
                         </div>
+                        <FormMessage />
                       </FormItem>
                     )}
                   />
@@ -335,6 +335,7 @@ const PartnerRegistrationPage = () => {
                             J'accepte que mes données soient utilisées dans le cadre de cette collaboration *
                           </FormLabel>
                         </div>
+                        <FormMessage />
                       </FormItem>
                     )}
                   />
@@ -355,6 +356,7 @@ const PartnerRegistrationPage = () => {
                             Je comprends que ma collaboration est sans lien de subordination (pas de contrat salarié) *
                           </FormLabel>
                         </div>
+                        <FormMessage />
                       </FormItem>
                     )}
                   />
