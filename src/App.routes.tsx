@@ -60,6 +60,7 @@ import RoquesPage from './pages/cities/RoquesPage';
 import CastelginestPage from './pages/cities/CastelginestPage';
 import FenouilletPage from './pages/cities/FenouilletPage';
 import CahorsPage from './pages/cities/CahorsPage';
+import PerpignanPage from './pages/cities/PerpignanPage';
 
 // Import new city pages
 import PibracPage from './pages/cities/PibracPage';
@@ -176,6 +177,10 @@ const AppRoutes: React.FC = () => {
       {/* Cahors routes */}
       <Route path="/cahors.html" element={<CahorsPage />} />
       <Route path="/securite-ville-cahors" element={<CahorsPage />} />
+      
+      {/* Perpignan routes */}
+      <Route path="/perpignan.html" element={<PerpignanPage />} />
+      <Route path="/securite-ville-perpignan" element={<PerpignanPage />} />
       
       {/* Department routes */}
       <Route path="/lot.html" element={<LotPage />} />
