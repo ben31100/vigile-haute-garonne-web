@@ -1,6 +1,7 @@
+
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Phone, Mail, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Phone, Mail, CheckCircle2, ArrowRight, Send, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -13,6 +14,22 @@ const PartnerPage = () => {
 
   const handleEmail = () => {
     window.location.href = 'mailto:contact@levigile.fr';
+  };
+
+  const handleTelegramClick = () => {
+    window.open('https://t.me/levigile', '_blank');
+  };
+
+  const handleWhatsAppClick = () => {
+    window.open('https://wa.me/33780817979', '_blank');
+  };
+
+  const handleSecondPhoneCall = () => {
+    window.location.href = 'tel:+33780817979';
+  };
+
+  const handleSecondEmail = () => {
+    window.location.href = 'mailto:levigile31@gmail.com';
   };
 
   return (
@@ -186,13 +203,64 @@ const PartnerPage = () => {
                 Nous sommes toujours à la recherche de partenaires motivés et connectés à leur environnement local.
               </p>
               <div className="bg-gray-50 p-6 rounded-lg space-y-4">
-                <div className="flex items-center gap-2">
-                  <Phone className="text-levigile-blue h-5 w-5" />
-                  <p>07 80 81 79 79</p>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Mail className="text-levigile-blue h-5 w-5" />
-                  <p>levigile31@gmail.com</p>
+                <div className="flex flex-col space-y-4">
+                  <div className="flex items-center gap-3">
+                    <Phone className="text-levigile-blue h-5 w-5" />
+                    <div className="flex flex-wrap gap-3">
+                      <Button 
+                        variant="outline" 
+                        className="bg-white hover:bg-levigile-blue hover:text-white transition-colors text-levigile-blue border-levigile-blue"
+                        onClick={handlePhoneCall}
+                      >
+                        05 54 54 64 28
+                      </Button>
+                      <Button 
+                        variant="outline" 
+                        className="bg-white hover:bg-levigile-blue hover:text-white transition-colors text-levigile-blue border-levigile-blue"
+                        onClick={handleSecondPhoneCall}
+                      >
+                        07 80 81 79 79
+                      </Button>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center gap-3">
+                    <Mail className="text-levigile-blue h-5 w-5" />
+                    <div className="flex flex-wrap gap-3">
+                      <Button 
+                        variant="outline"
+                        className="bg-white hover:bg-levigile-blue hover:text-white transition-colors text-levigile-blue border-levigile-blue"
+                        onClick={handleEmail}
+                      >
+                        contact@levigile.fr
+                      </Button>
+                      <Button 
+                        variant="outline"
+                        className="bg-white hover:bg-levigile-blue hover:text-white transition-colors text-levigile-blue border-levigile-blue"
+                        onClick={handleSecondEmail}
+                      >
+                        levigile31@gmail.com
+                      </Button>
+                    </div>
+                  </div>
+                  
+                  <div className="flex flex-col md:flex-row gap-4 mt-4">
+                    <Button 
+                      onClick={handleTelegramClick}
+                      className="bg-[#0088cc] hover:bg-[#0077b5] text-white flex items-center justify-center gap-2 w-full md:w-auto"
+                    >
+                      <Send className="h-5 w-5" />
+                      Nous contacter sur Telegram
+                    </Button>
+                    
+                    <Button 
+                      onClick={handleWhatsAppClick}
+                      className="bg-[#25D366] hover:bg-[#128C7E] text-white flex items-center justify-center gap-2 w-full md:w-auto"
+                    >
+                      <MessageCircle className="h-5 w-5" />
+                      Nous contacter sur WhatsApp
+                    </Button>
+                  </div>
                 </div>
               </div>
             </div>
