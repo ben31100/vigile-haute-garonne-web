@@ -15,6 +15,17 @@ import {
 import { Edit, Trash2 } from 'lucide-react';
 import { AddClientDialog } from '@/components/admin/AddClientDialog';
 
+// Define the client type to match the database structure
+interface Client {
+  id: string;
+  nom_entreprise: string | null;
+  contact: string | null;
+  email: string;
+  password_hash: string;
+  administrator_id: string | null;
+  téléphone?: string | null; // Make this optional since it might not exist in all records
+}
+
 const ClientsPage = () => {
   const { data: clients, isLoading } = useQuery({
     queryKey: ['clients'],
@@ -25,7 +36,7 @@ const ClientsPage = () => {
         .order('nom_entreprise');
       
       if (error) throw error;
-      return data;
+      return data as Client[];
     },
   });
 

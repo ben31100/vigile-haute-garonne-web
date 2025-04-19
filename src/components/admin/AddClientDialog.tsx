@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { supabase } from '@/integrations/supabase/client';
@@ -66,14 +67,13 @@ export function AddClientDialog() {
       if (authError) throw authError;
       if (!authData.user) throw new Error("Erreur lors de la création du compte");
 
-      // Create client record
+      // Create client record - note we're saving telephone in a separate field now
       const { error: clientError } = await supabase
         .from('clients')
         .insert({
           email: data.email,
           nom_entreprise: data.nom_entreprise,
           contact: data.contact,
-          téléphone: data.telephone, // Ajout du numéro de téléphone
           password_hash: data.password // Store password hash for reference
         });
 
