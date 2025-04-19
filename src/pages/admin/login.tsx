@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -17,30 +17,57 @@ const AdminLogin = () => {
   const { register, handleSubmit, formState: { errors } } = useForm<LoginForm>();
   const navigate = useNavigate();
   const { toast } = useToast();
+  const [isLoading, setIsLoading] = useState(false);
 
   const onSubmit = async (data: LoginForm) => {
     try {
-      const { error } = await supabase.auth.signInWithPassword(data);
-      
-      if (error) throw error;
+      setIsLoading(true);
+      console.log("Tentative de connexion avec:", data.email);
 
-      const { data: profile } = await supabase
+      const { data: authData, error } = await supabase.auth.signInWithPassword({
+        email: data.email,
+        password: data.password
+      });
+      
+      if (error) {
+        console.error("Erreur d'authentification:", error.message);
+        throw error;
+      }
+
+      console.log("Authentification réussie, vérification du profil...");
+      
+      // Vérifier si l'utilisateur a un profil admin
+      const { data: profile, error: profileError } = await supabase
         .from('profiles')
         .select('role')
-        .single();
+        .eq('id', authData.user.id)
+        .maybeSingle();
 
-      if (profile?.role !== 'admin') {
+      if (profileError) {
+        console.error("Erreur de récupération du profil:", profileError.message);
+        throw profileError;
+      }
+
+      console.log("Profil récupéré:", profile);
+
+      if (!profile || profile.role !== 'admin') {
+        console.error("Rôle non autorisé:", profile?.role);
         await supabase.auth.signOut();
         throw new Error('Accès non autorisé');
       }
 
+      console.log("Redirection vers le dashboard...");
       navigate('/admin/dashboard');
-    } catch (error) {
+      
+    } catch (error: any) {
+      console.error("Erreur complète:", error);
       toast({
         variant: "destructive",
         title: "Erreur de connexion",
-        description: "Email ou mot de passe incorrect",
+        description: error.message || "Email ou mot de passe incorrect",
       });
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -76,8 +103,8 @@ const AdminLogin = () => {
           )}
         </div>
 
-        <Button type="submit" className="w-full">
-          Se connecter
+        <Button type="submit" className="w-full" disabled={isLoading}>
+          {isLoading ? "Connexion en cours..." : "Se connecter"}
         </Button>
       </form>
     </AuthLayout>
