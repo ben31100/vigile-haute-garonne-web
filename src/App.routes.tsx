@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Index from './pages/Index';
@@ -163,22 +164,29 @@ const AppRoutes: React.FC = () => {
       <Route path="/frouzins.html" element={<FrouzinsPage />} />
       <Route path="/securite-ville-frouzins" element={<FrouzinsPage />} />
       
+      {/* Department routes - Corrected URLs */}
       <Route path="/lot.html" element={<LotPage />} />
+      <Route path="/lot" element={<LotPage />} />
       <Route path="/securite-departement-lot" element={<LotPage />} />
       
       <Route path="/lozere.html" element={<LozerePage />} />
+      <Route path="/lozere" element={<LozerePage />} />
       <Route path="/securite-departement-lozere" element={<LozerePage />} />
       
       <Route path="/hautes-pyrenees.html" element={<HautesPyreneesPage />} />
+      <Route path="/hautes-pyrenees" element={<HautesPyreneesPage />} />
       <Route path="/securite-departement-hautes-pyrenees" element={<HautesPyreneesPage />} />
       
       <Route path="/pyrenees-orientales.html" element={<PyreneesOrientalesPage />} />
+      <Route path="/pyrenees-orientales" element={<PyreneesOrientalesPage />} />
       <Route path="/securite-departement-pyrenees-orientales" element={<PyreneesOrientalesPage />} />
       
       <Route path="/tarn.html" element={<TarnPage />} />
+      <Route path="/tarn" element={<TarnPage />} />
       <Route path="/securite-departement-tarn" element={<TarnPage />} />
       
       <Route path="/tarn-et-garonne.html" element={<TarnEtGaronnePage />} />
+      <Route path="/tarn-et-garonne" element={<TarnEtGaronnePage />} />
       <Route path="/securite-departement-tarn-et-garonne" element={<TarnEtGaronnePage />} />
       
       {/* Keep existing 404 route */}
