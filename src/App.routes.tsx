@@ -73,7 +73,6 @@ import TarnEtGaronnePage from './pages/cities/TarnEtGaronnePage';
 const AppRoutes: React.FC = () => {
   return (
     <Routes>
-      {/* Keep existing routes */}
       <Route path="/" element={<Index />} />
       <Route path="/villes/:cityId" element={<LocalSecurityPage />} />
       
@@ -197,7 +196,6 @@ const AppRoutes: React.FC = () => {
       <Route path="/tarn-et-garonne" element={<TarnEtGaronnePage />} />
       <Route path="/securite-departement-tarn-et-garonne" element={<TarnEtGaronnePage />} />
       
-      {/* Keep existing 404 route */}
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
