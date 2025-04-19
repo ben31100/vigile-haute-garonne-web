@@ -43,21 +43,65 @@ const AdminLogin = () => {
         throw new Error("No user data returned");
       }
 
-      // Check if user exists in administrators table
-      const { data: admin, error: adminError } = await supabase
+      // First, check if user exists in administrators table with the same email
+      let { data: admin, error: adminError } = await supabase
         .from('administrators')
         .select('*')
-        .eq('id', authData.user.id)
+        .eq('email', data.email)
         .maybeSingle();
 
       if (adminError) {
-        console.error("Error fetching admin profile:", adminError);
+        console.error("Error fetching admin profile by email:", adminError);
         throw adminError;
       }
 
+      // If no admin profile found by email, try to create one
       if (!admin) {
-        await supabase.auth.signOut();
-        throw new Error("No administrator profile found for this user");
+        console.log("No admin found with email, creating admin record for:", authData.user.id);
+        const { data: newAdmin, error: createError } = await supabase
+          .from('administrators')
+          .insert([
+            {
+              id: authData.user.id,
+              email: data.email,
+              password_hash: 'managed-by-supabase-auth'
+            }
+          ])
+          .select()
+          .single();
+
+        if (createError) {
+          console.error("Error creating admin profile:", createError);
+          throw createError;
+        }
+
+        admin = newAdmin;
+      } else if (admin.id !== authData.user.id) {
+        // If admin exists but ID doesn't match auth user ID, update the ID
+        console.log("Admin record found but ID doesn't match auth user, updating ID");
+        const { error: updateError } = await supabase
+          .from('administrators')
+          .update({ id: authData.user.id })
+          .eq('email', data.email);
+
+        if (updateError) {
+          console.error("Error updating admin ID:", updateError);
+          throw updateError;
+        }
+        
+        // Refresh admin data
+        const { data: refreshedAdmin, error: refreshError } = await supabase
+          .from('administrators')
+          .select('*')
+          .eq('id', authData.user.id)
+          .single();
+          
+        if (refreshError) {
+          console.error("Error refreshing admin data:", refreshError);
+          throw refreshError;
+        }
+        
+        admin = refreshedAdmin;
       }
 
       toast({
@@ -71,8 +115,8 @@ const AdminLogin = () => {
       
       if (error.message === "Invalid login credentials") {
         setAuthError("Invalid email or password");
-      } else if (error.message === "No administrator profile found for this user") {
-        setAuthError("This user is not registered as an administrator");
+      } else if (error.message.includes("administrator profile")) {
+        setAuthError("Error with administrator profile. Please contact support.");
       } else {
         setAuthError(error.message || "An error occurred during login");
       }

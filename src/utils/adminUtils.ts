@@ -27,7 +27,7 @@ export async function createAdmin(email: string, password: string, firstName?: s
           email: email,
           prénom: firstName,
           nom: lastName,
-          password_hash: 'not-used-for-auth' // We don't store actual passwords since Supabase Auth handles this
+          password_hash: 'managed-by-supabase-auth' // We don't store actual passwords since Supabase Auth handles this
         }
       ]);
 
