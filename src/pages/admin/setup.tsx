@@ -29,12 +29,13 @@ const AdminSetup = () => {
       });
       
       // Vérifier si l'utilisateur existe déjà
-      const { data: existingUser, error: checkError } = await supabase.auth.signInWithPassword({
+      const { data: { user: existingUser }, error: signInError } = await supabase.auth.signInWithPassword({
         email: 'levigile31@gmail.com',
         password: 'Ben221176-'
       });
 
-      if (!checkError && existingUser?.user) {
+      if (existingUser) {
+        // L'utilisateur existe déjà
         setSetupStatus({
           step: "Vérification du compte",
           success: true,
@@ -42,11 +43,15 @@ const AdminSetup = () => {
         });
         
         // Vérifier si le profil existe déjà
-        const { data: existingProfile } = await supabase
+        const { data: existingProfile, error: profileCheckError } = await supabase
           .from('profiles')
           .select('*')
-          .eq('id', existingUser.user.id)
+          .eq('id', existingUser.id)
           .maybeSingle();
+        
+        if (profileCheckError) {
+          console.error("Erreur lors de la vérification du profil:", profileCheckError);
+        }
         
         if (existingProfile) {
           setSetupStatus({
@@ -59,7 +64,7 @@ const AdminSetup = () => {
           const { error: updateError } = await supabase
             .from('profiles')
             .update({ role: 'admin' })
-            .eq('id', existingUser.user.id);
+            .eq('id', existingUser.id);
             
           if (updateError) {
             console.error("Erreur lors de la mise à jour du profil:", updateError);
@@ -79,95 +84,95 @@ const AdminSetup = () => {
           
           setSetupComplete(true);
           return;
+        } else {
+          // Le profil n'existe pas mais l'utilisateur oui, créer le profil
+          setSetupStatus({
+            step: "Création du profil",
+            success: true,
+            message: "Création du profil administrateur..."
+          });
+          
+          const { error: createProfileError } = await supabase
+            .from('profiles')
+            .insert({
+              id: existingUser.id,
+              role: 'admin',
+              first_name: 'Admin',
+              last_name: 'LeVigile',
+              email: existingUser.email
+            });
+
+          if (createProfileError) {
+            console.error("Erreur lors de la création du profil:", createProfileError);
+            throw createProfileError;
+          }
+
+          setSetupStatus({
+            step: "Terminé",
+            success: true,
+            message: "Profil administrateur créé avec succès"
+          });
+          
+          toast({
+            title: "Profil administrateur créé",
+            description: "Le profil administrateur a été configuré avec succès.",
+          });
+          
+          setSetupComplete(true);
+          return;
         }
-        
-        // Créer le profil admin si l'utilisateur existe mais pas le profil
+      } else if (signInError) {
+        // L'utilisateur n'existe pas, le créer
         setSetupStatus({
-          step: "Création du profil",
+          step: "Création du compte",
           success: true,
-          message: "Création du profil administrateur..."
+          message: "Création d'un nouvel utilisateur administrateur..."
         });
         
-        const { error: profileError } = await supabase
-          .from('profiles')
-          .insert({
-            id: existingUser.user.id,
-            role: 'admin',
-            first_name: 'Admin',
-            last_name: 'LeVigile'
-          });
+        // Créer l'utilisateur
+        const { data: signUpData, error: signUpError } = await supabase.auth.signUp({
+          email: 'levigile31@gmail.com',
+          password: 'Ben221176-',
+          options: {
+            emailRedirectTo: window.location.origin + '/admin/login'
+          }
+        });
 
-        if (profileError) {
-          console.error("Erreur lors de la création du profil:", profileError);
-          throw profileError;
+        if (signUpError) {
+          console.error("Erreur lors de la création de l'utilisateur:", signUpError);
+          throw signUpError;
         }
 
+        if (!signUpData.user) {
+          throw new Error("Impossible de créer l'utilisateur");
+        }
+
+        // Attendre que l'utilisateur soit créé avant de créer le profil
+        setSetupStatus({
+          step: "Attente",
+          success: true,
+          message: "Attente de la création de l'utilisateur..."
+        });
+        
+        // Attendre quelques secondes pour s'assurer que l'utilisateur est bien créé
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        
+        setSetupStatus({
+          step: "Confirmation",
+          success: true,
+          message: "Compte utilisateur créé, finalisation..."
+        });
+        
+        // Finaliser avec un message de succès
+        toast({
+          title: "Compte administrateur créé",
+          description: "Le compte administrateur a été créé avec succès. Vérifiez votre email pour confirmer votre compte.",
+        });
+        
         setSetupStatus({
           step: "Terminé",
           success: true,
-          message: "Profil administrateur créé avec succès"
-        });
-        
-        toast({
-          title: "Profil administrateur créé",
-          description: "Le profil administrateur a été configuré avec succès.",
-        });
-        
-        setSetupComplete(true);
-        return;
-      }
-      
-      // Créer l'utilisateur avec Supabase Auth s'il n'existe pas
-      setSetupStatus({
-        step: "Création du compte",
-        success: true,
-        message: "Création d'un nouvel utilisateur administrateur..."
-      });
-      
-      const { data: authData, error: authError } = await supabase.auth.signUp({
-        email: 'levigile31@gmail.com',
-        password: 'Ben221176-',
-        options: {
-          emailRedirectTo: window.location.origin + '/admin/login'
-        }
-      });
-
-      if (authError) {
-        console.error("Erreur lors de la création de l'utilisateur:", authError);
-        throw authError;
-      }
-
-      if (authData.user) {
-        setSetupStatus({
-          step: "Création du profil",
-          success: true,
-          message: "Création du profil administrateur..."
-        });
-        
-        // Créer le profil admin
-        const { error: profileError } = await supabase
-          .from('profiles')
-          .insert({
-            id: authData.user.id,
-            role: 'admin',
-            first_name: 'Admin',
-            last_name: 'LeVigile'
-          });
-
-        if (profileError) {
-          console.error("Erreur lors de la création du profil:", profileError);
-          throw profileError;
-        }
-
-        setSetupStatus({
-          step: "Terminé",
-          success: true,
-          message: "Administrateur créé avec succès"
-        });
-        
-        toast({
-          title: "Administrateur créé",
-          description: "Le compte administrateur a été configuré avec succès. Vérifiez votre email pour confirmer votre compte.",
+          message: "Administrateur créé avec succès. Vérifiez votre email pour confirmer votre compte."
         });
         
         setSetupComplete(true);
