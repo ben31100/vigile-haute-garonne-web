@@ -4,6 +4,17 @@ import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import citiesData from '@/data/cities.json';
 import { getCityCoordinates } from '@/utils/cityCoordinates';
+import iconUrl from 'leaflet/dist/images/marker-icon.png';
+import iconRetinaUrl from 'leaflet/dist/images/marker-icon-2x.png';
+import shadowUrl from 'leaflet/dist/images/marker-shadow.png';
+
+// Fix for default icon issue
+delete L.Icon.Default.prototype._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconUrl,
+  iconRetinaUrl,
+  shadowUrl
+});
 
 const InterventionMap: React.FC = () => {
   const mapRef = useRef<HTMLDivElement>(null);
