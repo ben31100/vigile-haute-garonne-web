@@ -7,8 +7,8 @@ import { Input } from '@/components/ui/input';
 import { useToast } from '@/components/ui/use-toast';
 import { supabase } from '@/integrations/supabase/client';
 import AuthLayout from '@/components/auth/AuthLayout';
-import { Alert, AlertDescription } from '@/components/ui/alert';
-import { ExternalLink } from 'lucide-react';
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+import { ExternalLink, AlertCircle } from 'lucide-react';
 
 interface LoginForm {
   email: string;
@@ -20,10 +20,12 @@ const AdminLogin = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
+  const [authError, setAuthError] = useState<string | null>(null);
 
   const onSubmit = async (data: LoginForm) => {
     try {
       setIsLoading(true);
+      setAuthError(null);
       console.log("Tentative de connexion avec:", data.email);
 
       const { data: authData, error } = await supabase.auth.signInWithPassword({
@@ -55,13 +57,15 @@ const AdminLogin = () => {
       if (!profile) {
         console.error("Aucun profil trouvé pour cet utilisateur");
         await supabase.auth.signOut();
-        throw new Error('Aucun profil trouvé. Configurez votre compte administrateur');
+        setAuthError("Aucun profil trouvé. Configurez votre compte administrateur via la page de configuration.");
+        return;
       }
 
       if (profile.role !== 'admin') {
         console.error("Rôle non autorisé:", profile.role);
         await supabase.auth.signOut();
-        throw new Error('Accès non autorisé');
+        setAuthError(`Accès non autorisé. Votre compte a le rôle "${profile.role}" mais un rôle "admin" est requis.`);
+        return;
       }
 
       console.log("Redirection vers le dashboard...");
@@ -69,11 +73,7 @@ const AdminLogin = () => {
       
     } catch (error: any) {
       console.error("Erreur complète:", error);
-      toast({
-        variant: "destructive",
-        title: "Erreur de connexion",
-        description: error.message || "Email ou mot de passe incorrect",
-      });
+      setAuthError(error.message || "Email ou mot de passe incorrect");
     } finally {
       setIsLoading(false);
     }
@@ -85,6 +85,14 @@ const AdminLogin = () => {
         <h1 className="text-2xl font-bold text-gray-900 mb-2">Espace administrateur</h1>
         <p className="text-gray-600">Connectez-vous à votre tableau de bord</p>
       </div>
+
+      {authError && (
+        <Alert variant="destructive" className="mb-6">
+          <AlertCircle className="h-4 w-4" />
+          <AlertTitle>Erreur de connexion</AlertTitle>
+          <AlertDescription>{authError}</AlertDescription>
+        </Alert>
+      )}
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <div>
