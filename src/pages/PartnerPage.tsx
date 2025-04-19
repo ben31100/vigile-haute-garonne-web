@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Phone, Mail, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Phone, Mail, CheckCircle2, ArrowRight, Telegram, WhatsApp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -13,6 +13,14 @@ const PartnerPage = () => {
 
   const handleEmail = () => {
     window.location.href = 'mailto:contact@levigile.fr';
+  };
+
+  const handleTelegram = () => {
+    window.open('https://t.me/levigile', '_blank');
+  };
+
+  const handleWhatsApp = () => {
+    window.open('https://wa.me/33554546428', '_blank');
   };
 
   return (
@@ -81,22 +89,6 @@ const PartnerPage = () => {
             </div>
 
             <div className="space-y-4">
-              <h2 className="text-2xl font-semibold">1️⃣ Qu'est-ce qu'un rapporteur d'affaires ?</h2>
-              <p className="text-gray-600">
-                Un rapporteur d'affaires est une personne (particulier ou professionnel) qui met en relation 
-                Levigile avec une entreprise, une collectivité ou un particulier ayant besoin de prestations 
-                de sécurité.
-              </p>
-              <p className="text-gray-600">
-                Dès que la mission est confirmée et signée, vous touchez une commission.
-              </p>
-              <p className="text-gray-600">
-                Vous devenez ainsi un partenaire externe, sans contrat de travail, mais avec une collaboration 
-                claire, transparente et légale.
-              </p>
-            </div>
-
-            <div className="space-y-4">
               <h2 className="text-2xl font-semibold">2️⃣ Comment devenir rapporteur d'affaires ?</h2>
               <p className="text-gray-600">Rien de plus simple ! Pour rejoindre notre réseau de rapporteurs :</p>
               <ul className="space-y-2 text-gray-600">
@@ -106,7 +98,7 @@ const PartnerPage = () => {
                     Remplissez le formulaire d'inscription en ligne{" "}
                     <Link 
                       to="/devenir-partenaire/inscription" 
-                      className="text-levigile-blue hover:underline font-medium"
+                      className="text-levigile-red hover:underline font-medium"
                     >
                       (Cliquez ici)
                     </Link>
@@ -193,6 +185,24 @@ const PartnerPage = () => {
                 <div className="flex items-center gap-2">
                   <Mail className="text-levigile-blue h-5 w-5" />
                   <p>contact@levigile.fr ou levigile31@gmail.com</p>
+                </div>
+                <div className="flex items-center gap-4">
+                  <Button
+                    onClick={handleTelegram}
+                    variant="outline"
+                    className="flex items-center gap-2 text-blue-500 hover:text-blue-600"
+                  >
+                    <Telegram className="h-5 w-5" />
+                    Telegram
+                  </Button>
+                  <Button
+                    onClick={handleWhatsApp}
+                    variant="outline"
+                    className="flex items-center gap-2 text-green-500 hover:text-green-600"
+                  >
+                    <WhatsApp className="h-5 w-5" />
+                    WhatsApp
+                  </Button>
                 </div>
               </div>
             </div>
