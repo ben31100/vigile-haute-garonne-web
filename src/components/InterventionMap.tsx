@@ -8,8 +8,8 @@ import iconUrl from 'leaflet/dist/images/marker-icon.png';
 import iconRetinaUrl from 'leaflet/dist/images/marker-icon-2x.png';
 import shadowUrl from 'leaflet/dist/images/marker-shadow.png';
 
-// Fix for default icon issue
-delete L.Icon.Default.prototype._getIconUrl;
+// Fix for default icon issue - using a type assertion to avoid TypeScript error
+delete (L.Icon.Default.prototype as any)._getIconUrl;
 L.Icon.Default.mergeOptions({
   iconUrl,
   iconRetinaUrl,
