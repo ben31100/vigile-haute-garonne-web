@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Index from './pages/Index';
@@ -54,6 +53,11 @@ import SaintJeanPage from './pages/cities/SaintJeanPage';
 import AucamvillePage from './pages/cities/AucamvillePage';
 import LabegePage from './pages/cities/LabegePage';
 import VilleneuveTolosanePage from './pages/cities/VilleneuveTolosanePage';
+
+import AussonnePage from './pages/cities/AussonnePage';
+import RoquesPage from './pages/cities/RoquesPage';
+import CastelginestPage from './pages/cities/CastelginestPage';
+import FenouilletPage from './pages/cities/FenouilletPage';
 
 const AppRoutes: React.FC = () => {
   return (
@@ -125,6 +129,18 @@ const AppRoutes: React.FC = () => {
       <Route path="/aude.html" element={<AudePage />} />
       <Route path="/aveyron.html" element={<AveyronPage />} />
       <Route path="/gard.html" element={<GardPage />} />
+      
+      <Route path="/aussonne.html" element={<AussonnePage />} />
+      <Route path="/securite-ville-aussonne" element={<AussonnePage />} />
+      
+      <Route path="/roques.html" element={<RoquesPage />} />
+      <Route path="/securite-ville-roques" element={<RoquesPage />} />
+      
+      <Route path="/castelginest.html" element={<CastelginestPage />} />
+      <Route path="/securite-ville-castelginest" element={<CastelginestPage />} />
+      
+      <Route path="/fenouillet.html" element={<FenouilletPage />} />
+      <Route path="/securite-ville-fenouillet" element={<FenouilletPage />} />
       
       <Route path="*" element={<NotFound />} />
     </Routes>
