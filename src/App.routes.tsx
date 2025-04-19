@@ -67,11 +67,7 @@ export const routes = [
   }
 ];
 
-// Add default export
-const AppRoutes = () => (
-  routes.map(route => (
-    <route.element path={route.path} key={route.path} />
-  ))
-);
+// Corrected AppRoutes function to return routes directly instead of trying to use elements as components
+const AppRoutes = () => routes;
 
 export default AppRoutes;
