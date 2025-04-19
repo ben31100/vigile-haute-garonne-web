@@ -69,16 +69,17 @@ export function AddAgentDialog() {
       if (authError) throw authError;
       if (!authData.user) throw new Error("Erreur lors de la création du compte");
 
-      // Create agent record
+      // Create agent record - include password_hash field
       const { error: agentError } = await supabase
         .from('agents')
-        .insert([{
+        .insert({
           email: data.email,
           nom: data.nom,
           prénom: data.prénom,
           téléphone: data.téléphone,
           site_affecté: data.site_affecté,
-        }]);
+          password_hash: data.password // Utiliser le même mot de passe pour le hachage
+        });
 
       if (agentError) {
         // If agent creation fails, attempt to clean up the auth user
