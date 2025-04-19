@@ -4,20 +4,27 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { useToast } from '@/components/ui/use-toast';
+import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
 import AuthLayout from '@/components/auth/AuthLayout';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { AlertCircle } from 'lucide-react';
 import { Label } from '@/components/ui/label';
+import * as z from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
 
-interface LoginForm {
-  email: string;
-  password: string;
-}
+// Define validation schema
+const loginSchema = z.object({
+  email: z.string().email('Email invalide'),
+  password: z.string().min(6, 'Le mot de passe doit contenir au moins 6 caractères')
+});
+
+type LoginForm = z.infer<typeof loginSchema>;
 
 const AgentLogin = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm<LoginForm>();
+  const { register, handleSubmit, formState: { errors } } = useForm<LoginForm>({
+    resolver: zodResolver(loginSchema)
+  });
   const navigate = useNavigate();
   const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
@@ -29,6 +36,7 @@ const AgentLogin = () => {
       setAuthError(null);
       console.log("Tentative de connexion avec:", data.email);
 
+      // First, attempt supabase authentication
       const { data: authData, error } = await supabase.auth.signInWithPassword({
         email: data.email,
         password: data.password
@@ -41,20 +49,14 @@ const AgentLogin = () => {
 
       console.log("Authentification réussie, vérification du profil agent...");
 
+      // Verify if the authenticated user is an agent
       const { data: agent, error: agentError } = await supabase
         .from('agents')
         .select('*')
-        .eq('id', authData.user.id)
-        .maybeSingle();
+        .eq('email', data.email)
+        .single();
 
-      if (agentError) {
-        console.error("Erreur de récupération du profil agent:", agentError.message);
-        throw agentError;
-      }
-
-      console.log("Profil agent récupéré:", agent);
-
-      if (!agent) {
+      if (agentError || !agent) {
         await supabase.auth.signOut();
         throw new Error("Aucun profil agent trouvé pour cet utilisateur");
       }
@@ -71,6 +73,8 @@ const AgentLogin = () => {
       
       if (error.message === "Invalid login credentials") {
         setAuthError("Email ou mot de passe incorrect");
+      } else if (error.message.includes("no agent profile")) {
+        setAuthError("Seuls les agents peuvent se connecter");
       } else {
         setAuthError(error.message || "Une erreur s'est produite lors de la connexion");
       }
@@ -101,11 +105,11 @@ const AgentLogin = () => {
             id="email"
             type="email"
             placeholder="Email"
-            {...register('email', { required: true })}
+            {...register('email')}
             className={errors.email ? 'border-red-500' : ''}
           />
           {errors.email && (
-            <p className="text-red-500 text-sm mt-1">Ce champ est requis</p>
+            <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
           )}
         </div>
 
@@ -115,11 +119,11 @@ const AgentLogin = () => {
             id="password"
             type="password"
             placeholder="Mot de passe"
-            {...register('password', { required: true })}
+            {...register('password')}
             className={errors.password ? 'border-red-500' : ''}
           />
           {errors.password && (
-            <p className="text-red-500 text-sm mt-1">Ce champ est requis</p>
+            <p className="text-red-500 text-sm mt-1">{errors.password.message}</p>
           )}
         </div>
 
@@ -132,3 +136,4 @@ const AgentLogin = () => {
 };
 
 export default AgentLogin;
+
