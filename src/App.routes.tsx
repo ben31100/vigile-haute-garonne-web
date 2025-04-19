@@ -70,7 +70,7 @@ export const routes = [
 // Add default export
 const AppRoutes = () => (
   routes.map(route => (
-    <route.component {...route.props} path={route.path} key={route.path} />
+    <route.element path={route.path} key={route.path} />
   ))
 );
 
