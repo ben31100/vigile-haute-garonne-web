@@ -8,7 +8,7 @@ import { useToast } from '@/components/ui/use-toast';
 import { supabase } from '@/integrations/supabase/client';
 import AuthLayout from '@/components/auth/AuthLayout';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import { AlertCircle, InfoIcon } from 'lucide-react';
+import { AlertCircle } from 'lucide-react';
 import { Label } from '@/components/ui/label';
 
 interface LoginForm {
@@ -27,22 +27,23 @@ const AdminLogin = () => {
     try {
       setIsLoading(true);
       setAuthError(null);
-      console.log("Tentative de connexion avec:", data.email);
+      console.log("Attempting login with:", data.email);
 
-      // Step 1: Authenticate with Supabase Auth
-      const { data: authData, error } = await supabase.auth.signInWithPassword({
+      const { data: authData, error: signInError } = await supabase.auth.signInWithPassword({
         email: data.email,
-        password: data.password
+        password: data.password,
       });
-      
-      if (error) {
-        console.error("Erreur d'authentification:", error.message);
-        throw error;
+
+      if (signInError) {
+        console.error("Authentication error:", signInError);
+        throw signInError;
       }
 
-      console.log("Authentification réussie, vérification du profil...");
-      
-      // Step 2: Verify if user exists in administrators table
+      if (!authData.user) {
+        throw new Error("No user data returned");
+      }
+
+      // Check if user exists in administrators table
       const { data: admin, error: adminError } = await supabase
         .from('administrators')
         .select('*')
@@ -50,37 +51,30 @@ const AdminLogin = () => {
         .maybeSingle();
 
       if (adminError) {
-        console.error("Erreur de récupération du profil administrateur:", adminError.message);
+        console.error("Error fetching admin profile:", adminError);
         throw adminError;
       }
 
-      console.log("Profil récupéré:", admin);
-
       if (!admin) {
-        // Sign out if not an admin
         await supabase.auth.signOut();
-        throw new Error("Aucun profil administrateur trouvé pour cet utilisateur.");
+        throw new Error("No administrator profile found for this user");
       }
 
-      // Success! Navigate to admin dashboard
       toast({
-        title: "Connexion réussie",
-        description: `Bienvenue ${admin.prénom || 'Administrateur'}`,
+        title: "Login successful",
+        description: `Welcome ${admin.prénom || 'Administrator'}`,
       });
 
-      console.log("Redirection vers le dashboard...");
       navigate('/admin/dashboard');
-      
     } catch (error: any) {
-      console.error("Erreur complète:", error);
+      console.error("Complete error:", error);
       
-      // More specific error messages
       if (error.message === "Invalid login credentials") {
-        setAuthError("Email ou mot de passe incorrect. Vérifiez vos informations d'identification.");
-      } else if (error.message.includes("foreign key constraint")) {
-        setAuthError("Problème de configuration du compte administrateur. Veuillez contacter l'assistance technique.");
+        setAuthError("Invalid email or password");
+      } else if (error.message === "No administrator profile found for this user") {
+        setAuthError("This user is not registered as an administrator");
       } else {
-        setAuthError(error.message || "Une erreur s'est produite lors de la connexion");
+        setAuthError(error.message || "An error occurred during login");
       }
     } finally {
       setIsLoading(false);
@@ -90,25 +84,17 @@ const AdminLogin = () => {
   return (
     <AuthLayout>
       <div className="text-center mb-8">
-        <h1 className="text-2xl font-bold text-gray-900 mb-2">Espace administrateur</h1>
-        <p className="text-gray-600">Connectez-vous à votre tableau de bord</p>
+        <h1 className="text-2xl font-bold text-gray-900 mb-2">Admin Space</h1>
+        <p className="text-gray-600">Log in to your admin dashboard</p>
       </div>
 
       {authError && (
         <Alert variant="destructive" className="mb-6">
           <AlertCircle className="h-4 w-4" />
-          <AlertTitle>Erreur de connexion</AlertTitle>
+          <AlertTitle>Login Error</AlertTitle>
           <AlertDescription>{authError}</AlertDescription>
         </Alert>
       )}
-
-      <Alert variant="default" className="mb-6 border-blue-200 bg-blue-50">
-        <InfoIcon className="h-4 w-4 text-blue-600" />
-        <AlertTitle className="text-blue-700">Information</AlertTitle>
-        <AlertDescription className="text-blue-600">
-          L'administrateur doit être créé dans Supabase Auth et avoir un enregistrement correspondant dans la table administrators.
-        </AlertDescription>
-      </Alert>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <div className="space-y-2">
@@ -121,26 +107,26 @@ const AdminLogin = () => {
             className={errors.email ? 'border-red-500' : ''}
           />
           {errors.email && (
-            <p className="text-red-500 text-sm mt-1">Ce champ est requis</p>
+            <p className="text-red-500 text-sm mt-1">This field is required</p>
           )}
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="password">Mot de passe</Label>
+          <Label htmlFor="password">Password</Label>
           <Input
             id="password"
             type="password"
-            placeholder="Mot de passe"
+            placeholder="Password"
             {...register('password', { required: true })}
             className={errors.password ? 'border-red-500' : ''}
           />
           {errors.password && (
-            <p className="text-red-500 text-sm mt-1">Ce champ est requis</p>
+            <p className="text-red-500 text-sm mt-1">This field is required</p>
           )}
         </div>
 
         <Button type="submit" className="w-full" disabled={isLoading}>
-          {isLoading ? "Connexion en cours..." : "Se connecter"}
+          {isLoading ? "Logging in..." : "Log in"}
         </Button>
       </form>
     </AuthLayout>
