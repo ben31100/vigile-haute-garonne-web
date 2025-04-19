@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { MapPin, Phone, Mail, PhoneCall } from 'lucide-react';
+import { MapPin, Phone, Mail, PhoneCall, Telegram, WhatsApp } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import citiesData from '../data/cities.json';
@@ -16,6 +15,14 @@ const Footer: React.FC = () => {
 
   const handleEmailContact = () => {
     window.location.href = 'mailto:contact@levigile.fr';
+  };
+
+  const handleWhatsAppClick = () => {
+    window.open('https://wa.me/33780817979', '_blank');
+  };
+
+  const handleTelegramClick = () => {
+    window.open('https://t.me/levigile', '_blank');
   };
 
   return (
@@ -51,6 +58,24 @@ const Footer: React.FC = () => {
               <li className="flex items-center">
                 <Mail className="mr-2 h-5 w-5 shrink-0 text-levigile-red" />
                 <a href="mailto:levigile31@gmail.com" className="hover:underline">Recrutement: levigile31@gmail.com</a>
+              </li>
+              <li className="flex items-center space-x-4">
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className="bg-white hover:bg-gray-100"
+                  onClick={handleTelegramClick}
+                >
+                  <Telegram className="h-5 w-5 text-levigile-blue" />
+                </Button>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className="bg-white hover:bg-gray-100"
+                  onClick={handleWhatsAppClick}
+                >
+                  <WhatsApp className="h-5 w-5 text-levigile-blue" />
+                </Button>
               </li>
             </ul>
           </div>
