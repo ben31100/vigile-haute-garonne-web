@@ -45,6 +45,7 @@ export type Database = {
           password_hash: string
           prénom: string | null
           site_affecté: string | null
+          téléphone: string | null
         }
         Insert: {
           administrator_id?: string | null
@@ -54,6 +55,7 @@ export type Database = {
           password_hash: string
           prénom?: string | null
           site_affecté?: string | null
+          téléphone?: string | null
         }
         Update: {
           administrator_id?: string | null
@@ -63,6 +65,7 @@ export type Database = {
           password_hash?: string
           prénom?: string | null
           site_affecté?: string | null
+          téléphone?: string | null
         }
         Relationships: [
           {

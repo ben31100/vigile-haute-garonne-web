@@ -3,7 +3,7 @@ import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
 import DashboardLayout from '@/components/admin/DashboardLayout';
-import { Button } from '@/components/ui/button';
+import { AddAgentDialog } from '@/components/admin/AddAgentDialog';
 import {
   Table,
   TableBody,
@@ -12,7 +12,8 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { Edit, Trash2, UserPlus } from 'lucide-react';
+import { Edit, Phone, Trash2 } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 const AgentsPage = () => {
   const { data: agents, isLoading } = useQuery({
@@ -33,10 +34,7 @@ const AgentsPage = () => {
       <div className="p-6 space-y-6">
         <div className="flex justify-between items-center">
           <h1 className="text-2xl font-bold">Gestion des Agents</h1>
-          <Button className="flex items-center gap-2">
-            <UserPlus size={20} />
-            <span>Ajouter un agent</span>
-          </Button>
+          <AddAgentDialog />
         </div>
 
         <div className="border rounded-lg">
@@ -46,6 +44,7 @@ const AgentsPage = () => {
                 <TableHead>Nom</TableHead>
                 <TableHead>Prénom</TableHead>
                 <TableHead>Email</TableHead>
+                <TableHead>Téléphone</TableHead>
                 <TableHead>Site affecté</TableHead>
                 <TableHead className="w-[100px]">Actions</TableHead>
               </TableRow>
@@ -56,6 +55,12 @@ const AgentsPage = () => {
                   <TableCell>{agent.nom || '-'}</TableCell>
                   <TableCell>{agent.prénom || '-'}</TableCell>
                   <TableCell>{agent.email}</TableCell>
+                  <TableCell>
+                    <div className="flex items-center gap-2">
+                      <Phone size={16} className="text-muted-foreground" />
+                      {agent.téléphone || '-'}
+                    </div>
+                  </TableCell>
                   <TableCell>{agent.site_affecté || '-'}</TableCell>
                   <TableCell>
                     <div className="flex gap-2">
