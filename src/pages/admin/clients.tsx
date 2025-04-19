@@ -1,6 +1,6 @@
 
-import React from 'react';
-import { useQuery } from '@tanstack/react-query';
+import React, { useState } from 'react';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
 import DashboardLayout from '@/components/admin/DashboardLayout';
 import { Button } from '@/components/ui/button';
@@ -14,6 +14,18 @@ import {
 } from '@/components/ui/table';
 import { Edit, Trash2 } from 'lucide-react';
 import { AddClientDialog } from '@/components/admin/AddClientDialog';
+import { useToast } from '@/hooks/use-toast';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from '@/components/ui/alert-dialog';
 
 // Define the client type to match the database structure
 interface Client {
@@ -27,6 +39,11 @@ interface Client {
 }
 
 const ClientsPage = () => {
+  const { toast } = useToast();
+  const queryClient = useQueryClient();
+  const [clientToDelete, setClientToDelete] = useState<Client | null>(null);
+  const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
+  
   const { data: clients, isLoading } = useQuery({
     queryKey: ['clients'],
     queryFn: async () => {
@@ -39,6 +56,41 @@ const ClientsPage = () => {
       return data as Client[];
     },
   });
+
+  const handleDeleteClick = (client: Client) => {
+    setClientToDelete(client);
+    setIsDeleteDialogOpen(true);
+  };
+
+  const confirmDelete = async () => {
+    if (!clientToDelete) return;
+    
+    try {
+      const { error } = await supabase
+        .from('clients')
+        .delete()
+        .eq('id', clientToDelete.id);
+      
+      if (error) throw error;
+      
+      toast({
+        title: "Client supprimé",
+        description: "Le client a été supprimé avec succès",
+      });
+      
+      queryClient.invalidateQueries({ queryKey: ['clients'] });
+    } catch (error) {
+      console.error('Error deleting client:', error);
+      toast({
+        title: "Erreur",
+        description: error.message || "Une erreur est survenue lors de la suppression du client",
+        variant: "destructive",
+      });
+    } finally {
+      setIsDeleteDialogOpen(false);
+      setClientToDelete(null);
+    }
+  };
 
   return (
     <DashboardLayout>
@@ -69,7 +121,12 @@ const ClientsPage = () => {
                       <Button variant="outline" size="icon">
                         <Edit size={16} />
                       </Button>
-                      <Button variant="outline" size="icon" className="text-red-500 hover:text-red-600">
+                      <Button 
+                        variant="outline" 
+                        size="icon" 
+                        className="text-red-500 hover:text-red-600"
+                        onClick={() => handleDeleteClick(client)}
+                      >
                         <Trash2 size={16} />
                       </Button>
                     </div>
@@ -80,6 +137,32 @@ const ClientsPage = () => {
           </Table>
         </div>
       </div>
+      
+      <AlertDialog open={isDeleteDialogOpen} onOpenChange={setIsDeleteDialogOpen}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Confirmer la suppression</AlertDialogTitle>
+            <AlertDialogDescription>
+              Êtes-vous sûr de vouloir supprimer ce client ? 
+              {clientToDelete && (
+                <span className="font-medium block mt-2">
+                  {clientToDelete.nom_entreprise || clientToDelete.email}
+                </span>
+              )}
+              Cette action est irréversible.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Annuler</AlertDialogCancel>
+            <AlertDialogAction 
+              onClick={confirmDelete}
+              className="bg-red-500 hover:bg-red-600"
+            >
+              Supprimer
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </DashboardLayout>
   );
 };
