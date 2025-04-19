@@ -14,12 +14,15 @@ const ClientDashboardPage = () => {
     },
   });
 
-  const { data: profile } = useQuery({
-    queryKey: ['profile'],
+  const { data: client } = useQuery({
+    queryKey: ['client'],
     queryFn: async () => {
+      if (!session?.user?.id) return null;
+      
       const { data } = await supabase
-        .from('profiles')
+        .from('clients')
         .select('*')
+        .eq('id', session.user.id)
         .single();
       return data;
     },
@@ -30,7 +33,7 @@ const ClientDashboardPage = () => {
     return <Navigate to="/client/login" replace />;
   }
 
-  if (profile?.role !== 'client') {
+  if (!client) {
     return <Navigate to="/espace" replace />;
   }
 

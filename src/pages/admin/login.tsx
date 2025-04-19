@@ -42,34 +42,28 @@ const AdminLogin = () => {
 
       console.log("Authentification réussie, vérification du profil...");
       
-      // Vérifier si l'utilisateur a un profil et le rôle admin
-      const { data: profile, error: profileError } = await supabase
-        .from('profiles')
+      // Vérifier si l'utilisateur existe dans la table administrators
+      const { data: admin, error: adminError } = await supabase
+        .from('administrators')
         .select('*')
         .eq('id', authData.user.id)
         .single();
 
-      if (profileError) {
-        console.error("Erreur de récupération du profil:", profileError.message);
+      if (adminError) {
+        console.error("Erreur de récupération du profil administrateur:", adminError.message);
         throw new Error("Impossible de vérifier votre profil administrateur. Veuillez contacter l'assistance.");
       }
 
-      console.log("Profil récupéré:", profile);
+      console.log("Profil récupéré:", admin);
 
-      if (!profile) {
+      if (!admin) {
         await supabase.auth.signOut();
         throw new Error("Aucun profil administrateur trouvé pour cet utilisateur.");
       }
 
-      if (profile.role !== 'admin') {
-        console.error("Rôle non autorisé:", profile.role);
-        await supabase.auth.signOut();
-        throw new Error("Accès non autorisé. Seuls les administrateurs peuvent accéder à cet espace.");
-      }
-
       toast({
         title: "Connexion réussie",
-        description: `Bienvenue ${profile.first_name || 'Administrateur'}`,
+        description: `Bienvenue ${admin.prénom || 'Administrateur'}`,
       });
 
       console.log("Redirection vers le dashboard...");
@@ -110,7 +104,7 @@ const AdminLogin = () => {
         <InfoIcon className="h-4 w-4 text-blue-600" />
         <AlertTitle className="text-blue-700">Information</AlertTitle>
         <AlertDescription className="text-blue-600">
-          L'administrateur doit être créé dans Supabase Auth et avoir un profil avec le rôle "admin".
+          L'administrateur doit être créé dans Supabase Auth et avoir un enregistrement correspondant dans la table administrators.
         </AlertDescription>
       </Alert>
 

@@ -34,23 +34,17 @@ const AgentLogin = () => {
       
       if (error) throw error;
 
-      const { data: profile, error: profileError } = await supabase
-        .from('profiles')
+      const { data: agent, error: agentError } = await supabase
+        .from('agents')
         .select('*')
         .eq('id', authData.user.id)
         .maybeSingle();
 
-      if (profileError) throw profileError;
+      if (agentError) throw agentError;
 
-      if (!profile) {
+      if (!agent) {
         await supabase.auth.signOut();
-        setAuthError("Aucun profil trouvé pour cet utilisateur");
-        return;
-      }
-
-      if (profile.role !== 'agent') {
-        await supabase.auth.signOut();
-        setAuthError(`Accès non autorisé. Votre compte a le rôle "${profile.role}" mais un rôle "agent" est requis.`);
+        setAuthError("Aucun profil agent trouvé pour cet utilisateur");
         return;
       }
 

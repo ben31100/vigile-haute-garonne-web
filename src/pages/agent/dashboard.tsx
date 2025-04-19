@@ -14,12 +14,15 @@ const AgentDashboardPage = () => {
     },
   });
 
-  const { data: profile } = useQuery({
-    queryKey: ['profile'],
+  const { data: agent } = useQuery({
+    queryKey: ['agent'],
     queryFn: async () => {
+      if (!session?.user?.id) return null;
+      
       const { data } = await supabase
-        .from('profiles')
+        .from('agents')
         .select('*')
+        .eq('id', session.user.id)
         .single();
       return data;
     },
@@ -30,7 +33,7 @@ const AgentDashboardPage = () => {
     return <Navigate to="/agent/login" replace />;
   }
 
-  if (profile?.role !== 'agent') {
+  if (!agent) {
     return <Navigate to="/espace" replace />;
   }
 

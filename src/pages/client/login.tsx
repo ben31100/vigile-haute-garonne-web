@@ -34,23 +34,17 @@ const ClientLogin = () => {
       
       if (error) throw error;
 
-      const { data: profile, error: profileError } = await supabase
-        .from('profiles')
+      const { data: client, error: clientError } = await supabase
+        .from('clients')
         .select('*')
         .eq('id', authData.user.id)
         .maybeSingle();
 
-      if (profileError) throw profileError;
+      if (clientError) throw clientError;
 
-      if (!profile) {
+      if (!client) {
         await supabase.auth.signOut();
-        setAuthError("Aucun profil trouvé pour cet utilisateur");
-        return;
-      }
-
-      if (profile.role !== 'client') {
-        await supabase.auth.signOut();
-        setAuthError(`Accès non autorisé. Votre compte a le rôle "${profile.role}" mais un rôle "client" est requis.`);
+        setAuthError("Aucun profil client trouvé pour cet utilisateur");
         return;
       }
 

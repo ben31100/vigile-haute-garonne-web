@@ -15,12 +15,15 @@ const AdminDashboard = () => {
     },
   });
 
-  const { data: profile } = useQuery({
-    queryKey: ['profile'],
+  const { data: admin } = useQuery({
+    queryKey: ['admin'],
     queryFn: async () => {
+      if (!session?.user?.id) return null;
+      
       const { data } = await supabase
-        .from('profiles')
+        .from('administrators')
         .select('*')
+        .eq('id', session.user.id)
         .single();
       return data;
     },
@@ -31,7 +34,7 @@ const AdminDashboard = () => {
     return <Navigate to="/admin/login" replace />;
   }
 
-  if (profile?.role !== 'admin') {
+  if (!admin) {
     return <Navigate to="/espace" replace />;
   }
 
