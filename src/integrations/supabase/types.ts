@@ -9,6 +9,103 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
+      administrators: {
+        Row: {
+          email: string
+          id: string
+          nom: string | null
+          password_hash: string
+          prénom: string | null
+        }
+        Insert: {
+          email: string
+          id?: string
+          nom?: string | null
+          password_hash: string
+          prénom?: string | null
+        }
+        Update: {
+          email?: string
+          id?: string
+          nom?: string | null
+          password_hash?: string
+          prénom?: string | null
+        }
+        Relationships: []
+      }
+      agents: {
+        Row: {
+          administrator_id: string | null
+          email: string
+          id: string
+          nom: string | null
+          password_hash: string
+          prénom: string | null
+          site_affecté: string | null
+        }
+        Insert: {
+          administrator_id?: string | null
+          email: string
+          id?: string
+          nom?: string | null
+          password_hash: string
+          prénom?: string | null
+          site_affecté?: string | null
+        }
+        Update: {
+          administrator_id?: string | null
+          email?: string
+          id?: string
+          nom?: string | null
+          password_hash?: string
+          prénom?: string | null
+          site_affecté?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "agents_administrator_id_fkey"
+            columns: ["administrator_id"]
+            isOneToOne: false
+            referencedRelation: "administrators"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      clients: {
+        Row: {
+          administrator_id: string | null
+          contact: string | null
+          email: string
+          id: string
+          nom_entreprise: string | null
+          password_hash: string
+        }
+        Insert: {
+          administrator_id?: string | null
+          contact?: string | null
+          email: string
+          id?: string
+          nom_entreprise?: string | null
+          password_hash: string
+        }
+        Update: {
+          administrator_id?: string | null
+          contact?: string | null
+          email?: string
+          id?: string
+          nom_entreprise?: string | null
+          password_hash?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "clients_administrator_id_fkey"
+            columns: ["administrator_id"]
+            isOneToOne: false
+            referencedRelation: "administrators"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       medias: {
         Row: {
           bucket_id: string
@@ -54,156 +151,112 @@ export type Database = {
         }
         Relationships: []
       }
-      planning: {
+      messages: {
+        Row: {
+          contenu: string | null
+          id: string
+          lu: boolean | null
+          receiver_id: string
+          sender_id: string
+          sender_type: string | null
+          timestamp: string | null
+        }
+        Insert: {
+          contenu?: string | null
+          id?: string
+          lu?: boolean | null
+          receiver_id: string
+          sender_id: string
+          sender_type?: string | null
+          timestamp?: string | null
+        }
+        Update: {
+          contenu?: string | null
+          id?: string
+          lu?: boolean | null
+          receiver_id?: string
+          sender_id?: string
+          sender_type?: string | null
+          timestamp?: string | null
+        }
+        Relationships: []
+      }
+      plannings: {
         Row: {
           agent_id: string | null
-          created_at: string
-          created_by: string | null
-          description: string | null
-          end_time: string
+          client_id: string | null
+          date: string | null
+          heure_début: string | null
+          heure_fin: string | null
           id: string
-          site_id: string | null
-          start_time: string
-          updated_at: string
+          site: string | null
         }
         Insert: {
           agent_id?: string | null
-          created_at?: string
-          created_by?: string | null
-          description?: string | null
-          end_time: string
+          client_id?: string | null
+          date?: string | null
+          heure_début?: string | null
+          heure_fin?: string | null
           id?: string
-          site_id?: string | null
-          start_time: string
-          updated_at?: string
+          site?: string | null
         }
         Update: {
           agent_id?: string | null
-          created_at?: string
-          created_by?: string | null
-          description?: string | null
-          end_time?: string
+          client_id?: string | null
+          date?: string | null
+          heure_début?: string | null
+          heure_fin?: string | null
           id?: string
-          site_id?: string | null
-          start_time?: string
-          updated_at?: string
+          site?: string | null
         }
         Relationships: [
           {
-            foreignKeyName: "planning_agent_id_fkey"
+            foreignKeyName: "plannings_agent_id_fkey"
             columns: ["agent_id"]
             isOneToOne: false
-            referencedRelation: "profiles"
+            referencedRelation: "agents"
             referencedColumns: ["id"]
           },
           {
-            foreignKeyName: "planning_created_by_fkey"
-            columns: ["created_by"]
+            foreignKeyName: "plannings_client_id_fkey"
+            columns: ["client_id"]
             isOneToOne: false
-            referencedRelation: "profiles"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "planning_site_id_fkey"
-            columns: ["site_id"]
-            isOneToOne: false
-            referencedRelation: "sites"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
-      profiles: {
-        Row: {
-          assigned_site_id: string | null
-          company_name: string | null
-          contact_name: string | null
-          contact_phone: string | null
-          created_at: string
-          email: string | null
-          first_name: string | null
-          id: string
-          last_name: string | null
-          managed_by: string | null
-          nom_entreprise: string | null
-          role: Database["public"]["Enums"]["user_role"]
-          site_affecte: string | null
-          updated_at: string
-        }
-        Insert: {
-          assigned_site_id?: string | null
-          company_name?: string | null
-          contact_name?: string | null
-          contact_phone?: string | null
-          created_at?: string
-          email?: string | null
-          first_name?: string | null
-          id: string
-          last_name?: string | null
-          managed_by?: string | null
-          nom_entreprise?: string | null
-          role: Database["public"]["Enums"]["user_role"]
-          site_affecte?: string | null
-          updated_at?: string
-        }
-        Update: {
-          assigned_site_id?: string | null
-          company_name?: string | null
-          contact_name?: string | null
-          contact_phone?: string | null
-          created_at?: string
-          email?: string | null
-          first_name?: string | null
-          id?: string
-          last_name?: string | null
-          managed_by?: string | null
-          nom_entreprise?: string | null
-          role?: Database["public"]["Enums"]["user_role"]
-          site_affecte?: string | null
-          updated_at?: string
-        }
-        Relationships: [
-          {
-            foreignKeyName: "profiles_managed_by_fkey"
-            columns: ["managed_by"]
-            isOneToOne: false
-            referencedRelation: "profiles"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "profiles_site_affecte_fkey"
-            columns: ["site_affecte"]
-            isOneToOne: false
-            referencedRelation: "sites"
+            referencedRelation: "clients"
             referencedColumns: ["id"]
           },
         ]
       }
       sites: {
         Row: {
-          address: string
-          city: string
-          created_at: string
+          administrator_id: string | null
+          adresse: string | null
           id: string
-          name: string
-          updated_at: string
+          nom: string | null
+          ville: string | null
         }
         Insert: {
-          address: string
-          city: string
-          created_at?: string
+          administrator_id?: string | null
+          adresse?: string | null
           id?: string
-          name: string
-          updated_at?: string
+          nom?: string | null
+          ville?: string | null
         }
         Update: {
-          address?: string
-          city?: string
-          created_at?: string
+          administrator_id?: string | null
+          adresse?: string | null
           id?: string
-          name?: string
-          updated_at?: string
+          nom?: string | null
+          ville?: string | null
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "sites_administrator_id_fkey"
+            columns: ["administrator_id"]
+            isOneToOne: false
+            referencedRelation: "administrators"
+            referencedColumns: ["id"]
+          },
+        ]
       }
     }
     Views: {
