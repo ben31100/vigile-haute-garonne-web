@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Phone, Mail, CheckCircle2, ArrowRight, Telegram, WhatsApp } from 'lucide-react';
+import { Phone, Mail, CheckCircle2, ArrowRight, Send, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -192,7 +192,7 @@ const PartnerPage = () => {
                     variant="outline"
                     className="flex items-center gap-2 text-blue-500 hover:text-blue-600"
                   >
-                    <Telegram className="h-5 w-5" />
+                    <Send className="h-5 w-5" />
                     Telegram
                   </Button>
                   <Button
@@ -200,7 +200,7 @@ const PartnerPage = () => {
                     variant="outline"
                     className="flex items-center gap-2 text-green-500 hover:text-green-600"
                   >
-                    <WhatsApp className="h-5 w-5" />
+                    <MessageCircle className="h-5 w-5" />
                     WhatsApp
                   </Button>
                 </div>
