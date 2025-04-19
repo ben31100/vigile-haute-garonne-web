@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Index from './pages/Index';
@@ -80,6 +81,7 @@ const AppRoutes: React.FC = () => {
       <Route path="/cugnaux.html" element={<CugnauxPage />} />
       <Route path="/plaisance.html" element={<PlaisancePage />} />
       <Route path="/l-union.html" element={<LUnionPage />} />
+      <Route path="/securite-ville-union" element={<LUnionPage />} />
       <Route path="/saint-gaudens.html" element={<SaintGaudensPage />} />
       <Route path="/ariege.html" element={<AriegePage />} />
       <Route path="/aude.html" element={<AudePage />} />
@@ -93,8 +95,10 @@ const AppRoutes: React.FC = () => {
       <Route path="/devenir-partenaire" element={<PartnerPage />} />
       <Route path="/devenir-partenaire/inscription" element={<PartnerRegistrationPage />} />
       <Route path="/castanet-tolosan.html" element={<CastanetTolosanPage />} />
+      <Route path="/securite-ville-castanet" element={<CastanetTolosanPage />} />
       <Route path="/fonsorbes.html" element={<FonsorbesPage />} />
       <Route path="/portet-sur-garonne.html" element={<PortetSurGaronnePage />} />
+      <Route path="/securite-ville-portet" element={<PortetSurGaronnePage />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
