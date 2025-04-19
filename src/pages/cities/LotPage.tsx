@@ -9,14 +9,14 @@ import CtaSection from '@/components/cities/CtaSection';
 import { Shield, MapPin, Calendar, Building, Users } from 'lucide-react';
 
 const LotPage: React.FC = () => {
-  const cityName = "Lot";
+  const departmentName = "Lot";
   const postalCode = "46000";
 
   const specificitesItems: SpecificiteItem[] = [
     {
       icon: MapPin,
       title: "Protection des zones résidentielles",
-      description: `Surveillance des quartiers résidentiels dans tout le département du ${cityName}`
+      description: `Surveillance des quartiers résidentiels dans tout le département du ${departmentName}`
     },
     {
       icon: Building,
@@ -31,7 +31,7 @@ const LotPage: React.FC = () => {
     {
       icon: Calendar,
       title: "Sécurité événementielle",
-      description: `Organisation d'événements sécurisés dans le ${cityName}`
+      description: `Organisation d'événements sécurisés dans le ${departmentName}`
     },
     {
       icon: Users,
@@ -43,27 +43,27 @@ const LotPage: React.FC = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Helmet>
-        <title>Sécurité dans le {cityName} - Protection professionnelle | LeVigile</title>
-        <meta name="description" content={`Services de sécurité dans le ${cityName}. Protection et surveillance adaptées aux besoins des professionnels et particuliers.`} />
+        <title>Sécurité dans le {departmentName} - Protection professionnelle | LeVigile</title>
+        <meta name="description" content={`Services de sécurité dans le ${departmentName}. Protection et surveillance adaptées aux besoins des professionnels et particuliers.`} />
       </Helmet>
       
       <Header />
       
       <main className="flex-grow pt-24">
         <CityHero 
-          cityName={cityName}
-          subtitle={`Services de sécurité privée professionnels dans le ${cityName} (${postalCode})`}
+          cityName={departmentName}
+          subtitle={`Services de sécurité privée professionnels dans le ${departmentName} (${postalCode})`}
           backgroundImage="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//Toulouse-hero.jpg"
         />
         
         <SpecificitesSection 
           items={specificitesItems}
-          title={`Pourquoi choisir LeVigile dans le ${cityName} ?`}
+          title={`Pourquoi choisir LeVigile dans le ${departmentName} ?`}
           subtitle="Notre expertise locale au service de votre sécurité"
         />
         
         <CtaSection 
-          title={`Besoin d'un devis pour votre sécurité dans le ${cityName} ?`}
+          title={`Besoin d'un devis pour votre sécurité dans le ${departmentName} ?`}
           subtitle="Nos conseillers sont disponibles pour étudier vos besoins et vous proposer une solution adaptée."
         />
       </main>

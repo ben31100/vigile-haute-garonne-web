@@ -164,7 +164,7 @@ const AppRoutes: React.FC = () => {
       <Route path="/frouzins.html" element={<FrouzinsPage />} />
       <Route path="/securite-ville-frouzins" element={<FrouzinsPage />} />
       
-      {/* Department routes - Corrected URLs */}
+      {/* Department routes */}
       <Route path="/lot.html" element={<LotPage />} />
       <Route path="/lot" element={<LotPage />} />
       <Route path="/securite-departement-lot" element={<LotPage />} />
