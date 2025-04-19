@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Index from './pages/Index';
@@ -92,6 +91,15 @@ const AppRoutes: React.FC = () => {
       <Route path="/services/securite-magasin" element={<SecuriteMagasinPage />} />
       <Route path="/services/securite-residentielle" element={<SecuriteResidentiellePage />} />
       <Route path="/services/securite-incendie" element={<SecuriteIncendiePage />} />
+
+      {/* Career pages */}
+      <Route path="/carriere/pourquoi-nous-rejoindre" element={<WhyJoinUs />} />
+      <Route path="/carriere/nos-metiers" element={<OurJobs />} />
+      <Route path="/carriere/nos-offres" element={<JobOffers />} />
+      
+      {/* Partner pages */}
+      <Route path="/devenir-partenaire" element={<PartnerPage />} />
+      <Route path="/devenir-partenaire/inscription" element={<PartnerRegistrationPage />} />
 
       {/* City pages */}
       <Route path="/villes" element={<CitiesList />} />
