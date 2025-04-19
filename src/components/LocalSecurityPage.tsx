@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
 import Header from './Header';
@@ -11,10 +12,17 @@ import FaqSection from './local-security/FaqSection';
 import CtaSection from './cities/CtaSection';
 import cities from '../data/cities.json';
 
-const LocalSecurityPage: React.FC = () => {
-  const { cityId } = useParams<{ cityId: string }>();
+interface LocalSecurityPageProps {
+  cityId?: string;
+}
+
+const LocalSecurityPage: React.FC<LocalSecurityPageProps> = (props) => {
+  const params = useParams<{ cityId: string }>();
   const [loaded, setLoaded] = useState(false);
   const location = useLocation();
+  
+  // Use cityId from props if provided, otherwise from params
+  const cityId = props.cityId || params.cityId;
   
   // Find the city data
   const city = cities.find(c => c.id === cityId);

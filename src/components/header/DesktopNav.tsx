@@ -137,7 +137,7 @@ const DesktopNav: React.FC = () => {
         <DropdownMenuContent align="start" className="bg-white w-48 p-1 z-50">
           <DropdownMenuItem asChild>
             <Link 
-              to="/toulouse" 
+              to="/toulouse.html" 
               className="cursor-pointer w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md"
             >
               Toulouse
@@ -145,7 +145,7 @@ const DesktopNav: React.FC = () => {
           </DropdownMenuItem>
           <DropdownMenuItem asChild>
             <Link 
-              to="/villes/blagnac" 
+              to="/blagnac.html" 
               className="cursor-pointer w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md"
             >
               Blagnac
@@ -153,7 +153,7 @@ const DesktopNav: React.FC = () => {
           </DropdownMenuItem>
           <DropdownMenuItem asChild>
             <Link 
-              to="/villes/colomiers" 
+              to="/colomiers.html" 
               className="cursor-pointer w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md"
             >
               Colomiers
@@ -161,7 +161,7 @@ const DesktopNav: React.FC = () => {
           </DropdownMenuItem>
           <DropdownMenuItem asChild>
             <Link 
-              to="/villes/tournefeuille" 
+              to="/tournefeuille.html" 
               className="cursor-pointer w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md"
             >
               Tournefeuille
@@ -169,7 +169,7 @@ const DesktopNav: React.FC = () => {
           </DropdownMenuItem>
           <DropdownMenuItem asChild>
             <Link 
-              to="/villes/muret" 
+              to="/muret.html" 
               className="cursor-pointer w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md"
             >
               Muret

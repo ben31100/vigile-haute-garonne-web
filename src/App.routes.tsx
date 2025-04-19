@@ -132,9 +132,31 @@ export const routes = [
     path: "/toulouse",
     element: <ToulousePage />
   },
+  // Add support for .html extension
+  {
+    path: "/toulouse.html",
+    element: <ToulousePage />
+  },
   {
     path: "/villes/:cityId",
     element: <LocalSecurityPage />
+  },
+  // Add support for .html extension for specific cities
+  {
+    path: "/blagnac.html",
+    element: <LocalSecurityPage cityId="blagnac" />
+  },
+  {
+    path: "/colomiers.html",
+    element: <LocalSecurityPage cityId="colomiers" />
+  },
+  {
+    path: "/tournefeuille.html",
+    element: <LocalSecurityPage cityId="tournefeuille" />
+  },
+  {
+    path: "/muret.html",
+    element: <LocalSecurityPage cityId="muret" />
   },
   {
     path: "*",

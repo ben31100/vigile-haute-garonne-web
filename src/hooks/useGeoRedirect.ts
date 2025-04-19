@@ -46,8 +46,8 @@ export const useGeoRedirect = () => {
         if (matchedCity) {
           // Marquer la redirection comme effectuée
           sessionStorage.setItem('geoRedirectDone', 'true');
-          // Rediriger vers la page de la ville
-          navigate(`/villes/${matchedCity.id}`, { replace: true });
+          // Rediriger vers la page de la ville avec le format .html
+          navigate(`/${matchedCity.id}.html`, { replace: true });
         }
       } catch (error) {
         console.error('Erreur lors de la géolocalisation:', error);
