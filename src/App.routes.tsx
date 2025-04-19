@@ -74,6 +74,8 @@ import TarnEtGaronnePage from './pages/cities/TarnEtGaronnePage';
 
 // Add new import
 import AccessPage from './pages/espace';
+import AdminLogin from './pages/admin/login';
+import AdminDashboard from './pages/admin/dashboard';
 
 const AppRoutes: React.FC = () => {
   return (
@@ -217,6 +219,10 @@ const AppRoutes: React.FC = () => {
       
       {/* Add new route */}
       <Route path="/espace" element={<AccessPage />} />
+      
+      {/* Admin routes */}
+      <Route path="/admin/login" element={<AdminLogin />} />
+      <Route path="/admin/dashboard" element={<AdminDashboard />} />
       
       {/* Keep existing catch-all route */}
       <Route path="*" element={<NotFound />} />
