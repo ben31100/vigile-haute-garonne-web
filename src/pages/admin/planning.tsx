@@ -15,7 +15,7 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { Calendar } from '@/components/ui/calendar';
-import { Plus } from 'lucide-react';
+import { Edit, Plus, Trash2 } from 'lucide-react';
 import {
   Card,
   CardContent,
@@ -36,8 +36,8 @@ const PlanningPage = () => {
         .from('plannings')
         .select(`
           *,
-          agents (nom, prénom),
-          clients (nom_entreprise)
+          agents (id, nom, prénom),
+          clients (id, nom_entreprise)
         `)
         .eq('date', format(date, 'yyyy-MM-dd'));
       
