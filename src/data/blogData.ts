@@ -1,3 +1,4 @@
+
 import { BlogArticle, BlogAuthor, BlogTag, BlogArticlePreview } from '../types/blog';
 import { format, parseISO } from 'date-fns';
 import { fr } from 'date-fns/locale';
@@ -608,4 +609,98 @@ export const blogArticles: BlogArticle[] = [
       <p>Dans un contexte où les habitants des quartiers résidentiels de la périphérie toulousaine expriment des inquiétudes grandissantes face aux incidents, la surveillance privée apparaît comme une solution de plus en plus plébiscitée.</p>
       
       <h2>Des rondes efficaces et dissuasives</h2>
-      <p>Notre service de rondes
+      <p>Notre service de rondes de surveillance offre une présence visible et régulière dans votre quartier :</p>
+      
+      <ul>
+        <li>Rondes de nuit en voiture ou à pied</li>
+        <li>Présence visible pour dissuasion</li>
+        <li>Vérification des accès, portails et zones communes</li>
+        <li>Détection des comportements suspects</li>
+      </ul>
+      
+      <h2>Intervention rapide en cas d'alerte</h2>
+      <p>Nos agents de sécurité sont formés pour intervenir rapidement en cas d'incident :</p>
+      
+      <ul>
+        <li>Temps d'intervention inférieur à 20 minutes</li>
+        <li>Coordination avec les forces de l'ordre si nécessaire</li>
+        <li>Gestion des situations d'urgence</li>
+        <li>Rapport détaillé après chaque intervention</li>
+      </ul>
+      
+      <h2>Une solution adaptée aux copropriétés</h2>
+      <p>LeVigile travaille en étroite collaboration avec les syndics et conseils syndicaux pour proposer des solutions sur mesure :</p>
+      
+      <ul>
+        <li>Contrats adaptés aux besoins spécifiques de chaque résidence</li>
+        <li>Tarifs mutualisés pour optimiser les coûts</li>
+        <li>Présence ponctuelle ou régulière selon les périodes de l'année</li>
+        <li>Agents formés et qualifiés</li>
+      </ul>
+      
+      <blockquote>LeVigile accompagne déjà plusieurs quartiers à Colomiers, Blagnac et Tournefeuille. Pourquoi pas le vôtre ?</blockquote>
+    `,
+    publishedAt: '2025-04-19T08:00:00Z',
+    readingTime: 5,
+    coverImage: 'https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//Surveillance%20de%20residences%20Levigile.png',
+    author: blogAuthors.expert,
+    tags: [blogTags.securite, blogTags.residence],
+    relatedArticles: ['6', '2']
+  },
+  {
+    id: '12',
+    slug: 'securite-grande-surface',
+    title: 'Sécurité en grande surface : quels dispositifs pour protéger clients et employés ?',
+    subtitle: "Solutions de protection pour les espaces commerciaux",
+    excerpt: "Vols à l'étalage, incivilités, gestion de flux : une grande surface nécessite un dispositif de sécurité professionnel et bien pensé.",
+    content: `
+      <h2>Les enjeux de sécurité spécifiques aux grandes surfaces</h2>
+      <p>Les espaces commerciaux de grande taille font face à des problématiques de sécurité particulières qui nécessitent une approche adaptée :</p>
+      
+      <ul>
+        <li>Prévention des vols à l'étalage</li>
+        <li>Gestion des flux importants de clientèle</li>
+        <li>Protection des employés face aux incivilités</li>
+        <li>Sécurisation des zones sensibles (réserves, caisses)</li>
+      </ul>
+      
+      <h2>Une présence dissuasive à l'entrée</h2>
+      <p>Le positionnement stratégique d'agents de sécurité à l'entrée du magasin constitue un premier niveau de protection efficace :</p>
+      
+      <ul>
+        <li>Effet dissuasif immédiat</li>
+        <li>Contrôle visuel des entrées et sorties</li>
+        <li>Assistance aux clients</li>
+        <li>Intervention rapide en cas d'incident</li>
+      </ul>
+      
+      <h2>Des rondes discrètes mais efficaces</h2>
+      <p>La surveillance mobile dans les rayons permet une couverture optimale de l'espace commercial :</p>
+      
+      <ul>
+        <li>Agents en civil pour une surveillance discrète</li>
+        <li>Rondes régulières dans les zones à risque</li>
+        <li>Coordination avec le personnel de vente</li>
+        <li>Repérage précoce des comportements suspects</li>
+      </ul>
+      
+      <h2>Maîtrise des situations conflictuelles</h2>
+      <p>Les agents de sécurité en grande surface sont spécifiquement formés à la gestion des conflits :</p>
+      
+      <ul>
+        <li>Techniques de communication non violente</li>
+        <li>Désescalade des tensions</li>
+        <li>Intervention adaptée et proportionnée</li>
+        <li>Procédures légales en cas d'interpellation</li>
+      </ul>
+      
+      <blockquote>LeVigile fournit des agents spécialisés pour la surveillance des grandes surfaces en Haute-Garonne. Contactez-nous pour une étude personnalisée de vos besoins.</blockquote>
+    `,
+    publishedAt: '2025-04-20T09:30:00Z',
+    readingTime: 7,
+    coverImage: 'https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//Securite%20en%20grande%20surface%20Levigile.png',
+    author: blogAuthors.expert,
+    tags: [blogTags.securite, blogTags.entreprise],
+    relatedArticles: ['3', '1']
+  }
+];
