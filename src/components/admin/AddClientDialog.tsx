@@ -58,28 +58,68 @@ export function AddClientDialog() {
 
   const onSubmit = async (data: FormData) => {
     try {
-      // Create auth user in Supabase
+      // First, check if an existing client has this email in our database
+      const { data: existingClients, error: checkError } = await supabase
+        .from('clients')
+        .select('id, email')
+        .eq('email', data.email)
+        .maybeSingle();
+      
+      if (checkError) throw checkError;
+      
+      // If client already exists in our database
+      if (existingClients) {
+        toast({
+          title: "Client déjà existant",
+          description: "Un client avec cet email existe déjà dans la base de données.",
+          variant: "destructive",
+        });
+        return;
+      }
+      
+      // Attempt to create a new auth user
       const { data: authData, error: authError } = await supabase.auth.signUp({
         email: data.email,
         password: data.password,
       });
 
-      // Handle case where user already exists
+      // Handle case where user already exists in auth system
       if (authError) {
+        // If the error is "User already registered", proceed with creating just the client record
         if (authError.status === 422 && authError.message.includes('User already registered')) {
+          console.log("Auth user already exists, creating client record only");
+          
+          // Create client record without needing auth user creation
+          const { error: clientError } = await supabase
+            .from('clients')
+            .insert({
+              email: data.email,
+              nom_entreprise: data.nom_entreprise,
+              contact: data.contact,
+              téléphone: data.telephone,
+              password_hash: data.password // Store password hash for reference
+            });
+            
+          if (clientError) throw clientError;
+          
           toast({
-            title: "Email déjà utilisé",
-            description: "Un compte existe déjà avec cet email. Veuillez utiliser une autre adresse email.",
-            variant: "destructive",
+            title: "Client ajouté",
+            description: "Le client a été ajouté avec succès (utilisateur existant)",
           });
+          
+          queryClient.invalidateQueries({ queryKey: ['clients'] });
+          setOpen(false);
+          form.reset();
+          return;
         } else {
+          // For other auth errors, display error and stop
           toast({
             title: "Erreur d'authentification",
             description: authError.message || "Une erreur est survenue lors de la création du compte",
             variant: "destructive",
           });
+          return;
         }
-        return;
       }
       
       if (!authData.user) throw new Error("Erreur lors de la création du compte");
@@ -91,8 +131,8 @@ export function AddClientDialog() {
           email: data.email,
           nom_entreprise: data.nom_entreprise,
           contact: data.contact,
-          téléphone: data.telephone, // Save telephone in the téléphone field
-          password_hash: data.password // Store password hash for reference
+          téléphone: data.telephone, 
+          password_hash: data.password
         });
 
       if (clientError) {
