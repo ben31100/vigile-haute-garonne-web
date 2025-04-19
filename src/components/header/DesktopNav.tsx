@@ -221,6 +221,16 @@ const DesktopNav: React.FC = () => {
       <Link to="/contact" className="text-levigile-dark hover:text-levigile-blue font-medium text-base transition-colors">
         Contact
       </Link>
+      
+      <Link 
+        to="/espace" 
+        className={cn(
+          "text-levigile-dark hover:text-levigile-blue font-medium text-base transition-colors",
+          location.pathname === "/espace" && "text-levigile-blue"
+        )}
+      >
+        Espace sécurisé
+      </Link>
     </nav>
   );
 };

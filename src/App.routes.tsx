@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Index from './pages/Index';
@@ -72,6 +71,9 @@ import HautesPyreneesPage from './pages/cities/HautesPyreneesPage';
 import PyreneesOrientalesPage from './pages/cities/PyreneesOrientalesPage';
 import TarnPage from './pages/cities/TarnPage';
 import TarnEtGaronnePage from './pages/cities/TarnEtGaronnePage';
+
+// Add new import
+import AccessPage from './pages/espace';
 
 const AppRoutes: React.FC = () => {
   return (
@@ -213,6 +215,10 @@ const AppRoutes: React.FC = () => {
       <Route path="/tarbes" element={<HautesPyreneesPage />} />
       <Route path="/securite-ville-tarbes" element={<HautesPyreneesPage />} />
       
+      {/* Add new route */}
+      <Route path="/espace" element={<AccessPage />} />
+      
+      {/* Keep existing catch-all route */}
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
