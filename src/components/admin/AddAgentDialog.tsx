@@ -10,6 +10,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
+  DialogDescription,
 } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import {
@@ -22,31 +23,68 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { UserPlus } from 'lucide-react';
+import * as z from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
 
-type FormData = {
-  nom: string;
-  prénom: string;
-  email: string;
-  téléphone: string;
-  site_affecté?: string;
-};
+const formSchema = z.object({
+  nom: z.string().min(1, 'Le nom est requis'),
+  prénom: z.string().min(1, 'Le prénom est requis'),
+  email: z.string().email('Email invalide'),
+  téléphone: z.string().optional(),
+  site_affecté: z.string().optional(),
+  password: z.string().min(6, 'Le mot de passe doit contenir au moins 6 caractères'),
+  confirmPassword: z.string()
+}).refine((data) => data.password === data.confirmPassword, {
+  message: "Les mots de passe ne correspondent pas",
+  path: ["confirmPassword"],
+});
+
+type FormData = z.infer<typeof formSchema>;
 
 export function AddAgentDialog() {
   const [open, setOpen] = React.useState(false);
   const { toast } = useToast();
   const queryClient = useQueryClient();
-  const form = useForm<FormData>();
+  const form = useForm<FormData>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      nom: '',
+      prénom: '',
+      email: '',
+      téléphone: '',
+      site_affecté: '',
+      password: '',
+      confirmPassword: '',
+    }
+  });
 
   const onSubmit = async (data: FormData) => {
     try {
-      const { error } = await supabase
+      // Create auth user in Supabase
+      const { data: authData, error: authError } = await supabase.auth.signUp({
+        email: data.email,
+        password: data.password,
+      });
+
+      if (authError) throw authError;
+      if (!authData.user) throw new Error("Erreur lors de la création du compte");
+
+      // Create agent record
+      const { error: agentError } = await supabase
         .from('agents')
         .insert([{
-          ...data,
-          password_hash: 'temporary_hash' // In a real app, you'd handle this differently
+          email: data.email,
+          nom: data.nom,
+          prénom: data.prénom,
+          téléphone: data.téléphone,
+          site_affecté: data.site_affecté,
         }]);
 
-      if (error) throw error;
+      if (agentError) {
+        // If agent creation fails, attempt to clean up the auth user
+        await supabase.auth.admin.deleteUser(authData.user.id);
+        throw agentError;
+      }
 
       toast({
         title: "Agent ajouté",
@@ -57,9 +95,10 @@ export function AddAgentDialog() {
       setOpen(false);
       form.reset();
     } catch (error) {
+      console.error('Error adding agent:', error);
       toast({
         title: "Erreur",
-        description: "Une erreur est survenue lors de l'ajout de l'agent",
+        description: error.message || "Une erreur est survenue lors de l'ajout de l'agent",
         variant: "destructive",
       });
     }
@@ -76,6 +115,9 @@ export function AddAgentDialog() {
       <DialogContent>
         <DialogHeader>
           <DialogTitle>Ajouter un nouvel agent</DialogTitle>
+          <DialogDescription>
+            Créez un nouvel agent avec ses identifiants de connexion
+          </DialogDescription>
         </DialogHeader>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
@@ -86,7 +128,7 @@ export function AddAgentDialog() {
                 <FormItem>
                   <FormLabel>Nom</FormLabel>
                   <FormControl>
-                    <Input {...field} required />
+                    <Input {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -99,7 +141,7 @@ export function AddAgentDialog() {
                 <FormItem>
                   <FormLabel>Prénom</FormLabel>
                   <FormControl>
-                    <Input {...field} required />
+                    <Input {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -112,7 +154,33 @@ export function AddAgentDialog() {
                 <FormItem>
                   <FormLabel>Email</FormLabel>
                   <FormControl>
-                    <Input type="email" {...field} required />
+                    <Input type="email" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="password"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Mot de passe</FormLabel>
+                  <FormControl>
+                    <Input type="password" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="confirmPassword"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Confirmer le mot de passe</FormLabel>
+                  <FormControl>
+                    <Input type="password" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
