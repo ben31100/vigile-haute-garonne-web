@@ -35,9 +35,15 @@ const PlanningPage = () => {
       const { data, error } = await supabase
         .from('plannings')
         .select(`
-          *,
-          agents(id, nom, prénom),
-          clients(id, nom_entreprise)
+          id, 
+          heure_début, 
+          heure_fin, 
+          date, 
+          site,
+          agent_id, 
+          agents:agent_id(id, nom, prénom), 
+          client_id,
+          clients:client_id(id, nom_entreprise)
         `)
         .eq('date', format(date, 'yyyy-MM-dd'));
       
