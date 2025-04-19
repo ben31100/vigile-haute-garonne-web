@@ -77,6 +77,10 @@ import AccessPage from './pages/espace';
 import AdminLogin from './pages/admin/login';
 import AdminDashboard from './pages/admin/dashboard';
 import AdminSetup from './pages/admin/setup';
+import AgentLogin from './pages/agent/login';
+import AgentDashboardPage from './pages/agent/dashboard';
+import ClientLogin from './pages/client/login';
+import ClientDashboardPage from './pages/client/dashboard';
 
 const AppRoutes: React.FC = () => {
   return (
@@ -225,6 +229,14 @@ const AppRoutes: React.FC = () => {
       <Route path="/admin/login" element={<AdminLogin />} />
       <Route path="/admin/dashboard" element={<AdminDashboard />} />
       <Route path="/admin/setup" element={<AdminSetup />} />
+      
+      {/* Agent routes */}
+      <Route path="/agent/login" element={<AgentLogin />} />
+      <Route path="/agent/dashboard" element={<AgentDashboardPage />} />
+      
+      {/* Client routes */}
+      <Route path="/client/login" element={<ClientLogin />} />
+      <Route path="/client/dashboard" element={<ClientDashboardPage />} />
       
       {/* Keep existing catch-all route */}
       <Route path="*" element={<NotFound />} />
