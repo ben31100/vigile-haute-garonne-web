@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { ChevronLeft } from 'lucide-react';
@@ -43,20 +42,23 @@ const BlogArticle: React.FC = () => {
       keywords={article.tags?.map(tag => tag.name).join(', ')}
       ogImage={article.coverImage}
     >
-      {/* Bouton Retour au-dessus du hero pour plus de visibilité */}
-      <div className="container mx-auto px-4 py-4 bg-white">
-        <Button 
-          variant="outline" 
-          onClick={handleGoBack} 
-          className="flex items-center gap-2"
-        >
-          <ChevronLeft className="h-4 w-4" />
-          Retour au blog
-        </Button>
-      </div>
-      
       <article>
         <div className="relative">
+          <div className="absolute top-4 left-0 right-0 z-10">
+            <div className="container mx-auto px-4">
+              <div className="flex items-center gap-2">
+                <Button 
+                  variant="outline" 
+                  onClick={handleGoBack} 
+                  className="flex items-center gap-2"
+                >
+                  <ChevronLeft className="h-4 w-4" />
+                  Retour au blog
+                </Button>
+              </div>
+            </div>
+          </div>
+
           <div className="w-full h-64 md:h-96 overflow-hidden">
             <img 
               src={article.coverImage}
