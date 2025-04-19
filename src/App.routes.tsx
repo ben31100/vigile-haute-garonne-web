@@ -11,6 +11,8 @@ import PlanningPage from '@/pages/admin/planning';
 import MessagesPage from '@/pages/admin/messages';
 import ReportsPage from '@/pages/admin/reports';
 import SettingsPage from '@/pages/admin/settings';
+import ContactPage from '@/pages/ContactPage';
+import NotFound from '@/pages/NotFound';
 
 export const routes = [
   {
@@ -64,6 +66,14 @@ export const routes = [
   {
     path: "/admin/settings",
     element: <SettingsPage />
+  },
+  {
+    path: "/contact",
+    element: <ContactPage />
+  },
+  {
+    path: "*",
+    element: <NotFound />
   }
 ];
 
