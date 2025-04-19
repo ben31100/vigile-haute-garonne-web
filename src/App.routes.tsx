@@ -1,5 +1,6 @@
-import { Espace } from '@/pages/espace';
-import { AgentLogin } from '@/pages/agent/login';
+
+import AccessPage from '@/pages/espace';
+import AgentLoginPage from '@/pages/agent/login';
 import AgentDashboardPage from '@/pages/agent/dashboard';
 import AdminLogin from '@/pages/admin/login';
 import AdminDashboard from '@/pages/admin/dashboard';
@@ -14,15 +15,15 @@ import SettingsPage from '@/pages/admin/settings';
 export const routes = [
   {
     path: "/",
-    element: <Espace />,
+    element: <AccessPage />,
   },
   {
     path: "/espace",
-    element: <Espace />,
+    element: <AccessPage />,
   },
   {
     path: "/agent/login",
-    element: <AgentLogin />,
+    element: <AgentLoginPage />,
   },
   {
     path: "/agent/dashboard",
@@ -65,3 +66,12 @@ export const routes = [
     element: <SettingsPage />
   }
 ];
+
+// Add default export
+const AppRoutes = () => (
+  routes.map(route => (
+    <route.component {...route.props} path={route.path} key={route.path} />
+  ))
+);
+
+export default AppRoutes;
