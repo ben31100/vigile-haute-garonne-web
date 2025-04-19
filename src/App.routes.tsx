@@ -1,3 +1,4 @@
+
 import AccessPage from '@/pages/espace';
 import AgentLoginPage from '@/pages/agent/login';
 import AgentDashboardPage from '@/pages/agent/dashboard';
@@ -31,7 +32,33 @@ import SecuriteIncendiePage from '@/pages/services/SecuriteIncendiePage';
 import ToulousePage from '@/pages/cities/ToulousePage';
 import BlagnacPage from '@/pages/cities/BlagnacPage';
 import LocalSecurityPage from '@/components/LocalSecurityPage';
-import CitiesList from '@/pages/CitiesList'; // We'll use the existing CitiesList component
+import CitiesList from '@/pages/CitiesList';
+
+// Import department pages
+import AriegePage from '@/pages/cities/AriegePage';
+import AudePage from '@/pages/cities/AudePage';
+import AveyronPage from '@/pages/cities/AveyronPage';
+import GardPage from '@/pages/cities/GardPage';
+import HautesPyreneesPage from '@/pages/cities/HautesPyreneesPage';
+import LotPage from '@/pages/cities/LotPage';
+import LozerePage from '@/pages/cities/LozerePage';
+import TarnPage from '@/pages/cities/TarnPage';
+import TarnEtGaronnePage from '@/pages/cities/TarnEtGaronnePage';
+import PyreneesOrientalesPage from '@/pages/cities/PyreneesOrientalesPage';
+import PerpignanPage from '@/pages/cities/PerpignanPage';
+import CahorsPage from '@/pages/cities/CahorsPage';
+
+// Import additional city pages
+import AucamvillePage from '@/pages/cities/AucamvillePage';
+import AussonnePage from '@/pages/cities/AussonnePage';
+import BruguieresPage from '@/pages/cities/BruguieresPage';
+import CastelginestPage from '@/pages/cities/CastelginestPage';
+import CastanetTolosanPage from '@/pages/cities/CastanetTolosanPage';
+import PibracPage from '@/pages/cities/PibracPage';
+import PortetSurGaronnePage from '@/pages/cities/PortetSurGaronnePage';
+import RoquesPage from '@/pages/cities/RoquesPage';
+import SaintJeanPage from '@/pages/cities/SaintJeanPage';
+import SeyssesPage from '@/pages/cities/SeyssesPage';
 
 export const routes = [
   {
@@ -162,6 +189,96 @@ export const routes = [
   {
     path: "/villes",
     element: <CitiesList />
+  },
+  // Department pages routes
+  {
+    path: "/ariege.html",
+    element: <AriegePage />
+  },
+  {
+    path: "/aude.html",
+    element: <AudePage />
+  },
+  {
+    path: "/aveyron.html",
+    element: <AveyronPage />
+  },
+  {
+    path: "/gard.html",
+    element: <GardPage />
+  },
+  {
+    path: "/hautes-pyrenees.html",
+    element: <HautesPyreneesPage />
+  },
+  {
+    path: "/lot.html",
+    element: <LotPage />
+  },
+  {
+    path: "/lozere.html",
+    element: <LozerePage />
+  },
+  {
+    path: "/tarn.html",
+    element: <TarnPage />
+  },
+  {
+    path: "/tarn-et-garonne.html", 
+    element: <TarnEtGaronnePage />
+  },
+  {
+    path: "/pyrenees-orientales.html",
+    element: <PyreneesOrientalesPage />
+  },
+  {
+    path: "/perpignan.html",
+    element: <PerpignanPage />
+  },
+  {
+    path: "/cahors.html",
+    element: <CahorsPage />
+  },
+  // Additional city pages
+  {
+    path: "/aucamville.html",
+    element: <AucamvillePage />
+  },
+  {
+    path: "/aussonne.html",
+    element: <AussonnePage />
+  },
+  {
+    path: "/bruguieres.html",
+    element: <BruguieresPage />
+  },
+  {
+    path: "/castelginest.html",
+    element: <CastelginestPage />
+  },
+  {
+    path: "/castanet-tolosan.html",
+    element: <CastanetTolosanPage />
+  },
+  {
+    path: "/pibrac.html",
+    element: <PibracPage />
+  },
+  {
+    path: "/portet-sur-garonne.html",
+    element: <PortetSurGaronnePage />
+  },
+  {
+    path: "/roques.html",
+    element: <RoquesPage />
+  },
+  {
+    path: "/saint-jean.html",
+    element: <SaintJeanPage />
+  },
+  {
+    path: "/seysses.html",
+    element: <SeyssesPage />
   },
   {
     path: "*",

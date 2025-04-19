@@ -19,7 +19,11 @@ const CitiesMenu: React.FC = () => {
            location.pathname.includes("/blagnac") ||
            location.pathname.includes("/colomiers") ||
            location.pathname.includes("/tournefeuille") ||
-           location.pathname.includes("/muret")) && "text-levigile-blue"
+           location.pathname.includes("/muret") ||
+           location.pathname.includes("ariege") ||
+           location.pathname.includes("aude") ||
+           location.pathname.includes("aveyron") ||
+           location.pathname.includes("gard")) && "text-levigile-blue"
         )}
       >
         Villes <ChevronDown className="ml-1 h-4 w-4" />
@@ -63,6 +67,39 @@ const CitiesMenu: React.FC = () => {
             className="cursor-pointer w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md"
           >
             Muret
+          </Link>
+        </DropdownMenuItem>
+        <DropdownMenuSeparator />
+        <DropdownMenuItem asChild>
+          <Link 
+            to="/ariege.html" 
+            className="cursor-pointer w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md"
+          >
+            Ariège
+          </Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem asChild>
+          <Link 
+            to="/aude.html" 
+            className="cursor-pointer w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md"
+          >
+            Aude
+          </Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem asChild>
+          <Link 
+            to="/aveyron.html" 
+            className="cursor-pointer w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md"
+          >
+            Aveyron
+          </Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem asChild>
+          <Link 
+            to="/gard.html" 
+            className="cursor-pointer w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md"
+          >
+            Gard
           </Link>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
