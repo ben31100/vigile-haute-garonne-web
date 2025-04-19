@@ -596,5 +596,16 @@ export const blogArticles: BlogArticle[] = [
     author: blogAuthors.expert,
     tags: [blogTags.securite, blogTags.cynophile],
     relatedArticles: ['1', '7']
-  }
-];
+  },
+  {
+    id: '11',
+    slug: 'surveillance-residences-toulouse',
+    title: 'Surveillance de résidences : une solution contre les cambriolages en périphérie toulousaine',
+    subtitle: 'Protection efficace pour les quartiers résidentiels',
+    excerpt: "Cambriolages, incivilités, rodéos urbains... Les résidents des communes périphériques de Toulouse s'inquiètent. La surveillance privée est-elle une solution viable ?",
+    content: `
+      <h2>La sécurité résidentielle, une préoccupation croissante</h2>
+      <p>Dans un contexte où les habitants des quartiers résidentiels de la périphérie toulousaine expriment des inquiétudes grandissantes face aux incidents, la surveillance privée apparaît comme une solution de plus en plus plébiscitée.</p>
+      
+      <h2>Des rondes efficaces et dissuasives</h2>
+      <p>Notre service
