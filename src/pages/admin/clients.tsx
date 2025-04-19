@@ -12,7 +12,8 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { Edit, Trash2, UserPlus } from 'lucide-react';
+import { Edit, Trash2 } from 'lucide-react';
+import { AddClientDialog } from '@/components/admin/AddClientDialog';
 
 const ClientsPage = () => {
   const { data: clients, isLoading } = useQuery({
@@ -33,10 +34,7 @@ const ClientsPage = () => {
       <div className="p-6 space-y-6">
         <div className="flex justify-between items-center">
           <h1 className="text-2xl font-bold">Gestion des Clients</h1>
-          <Button className="flex items-center gap-2">
-            <UserPlus size={20} />
-            <span>Ajouter un client</span>
-          </Button>
+          <AddClientDialog />
         </div>
 
         <div className="border rounded-lg">
