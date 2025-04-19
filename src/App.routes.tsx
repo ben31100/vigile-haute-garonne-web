@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Index from './pages/Index';
@@ -104,7 +105,7 @@ const AppRoutes: React.FC = () => {
       <Route path="/labege.html" element={<LabegePage />} />
       <Route path="/securite-ville-labege" element={<LabegePage />} />
       <Route path="/villeneuve-tolosane.html" element={<VilleneuveTolosanePage />} />
-      <Route path="/securite-ville-villeneuve" element={<VilleneuveTolosanePage />} />
+      <Route path="/securite-ville-villeneuve-tolosane" element={<VilleneuveTolosanePage />} />
       
       {/* New city routes */}
       <Route path="/leguevin.html" element={<LeguevingPage />} />
