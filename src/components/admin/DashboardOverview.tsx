@@ -2,7 +2,14 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Users, Calendar, MapPin, MessageSquare, FileText } from 'lucide-react';
+import { 
+  Users, 
+  Calendar, 
+  MapPin, 
+  MessageSquare, 
+  FileText,
+  Settings
+} from 'lucide-react';
 
 const DashboardOverview = () => {
   const navigate = useNavigate();
@@ -12,37 +19,43 @@ const DashboardOverview = () => {
       title: 'Agents',
       description: 'Gérer les agents de sécurité',
       icon: <Users className="h-6 w-6 text-blue-500" />,
-      onClick: () => navigate('/admin/agents')
+      path: '/admin/agents'
     },
     {
       title: 'Clients',
       description: 'Gérer les clients',
       icon: <Users className="h-6 w-6 text-purple-500" />,
-      onClick: () => navigate('/admin/clients')
+      path: '/admin/clients'
     },
     {
       title: 'Sites',
-      description: 'Gérer les sites d\'intervention',
+      description: "Gérer les sites d'intervention",
       icon: <MapPin className="h-6 w-6 text-green-500" />,
-      onClick: () => navigate('/admin/sites')
+      path: '/admin/sites'
     },
     {
       title: 'Planning',
       description: 'Gérer les plannings des agents',
       icon: <Calendar className="h-6 w-6 text-orange-500" />,
-      onClick: () => navigate('/admin/planning')
+      path: '/admin/planning'
     },
     {
       title: 'Messages',
       description: 'Gérer les communications',
       icon: <MessageSquare className="h-6 w-6 text-red-500" />,
-      onClick: () => navigate('/admin/messages')
+      path: '/admin/messages'
     },
     {
       title: 'Rapports',
       description: 'Consulter les statistiques',
       icon: <FileText className="h-6 w-6 text-indigo-500" />,
-      onClick: () => navigate('/admin/reports')
+      path: '/admin/reports'
+    },
+    {
+      title: 'Paramètres',
+      description: 'Configurer le système',
+      icon: <Settings className="h-6 w-6 text-gray-500" />,
+      path: '/admin/settings'
     }
   ];
   
@@ -55,7 +68,7 @@ const DashboardOverview = () => {
           <Card 
             key={index} 
             className="cursor-pointer hover:shadow-md transition-shadow"
-            onClick={item.onClick}
+            onClick={() => navigate(item.path)}
           >
             <CardHeader className="flex flex-row items-center justify-between pb-2">
               <CardTitle className="text-lg font-semibold">{item.title}</CardTitle>
