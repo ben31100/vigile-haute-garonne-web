@@ -23,7 +23,7 @@ interface Client {
   email: string;
   password_hash: string;
   administrator_id: string | null;
-  téléphone?: string | null; // Make this optional since it might not exist in all records
+  // Note: téléphone is not available in the database schema
 }
 
 const ClientsPage = () => {
@@ -55,7 +55,6 @@ const ClientsPage = () => {
                 <TableHead>Entreprise</TableHead>
                 <TableHead>Contact</TableHead>
                 <TableHead>Email</TableHead>
-                <TableHead>Téléphone</TableHead>
                 <TableHead className="w-[100px]">Actions</TableHead>
               </TableRow>
             </TableHeader>
@@ -65,7 +64,6 @@ const ClientsPage = () => {
                   <TableCell>{client.nom_entreprise || '-'}</TableCell>
                   <TableCell>{client.contact || '-'}</TableCell>
                   <TableCell>{client.email}</TableCell>
-                  <TableCell>{client.téléphone || '-'}</TableCell>
                   <TableCell>
                     <div className="flex gap-2">
                       <Button variant="outline" size="icon">
