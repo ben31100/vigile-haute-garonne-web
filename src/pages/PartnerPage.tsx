@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Phone, Mail, CheckCircle2, ArrowRight, Send, MessageCircle } from 'lucide-react';
+import { Phone, Mail, CheckCircle2, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -13,30 +13,6 @@ const PartnerPage = () => {
 
   const handleEmail = () => {
     window.location.href = 'mailto:contact@levigile.fr';
-  };
-
-  const handleTelegram = () => {
-    window.open('https://t.me/levigile', '_blank');
-  };
-
-  const handleWhatsApp = () => {
-    window.open('https://wa.me/33554546428', '_blank');
-  };
-
-  const handleMainPhone = () => {
-    window.location.href = 'tel:+33554546428';
-  };
-
-  const handleMobilePhone = () => {
-    window.location.href = 'tel:+33780817979';
-  };
-
-  const handleMainEmail = () => {
-    window.location.href = 'mailto:contact@levigile.fr';
-  };
-
-  const handleSecondaryEmail = () => {
-    window.location.href = 'mailto:levigile31@gmail.com';
   };
 
   return (
@@ -105,6 +81,22 @@ const PartnerPage = () => {
             </div>
 
             <div className="space-y-4">
+              <h2 className="text-2xl font-semibold">1️⃣ Qu'est-ce qu'un rapporteur d'affaires ?</h2>
+              <p className="text-gray-600">
+                Un rapporteur d'affaires est une personne (particulier ou professionnel) qui met en relation 
+                Levigile avec une entreprise, une collectivité ou un particulier ayant besoin de prestations 
+                de sécurité.
+              </p>
+              <p className="text-gray-600">
+                Dès que la mission est confirmée et signée, vous touchez une commission.
+              </p>
+              <p className="text-gray-600">
+                Vous devenez ainsi un partenaire externe, sans contrat de travail, mais avec une collaboration 
+                claire, transparente et légale.
+              </p>
+            </div>
+
+            <div className="space-y-4">
               <h2 className="text-2xl font-semibold">2️⃣ Comment devenir rapporteur d'affaires ?</h2>
               <p className="text-gray-600">Rien de plus simple ! Pour rejoindre notre réseau de rapporteurs :</p>
               <ul className="space-y-2 text-gray-600">
@@ -114,7 +106,7 @@ const PartnerPage = () => {
                     Remplissez le formulaire d'inscription en ligne{" "}
                     <Link 
                       to="/devenir-partenaire/inscription" 
-                      className="text-levigile-red hover:underline font-medium"
+                      className="text-levigile-blue hover:underline font-medium"
                     >
                       (Cliquez ici)
                     </Link>
@@ -122,7 +114,7 @@ const PartnerPage = () => {
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="text-levigile-blue h-5 w-5 flex-shrink-0" />
-                  Ou contactez-nous directement par téléphone au 05 54 54 64 28 ou par mail à contact@levigile.fr
+                  Ou contactez-nous directement information contact en dessous de la page
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="text-levigile-blue h-5 w-5 flex-shrink-0" />
@@ -184,7 +176,7 @@ const PartnerPage = () => {
               </ul>
               <div className="bg-gray-50 p-6 rounded-lg mt-4">
                 <p className="font-semibold">👉 Par exemple :</p>
-                <p>Pour un contrat de 25000 € signé, vous pouvez percevoir jusqu'à 5 % de commission, soit 1250 €.</p>
+                <p>Pour un contrat de 10000 € signé, vous pouvez percevoir jusqu'à 5 % de commission, soit 500 €.</p>
               </div>
             </div>
 
@@ -194,61 +186,13 @@ const PartnerPage = () => {
                 Nous sommes toujours à la recherche de partenaires motivés et connectés à leur environnement local.
               </p>
               <div className="bg-gray-50 p-6 rounded-lg space-y-4">
-                <div className="flex flex-col space-y-4">
-                  <div className="flex items-center gap-2">
-                    <Phone className="text-levigile-blue h-5 w-5" />
-                    <div className="flex gap-2">
-                      <button 
-                        onClick={handleMainPhone}
-                        className="hover:text-levigile-blue transition-colors"
-                      >
-                        05 54 54 64 28
-                      </button>
-                      <span>ou</span>
-                      <button 
-                        onClick={handleMobilePhone}
-                        className="hover:text-levigile-blue transition-colors"
-                      >
-                        07 80 81 79 79
-                      </button>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Mail className="text-levigile-blue h-5 w-5" />
-                    <div className="flex gap-2">
-                      <button 
-                        onClick={handleMainEmail}
-                        className="hover:text-levigile-blue transition-colors"
-                      >
-                        contact@levigile.fr
-                      </button>
-                      <span>ou</span>
-                      <button 
-                        onClick={handleSecondaryEmail}
-                        className="hover:text-levigile-blue transition-colors"
-                      >
-                        levigile31@gmail.com
-                      </button>
-                    </div>
-                  </div>
+                <div className="flex items-center gap-2">
+                  <Phone className="text-levigile-blue h-5 w-5" />
+                  <p>07 80 81 79 79</p>
                 </div>
-                <div className="flex items-center gap-4">
-                  <Button
-                    onClick={handleTelegram}
-                    variant="outline"
-                    className="flex items-center gap-2 text-blue-500 hover:text-blue-600"
-                  >
-                    <Send className="h-5 w-5" />
-                    Telegram
-                  </Button>
-                  <Button
-                    onClick={handleWhatsApp}
-                    variant="outline"
-                    className="flex items-center gap-2 text-green-500 hover:text-green-600"
-                  >
-                    <MessageCircle className="h-5 w-5" />
-                    WhatsApp
-                  </Button>
+                <div className="flex items-center gap-2">
+                  <Mail className="text-levigile-blue h-5 w-5" />
+                  <p>levigile31@gmail.com</p>
                 </div>
               </div>
             </div>
