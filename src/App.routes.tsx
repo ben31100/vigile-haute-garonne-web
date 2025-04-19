@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Index from './pages/Index';
@@ -58,6 +59,7 @@ import AussonnePage from './pages/cities/AussonnePage';
 import RoquesPage from './pages/cities/RoquesPage';
 import CastelginestPage from './pages/cities/CastelginestPage';
 import FenouilletPage from './pages/cities/FenouilletPage';
+import CahorsPage from './pages/cities/CahorsPage';
 
 // Import new city pages
 import PibracPage from './pages/cities/PibracPage';
@@ -170,6 +172,10 @@ const AppRoutes: React.FC = () => {
       
       <Route path="/frouzins.html" element={<FrouzinsPage />} />
       <Route path="/securite-ville-frouzins" element={<FrouzinsPage />} />
+      
+      {/* Cahors routes */}
+      <Route path="/cahors.html" element={<CahorsPage />} />
+      <Route path="/securite-ville-cahors" element={<CahorsPage />} />
       
       {/* Department routes */}
       <Route path="/lot.html" element={<LotPage />} />
