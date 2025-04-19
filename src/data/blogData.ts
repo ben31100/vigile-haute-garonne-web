@@ -1,4 +1,3 @@
-
 import { BlogArticle, BlogAuthor, BlogTag, BlogArticlePreview } from '../types/blog';
 import { format, parseISO } from 'date-fns';
 import { fr } from 'date-fns/locale';
@@ -609,42 +608,4 @@ export const blogArticles: BlogArticle[] = [
       <p>Dans un contexte où les habitants des quartiers résidentiels de la périphérie toulousaine expriment des inquiétudes grandissantes face aux incidents, la surveillance privée apparaît comme une solution de plus en plus plébiscitée.</p>
       
       <h2>Des rondes efficaces et dissuasives</h2>
-      <p>Notre service de rondes de surveillance offre une présence visible et régulière dans votre quartier :</p>
-      
-      <ul>
-        <li>Rondes de nuit en voiture ou à pied</li>
-        <li>Présence visible pour dissuasion</li>
-        <li>Vérification des accès, portails et zones communes</li>
-        <li>Détection des comportements suspects</li>
-      </ul>
-      
-      <h2>Intervention rapide en cas d'alerte</h2>
-      <p>Nos agents de sécurité sont formés pour intervenir rapidement en cas d'incident :</p>
-      
-      <ul>
-        <li>Temps d'intervention inférieur à 20 minutes</li>
-        <li>Coordination avec les forces de l'ordre si nécessaire</li>
-        <li>Gestion des situations d'urgence</li>
-        <li>Rapport détaillé après chaque intervention</li>
-      </ul>
-      
-      <h2>Une solution adaptée aux copropriétés</h2>
-      <p>LeVigile travaille en étroite collaboration avec les syndics et conseils syndicaux pour proposer des solutions sur mesure :</p>
-      
-      <ul>
-        <li>Contrats adaptés aux besoins spécifiques de chaque résidence</li>
-        <li>Tarifs mutualisés pour optimiser les coûts</li>
-        <li>Présence ponctuelle ou régulière selon les périodes de l'année</li>
-        <li>Agents formés et qualifiés</li>
-      </ul>
-      
-      <blockquote>LeVigile accompagne déjà plusieurs quartiers à Colomiers, Blagnac et Tournefeuille. Pourquoi pas le vôtre ?</blockquote>
-    `,
-    publishedAt: '2025-04-19T08:00:00Z',
-    readingTime: 5,
-    coverImage: 'https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//Surveillance%20de%20residences%20Levigile.png',
-    author: blogAuthors.expert,
-    tags: [blogTags.securite, blogTags.residence],
-    relatedArticles: ['6', '2']
-  }
-];
+      <p>Notre service de rondes
