@@ -4,9 +4,12 @@ import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/components/ui/use-toast';
 import AuthLayout from '@/components/auth/AuthLayout';
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+import { AlertCircle } from 'lucide-react';
 
 const AdminSetup = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const [setupComplete, setSetupComplete] = useState(false);
   const { toast } = useToast();
 
   const setupAdmin = async () => {
@@ -32,10 +35,24 @@ const AdminSetup = () => {
         
         if (existingProfile) {
           console.log("Le profil existe déjà:", existingProfile);
+          
+          // Mettre à jour le profil pour s'assurer qu'il a le rôle d'admin
+          const { error: updateError } = await supabase
+            .from('profiles')
+            .update({ role: 'admin' })
+            .eq('id', existingUser.user.id);
+            
+          if (updateError) {
+            console.error("Erreur lors de la mise à jour du profil:", updateError);
+            throw updateError;
+          }
+          
+          console.log("Profil administrateur mis à jour avec succès");
           toast({
-            title: "Utilisateur existant",
-            description: "L'administrateur existe déjà. Vous pouvez vous connecter.",
+            title: "Profil administrateur mis à jour",
+            description: "Le profil administrateur a été mis à jour avec succès.",
           });
+          setSetupComplete(true);
           setIsLoading(false);
           return;
         }
@@ -56,10 +73,12 @@ const AdminSetup = () => {
           throw profileError;
         }
 
+        console.log("Profil administrateur créé avec succès");
         toast({
           title: "Profil administrateur créé",
           description: "Le profil administrateur a été configuré avec succès.",
         });
+        setSetupComplete(true);
         setIsLoading(false);
         return;
       }
@@ -96,10 +115,12 @@ const AdminSetup = () => {
           throw profileError;
         }
 
+        console.log("Administrateur créé avec succès");
         toast({
           title: "Administrateur créé",
           description: "Le compte administrateur a été configuré avec succès. Vérifiez votre email pour confirmer votre compte.",
         });
+        setSetupComplete(true);
       }
     } catch (error: any) {
       console.error("Erreur complète:", error);
@@ -118,14 +139,25 @@ const AdminSetup = () => {
       <div className="text-center space-y-4">
         <h1 className="text-2xl font-bold">Configuration Administrateur</h1>
         <p className="text-gray-600">
-          Cliquez sur le bouton ci-dessous pour créer le compte administrateur initial.
+          Cliquez sur le bouton ci-dessous pour créer ou mettre à jour le compte administrateur.
         </p>
+        
+        {setupComplete && (
+          <Alert className="mt-4 border-green-500 bg-green-50">
+            <AlertCircle className="h-4 w-4 text-green-600" />
+            <AlertTitle className="text-green-600">Configuration terminée</AlertTitle>
+            <AlertDescription>
+              Le compte administrateur a été configuré avec succès. Vous pouvez maintenant vous connecter à la page d'administration.
+            </AlertDescription>
+          </Alert>
+        )}
+        
         <Button 
           onClick={setupAdmin} 
           disabled={isLoading}
           className="w-full"
         >
-          {isLoading ? "Création en cours..." : "Créer l'administrateur"}
+          {isLoading ? "Configuration en cours..." : "Configurer l'administrateur"}
         </Button>
       </div>
     </AuthLayout>

@@ -7,6 +7,8 @@ import { Input } from '@/components/ui/input';
 import { useToast } from '@/components/ui/use-toast';
 import { supabase } from '@/integrations/supabase/client';
 import AuthLayout from '@/components/auth/AuthLayout';
+import { Alert, AlertDescription } from '@/components/ui/alert';
+import { ExternalLink } from 'lucide-react';
 
 interface LoginForm {
   email: string;
@@ -39,7 +41,7 @@ const AdminLogin = () => {
       // Vérifier si l'utilisateur a un profil admin
       const { data: profile, error: profileError } = await supabase
         .from('profiles')
-        .select('role')
+        .select('*')
         .eq('id', authData.user.id)
         .maybeSingle();
 
@@ -50,8 +52,14 @@ const AdminLogin = () => {
 
       console.log("Profil récupéré:", profile);
 
-      if (!profile || profile.role !== 'admin') {
-        console.error("Rôle non autorisé:", profile?.role);
+      if (!profile) {
+        console.error("Aucun profil trouvé pour cet utilisateur");
+        await supabase.auth.signOut();
+        throw new Error('Aucun profil trouvé. Configurez votre compte administrateur');
+      }
+
+      if (profile.role !== 'admin') {
+        console.error("Rôle non autorisé:", profile.role);
         await supabase.auth.signOut();
         throw new Error('Accès non autorisé');
       }
@@ -107,6 +115,22 @@ const AdminLogin = () => {
           {isLoading ? "Connexion en cours..." : "Se connecter"}
         </Button>
       </form>
+
+      <Alert className="mt-6 bg-blue-50">
+        <AlertDescription className="text-sm">
+          <div className="flex items-center justify-between">
+            <span>Besoin de configurer un compte administrateur ?</span>
+            <Button 
+              variant="link" 
+              className="p-0 h-auto" 
+              onClick={() => navigate('/admin/setup')}
+            >
+              <ExternalLink className="h-4 w-4 mr-1" />
+              Configurer
+            </Button>
+          </div>
+        </AlertDescription>
+      </Alert>
     </AuthLayout>
   );
 };
