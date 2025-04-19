@@ -42,6 +42,9 @@ import JobOffers from './pages/career/JobOffers';
 import PartnerPage from './pages/PartnerPage';
 import PartnerRegistrationPage from './pages/PartnerRegistrationPage';
 import LocalSecurityPage from './components/LocalSecurityPage';
+import CastanetTolosanPage from './pages/cities/CastanetTolosanPage';
+import FonsorbesPage from './pages/cities/FonsorbesPage';
+import PortetSurGaronnePage from './pages/cities/PortetSurGaronnePage';
 
 const AppRoutes: React.FC = () => {
   return (
@@ -89,6 +92,9 @@ const AppRoutes: React.FC = () => {
       <Route path="/carriere/nos-offres" element={<JobOffers />} />
       <Route path="/devenir-partenaire" element={<PartnerPage />} />
       <Route path="/devenir-partenaire/inscription" element={<PartnerRegistrationPage />} />
+      <Route path="/castanet-tolosan.html" element={<CastanetTolosanPage />} />
+      <Route path="/fonsorbes.html" element={<FonsorbesPage />} />
+      <Route path="/portet-sur-garonne.html" element={<PortetSurGaronnePage />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
