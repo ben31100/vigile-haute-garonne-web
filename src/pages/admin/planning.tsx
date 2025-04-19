@@ -32,19 +32,10 @@ const PlanningPage = () => {
     queryFn: async () => {
       if (!date) return null;
       
+      // Use a simpler select syntax to avoid parsing errors
       const { data, error } = await supabase
         .from('plannings')
-        .select(`
-          id, 
-          heure_début, 
-          heure_fin, 
-          date, 
-          site,
-          agent_id, 
-          agents:agent_id(id, nom, prénom), 
-          client_id,
-          clients:client_id(id, nom_entreprise)
-        `)
+        .select('*, agents(*), clients(*)')
         .eq('date', format(date, 'yyyy-MM-dd'));
       
       if (error) throw error;
