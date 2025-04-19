@@ -64,6 +64,11 @@ import PibracPage from './pages/cities/PibracPage';
 import BruguieresPage from './pages/cities/BruguieresPage';
 import FrouzinsPage from './pages/cities/FrouzinsPage';
 import LotPage from './pages/cities/LotPage';
+import LozerePage from './pages/cities/LozerePage';
+import HautesPyreneesPage from './pages/cities/HautesPyreneesPage';
+import PyreneesOrientalesPage from './pages/cities/PyreneesOrientalesPage';
+import TarnPage from './pages/cities/TarnPage';
+import TarnEtGaronnePage from './pages/cities/TarnEtGaronnePage';
 
 const AppRoutes: React.FC = () => {
   return (
@@ -161,6 +166,22 @@ const AppRoutes: React.FC = () => {
       <Route path="/lot.html" element={<LotPage />} />
       <Route path="/securite-departement-lot" element={<LotPage />} />
       
+      <Route path="/lozere.html" element={<LozerePage />} />
+      <Route path="/securite-departement-lozere" element={<LozerePage />} />
+      
+      <Route path="/hautes-pyrenees.html" element={<HautesPyreneesPage />} />
+      <Route path="/securite-departement-hautes-pyrenees" element={<HautesPyreneesPage />} />
+      
+      <Route path="/pyrenees-orientales.html" element={<PyreneesOrientalesPage />} />
+      <Route path="/securite-departement-pyrenees-orientales" element={<PyreneesOrientalesPage />} />
+      
+      <Route path="/tarn.html" element={<TarnPage />} />
+      <Route path="/securite-departement-tarn" element={<TarnPage />} />
+      
+      <Route path="/tarn-et-garonne.html" element={<TarnEtGaronnePage />} />
+      <Route path="/securite-departement-tarn-et-garonne" element={<TarnEtGaronnePage />} />
+      
+      {/* Keep existing 404 route */}
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
