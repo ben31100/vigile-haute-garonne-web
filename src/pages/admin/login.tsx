@@ -8,9 +8,8 @@ import { useToast } from '@/components/ui/use-toast';
 import { supabase } from '@/integrations/supabase/client';
 import AuthLayout from '@/components/auth/AuthLayout';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import { ExternalLink, AlertCircle, InfoIcon } from 'lucide-react';
+import { AlertCircle, InfoIcon } from 'lucide-react';
 import { Label } from '@/components/ui/label';
-import { Form, FormField, FormItem, FormControl, FormMessage } from '@/components/ui/form';
 
 interface LoginForm {
   email: string;
@@ -30,6 +29,7 @@ const AdminLogin = () => {
       setAuthError(null);
       console.log("Tentative de connexion avec:", data.email);
 
+      // Step 1: Authenticate with Supabase Auth
       const { data: authData, error } = await supabase.auth.signInWithPassword({
         email: data.email,
         password: data.password
@@ -42,25 +42,27 @@ const AdminLogin = () => {
 
       console.log("Authentification réussie, vérification du profil...");
       
-      // Vérifier si l'utilisateur existe dans la table administrators
+      // Step 2: Verify if user exists in administrators table
       const { data: admin, error: adminError } = await supabase
         .from('administrators')
         .select('*')
         .eq('id', authData.user.id)
-        .single();
+        .maybeSingle();
 
       if (adminError) {
         console.error("Erreur de récupération du profil administrateur:", adminError.message);
-        throw new Error("Impossible de vérifier votre profil administrateur. Veuillez contacter l'assistance.");
+        throw adminError;
       }
 
       console.log("Profil récupéré:", admin);
 
       if (!admin) {
+        // Sign out if not an admin
         await supabase.auth.signOut();
         throw new Error("Aucun profil administrateur trouvé pour cet utilisateur.");
       }
 
+      // Success! Navigate to admin dashboard
       toast({
         title: "Connexion réussie",
         description: `Bienvenue ${admin.prénom || 'Administrateur'}`,
@@ -72,7 +74,7 @@ const AdminLogin = () => {
     } catch (error: any) {
       console.error("Erreur complète:", error);
       
-      // Messages d'erreur plus spécifiques et instructions
+      // More specific error messages
       if (error.message === "Invalid login credentials") {
         setAuthError("Email ou mot de passe incorrect. Vérifiez vos informations d'identification.");
       } else if (error.message.includes("foreign key constraint")) {

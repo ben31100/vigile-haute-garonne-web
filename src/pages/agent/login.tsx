@@ -9,6 +9,7 @@ import { supabase } from '@/integrations/supabase/client';
 import AuthLayout from '@/components/auth/AuthLayout';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { AlertCircle } from 'lucide-react';
+import { Label } from '@/components/ui/label';
 
 interface LoginForm {
   email: string;
@@ -26,13 +27,19 @@ const AgentLogin = () => {
     try {
       setIsLoading(true);
       setAuthError(null);
+      console.log("Tentative de connexion avec:", data.email);
 
       const { data: authData, error } = await supabase.auth.signInWithPassword({
         email: data.email,
         password: data.password
       });
       
-      if (error) throw error;
+      if (error) {
+        console.error("Erreur d'authentification:", error.message);
+        throw error;
+      }
+
+      console.log("Authentification réussie, vérification du profil agent...");
 
       const { data: agent, error: agentError } = await supabase
         .from('agents')
@@ -40,18 +47,33 @@ const AgentLogin = () => {
         .eq('id', authData.user.id)
         .maybeSingle();
 
-      if (agentError) throw agentError;
+      if (agentError) {
+        console.error("Erreur de récupération du profil agent:", agentError.message);
+        throw agentError;
+      }
+
+      console.log("Profil agent récupéré:", agent);
 
       if (!agent) {
         await supabase.auth.signOut();
-        setAuthError("Aucun profil agent trouvé pour cet utilisateur");
-        return;
+        throw new Error("Aucun profil agent trouvé pour cet utilisateur");
       }
+
+      toast({
+        title: "Connexion réussie",
+        description: `Bienvenue ${agent.prénom || 'Agent'}`,
+      });
 
       navigate('/agent/dashboard');
       
     } catch (error: any) {
-      setAuthError(error.message || "Email ou mot de passe incorrect");
+      console.error("Erreur complète:", error);
+      
+      if (error.message === "Invalid login credentials") {
+        setAuthError("Email ou mot de passe incorrect");
+      } else {
+        setAuthError(error.message || "Une erreur s'est produite lors de la connexion");
+      }
     } finally {
       setIsLoading(false);
     }
@@ -73,8 +95,10 @@ const AgentLogin = () => {
       )}
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-        <div>
+        <div className="space-y-2">
+          <Label htmlFor="email">Email</Label>
           <Input
+            id="email"
             type="email"
             placeholder="Email"
             {...register('email', { required: true })}
@@ -85,8 +109,10 @@ const AgentLogin = () => {
           )}
         </div>
 
-        <div>
+        <div className="space-y-2">
+          <Label htmlFor="password">Mot de passe</Label>
           <Input
+            id="password"
             type="password"
             placeholder="Mot de passe"
             {...register('password', { required: true })}
