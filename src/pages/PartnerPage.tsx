@@ -23,6 +23,22 @@ const PartnerPage = () => {
     window.open('https://wa.me/33554546428', '_blank');
   };
 
+  const handleMainPhone = () => {
+    window.location.href = 'tel:+33554546428';
+  };
+
+  const handleMobilePhone = () => {
+    window.location.href = 'tel:+33780817979';
+  };
+
+  const handleMainEmail = () => {
+    window.location.href = 'mailto:contact@levigile.fr';
+  };
+
+  const handleSecondaryEmail = () => {
+    window.location.href = 'mailto:levigile31@gmail.com';
+  };
+
   return (
     <>
       <Helmet>
@@ -178,13 +194,43 @@ const PartnerPage = () => {
                 Nous sommes toujours à la recherche de partenaires motivés et connectés à leur environnement local.
               </p>
               <div className="bg-gray-50 p-6 rounded-lg space-y-4">
-                <div className="flex items-center gap-2">
-                  <Phone className="text-levigile-blue h-5 w-5" />
-                  <p>05 54 54 64 28 ou 07 80 81 79 79</p>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Mail className="text-levigile-blue h-5 w-5" />
-                  <p>contact@levigile.fr ou levigile31@gmail.com</p>
+                <div className="flex flex-col space-y-4">
+                  <div className="flex items-center gap-2">
+                    <Phone className="text-levigile-blue h-5 w-5" />
+                    <div className="flex gap-2">
+                      <button 
+                        onClick={handleMainPhone}
+                        className="hover:text-levigile-blue transition-colors"
+                      >
+                        05 54 54 64 28
+                      </button>
+                      <span>ou</span>
+                      <button 
+                        onClick={handleMobilePhone}
+                        className="hover:text-levigile-blue transition-colors"
+                      >
+                        07 80 81 79 79
+                      </button>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Mail className="text-levigile-blue h-5 w-5" />
+                    <div className="flex gap-2">
+                      <button 
+                        onClick={handleMainEmail}
+                        className="hover:text-levigile-blue transition-colors"
+                      >
+                        contact@levigile.fr
+                      </button>
+                      <span>ou</span>
+                      <button 
+                        onClick={handleSecondaryEmail}
+                        className="hover:text-levigile-blue transition-colors"
+                      >
+                        levigile31@gmail.com
+                      </button>
+                    </div>
+                  </div>
                 </div>
                 <div className="flex items-center gap-4">
                   <Button
