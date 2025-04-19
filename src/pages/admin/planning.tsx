@@ -36,8 +36,8 @@ const PlanningPage = () => {
         .from('plannings')
         .select(`
           *,
-          agents (id, nom, prénom),
-          clients (id, nom_entreprise)
+          agents(id, nom, prénom),
+          clients(id, nom_entreprise)
         `)
         .eq('date', format(date, 'yyyy-MM-dd'));
       
