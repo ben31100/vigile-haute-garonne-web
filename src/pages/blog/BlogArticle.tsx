@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { ChevronLeft } from 'lucide-react';
@@ -42,7 +43,7 @@ const BlogArticle: React.FC = () => {
       keywords={article.tags?.map(tag => tag.name).join(', ')}
       ogImage={article.coverImage}
     >
-      <article>
+      <article className="pt-24">
         {/* Bouton Retour */}
         <div className="container mx-auto px-4 mb-6">
           <Button 
@@ -55,7 +56,7 @@ const BlogArticle: React.FC = () => {
           </Button>
         </div>
 
-        {/* Le reste du contenu reste le même */}
+        {/* Image de couverture et contenu de l'article */}
         <div className="relative">
           <div className="w-full h-64 md:h-96 overflow-hidden">
             <img 
