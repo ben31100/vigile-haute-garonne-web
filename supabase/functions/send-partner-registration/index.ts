@@ -1,8 +1,10 @@
 
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
-import { Resend } from "npm:resend@2.0.0";
+import { MailerSend, EmailParams, Sender, Recipient } from "npm:mailersend@2.2.0";
 
-const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
+const mailerSend = new MailerSend({
+  apiKey: Deno.env.get("MAILERSEND_API_KEY") || "",
+});
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -30,12 +32,14 @@ const handler = async (req: Request): Promise<Response> => {
     const data: PartnerRegistrationRequest = await req.json();
     console.log("Received registration data:", data);
 
+    const sentFrom = new Sender("contact@levigile.fr", "LeVigile");
+
     // Email to the applicant
-    const applicantEmailPromise = resend.emails.send({
-      from: "LeVigile <contact@levigile.fr>",
-      to: [data.email],
-      subject: "Confirmation de votre demande d'inscription - LeVigile",
-      html: `
+    const applicantEmailParams = new EmailParams()
+      .setFrom(sentFrom)
+      .setTo([new Recipient(data.email)])
+      .setSubject("Confirmation de votre demande d'inscription - LeVigile")
+      .setHtml(`
         <h1>Merci pour votre inscription, ${data.fullName} !</h1>
         <p>Nous avons bien reçu votre demande pour devenir rapporteur d'affaires chez LeVigile.</p>
         <p>Récapitulatif de vos informations :</p>
@@ -48,15 +52,14 @@ const handler = async (req: Request): Promise<Response> => {
         </ul>
         <p>Notre équipe va étudier votre candidature et vous recontactera très prochainement.</p>
         <p>Cordialement,<br>L'équipe LeVigile</p>
-      `,
-    });
+      `);
 
     // Email to LeVigile
-    const adminEmailPromise = resend.emails.send({
-      from: "LeVigile <contact@levigile.fr>",
-      to: ["contact@levigile.fr"],
-      subject: "Nouvelle inscription rapporteur d'affaires",
-      html: `
+    const adminEmailParams = new EmailParams()
+      .setFrom(sentFrom)
+      .setTo([new Recipient("contact@levigile.fr")])
+      .setSubject("Nouvelle inscription rapporteur d'affaires")
+      .setHtml(`
         <h1>Nouvelle demande de rapporteur d'affaires</h1>
         <p>Détails de la candidature :</p>
         <ul>
@@ -68,13 +71,12 @@ const handler = async (req: Request): Promise<Response> => {
           <li>Expérience : ${data.hasExperience}</li>
           <li>Zone géographique : ${data.geographicArea}</li>
         </ul>
-      `,
-    });
+      `);
 
     // Attendre que les deux emails soient envoyés
     const [applicantEmailResponse, adminEmailResponse] = await Promise.all([
-      applicantEmailPromise,
-      adminEmailPromise
+      mailerSend.email.send(applicantEmailParams),
+      mailerSend.email.send(adminEmailParams)
     ]);
 
     console.log("Emails sent successfully:", { 
@@ -106,4 +108,3 @@ const handler = async (req: Request): Promise<Response> => {
 };
 
 serve(handler);
-
