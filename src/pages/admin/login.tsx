@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
@@ -123,22 +122,6 @@ const AdminLogin = () => {
           {isLoading ? "Connexion en cours..." : "Se connecter"}
         </Button>
       </form>
-
-      <Alert className="mt-6 bg-blue-50">
-        <AlertDescription className="text-sm">
-          <div className="flex items-center justify-between">
-            <span>Besoin de configurer un compte administrateur ?</span>
-            <Button 
-              variant="link" 
-              className="p-0 h-auto" 
-              onClick={() => navigate('/admin/setup')}
-            >
-              <ExternalLink className="h-4 w-4 mr-1" />
-              Configurer
-            </Button>
-          </div>
-        </AlertDescription>
-      </Alert>
     </AuthLayout>
   );
 };
