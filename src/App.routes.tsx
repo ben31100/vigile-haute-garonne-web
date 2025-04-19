@@ -34,6 +34,10 @@ import AudePage from './pages/cities/AudePage';
 import AveyronPage from './pages/cities/AveyronPage';
 import GardPage from './pages/cities/GardPage';
 import ContactPage from './pages/ContactPage';
+import LeguevingPage from './pages/cities/LeguevingPage';
+import LaunaguetPage from './pages/cities/LaunaguetPage';
+import EscalquensPage from './pages/cities/EscalquensPage';
+import SeyssesPage from './pages/cities/SeyssesPage';
 
 // Career pages
 import WhyJoinUs from './pages/career/WhyJoinUs';
@@ -101,6 +105,19 @@ const AppRoutes: React.FC = () => {
       <Route path="/securite-ville-labege" element={<LabegePage />} />
       <Route path="/villeneuve-tolosane.html" element={<VilleneuveTolosanePage />} />
       <Route path="/securite-ville-villeneuve" element={<VilleneuveTolosanePage />} />
+      
+      {/* New city routes */}
+      <Route path="/leguevin.html" element={<LeguevingPage />} />
+      <Route path="/securite-ville-leguevin" element={<LeguevingPage />} />
+      
+      <Route path="/launaguet.html" element={<LaunaguetPage />} />
+      <Route path="/securite-ville-launaguet" element={<LaunaguetPage />} />
+      
+      <Route path="/escalquens.html" element={<EscalquensPage />} />
+      <Route path="/securite-ville-escalquens" element={<EscalquensPage />} />
+      
+      <Route path="/seysses.html" element={<SeyssesPage />} />
+      <Route path="/securite-ville-seysses" element={<SeyssesPage />} />
 
       {/* Departments pages */}
       <Route path="/ariege.html" element={<AriegePage />} />
