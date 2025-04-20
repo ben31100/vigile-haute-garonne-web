@@ -5,7 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter } from "react-router-dom";
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { preloadImages, loadDeferredResource } from "./utils/optimizationUtils";
 
 // Chargement paresseux des routes
