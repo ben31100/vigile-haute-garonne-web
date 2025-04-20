@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Skeleton } from '@/components/ui/skeleton';
 
@@ -36,9 +35,8 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
       return url;
     }
     
-    // Add WebP format and quality parameters for Supabase URLs
     const separator = url.includes('?') ? '&' : '?';
-    const formatParam = `format=${format}`;
+    const formatParam = `format=webp`;
     const qualityParam = `quality=${quality}`;
     const widthParam = width ? `width=${width}` : '';
     

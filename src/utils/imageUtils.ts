@@ -1,4 +1,3 @@
-
 /**
  * Utilitaires pour gérer les images dans l'application
  * Les clés d'API Supabase se trouvent dans src/integrations/supabase/client.ts
@@ -14,10 +13,10 @@ export type ImageType = 'hero' | 'thumbnail' | 'service' | 'icon';
 
 // Images par défaut disponibles dans l'application - URLs COMPLETES Supabase
 const DEFAULT_IMAGES = {
-  hero: "https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images/gardiennage-hero.jpg",
-  thumbnail: "https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images/agent-securite-thumbnail.jpg",
-  service: "https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images/service-default.jpg",
-  icon: "https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images/icon-default.png"
+  hero: "https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images/gardiennage-hero.jpg?format=webp&quality=80",
+  thumbnail: "https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images/agent-securite-thumbnail.jpg?format=webp&quality=80",
+  service: "https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images/service-default.jpg?format=webp&quality=80",
+  icon: "https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images/icon-default.png?format=webp&quality=80"
 };
 
 /**
@@ -36,24 +35,20 @@ export const optimizeImageUrl = (
 ): string => {
   const { width, quality = 80, format = 'webp' } = options;
   
-  // Si le format est original, on utilise seulement l'URL responsive
   if (format === 'original' || !url.includes('supabase.co')) {
     return getResponsiveImageUrl(url);
   }
   
-  // Application des paramètres d'optimisation pour Supabase
   const separator = url.includes('?') ? '&' : '?';
   const widthParam = width ? `width=${width}` : '';
   const qualityParam = `quality=${quality}`;
   const formatParam = `format=${format}`;
   
-  // Construction de l'URL
   let optimizedUrl = url;
   if (widthParam) {
     optimizedUrl += `${separator}${widthParam}`;
   }
   
-  // Ajouter & au lieu de ? si on a déjà des paramètres
   const nextSeparator = optimizedUrl.includes('?') ? '&' : '?';
   optimizedUrl += `${nextSeparator}${qualityParam}&${formatParam}`;
   

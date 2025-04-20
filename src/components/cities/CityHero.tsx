@@ -31,28 +31,29 @@ const CityHero: React.FC<CityHeroProps> = ({
         let imagePath;
 
         if (backgroundImage) {
-          // Si une image spécifique est fournie, l'utiliser
           imagePath = backgroundImage;
         } else {
-          // Pour toutes les villes, utiliser la fonction getCityImageUrl
           imagePath = getCityImageUrl(cityName, 'hero');
         }
 
-        // Si c'est une URL complète de Supabase, l'utiliser directement
         if (imagePath.includes('supabase.co')) {
-          setBgImage(imagePath);
+          // Ajouter le format WebP à l'URL
+          const separator = imagePath.includes('?') ? '&' : '?';
+          const webpUrl = `${imagePath}${separator}format=webp&quality=80`;
+          setBgImage(webpUrl);
           setIsLoading(false);
           return;
         }
 
-        // Tenter de récupérer l'image depuis Supabase
         const publicUrl = await getSupabaseImageUrl(imagePath);
-        setBgImage(publicUrl);
+        // Ajouter le format WebP à l'URL publique
+        const separator = publicUrl.includes('?') ? '&' : '?';
+        const webpUrl = `${publicUrl}${separator}format=webp&quality=80`;
+        setBgImage(webpUrl);
       } catch (error) {
         console.error("Erreur lors du chargement de l'image:", error);
         setHasError(true);
-        // En cas d'erreur, utiliser l'image par défaut de Supabase
-        setBgImage("https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images/gardiennage-hero.jpg");
+        setBgImage("https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images/gardiennage-hero.jpg?format=webp&quality=80");
       } finally {
         setIsLoading(false);
       }
