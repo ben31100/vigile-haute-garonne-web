@@ -7,6 +7,7 @@ import CityHero from '@/components/cities/CityHero';
 import SpecificitesSection from '@/components/cities/SpecificitesSection';
 import FaqSection from '@/components/cities/FaqSection';
 import CtaSection from '@/components/cities/CtaSection';
+import { Shield, Clock, Map } from 'lucide-react';
 
 const MontaubanPage: React.FC = () => {
   const cityName = "Montauban";
@@ -23,14 +24,17 @@ const MontaubanPage: React.FC = () => {
 
   const specificites = [
     {
+      icon: Shield,
       title: "Protection sur mesure",
       description: "Solutions adaptées aux besoins spécifiques de chaque client à Montauban"
     },
     {
+      icon: Clock,
       title: "Réactivité maximale",
       description: "Intervention rapide 24h/24 et 7j/7 dans tout Montauban et ses environs"
     },
     {
+      icon: Map,
       title: "Expertise locale",
       description: "Connaissance approfondie du territoire montalbanais et de ses enjeux sécuritaires"
     }
@@ -71,14 +75,14 @@ const MontaubanPage: React.FC = () => {
         />
 
         <SpecificitesSection 
-          cityName={cityName}
-          services={services}
-          specificites={specificites}
+          items={specificites}
+          title={`Nos services de sécurité à ${cityName}`}
+          subtitle={`Découvrez nos prestations de gardiennage et sécurité adaptées aux besoins spécifiques de ${cityName}`}
         />
 
         <FaqSection 
-          cityName={cityName}
-          faqItems={faqItems}
+          items={faqItems}
+          title={`Questions fréquentes sur nos services à ${cityName}`}
         />
 
         <CtaSection 
