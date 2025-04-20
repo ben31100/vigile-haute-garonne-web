@@ -73,6 +73,7 @@ import TarnPage from './pages/cities/TarnPage';
 import TarnEtGaronnePage from './pages/cities/TarnEtGaronnePage';
 import MontaubanPage from './pages/cities/MontaubanPage';
 import AlbiPage from './pages/cities/AlbiPage';
+import MendePage from './pages/cities/MendePage';
 
 const AppRoutes: React.FC = () => {
   return (
@@ -220,6 +221,10 @@ const AppRoutes: React.FC = () => {
       {/* Albi routes */}
       <Route path="/albi.html" element={<AlbiPage />} />
       <Route path="/securite-ville-albi" element={<AlbiPage />} />
+      
+      {/* Mende routes */}
+      <Route path="/mende.html" element={<MendePage />} />
+      <Route path="/securite-ville-mende" element={<MendePage />} />
       
       <Route path="*" element={<NotFound />} />
     </Routes>
