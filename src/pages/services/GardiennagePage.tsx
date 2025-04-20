@@ -32,7 +32,7 @@ const GardiennagePage = () => {
         <section className="bg-gradient-to-r from-levigile-blue to-levigile-gray text-white py-16">
           <div className="container mx-auto px-4">
             <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div className="max-w-3xl">
+              <div>
                 <h1 className="text-4xl font-bold mb-4">Services de Gardiennage Professionnel</h1>
                 <p className="text-xl mb-6">
                   Protection et surveillance adaptées à vos besoins spécifiques
