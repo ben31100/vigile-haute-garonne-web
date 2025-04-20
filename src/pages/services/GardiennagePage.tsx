@@ -50,7 +50,7 @@ const GardiennagePage = () => {
               </div>
               <div className="flex justify-center">
                 <img 
-                  src="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images/gardiennage-levigile.webp" 
+                  src="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//gardiennage-hero.jpg" 
                   alt="Agent de sécurité Levigile en service" 
                   className="rounded-lg shadow-lg w-full max-w-[500px] object-cover h-auto"
                 />
