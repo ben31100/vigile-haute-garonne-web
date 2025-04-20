@@ -74,6 +74,9 @@ import TarnEtGaronnePage from './pages/cities/TarnEtGaronnePage';
 import MontaubanPage from './pages/cities/MontaubanPage';
 import AlbiPage from './pages/cities/AlbiPage';
 import MendePage from './pages/cities/MendePage';
+import AdminLoginPage from './pages/auth/AdminLoginPage';
+import ClientLoginPage from './pages/auth/ClientLoginPage';
+import AgentLoginPage from './pages/auth/AgentLoginPage';
 
 const AppRoutes: React.FC = () => {
   return (
@@ -225,6 +228,11 @@ const AppRoutes: React.FC = () => {
       {/* Mende routes */}
       <Route path="/mende.html" element={<MendePage />} />
       <Route path="/securite-ville-mende" element={<MendePage />} />
+      
+      {/* Espaces de connexion */}
+      <Route path="/espace-administrateur" element={<AdminLoginPage />} />
+      <Route path="/espace-client" element={<ClientLoginPage />} />
+      <Route path="/espace-agent" element={<AgentLoginPage />} />
       
       <Route path="*" element={<NotFound />} />
     </Routes>
