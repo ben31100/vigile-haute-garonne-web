@@ -9,6 +9,7 @@ const MobileNav: React.FC = () => {
   const [isVillesCollapsibleOpen, setIsVillesCollapsibleOpen] = useState(false);
   const [isServicesCollapsibleOpen, setIsServicesCollapsibleOpen] = useState(false);
   const [isCareerCollapsibleOpen, setIsCareerCollapsibleOpen] = useState(false);
+  const [isEspacesCollapsibleOpen, setIsEspacesCollapsibleOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -256,14 +257,14 @@ const MobileNav: React.FC = () => {
 
             <Collapsible 
               className="w-full" 
-              open={isCareerCollapsibleOpen} 
-              onOpenChange={setIsCareerCollapsibleOpen}
+              open={isEspacesCollapsibleOpen} 
+              onOpenChange={setIsEspacesCollapsibleOpen}
             >
               <CollapsibleTrigger 
                 className="flex w-full justify-between items-center text-levigile-dark hover:text-levigile-blue font-medium py-2"
               >
                 <span>Espaces</span>
-                <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isCareerCollapsibleOpen ? 'rotate-180' : ''}`} />
+                <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isEspacesCollapsibleOpen ? 'rotate-180' : ''}`} />
               </CollapsibleTrigger>
               <CollapsibleContent className="pl-4 pt-2 flex flex-col space-y-2">
                 <SheetClose asChild>
