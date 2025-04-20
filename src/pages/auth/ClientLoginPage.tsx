@@ -16,7 +16,7 @@ const ClientLoginPage: React.FC = () => {
       <Header />
 
       <main 
-        className="flex-grow pt-24 flex items-center justify-center bg-cover bg-center"
+        className="flex-grow pt-24 flex items-center justify-center bg-cover bg-center py-12"
         style={{ 
           backgroundImage: "url('https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//espace%20client.jpg')",
           backgroundSize: 'cover'
