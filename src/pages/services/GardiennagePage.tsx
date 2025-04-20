@@ -1,13 +1,25 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Phone, Mail, Send, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import OptimizedImage from '@/components/OptimizedImage';
+import { preloadImages, loadDeferredResource } from '@/utils/optimizationUtils';
 
 const GardiennagePage = () => {
+  // Preload critical images on component mount
+  useEffect(() => {
+    // Précharger uniquement les images critiques (visibles sans scroll)
+    preloadImages([
+      "https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//gardiennage-hero.jpg"
+    ], true);
+    
+    // Charger de manière différée les ressources non-critiques
+    loadDeferredResource('style', 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+  }, []);
+
   const handleTelegramClick = () => {
     window.open('https://t.me/levigile', '_blank');
   };
@@ -24,14 +36,19 @@ const GardiennagePage = () => {
           name="description" 
           content="Services de gardiennage professionnels par Levigile. Sécurité et surveillance adaptées à vos besoins." 
         />
-        {/* Préchargement des ressources critiques */}
+        {/* Directives de cache pour les navigateurs et CDN */}
+        <meta httpEquiv="Cache-Control" content="max-age=86400" />
+        <meta httpEquiv="Expires" content="86400" />
+        {/* Préconnexion aux domaines externes */}
         <link 
-          rel="preload" 
-          href="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//gardiennage-hero.jpg" 
-          as="image"
+          rel="preconnect" 
+          href="https://dwugopridureefyyiyss.supabase.co"
+          crossOrigin="anonymous"
         />
-        {/* Cache Control Headers */}
-        <meta httpEquiv="Cache-Control" content="max-age=31536000" />
+        <link 
+          rel="dns-prefetch" 
+          href="https://dwugopridureefyyiyss.supabase.co"
+        />
       </Helmet>
 
       <Header />
@@ -65,6 +82,9 @@ const GardiennagePage = () => {
                   width={600}
                   height={400}
                   priority={true}
+                  format="webp"
+                  quality={85}
+                  sizes="(max-width: 768px) 100vw, 600px"
                 />
               </div>
             </div>

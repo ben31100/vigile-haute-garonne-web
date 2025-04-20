@@ -5,6 +5,7 @@
  * Le project_id se trouve dans supabase/config.toml
  */
 import { supabase } from "@/integrations/supabase/client";
+import { getResponsiveImageUrl } from "./optimizationUtils";
 
 /**
  * Types d'images disponibles dans l'application
@@ -17,6 +18,46 @@ const DEFAULT_IMAGES = {
   thumbnail: "https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images/agent-securite-thumbnail.jpg",
   service: "https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images/service-default.jpg",
   icon: "https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images/icon-default.png"
+};
+
+/**
+ * Optimise une URL d'image pour le format WebP et la taille
+ * @param url URL de l'image à optimiser
+ * @param options Options d'optimisation (qualité, largeur, etc.)
+ * @returns URL optimisée
+ */
+export const optimizeImageUrl = (
+  url: string, 
+  options: { 
+    width?: number; 
+    quality?: number; 
+    format?: 'webp' | 'jpeg' | 'png' | 'original';
+  } = {}
+): string => {
+  const { width, quality = 80, format = 'webp' } = options;
+  
+  // Si le format est original, on utilise seulement l'URL responsive
+  if (format === 'original' || !url.includes('supabase.co')) {
+    return getResponsiveImageUrl(url);
+  }
+  
+  // Application des paramètres d'optimisation pour Supabase
+  const separator = url.includes('?') ? '&' : '?';
+  const widthParam = width ? `width=${width}` : '';
+  const qualityParam = `quality=${quality}`;
+  const formatParam = `format=${format}`;
+  
+  // Construction de l'URL
+  let optimizedUrl = url;
+  if (widthParam) {
+    optimizedUrl += `${separator}${widthParam}`;
+  }
+  
+  // Ajouter & au lieu de ? si on a déjà des paramètres
+  const nextSeparator = optimizedUrl.includes('?') ? '&' : '?';
+  optimizedUrl += `${nextSeparator}${qualityParam}&${formatParam}`;
+  
+  return optimizedUrl;
 };
 
 /**
@@ -132,3 +173,6 @@ export const getGenericImageUrl = (category: string, name: string): string => {
     return DEFAULT_IMAGES.hero;
   }
 };
+
+// Exporter les fonctions d'optimisation
+export { getResponsiveImageUrl } from './optimizationUtils';
