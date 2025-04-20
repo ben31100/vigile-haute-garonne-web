@@ -53,7 +53,7 @@ const VilleneuveTolosanePage: React.FC = () => {
         <CityHero 
           cityName={cityName}
           subtitle={`Services de sécurité privée professionnels à ${cityName} (${postalCode})`}
-          backgroundImage="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//Toulouse-hero.jpg"
+          backgroundImage="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//espace%20administrateur.webp"
         />
         
         <section className="py-16 bg-white">
