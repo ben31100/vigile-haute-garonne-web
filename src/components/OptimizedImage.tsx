@@ -1,7 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
 import { Skeleton } from '@/components/ui/skeleton';
-import { getResponsiveImageUrl } from '@/utils/optimizationUtils';
 
 interface OptimizedImageProps {
   src: string;
@@ -32,39 +31,40 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
   const [imageSrc, setImageSrc] = useState(priority ? src : '');
   const [error, setError] = useState(false);
 
-  // Convertir l'URL pour utiliser des formats plus efficaces comme WebP
-  const getOptimizedSrc = (url: string) => {
-    // Si déjà en format optimisé ou si on doit conserver le format original, retourner l'URL directement
+  const getOptimizedUrl = (url: string) => {
     if (format === 'original' || !url.includes('supabase.co')) {
-      return getResponsiveImageUrl(url);
+      return url;
     }
     
+    // Add WebP format and quality parameters for Supabase URLs
     const separator = url.includes('?') ? '&' : '?';
-    const qualityParam = `quality=${quality}`;
     const formatParam = `format=${format}`;
+    const qualityParam = `quality=${quality}`;
+    const widthParam = width ? `width=${width}` : '';
     
-    // Pour les URLs Supabase, ajouter les paramètres de format et qualité
-    return getResponsiveImageUrl(`${url}${separator}${formatParam}&${qualityParam}`);
+    let optimizedUrl = `${url}${separator}${formatParam}&${qualityParam}`;
+    if (widthParam) {
+      optimizedUrl += `&${widthParam}`;
+    }
+    
+    return optimizedUrl;
   };
 
   useEffect(() => {
     if (!priority) {
-      const optimizedSrc = getOptimizedSrc(src);
-      
       const img = new Image();
-      img.src = optimizedSrc;
+      img.src = getOptimizedUrl(src);
       
       img.onload = () => {
-        setImageSrc(optimizedSrc);
+        setImageSrc(img.src);
         setIsLoading(false);
       };
       
       img.onerror = () => {
-        console.error(`Failed to load image: ${optimizedSrc}`);
+        console.error(`Failed to load image: ${src}`);
         setError(true);
         setIsLoading(false);
-        // Fallback to original source if optimization fails
-        setImageSrc(src);
+        setImageSrc(src); // Fallback to original source
       };
       
       return () => {
@@ -72,16 +72,18 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
         img.onerror = null;
       };
     } else {
-      // For priority images, optimize immediately
-      setImageSrc(getOptimizedSrc(src));
+      setImageSrc(getOptimizedUrl(src));
     }
-  }, [src, priority, format, quality]);
+  }, [src, priority, format, quality, width]);
 
   if (isLoading) {
     return (
       <Skeleton 
         className={`${loadingClassName}`} 
-        style={{ width: width ? `${width}px` : '100%', height: height ? `${height}px` : '300px' }}
+        style={{
+          width: width ? `${width}px` : '100%',
+          height: height ? `${height}px` : '300px'
+        }}
       />
     );
   }
