@@ -1,4 +1,3 @@
-
 /**
  * Utilitaires pour optimiser le chargement des ressources
  */
@@ -74,83 +73,22 @@ export const getResponsiveImageUrl = (
 };
 
 /**
- * Définit les attributs de performance pour les scripts tiers
- * @param scriptId ID du script à optimiser
- * @param attributes Attributs à ajouter (async, defer, etc.)
+ * Cache les ressources statiques avec un service worker
  */
-export const optimizeThirdPartyScript = (
-  scriptId: string, 
-  attributes: { [key: string]: string } = { async: "true", defer: "true" }
-) => {
-  const script = document.getElementById(scriptId);
-  if (script) {
-    Object.entries(attributes).forEach(([key, value]) => {
-      script.setAttribute(key, value);
+export const setupServiceWorker = () => {
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js').then(registration => {
+        console.log('SW registered:', registration);
+      }).catch(error => {
+        console.log('SW registration failed:', error);
+      });
     });
   }
 };
 
 /**
- * Charge des ressources de manière différée pour améliorer les performances
- * @param resourceType Type de ressource ('script', 'style', 'font')
- * @param url URL de la ressource à charger
- * @param options Options supplémentaires
- */
-export const loadDeferredResource = (
-  resourceType: 'script' | 'style' | 'font',
-  url: string,
-  options: { id?: string; callback?: () => void; attributes?: Record<string, string> } = {}
-) => {
-  // Attendre que le contenu principal soit chargé
-  if (document.readyState === 'complete') {
-    createResource();
-  } else {
-    window.addEventListener('load', createResource);
-  }
-
-  function createResource() {
-    let element: HTMLElement;
-
-    if (resourceType === 'script') {
-      element = document.createElement('script');
-      (element as HTMLScriptElement).src = url;
-      (element as HTMLScriptElement).defer = true;
-    } else if (resourceType === 'style') {
-      element = document.createElement('link');
-      (element as HTMLLinkElement).rel = 'stylesheet';
-      (element as HTMLLinkElement).href = url;
-    } else if (resourceType === 'font') {
-      element = document.createElement('link');
-      (element as HTMLLinkElement).rel = 'preload';
-      (element as HTMLLinkElement).as = 'font';
-      (element as HTMLLinkElement).href = url;
-      (element as HTMLLinkElement).setAttribute('crossorigin', 'anonymous');
-    } else {
-      return;
-    }
-
-    if (options.id) {
-      element.id = options.id;
-    }
-
-    if (options.attributes) {
-      Object.entries(options.attributes).forEach(([key, value]) => {
-        element.setAttribute(key, value);
-      });
-    }
-
-    if (options.callback) {
-      element.onload = options.callback;
-    }
-
-    document.head.appendChild(element);
-  }
-};
-
-/**
- * Utilise l'API Intersection Observer pour charger les images à la demande
- * @param elements NodeList ou Array d'éléments à observer
- * @param callback Fonction à exécuter quand l'élément est visible
+ * Optimise le chargement des ressources en utilisant l'Intersection Observer
  */
 export const setupLazyLoading = (
   elements: NodeListOf<Element> | Element[],
@@ -170,4 +108,59 @@ export const setupLazyLoading = (
   });
 
   return observer;
+};
+
+/**
+ * Charge les ressources de manière différée
+ */
+export const loadDeferredResource = (
+  resourceType: 'script' | 'style' | 'font',
+  url: string,
+  options: { id?: string; callback?: () => void; attributes?: Record<string, string> } = {}
+) => {
+  if (document.readyState === 'complete') {
+    createResource();
+  } else {
+    window.addEventListener('load', createResource);
+  }
+
+  function createResource() {
+    let element: HTMLElement;
+    
+    switch (resourceType) {
+      case 'script':
+        element = document.createElement('script');
+        (element as HTMLScriptElement).src = url;
+        (element as HTMLScriptElement).defer = true;
+        break;
+      case 'style':
+        element = document.createElement('link');
+        (element as HTMLLinkElement).rel = 'stylesheet';
+        (element as HTMLLinkElement).href = url;
+        break;
+      case 'font':
+        element = document.createElement('link');
+        (element as HTMLLinkElement).rel = 'stylesheet';
+        (element as HTMLLinkElement).href = url;
+        break;
+      default:
+        return;
+    }
+
+    if (options.id) {
+      element.id = options.id;
+    }
+
+    if (options.attributes) {
+      Object.entries(options.attributes).forEach(([key, value]) => {
+        element.setAttribute(key, value);
+      });
+    }
+
+    if (options.callback) {
+      element.onload = options.callback;
+    }
+
+    document.head.appendChild(element);
+  }
 };
