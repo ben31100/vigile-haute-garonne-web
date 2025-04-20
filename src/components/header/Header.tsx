@@ -1,12 +1,12 @@
 
 import React, { useState } from 'react';
-import { useMediaQuery } from '@/hooks/use-mobile';
+import { useIsMobile } from '@/hooks/use-mobile';
 import MobileNav from './MobileNav';
 import DesktopNav from './DesktopNav';
 import HeaderLogo from './HeaderLogo';
 
 const Header: React.FC = () => {
-  const isMobile = useMediaQuery('(max-width: 768px)');
+  const isMobile = useIsMobile();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -16,7 +16,7 @@ const Header: React.FC = () => {
           <HeaderLogo />
           
           {isMobile ? (
-            <MobileNav isOpen={isMenuOpen} setIsOpen={setIsMenuOpen} />
+            <MobileNav />
           ) : (
             <DesktopNav />
           )}
