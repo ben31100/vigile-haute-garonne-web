@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Phone, Mail, Send, MessageCircle } from 'lucide-react';
@@ -47,11 +48,11 @@ const GardiennagePage = () => {
                   </Button>
                 </div>
               </div>
-              <div>
+              <div className="flex justify-center">
                 <img 
                   src="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images/gardiennage-levigile.webp" 
                   alt="Agent de sécurité Levigile en service" 
-                  className="rounded-lg shadow-lg w-full"
+                  className="rounded-lg shadow-lg w-full max-w-[500px] object-cover h-auto"
                 />
               </div>
             </div>
