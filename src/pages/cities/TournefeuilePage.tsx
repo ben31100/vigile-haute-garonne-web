@@ -8,6 +8,7 @@ import SpecificitesSection, { SpecificiteItem } from '@/components/cities/Specif
 import CtaSection from '@/components/cities/CtaSection';
 import FaqSection, { FaqItem } from '@/components/cities/FaqSection';
 import { MapPin, Users, Building, Star, Activity } from 'lucide-react';
+import OptimizedImage from '@/components/OptimizedImage';
 
 const TournefeuilePage: React.FC = () => {
   const specificites: SpecificiteItem[] = [

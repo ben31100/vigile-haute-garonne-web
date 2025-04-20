@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Index from './pages/Index';
@@ -20,7 +21,7 @@ import SecuriteIncendiePage from './pages/services/SecuriteIncendiePage';
 import ToulousePage from './pages/cities/ToulousePage';
 import BlagnacPage from './pages/cities/BlagnacPage';
 import ColomersPage from './pages/cities/ColomersPage';
-import TournefeuilePage from './pages/cities/TournefeuilePage';
+import TournefeuilePage from './pages/cities/TournefeuilePage.tsx'; // Corriger l'extension explicitement
 import MuretPage from './pages/cities/MuretPage';
 import RamonvillePage from './pages/cities/RamonvillePage';
 import SaintOrensPage from './pages/cities/SaintOrensPage';
