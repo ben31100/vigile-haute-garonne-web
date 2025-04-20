@@ -164,3 +164,31 @@ export const loadDeferredResource = (
     document.head.appendChild(element);
   }
 };
+
+/**
+ * Optimise les dimensions des images en fonction de la taille de l'écran
+ * @param images NodeList d'éléments img
+ */
+export const optimizeImageDimensions = (images: NodeListOf<HTMLImageElement>) => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const img = entry.target as HTMLImageElement;
+        if (!img.width || !img.height) {
+          const setDimensions = () => {
+            img.width = img.naturalWidth;
+            img.height = img.naturalHeight;
+          };
+          if (img.complete) {
+            setDimensions();
+          } else {
+            img.onload = setDimensions;
+          }
+        }
+        observer.unobserve(img);
+      }
+    });
+  });
+
+  images.forEach(img => observer.observe(img));
+};
