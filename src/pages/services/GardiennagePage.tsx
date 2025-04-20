@@ -29,7 +29,7 @@ const GardiennagePage = () => {
 
       <main>
         {/* Hero Section */}
-        <section className="bg-gradient-to-r from-levigile-blue to-levigile-gray text-white py-16">
+        <section className="bg-gradient-to-r from-levigile-blue to-levigile-gray text-white py-24">
           <div className="container mx-auto px-4">
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
