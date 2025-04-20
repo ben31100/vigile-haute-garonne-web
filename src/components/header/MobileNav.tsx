@@ -253,6 +253,45 @@ const MobileNav: React.FC = () => {
                 </SheetClose>
               </CollapsibleContent>
             </Collapsible>
+
+            <Collapsible 
+              className="w-full" 
+              open={isCareerCollapsibleOpen} 
+              onOpenChange={setIsCareerCollapsibleOpen}
+            >
+              <CollapsibleTrigger 
+                className="flex w-full justify-between items-center text-levigile-dark hover:text-levigile-blue font-medium py-2"
+              >
+                <span>Espaces</span>
+                <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isCareerCollapsibleOpen ? 'rotate-180' : ''}`} />
+              </CollapsibleTrigger>
+              <CollapsibleContent className="pl-4 pt-2 flex flex-col space-y-2">
+                <SheetClose asChild>
+                  <Link 
+                    to="/espace-administrateur" 
+                    className="text-sm text-gray-700 hover:text-levigile-blue py-1"
+                  >
+                    Espace Administrateur
+                  </Link>
+                </SheetClose>
+                <SheetClose asChild>
+                  <Link 
+                    to="/espace-client" 
+                    className="text-sm text-gray-700 hover:text-levigile-blue py-1"
+                  >
+                    Espace Client
+                  </Link>
+                </SheetClose>
+                <SheetClose asChild>
+                  <Link 
+                    to="/espace-agent" 
+                    className="text-sm text-gray-700 hover:text-levigile-blue py-1"
+                  >
+                    Espace Agent
+                  </Link>
+                </SheetClose>
+              </CollapsibleContent>
+            </Collapsible>
             
             <SheetClose asChild>
               <Link 

@@ -221,6 +221,40 @@ const DesktopNav: React.FC = () => {
       <Link to="/contact" className="text-levigile-dark hover:text-levigile-blue font-medium text-base transition-colors">
         Contact
       </Link>
+      
+      <DropdownMenu>
+        <DropdownMenuTrigger 
+          className="text-levigile-dark hover:text-levigile-blue font-medium text-base bg-transparent hover:bg-transparent focus:bg-transparent inline-flex items-center transition-colors"
+        >
+          Espaces <ChevronDown className="ml-1 h-4 w-4" />
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align="start" className="bg-white w-48 p-1 z-50">
+          <DropdownMenuItem asChild>
+            <Link 
+              to="/espace-administrateur"
+              className="cursor-pointer w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md"
+            >
+              Espace Administrateur
+            </Link>
+          </DropdownMenuItem>
+          <DropdownMenuItem asChild>
+            <Link 
+              to="/espace-client"
+              className="cursor-pointer w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md"
+            >
+              Espace Client
+            </Link>
+          </DropdownMenuItem>
+          <DropdownMenuItem asChild>
+            <Link 
+              to="/espace-agent"
+              className="cursor-pointer w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md"
+            >
+              Espace Agent
+            </Link>
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
     </nav>
   );
 };
