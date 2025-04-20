@@ -71,7 +71,7 @@ const MontaubanPage: React.FC = () => {
         <CityHero 
           cityName={cityName}
           subtitle={subtitle}
-          backgroundImage="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images/cities/montauban-hero.jpg"
+          backgroundImage="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//Toulouse-hero.jpg"
         />
 
         <SpecificitesSection 
