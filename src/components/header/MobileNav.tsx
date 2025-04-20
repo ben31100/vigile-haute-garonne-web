@@ -255,6 +255,15 @@ const MobileNav: React.FC = () => {
               </CollapsibleContent>
             </Collapsible>
 
+            <SheetClose asChild>
+              <Link 
+                to="/contact"
+                className="text-levigile-dark hover:text-levigile-blue font-medium py-2"
+              >
+                Contact
+              </Link>
+            </SheetClose>
+
             <Collapsible 
               className="w-full" 
               open={isEspacesCollapsibleOpen} 
@@ -300,15 +309,6 @@ const MobileNav: React.FC = () => {
                 className="text-levigile-dark hover:text-levigile-blue font-bold py-2"
               >
                 Devenir partenaire
-              </Link>
-            </SheetClose>
-            
-            <SheetClose asChild>
-              <Link 
-                to="/contact"
-                className="text-levigile-dark hover:text-levigile-blue font-medium py-2"
-              >
-                Contact
               </Link>
             </SheetClose>
           </div>
