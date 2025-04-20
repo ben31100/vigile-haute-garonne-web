@@ -1,22 +1,26 @@
 
-import React, { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useMediaQuery } from '@/hooks/use-mobile';
+import MobileNav from './MobileNav';
+import DesktopNav from './DesktopNav';
 import HeaderLogo from './HeaderLogo';
-import HeaderNavigation from './HeaderNavigation';
 
 const Header: React.FC = () => {
-  const location = useLocation();
-
-  // Make sure page scrolls to top on route change
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [location.pathname]);
+  const isMobile = useMediaQuery('(max-width: 768px)');
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="bg-white shadow-md fixed w-full z-50">
-      <div className="container mx-auto px-4 py-3 flex justify-between items-center">
-        <HeaderLogo />
-        <HeaderNavigation />
+    <header className="bg-white shadow-sm fixed w-full top-0 left-0 z-50">
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between h-16">
+          <HeaderLogo />
+          
+          {isMobile ? (
+            <MobileNav isOpen={isMenuOpen} setIsOpen={setIsMenuOpen} />
+          ) : (
+            <DesktopNav />
+          )}
+        </div>
       </div>
     </header>
   );

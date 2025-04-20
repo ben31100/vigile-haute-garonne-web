@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Index from './pages/Index';
@@ -21,15 +20,15 @@ import SecuriteIncendiePage from './pages/services/SecuriteIncendiePage';
 import ToulousePage from './pages/cities/ToulousePage';
 import BlagnacPage from './pages/cities/BlagnacPage';
 import ColomersPage from './pages/cities/ColomersPage';
-import TournefeuilePage from './pages/cities/TournefeuilePage.tsx'; // Corriger l'extension explicitement
+import TournefeuilePage from './pages/cities/TournefeuilePage';
 import MuretPage from './pages/cities/MuretPage';
 import RamonvillePage from './pages/cities/RamonvillePage';
+import SaintGaudensPage from './pages/cities/SaintGaudensPage';
 import SaintOrensPage from './pages/cities/SaintOrensPage';
 import BalmaPage from './pages/cities/BalmaPage';
 import CugnauxPage from './pages/cities/CugnauxPage';
 import PlaisancePage from './pages/cities/PlaisancePage';
 import LUnionPage from './pages/cities/LUnionPage';
-import SaintGaudensPage from './pages/cities/SaintGaudensPage';
 import AriegePage from './pages/cities/AriegePage';
 import AudePage from './pages/cities/AudePage';
 import AveyronPage from './pages/cities/AveyronPage';
