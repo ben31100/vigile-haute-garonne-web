@@ -244,10 +244,10 @@ const PartnerPage = () => {
                     </div>
                   </div>
                   
-                  <div className="flex flex-col md:flex-row gap-4 mt-4">
+                  <div className="flex flex-col sm:flex-row gap-4 mt-4">
                     <Button 
                       onClick={handleTelegramClick}
-                      className="bg-[#0088cc] hover:bg-[#0077b5] text-white flex items-center justify-center gap-2 w-full md:w-auto"
+                      className="bg-[#0088cc] hover:bg-[#0077b5] text-white flex items-center justify-center gap-2 w-full"
                     >
                       <Send className="h-5 w-5" />
                       Nous contacter sur Telegram
@@ -255,7 +255,7 @@ const PartnerPage = () => {
                     
                     <Button 
                       onClick={handleWhatsAppClick}
-                      className="bg-[#25D366] hover:bg-[#128C7E] text-white flex items-center justify-center gap-2 w-full md:w-auto"
+                      className="bg-[#25D366] hover:bg-[#128C7E] text-white flex items-center justify-center gap-2 w-full"
                     >
                       <MessageCircle className="h-5 w-5" />
                       Nous contacter sur WhatsApp

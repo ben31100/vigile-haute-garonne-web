@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { MapPin, Phone, Mail, PhoneCall, Send, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -60,25 +61,27 @@ const Footer: React.FC = () => {
                 <a href="mailto:levigile31@gmail.com" className="hover:underline">Recrutement: levigile31@gmail.com</a>
               </li>
               
-              <li className="flex items-center space-x-4">
-                <Button
-                  variant="outline"
-                  className="bg-[#1EAEDB] text-white hover:bg-[#17a2b8] px-4 py-2 rounded-md flex items-center space-x-2"
-                  onClick={handleTelegramClick}
-                  aria-label="Nous contacter sur Telegram"
-                >
-                  <Send className="h-5 w-5" />
-                  <span>Nous contacter sur Telegram</span>
-                </Button>
-                <Button
-                  variant="outline"
-                  className="bg-[#25D366] text-white hover:bg-[#20c85e] px-4 py-2 rounded-md flex items-center space-x-2"
-                  onClick={handleWhatsAppClick}
-                  aria-label="Nous contacter sur WhatsApp"
-                >
-                  <MessageCircle className="h-5 w-5" />
-                  <span>Nous contacter sur WhatsApp</span>
-                </Button>
+              <li className="mt-4">
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <Button
+                    variant="outline"
+                    className="bg-[#1EAEDB] text-white hover:bg-[#17a2b8] px-4 py-2 rounded-md flex items-center justify-center w-full sm:w-auto"
+                    onClick={handleTelegramClick}
+                    aria-label="Nous contacter sur Telegram"
+                  >
+                    <Send className="h-5 w-5 mr-2" />
+                    <span>Nous contacter sur Telegram</span>
+                  </Button>
+                  <Button
+                    variant="outline"
+                    className="bg-[#25D366] text-white hover:bg-[#20c85e] px-4 py-2 rounded-md flex items-center justify-center w-full sm:w-auto"
+                    onClick={handleWhatsAppClick}
+                    aria-label="Nous contacter sur WhatsApp"
+                  >
+                    <MessageCircle className="h-5 w-5 mr-2" />
+                    <span>Nous contacter sur WhatsApp</span>
+                  </Button>
+                </div>
               </li>
               
             </ul>
