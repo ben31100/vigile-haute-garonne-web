@@ -52,7 +52,7 @@ const GardiennagePage = () => {
                 <img 
                   src="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//gardiennage-hero.jpg" 
                   alt="Agent de sécurité Levigile en service" 
-                  className="rounded-lg shadow-lg w-full max-w-[500px] object-cover h-auto"
+                  className="rounded-lg shadow-lg w-full max-w-[600px] h-[400px]  object-cover h-auto"
                 />
               </div>
             </div>
