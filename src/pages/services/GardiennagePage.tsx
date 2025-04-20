@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Phone, Mail, Send, MessageCircle } from 'lucide-react';
@@ -31,29 +30,20 @@ const GardiennagePage = () => {
         {/* Hero Section */}
         <section className="bg-gradient-to-r from-levigile-blue to-levigile-gray text-white py-16">
           <div className="container mx-auto px-4">
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div>
-                <h1 className="text-4xl font-bold mb-4">Services de Gardiennage Professionnel</h1>
-                <p className="text-xl mb-6">
-                  Protection et surveillance adaptées à vos besoins spécifiques
-                </p>
-                <div className="flex flex-wrap gap-4">
-                  <Button className="bg-levigile-red hover:bg-red-600">
-                    <Phone className="mr-2 h-4 w-4" />
-                    Demander un devis
-                  </Button>
-                  <Button variant="outline" className="bg-transparent border-white text-white hover:bg-white/10">
-                    <Mail className="mr-2 h-4 w-4" />
-                    Nous contacter
-                  </Button>
-                </div>
-              </div>
-              <div className="flex justify-center md:justify-end">
-                <img 
-                  src="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images/gardiennage-hero.jpg" 
-                  alt="Gardiennage professionnel Levigile" 
-                  className="rounded-lg shadow-lg w-full max-w-md h-auto"
-                />
+            <div className="max-w-3xl">
+              <h1 className="text-4xl font-bold mb-4">Services de Gardiennage Professionnel</h1>
+              <p className="text-xl mb-6">
+                Protection et surveillance adaptées à vos besoins spécifiques
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Button className="bg-levigile-red hover:bg-red-600">
+                  <Phone className="mr-2 h-4 w-4" />
+                  Demander un devis
+                </Button>
+                <Button variant="outline" className="bg-transparent border-white text-white hover:bg-white/10">
+                  <Mail className="mr-2 h-4 w-4" />
+                  Nous contacter
+                </Button>
               </div>
             </div>
           </div>
