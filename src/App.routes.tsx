@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Index from './pages/Index';
@@ -72,6 +71,7 @@ import HautesPyreneesPage from './pages/cities/HautesPyreneesPage';
 import PyreneesOrientalesPage from './pages/cities/PyreneesOrientalesPage';
 import TarnPage from './pages/cities/TarnPage';
 import TarnEtGaronnePage from './pages/cities/TarnEtGaronnePage';
+import MontaubanPage from './pages/cities/MontaubanPage';
 
 const AppRoutes: React.FC = () => {
   return (
@@ -212,6 +212,9 @@ const AppRoutes: React.FC = () => {
       <Route path="/tarbes.html" element={<HautesPyreneesPage />} />
       <Route path="/tarbes" element={<HautesPyreneesPage />} />
       <Route path="/securite-ville-tarbes" element={<HautesPyreneesPage />} />
+      
+      <Route path="/montauban.html" element={<MontaubanPage />} />
+      <Route path="/securite-ville-montauban" element={<MontaubanPage />} />
       
       <Route path="*" element={<NotFound />} />
     </Routes>
