@@ -72,6 +72,7 @@ import PyreneesOrientalesPage from './pages/cities/PyreneesOrientalesPage';
 import TarnPage from './pages/cities/TarnPage';
 import TarnEtGaronnePage from './pages/cities/TarnEtGaronnePage';
 import MontaubanPage from './pages/cities/MontaubanPage';
+import AlbiPage from './pages/cities/AlbiPage';
 
 const AppRoutes: React.FC = () => {
   return (
@@ -215,6 +216,10 @@ const AppRoutes: React.FC = () => {
       
       <Route path="/montauban.html" element={<MontaubanPage />} />
       <Route path="/securite-ville-montauban" element={<MontaubanPage />} />
+      
+      {/* Albi routes */}
+      <Route path="/albi.html" element={<AlbiPage />} />
+      <Route path="/securite-ville-albi" element={<AlbiPage />} />
       
       <Route path="*" element={<NotFound />} />
     </Routes>
