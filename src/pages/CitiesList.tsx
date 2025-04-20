@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { MapPin, Search } from 'lucide-react';
 import Header from '../components/Header';
@@ -6,6 +6,7 @@ import Footer from '../components/Footer';
 import { Helmet } from 'react-helmet-async';
 import { Input } from '@/components/ui/input';
 import citiesData from '../data/cities.json';
+import { useState } from 'react';
 
 // Interface pour les départements
 interface Department {

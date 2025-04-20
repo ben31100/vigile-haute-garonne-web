@@ -9,112 +9,6 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      administrators: {
-        Row: {
-          auth_user_id: string | null
-          email: string
-          id: string
-          nom: string | null
-          password_hash: string
-          prénom: string | null
-        }
-        Insert: {
-          auth_user_id?: string | null
-          email: string
-          id?: string
-          nom?: string | null
-          password_hash: string
-          prénom?: string | null
-        }
-        Update: {
-          auth_user_id?: string | null
-          email?: string
-          id?: string
-          nom?: string | null
-          password_hash?: string
-          prénom?: string | null
-        }
-        Relationships: []
-      }
-      agents: {
-        Row: {
-          administrator_id: string | null
-          email: string
-          id: string
-          nom: string | null
-          password_hash: string
-          prénom: string | null
-          site_affecté: string | null
-          téléphone: string | null
-        }
-        Insert: {
-          administrator_id?: string | null
-          email: string
-          id?: string
-          nom?: string | null
-          password_hash: string
-          prénom?: string | null
-          site_affecté?: string | null
-          téléphone?: string | null
-        }
-        Update: {
-          administrator_id?: string | null
-          email?: string
-          id?: string
-          nom?: string | null
-          password_hash?: string
-          prénom?: string | null
-          site_affecté?: string | null
-          téléphone?: string | null
-        }
-        Relationships: [
-          {
-            foreignKeyName: "agents_administrator_id_fkey"
-            columns: ["administrator_id"]
-            isOneToOne: false
-            referencedRelation: "administrators"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
-      clients: {
-        Row: {
-          administrator_id: string | null
-          contact: string | null
-          email: string
-          id: string
-          nom_entreprise: string | null
-          password_hash: string
-          telephone: string | null
-        }
-        Insert: {
-          administrator_id?: string | null
-          contact?: string | null
-          email: string
-          id?: string
-          nom_entreprise?: string | null
-          password_hash: string
-          telephone?: string | null
-        }
-        Update: {
-          administrator_id?: string | null
-          contact?: string | null
-          email?: string
-          id?: string
-          nom_entreprise?: string | null
-          password_hash?: string
-          telephone?: string | null
-        }
-        Relationships: [
-          {
-            foreignKeyName: "clients_administrator_id_fkey"
-            columns: ["administrator_id"]
-            isOneToOne: false
-            referencedRelation: "administrators"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
       medias: {
         Row: {
           bucket_id: string
@@ -160,129 +54,15 @@ export type Database = {
         }
         Relationships: []
       }
-      messages: {
-        Row: {
-          contenu: string | null
-          id: string
-          lu: boolean | null
-          receiver_id: string
-          sender_id: string
-          sender_type: string | null
-          timestamp: string | null
-        }
-        Insert: {
-          contenu?: string | null
-          id?: string
-          lu?: boolean | null
-          receiver_id: string
-          sender_id: string
-          sender_type?: string | null
-          timestamp?: string | null
-        }
-        Update: {
-          contenu?: string | null
-          id?: string
-          lu?: boolean | null
-          receiver_id?: string
-          sender_id?: string
-          sender_type?: string | null
-          timestamp?: string | null
-        }
-        Relationships: []
-      }
-      plannings: {
-        Row: {
-          agent_id: string | null
-          client_id: string | null
-          date: string | null
-          heure_début: string | null
-          heure_fin: string | null
-          id: string
-          site: string | null
-        }
-        Insert: {
-          agent_id?: string | null
-          client_id?: string | null
-          date?: string | null
-          heure_début?: string | null
-          heure_fin?: string | null
-          id?: string
-          site?: string | null
-        }
-        Update: {
-          agent_id?: string | null
-          client_id?: string | null
-          date?: string | null
-          heure_début?: string | null
-          heure_fin?: string | null
-          id?: string
-          site?: string | null
-        }
-        Relationships: [
-          {
-            foreignKeyName: "plannings_agent_id_fkey"
-            columns: ["agent_id"]
-            isOneToOne: false
-            referencedRelation: "agents"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "plannings_client_id_fkey"
-            columns: ["client_id"]
-            isOneToOne: false
-            referencedRelation: "clients"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
-      sites: {
-        Row: {
-          administrator_id: string | null
-          adresse: string | null
-          id: string
-          nom: string | null
-          ville: string | null
-        }
-        Insert: {
-          administrator_id?: string | null
-          adresse?: string | null
-          id?: string
-          nom?: string | null
-          ville?: string | null
-        }
-        Update: {
-          administrator_id?: string | null
-          adresse?: string | null
-          id?: string
-          nom?: string | null
-          ville?: string | null
-        }
-        Relationships: [
-          {
-            foreignKeyName: "sites_administrator_id_fkey"
-            columns: ["administrator_id"]
-            isOneToOne: false
-            referencedRelation: "administrators"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      is_admin: {
-        Args: { user_id: string }
-        Returns: boolean
-      }
-      is_agent: {
-        Args: { profile_id: string }
-        Returns: boolean
-      }
+      [_ in never]: never
     }
     Enums: {
-      user_role: "admin" | "agent" | "client"
+      [_ in never]: never
     }
     CompositeTypes: {
       [_ in never]: never
@@ -397,8 +177,6 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {
-      user_role: ["admin", "agent", "client"],
-    },
+    Enums: {},
   },
 } as const
