@@ -6,7 +6,7 @@ const InterventionPage: React.FC = () => {
   return (
     <ServicePage
       title="Service d'Intervention"
-      heroImage="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//Securiser%20un%20chantier%20par%20Levigile.png"
+      heroImage="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//Securite%20evenementielle.webp"
       description="Notre service d'intervention rapide assure une réponse immédiate en cas d'alerte ou d'incident sur vos sites. Nos équipes mobiles sont prêtes à intervenir 24h/24 pour sécuriser vos locaux et gérer les situations d'urgence."
       serviceDetails={[
         {
