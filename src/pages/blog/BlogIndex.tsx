@@ -52,7 +52,7 @@ const BlogIndex: React.FC = () => {
       <BlogHero 
         subtitle="Actualités, conseils et expertise en matière de sécurité privée"
         background="bg-white"
-        backgroundImage="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//blog%20du%20vigile.png"
+        backgroundImage="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//blog%20du%20vigile.webp"
         className="h-[450px] mb-16"
       />
       
