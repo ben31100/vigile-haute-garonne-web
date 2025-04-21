@@ -1,10 +1,10 @@
 
 import React, { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { serviceRoutes } from './routes/serviceRoutes';
-import { cityRoutes } from './routes/cityRoutes';
-import { departmentRoutes } from './routes/departmentRoutes';
-import { authRoutes } from './routes/authRoutes';
+import CityRoutes from './routes/cityRoutes';
+import ServiceRoutes from './routes/serviceRoutes';
+import DepartmentRoutes from './routes/departmentRoutes';
+import AuthRoutes from './routes/authRoutes';
 
 // Pages principales (chargement immédiat)
 const Index = lazy(() => import('./pages/Index'));
@@ -48,19 +48,14 @@ const AppRoutes: React.FC = () => {
         <Route path="/carriere/nos-offres" element={<JobOffers />} />
         <Route path="/devenir-partenaire" element={<PartnerPage />} />
         <Route path="/devenir-partenaire/inscription" element={<PartnerRegistrationPage />} />
-        
         {/* Service Routes */}
-        {serviceRoutes}
-        
+        <ServiceRoutes />
         {/* City Routes */}
-        {cityRoutes}
-        
+        <CityRoutes />
         {/* Department Routes */}
-        {departmentRoutes}
-        
+        <DepartmentRoutes />
         {/* Auth (Espace) Routes */}
-        {authRoutes}
-        
+        <AuthRoutes />
         {/* Not Found */}
         <Route path="*" element={<NotFound />} />
       </Routes>
