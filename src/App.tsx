@@ -24,10 +24,19 @@ const queryClient = new QueryClient({
 });
 
 const App = () => {
-  // Préchargement des ressources critiques
+  // Préchargement des ressources critiques - modifié pour éviter les avertissements
   useEffect(() => {
-    // Instead of preloading, we'll defer loading for non-critical resources
+    // Utilisation de loadDeferredResource au lieu de preload pour les polices non critiques
     loadDeferredResource('font', 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+    
+    // Assurons-nous que les images préchargées sont effectivement utilisées
+    const preloadImage = (src: string) => {
+      const img = new Image();
+      img.src = src;
+    };
+    
+    // Préchargement de l'image du logo pour qu'elle soit disponible immédiatement
+    preloadImage('https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//logo%20levigile%20securite.webp');
   }, []);
 
   return (

@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
 
 const AgentLoginPage: React.FC = () => {
-  // Define state variables before using them
+  // Initialisation correcte des états
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
@@ -18,9 +18,9 @@ const AgentLoginPage: React.FC = () => {
     e.preventDefault();
     setLoading(true);
     
-    // Simulating login attempt
+    // Simulation de tentative de connexion
     setTimeout(() => {
-      console.log('Agent login attempt with:', { email });
+      console.log('Tentative de connexion agent avec:', { email });
       setLoading(false);
     }, 1000);
   };

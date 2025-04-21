@@ -16,9 +16,10 @@ const HeaderLogo: React.FC = () => {
   return (
     <div className="flex items-center">
       <a
-        href="#"
+        href="/"
         onClick={navigateToHomeAndScrollTop}
         className="flex items-center"
+        aria-label="Accueil LeVigile"
       >
         <OptimizedImage
           alt="LeVigile Logo"
