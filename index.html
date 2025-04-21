@@ -119,8 +119,14 @@
     <!-- Cache Control -->
     <meta http-equiv="Cache-Control" content="max-age=31536000, immutable" />
     
-    <!-- Préchargement des ressources critiques -->
-    <link rel="preload" as="image" href="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//logo%20levigile%20securite.webp" />
+    <!-- Préchargement des ressources critiques avec attributs corrects -->
+    <link 
+      rel="preload" 
+      as="image" 
+      href="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//logo%20levigile%20securite.webp" 
+      type="image/webp"
+      fetchpriority="high"
+    />
   </head>
 
   <body>
