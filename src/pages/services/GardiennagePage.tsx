@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Phone, Mail, Send, MessageCircle } from 'lucide-react';
@@ -218,23 +217,7 @@ const GardiennagePage = () => {
         <section className="container mx-auto px-4 py-12">
           <div className="bg-gray-50 p-6 rounded-lg">
             <h2 className="text-2xl font-bold mb-4">Contactez-nous</h2>
-            <div className="flex flex-col sm:flex-row gap-4 w-full">
-              <Button 
-                onClick={handleTelegramClick}
-                className="bg-[#0088cc] hover:bg-[#0077b5] text-white flex-1 flex items-center justify-center"
-              >
-                <Send className="mr-2 h-5 w-5" />
-                Nous contacter sur Telegram
-              </Button>
-              
-              <Button 
-                onClick={handleWhatsAppClick}
-                className="bg-[#25D366] hover:bg-[#128C7E] text-white flex-1 flex items-center justify-center"
-              >
-                <MessageCircle className="mr-2 h-5 w-5" />
-                Nous contacter sur WhatsApp
-              </Button>
-            </div>
+            
           </div>
         </section>
       </main>
