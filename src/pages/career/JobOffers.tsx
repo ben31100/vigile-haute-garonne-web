@@ -5,6 +5,8 @@ import { Button } from '@/components/ui/button';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
+const CAREER_HERO_IMAGE = "https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//Carrierre%20chez%20levigile.webp";
+
 const JobOffers = () => {
   const handleApply = (jobTitle: string) => {
     window.location.href = `mailto:levigile31@gmail.com?subject=Candidature : ${jobTitle}`;
@@ -24,9 +26,12 @@ const JobOffers = () => {
 
       <main>
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-r from-levigile-blue to-levigile-gray text-white">
+        <section 
+          className="relative bg-gradient-to-r from-levigile-blue to-levigile-gray text-white"
+          style={{ backgroundImage: `url(${CAREER_HERO_IMAGE})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+        >
           <div className="container mx-auto px-4 grid md:grid-cols-2 items-center py-16 gap-8">
-            <div className="space-y-6 z-10">
+            <div className="space-y-6 z-10 bg-black bg-opacity-40 p-6 rounded-lg">
               <h1 className="text-3xl md:text-4xl font-bold">
                 Nos offres d'emploi
               </h1>
@@ -35,12 +40,8 @@ const JobOffers = () => {
                 en pleine croissance. Développez votre carrière dans la sécurité privée.
               </p>
             </div>
-            <div className="relative">
-              <img 
-                src="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//offres%20emploi%20Levigile.png" 
-                alt="LeVigile Offres d'emploi" 
-                className="w-full h-auto rounded-lg shadow-xl"
-              />
+            <div className="relative hidden md:block">
+              {/* Removed the original img element to avoid overlay conflicts */}
             </div>
           </div>
         </section>

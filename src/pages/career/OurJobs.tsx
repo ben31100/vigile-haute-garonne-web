@@ -1,8 +1,11 @@
+
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Shield, UserCheck, Clock, Building2 } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+
+const CAREER_HERO_IMAGE = "https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//Carrierre%20chez%20levigile.webp";
 
 const OurJobs = () => {
   return (
@@ -19,9 +22,12 @@ const OurJobs = () => {
 
       <main>
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-r from-levigile-blue to-levigile-gray text-white">
+        <section 
+          className="relative bg-gradient-to-r from-levigile-blue to-levigile-gray text-white"
+          style={{ backgroundImage: `url(${CAREER_HERO_IMAGE})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+        >
           <div className="container mx-auto px-4 grid md:grid-cols-2 items-center py-16 gap-8">
-            <div className="space-y-6 z-10">
+            <div className="space-y-6 z-10 bg-black bg-opacity-40 p-6 rounded-lg">
               <h1 className="text-3xl md:text-4xl font-bold">
                 Nos métiers
               </h1>
@@ -30,12 +36,8 @@ const OurJobs = () => {
                 Nos métiers sont variés et offrent de réelles perspectives d'évolution.
               </p>
             </div>
-            <div className="relative">
-              <img 
-                src="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//offres%20emploi%20Levigile.png" 
-                alt="LeVigile Métiers" 
-                className="w-full h-auto rounded-lg shadow-xl"
-              />
+            <div className="relative hidden md:block">
+              {/* Removed the original img element to avoid overlay conflicts */}
             </div>
           </div>
         </section>
@@ -119,3 +121,4 @@ const OurJobs = () => {
 };
 
 export default OurJobs;
+

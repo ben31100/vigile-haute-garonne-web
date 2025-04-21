@@ -1,8 +1,11 @@
+
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Trophy, Heart, Users, GraduationCap } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+
+const CAREER_HERO_IMAGE = "https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//Carrierre%20chez%20levigile.webp";
 
 const WhyJoinUs = () => {
   return (
@@ -19,9 +22,12 @@ const WhyJoinUs = () => {
 
       <main>
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-r from-levigile-blue to-levigile-gray text-white">
+        <section 
+          className="relative bg-gradient-to-r from-levigile-blue to-levigile-gray text-white"
+          style={{ backgroundImage: `url(${CAREER_HERO_IMAGE})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+        >
           <div className="container mx-auto px-4 grid md:grid-cols-2 items-center py-16 gap-8">
-            <div className="space-y-6 z-10">
+            <div className="space-y-6 z-10 bg-black bg-opacity-40 p-6 rounded-lg">
               <h1 className="text-3xl md:text-4xl font-bold">
                 Pourquoi nous rejoindre ?
               </h1>
@@ -31,12 +37,8 @@ const WhyJoinUs = () => {
                 un environnement de travail stimulant et épanouissant.
               </p>
             </div>
-            <div className="relative">
-              <img 
-                src="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//offres%20emploi%20Levigile.png" 
-                alt="LeVigile Équipe" 
-                className="w-full h-auto rounded-lg shadow-xl"
-              />
+            <div className="relative hidden md:block">
+              {/* Removed original image to prevent overlay issues */}
             </div>
           </div>
         </section>
@@ -97,3 +99,4 @@ const WhyJoinUs = () => {
 };
 
 export default WhyJoinUs;
+
