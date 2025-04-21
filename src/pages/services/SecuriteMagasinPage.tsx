@@ -6,7 +6,7 @@ const SecuriteMagasinPage: React.FC = () => {
   return (
     <ServicePage
       title="Sécurité Magasin"
-      heroImage="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//Securite%20en%20grande%20surface%20Levigile.png"
+      heroImage="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//Securite%20Magasin.webp"
       description="Nos solutions de sécurité pour commerces et grandes surfaces allient protection des biens, prévention des vols et accueil du public, pour une expérience d'achat sereine et sécurisée pour vos clients et collaborateurs."
       serviceDetails={[
         {
@@ -69,3 +69,4 @@ const SecuriteMagasinPage: React.FC = () => {
 };
 
 export default SecuriteMagasinPage;
+
