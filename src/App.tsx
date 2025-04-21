@@ -6,7 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter } from "react-router-dom";
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { lazy, Suspense, useEffect } from 'react';
-import { preloadImages, loadDeferredResource } from "./utils/optimizationUtils";
+import { loadDeferredResource } from "./utils/optimizationUtils";
 
 // Chargement paresseux des routes
 const AppRoutes = lazy(() => import('./App.routes'));
@@ -26,12 +26,7 @@ const queryClient = new QueryClient({
 const App = () => {
   // Préchargement des ressources critiques
   useEffect(() => {
-    // Images critiques pour la page d'accueil
-    preloadImages([
-      "https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//logo%20levigile%20securite.png"
-    ], true);
-    
-    // Chargement différé des polices
+    // Instead of preloading, we'll defer loading for non-critical resources
     loadDeferredResource('font', 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
   }, []);
 
