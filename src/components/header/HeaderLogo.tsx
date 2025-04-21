@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const HeaderLogo: React.FC = () => {
@@ -14,8 +14,10 @@ const HeaderLogo: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  // Charger le logo immédiatement sans effet de preload multiple
   useEffect(() => {
-    // Indique que le logo est chargé, pour que l'avertissement de preload soit évité
+    // Simplifions pour éviter la double charge 
+    // Le logo devrait déjà être préchargé par le preload dans le head
     const img = new Image();
     img.src = logoUrl;
     img.onload = () => setLogoLoaded(true);
@@ -51,4 +53,3 @@ const HeaderLogo: React.FC = () => {
 };
 
 export default HeaderLogo;
-

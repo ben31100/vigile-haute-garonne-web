@@ -5,7 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter } from "react-router-dom";
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-import { lazy, Suspense, useEffect } from 'react';
+import { lazy, Suspense } from 'react';
 
 // Chargement paresseux des routes
 const AppRoutes = lazy(() => import('./App.routes'));
@@ -23,9 +23,6 @@ const queryClient = new QueryClient({
 });
 
 const App = () => {
-  // Le préchargement du logo est maintenant géré par les balises <link> dans index.html
-  // et par le composant HeaderLogo lui-même
-
   return (
     <QueryClientProvider client={queryClient}>
       <HelmetProvider>

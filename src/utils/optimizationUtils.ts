@@ -3,6 +3,9 @@
  * Utilitaires pour optimiser le chargement des ressources
  */
 
+// Déclarer toutes les variables et fonctions avant leur utilisation
+// pour éviter l'erreur "Cannot access 'x' before initialization"
+
 /**
  * Récupère la taille d'image optimale en fonction de la largeur de l'écran
  * @param baseUrl URL de base de l'image
@@ -51,20 +54,30 @@ export const getResponsiveImageUrl = (
 };
 
 /**
+ * Fonction d'aide pour la gestion des IntersectionObserver
+ */
+const createIntersectionObserver = (
+  callback: (entries: IntersectionObserverEntry[]) => void,
+  options = { rootMargin: '100px' }
+) => {
+  return new IntersectionObserver(callback, options);
+};
+
+/**
  * Optimise le chargement des ressources en utilisant l'Intersection Observer
  */
 export const setupLazyLoading = (
   elements: NodeListOf<Element> | Element[],
   callback: (element: Element) => void
 ) => {
-  const observer = new IntersectionObserver((entries) => {
+  const observer = createIntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         callback(entry.target);
         observer.unobserve(entry.target);
       }
     });
-  }, { rootMargin: '100px' });
+  });
 
   elements.forEach(element => {
     observer.observe(element);
@@ -132,7 +145,7 @@ export const loadDeferredResource = (
  * Optimise les dimensions des images en fonction de la taille de l'écran
  */
 export const optimizeImageDimensions = (images: NodeListOf<HTMLImageElement>) => {
-  const observer = new IntersectionObserver((entries) => {
+  const observer = createIntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const img = entry.target as HTMLImageElement;
