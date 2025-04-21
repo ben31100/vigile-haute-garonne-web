@@ -18,7 +18,7 @@ const AgentLoginPage: React.FC = () => {
       <main 
         className="flex-grow pt-24 flex items-center justify-center bg-cover bg-center py-12"
         style={{ 
-          backgroundImage: "url('https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//espace%20agent.jpg')",
+          backgroundImage: "url('https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//Levigile%20securite.webp')",
           backgroundSize: 'cover'
         }}
       >
@@ -43,3 +43,4 @@ const AgentLoginPage: React.FC = () => {
 };
 
 export default AgentLoginPage;
+
