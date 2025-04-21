@@ -38,7 +38,7 @@ const MendePage = lazy(() => import('../pages/cities/MendePage'));
 const PerpignanPage = lazy(() => import('../pages/cities/PerpignanPage'));
 const CahorsPage = lazy(() => import('../pages/cities/CahorsPage'));
 
-const CityRoutes = () => (
+export const cityRoutes = (
   <>
     <Route path="/villes" element={<React.Suspense><div /></React.Suspense>} /> {/* Placehold for CitiesList */}
     <Route path="/toulouse.html" element={<ToulousePage />} />
@@ -107,5 +107,3 @@ const CityRoutes = () => (
     <Route path="/securite-ville-tarbes" element={<PerpignanPage />} />
   </>
 );
-
-export default CityRoutes;

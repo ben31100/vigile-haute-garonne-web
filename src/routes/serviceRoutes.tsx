@@ -10,7 +10,7 @@ const SecuriteMagasinPage = lazy(() => import('../pages/services/SecuriteMagasin
 const SecuriteResidentiellePage = lazy(() => import('../pages/services/SecuriteResidentiellePage'));
 const SecuriteIncendiePage = lazy(() => import('../pages/services/SecuriteIncendiePage'));
 
-const ServiceRoutes = () => (
+export const serviceRoutes = (
   <>
     <Route path="/services/gardiennage" element={<GardiennagePage />} />
     <Route path="/services/securite-evenementielle" element={<SecuriteEvenementielle />} />
@@ -21,5 +21,3 @@ const ServiceRoutes = () => (
     <Route path="/services/securite-incendie" element={<SecuriteIncendiePage />} />
   </>
 );
-
-export default ServiceRoutes;
