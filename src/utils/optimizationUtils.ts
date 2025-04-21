@@ -1,3 +1,4 @@
+
 /**
  * Utilitaires pour optimiser le chargement des ressources
  */
