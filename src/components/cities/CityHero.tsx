@@ -30,29 +30,26 @@ const CityHero: React.FC<CityHeroProps> = ({
       try {
         let imagePath;
 
+        // Prioritize direct background image if provided
         if (backgroundImage) {
+          // If it's already a full URL (contains supabase.co), use it directly
+          if (backgroundImage.includes('supabase.co')) {
+            setBgImage(backgroundImage);
+            setIsLoading(false);
+            return;
+          }
           imagePath = backgroundImage;
         } else {
           imagePath = getCityImageUrl(cityName, 'hero');
         }
 
-        if (imagePath.includes('supabase.co')) {
-          // Ajouter le format WebP à l'URL
-          const separator = imagePath.includes('?') ? '&' : '?';
-          const webpUrl = `${imagePath}${separator}format=webp&quality=80`;
-          setBgImage(webpUrl);
-          setIsLoading(false);
-          return;
-        }
-
+        // Get the public URL for the image path
         const publicUrl = await getSupabaseImageUrl(imagePath);
-        // Ajouter le format WebP à l'URL publique
-        const separator = publicUrl.includes('?') ? '&' : '?';
-        const webpUrl = `${publicUrl}${separator}format=webp&quality=80`;
-        setBgImage(webpUrl);
+        setBgImage(publicUrl);
       } catch (error) {
         console.error("Erreur lors du chargement de l'image:", error);
         setHasError(true);
+        // Use fallback image
         setBgImage("https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images/gardiennage-hero.jpg?format=webp&quality=80");
       } finally {
         setIsLoading(false);
