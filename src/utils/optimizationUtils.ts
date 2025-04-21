@@ -8,20 +8,34 @@
  * @param highPriority Si true, utilise fetchpriority="high" pour les ressources critiques
  */
 export const preloadImages = (imagePaths: string[], highPriority: boolean = false) => {
+  if (!imagePaths || !Array.isArray(imagePaths) || imagePaths.length === 0) {
+    return;
+  }
+  
   imagePaths.forEach(path => {
-    // Créer un lien de préchargement dans le head
-    const link = document.createElement('link');
-    link.rel = 'preload';
-    link.as = 'image';
-    link.href = path;
-    if (highPriority) {
-      link.setAttribute('fetchpriority', 'high');
-    }
-    document.head.appendChild(link);
+    if (!path) return;
     
-    // Précharger aussi dans le cache du navigateur
-    const img = new Image();
-    img.src = path;
+    try {
+      // Créer un lien de préchargement dans le head
+      const link = document.createElement('link');
+      link.rel = 'preload';
+      link.as = 'image';
+      link.href = path;
+      if (highPriority) {
+        link.setAttribute('fetchpriority', 'high');
+      }
+      link.onload = () => {
+        // Cette image a bien été préchargée, on peut l'utiliser
+        const img = new Image();
+        img.src = path;
+      };
+      link.onerror = () => {
+        console.warn(`Failed to preload image: ${path}`);
+      };
+      document.head.appendChild(link);
+    } catch (error) {
+      console.error('Error preloading image:', error);
+    }
   });
 };
 
@@ -118,6 +132,8 @@ export const loadDeferredResource = (
   url: string,
   options: { id?: string; callback?: () => void; attributes?: Record<string, string> } = {}
 ) => {
+  if (!url) return;
+  
   if (document.readyState === 'complete') {
     createResource();
   } else {
@@ -125,6 +141,10 @@ export const loadDeferredResource = (
   }
 
   function createResource() {
+    // Vérifier si la ressource existe déjà
+    const existingResource = document.querySelector(`[href="${url}"], [src="${url}"]`);
+    if (existingResource) return;
+    
     let element: HTMLElement;
     
     switch (resourceType) {
