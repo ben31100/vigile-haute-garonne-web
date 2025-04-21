@@ -13,7 +13,7 @@ const PyreneesOrientalesPage = lazy(() => import('../pages/cities/PyreneesOrient
 const TarnPage = lazy(() => import('../pages/cities/TarnPage'));
 const TarnEtGaronnePage = lazy(() => import('../pages/cities/TarnEtGaronnePage'));
 
-export const departmentRoutes = (
+const DepartmentRoutes = () => (
   <>
     <Route path="/ariege.html" element={<AriegePage />} />
     <Route path="/aude.html" element={<AudePage />} />
@@ -39,3 +39,5 @@ export const departmentRoutes = (
     <Route path="/securite-departement-tarn-et-garonne" element={<TarnEtGaronnePage />} />
   </>
 );
+
+export default DepartmentRoutes;

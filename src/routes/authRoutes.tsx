@@ -6,10 +6,12 @@ const AdminLoginPage = lazy(() => import('../pages/auth/AdminLoginPage'));
 const ClientLoginPage = lazy(() => import('../pages/auth/ClientLoginPage'));
 const AgentLoginPage = lazy(() => import('../pages/auth/AgentLoginPage'));
 
-export const authRoutes = (
+const AuthRoutes = () => (
   <>
     <Route path="/espace-administrateur" element={<AdminLoginPage />} />
     <Route path="/espace-client" element={<ClientLoginPage />} />
     <Route path="/espace-agent" element={<AgentLoginPage />} />
   </>
 );
+
+export default AuthRoutes;
