@@ -6,7 +6,7 @@ const SecuriteEvenementielle: React.FC = () => {
   return (
     <ServicePage
       title="Sécurité Événementielle"
-      heroImage="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//Securite%20evenementielle%20levigile.png"
+      heroImage="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//Securite%20evenementielle.webp"
       description="Nous assurons la sécurité de tous types d'événements, de la réunion professionnelle aux grands rassemblements, avec des agents formés aux spécificités de la gestion de foule et de la sécurité événementielle."
       serviceDetails={[
         {
@@ -69,3 +69,4 @@ const SecuriteEvenementielle: React.FC = () => {
 };
 
 export default SecuriteEvenementielle;
+
