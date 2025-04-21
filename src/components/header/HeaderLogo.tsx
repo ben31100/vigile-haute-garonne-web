@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import OptimizedImage from '@/components/OptimizedImage';
 
 const HeaderLogo: React.FC = () => {
   const navigate = useNavigate();
@@ -16,17 +15,14 @@ const HeaderLogo: React.FC = () => {
   return (
     <div className="flex items-center">
       <a
-        href="/"
+        href="#"
         onClick={navigateToHomeAndScrollTop}
         className="flex items-center"
-        aria-label="Accueil LeVigile"
       >
-        <OptimizedImage
-          src="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//logo%20levigile%20securite.webp"
+        <img
           alt="LeVigile Logo"
           className="h-6 w-auto cursor-pointer"
-          priority={true}
-          quality={90}
+          src="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//logo%20levigile%20securite.webp"
         />
       </a>
     </div>
@@ -34,3 +30,4 @@ const HeaderLogo: React.FC = () => {
 };
 
 export default HeaderLogo;
+
