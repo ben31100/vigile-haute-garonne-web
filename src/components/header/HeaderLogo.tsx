@@ -23,6 +23,8 @@ const HeaderLogo: React.FC = () => {
           alt="LeVigile Logo"
           className="h-6 w-auto cursor-pointer"
           src="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//logo%20levigile%20securite.webp"
+          width={180}
+          height={30}
         />
       </a>
     </div>
@@ -30,4 +32,3 @@ const HeaderLogo: React.FC = () => {
 };
 
 export default HeaderLogo;
-

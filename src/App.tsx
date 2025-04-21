@@ -28,7 +28,7 @@ const App = () => {
   useEffect(() => {
     // Images critiques pour la page d'accueil
     preloadImages([
-      "https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//logo%20levigile%20securite.png"
+      "https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//logo%20levigile%20securite.webp"
     ], true);
     
     // Chargement différé des polices
