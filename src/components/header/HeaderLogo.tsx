@@ -40,7 +40,7 @@ const HeaderLogo: React.FC = () => {
             width={180}
             height={30}
             loading="eager"
-            fetchpriority="high"
+            fetchPriority="high"
           />
         ) : (
           <div className="h-6 w-[180px] bg-gray-200 animate-pulse rounded"></div>
@@ -51,3 +51,4 @@ const HeaderLogo: React.FC = () => {
 };
 
 export default HeaderLogo;
+
