@@ -53,7 +53,7 @@ const RoquesPage: React.FC = () => {
         <CityHero 
           cityName={cityName}
           subtitle={`Services de sécurité privée professionnels à ${cityName} (${postalCode})`}
-          backgroundImage="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//offres%20emploi%20Levigile.png"
+          backgroundImage="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//Levigile%20securite.webp"
         />
         
         <SpecificitesSection 
