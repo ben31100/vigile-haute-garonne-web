@@ -7,8 +7,7 @@ import HeaderLogo from './HeaderLogo';
 
 const Header: React.FC = () => {
   const isMobile = useIsMobile();
-  // Enlevons l'état non utilisé
-  // const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <header className="bg-white shadow-sm fixed w-full top-0 left-0 z-50">

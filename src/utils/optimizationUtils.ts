@@ -1,4 +1,3 @@
-
 /**
  * Utilitaires pour optimiser le chargement des ressources
  */
@@ -73,7 +72,24 @@ export const getResponsiveImageUrl = (
   return baseUrl;
 };
 
-// Déplacer cette fonction après son utilisation dans le code
+/**
+ * Cache les ressources statiques avec un service worker
+ */
+export const setupServiceWorker = () => {
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js').then(registration => {
+        console.log('SW registered:', registration);
+      }).catch(error => {
+        console.log('SW registration failed:', error);
+      });
+    });
+  }
+};
+
+/**
+ * Optimise le chargement des ressources en utilisant l'Intersection Observer
+ */
 export const setupLazyLoading = (
   elements: NodeListOf<Element> | Element[],
   callback: (element: Element) => void
@@ -92,21 +108,6 @@ export const setupLazyLoading = (
   });
 
   return observer;
-};
-
-/**
- * Cache les ressources statiques avec un service worker
- */
-export const setupServiceWorker = () => {
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/sw.js').then(registration => {
-        console.log('SW registered:', registration);
-      }).catch(error => {
-        console.log('SW registration failed:', error);
-      });
-    });
-  }
 };
 
 /**
