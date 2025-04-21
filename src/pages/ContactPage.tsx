@@ -24,7 +24,13 @@ const ContactPage = () => {
 
       <main className="pt-8 pb-16">
         {/* Hero Section */}
-        <section className="bg-gray-100 py-12 md:py-16 mb-12 min-h-[300px] md:h-[500px] flex items-center">
+        <section className="bg-gray-100 py-12 md:py-16 mb-12 min-h-[300px] md:h-[500px] flex items-center"
+          style={{ 
+            backgroundImage: "url('https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//Levigile%20securite.webp')",
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        >
           <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
             <div className="w-full md:w-1/2 mb-8 md:mb-0">
               <h1 className="text-3xl md:text-4xl font-bold text-levigile-dark mb-4">
