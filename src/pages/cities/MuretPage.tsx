@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import Header from '@/components/Header';
@@ -94,7 +93,7 @@ const MuretPage: React.FC = () => {
           <CityHero 
             cityName="Muret" 
             subtitle="Services de sécurité pour la troisième ville de Haute-Garonne"
-            backgroundImage="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//ronde-hero.jpg"
+            backgroundImage="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//Levigile%20securite.webp"
           />
           
           <SpecificitesSection items={specificites} />

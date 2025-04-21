@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import Header from '@/components/Header';
@@ -53,7 +52,7 @@ const TarnEtGaronnePage: React.FC = () => {
         <CityHero 
           cityName={cityName}
           subtitle={`Services de sécurité privée professionnels dans le ${cityName} (${postalCode})`}
-          backgroundImage="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//gardiennage-hero.jpg"
+          backgroundImage="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//Levigile%20securite.webp"
         />
         
         <SpecificitesSection 

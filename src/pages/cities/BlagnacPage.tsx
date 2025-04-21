@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import Header from '@/components/Header';
@@ -73,7 +72,7 @@ const BlagnacPage: React.FC = () => {
           <CityHero 
             cityName="Blagnac" 
             subtitle="Services de sécurité adaptés à la zone aéroportuaire et industrielle"
-            backgroundImage="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//gardiennage-hero.jpg"
+            backgroundImage="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//Levigile%20securite.webp"
           />
           
           <SpecificitesSection items={specificites} />

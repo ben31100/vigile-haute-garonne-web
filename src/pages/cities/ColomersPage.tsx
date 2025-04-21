@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import Header from '@/components/Header';
@@ -73,7 +72,7 @@ const ColomersPage: React.FC = () => {
           <CityHero 
             cityName="Colomiers" 
             subtitle="Protection sur mesure pour la deuxième ville de Haute-Garonne"
-            backgroundImage="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//incendie-hero.jpg"
+            backgroundImage="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//Levigile%20securite.webp"
           />
           
           <SpecificitesSection items={specificites} />

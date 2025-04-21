@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import Header from '../../components/Header';
@@ -55,7 +54,7 @@ const CugnauxPage: React.FC = () => {
         <CityHero 
           cityName="Cugnaux"
           subtitle="Des solutions de sécurité sur mesure pour cette ville du sud-ouest toulousain"
-          backgroundImage="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//gardiennage-hero.jpg"
+          backgroundImage="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//Levigile%20securite.webp"
         />
         
         <section className="py-16">
