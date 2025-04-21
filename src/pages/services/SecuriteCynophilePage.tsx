@@ -6,7 +6,7 @@ const SecuriteCynophilePage: React.FC = () => {
   return (
     <ServicePage
       title="Sécurité Cynophile"
-      heroImage="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//Agent%20cynophile%20levigile.png"
+      heroImage="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//securite%20cynophile%20levigile.webp"
       description="Notre service de sécurité cynophile combine l'expertise de maîtres-chiens qualifiés et des chiens spécialement dressés pour offrir une solution de sécurité dissuasive et efficace pour la protection de vos sites et événements."
       serviceDetails={[
         {
@@ -69,3 +69,4 @@ const SecuriteCynophilePage: React.FC = () => {
 };
 
 export default SecuriteCynophilePage;
+
