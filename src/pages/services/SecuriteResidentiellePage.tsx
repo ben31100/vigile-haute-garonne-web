@@ -6,7 +6,7 @@ const SecuriteResidentiellePage: React.FC = () => {
   return (
     <ServicePage
       title="Sécurité Résidentielle"
-      heroImage="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//Surveillance%20de%20residences%20Levigile.png"
+      heroImage="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//Securite%20Residentielle.webp"
       description="Nos solutions de sécurité résidentielle garantissent la tranquillité des habitants et la protection des biens communs dans les immeubles, résidences et lotissements, avec des services adaptés aux besoins spécifiques de chaque communauté."
       serviceDetails={[
         {
@@ -69,3 +69,4 @@ const SecuriteResidentiellePage: React.FC = () => {
 };
 
 export default SecuriteResidentiellePage;
+
