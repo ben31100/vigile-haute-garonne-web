@@ -26,7 +26,7 @@ const WhyJoinUs = () => {
           className="relative bg-gradient-to-r from-levigile-blue to-levigile-gray text-white"
           style={{ backgroundImage: `url(${CAREER_HERO_IMAGE})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
         >
-          <div className="container mx-auto px-4 grid md:grid-cols-2 items-center py-16 gap-8">
+          <div className="container mx-auto px-4 grid md:grid-cols-2 items-center py-32 gap-8">
             <div className="space-y-6 z-10 bg-black bg-opacity-40 p-6 rounded-lg">
               <h1 className="text-3xl md:text-4xl font-bold">
                 Pourquoi nous rejoindre ?
