@@ -4,6 +4,44 @@
  */
 
 /**
+ * Cache les ressources statiques avec un service worker
+ */
+export const setupServiceWorker = () => {
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js').then(registration => {
+        console.log('SW registered:', registration);
+      }).catch(error => {
+        console.log('SW registration failed:', error);
+      });
+    });
+  }
+};
+
+/**
+ * Précharge une liste d'images pour améliorer les performances
+ * @param imagePaths Liste des chemins d'images à précharger
+ * @param highPriority Si true, utilise fetchpriority="high" pour les ressources critiques
+ */
+export const preloadImages = (imagePaths: string[], highPriority: boolean = false) => {
+  imagePaths.forEach(path => {
+    // Créer un lien de préchargement dans le head
+    const link = document.createElement('link');
+    link.rel = 'preload';
+    link.as = 'image';
+    link.href = path;
+    if (highPriority) {
+      link.setAttribute('fetchpriority', 'high');
+    }
+    document.head.appendChild(link);
+    
+    // Précharger aussi dans le cache du navigateur
+    const img = new Image();
+    img.src = path;
+  });
+};
+
+/**
  * Récupère la taille d'image optimale en fonction de la largeur de l'écran
  * @param baseUrl URL de base de l'image
  * @param widths Largeurs disponibles pour l'image
@@ -48,44 +86,6 @@ export const getResponsiveImageUrl = (
   }
   
   return baseUrl;
-};
-
-/**
- * Précharge une liste d'images pour améliorer les performances
- * @param imagePaths Liste des chemins d'images à précharger
- * @param highPriority Si true, utilise fetchpriority="high" pour les ressources critiques
- */
-export const preloadImages = (imagePaths: string[], highPriority: boolean = false) => {
-  imagePaths.forEach(path => {
-    // Créer un lien de préchargement dans le head
-    const link = document.createElement('link');
-    link.rel = 'preload';
-    link.as = 'image';
-    link.href = path;
-    if (highPriority) {
-      link.setAttribute('fetchpriority', 'high');
-    }
-    document.head.appendChild(link);
-    
-    // Précharger aussi dans le cache du navigateur
-    const img = new Image();
-    img.src = path;
-  });
-};
-
-/**
- * Cache les ressources statiques avec un service worker
- */
-export const setupServiceWorker = () => {
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/sw.js').then(registration => {
-        console.log('SW registered:', registration);
-      }).catch(error => {
-        console.log('SW registration failed:', error);
-      });
-    });
-  }
 };
 
 /**
