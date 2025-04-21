@@ -14,15 +14,15 @@ const HeaderLogo: React.FC = () => {
 
   return (
     <div className="flex items-center">
-      <a 
-        href="#" 
-        onClick={navigateToHomeAndScrollTop} 
+      <a
+        href="#"
+        onClick={navigateToHomeAndScrollTop}
         className="flex items-center"
       >
-        <img 
-          alt="LeVigile Logo" 
-          className="h-6 w-auto cursor-pointer" 
-          src="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//logo%20levigile%20securite.png" 
+        <img
+          alt="LeVigile Logo"
+          className="h-6 w-auto cursor-pointer"
+          src="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//logo%20levigile%20securite.webp"
         />
       </a>
     </div>
@@ -30,3 +30,4 @@ const HeaderLogo: React.FC = () => {
 };
 
 export default HeaderLogo;
+
