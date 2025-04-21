@@ -11,13 +11,16 @@ interface BlogCardProps {
   className?: string;
 }
 
+// URL to use for all article previews
+const ARTICLE_COVER_IMAGE = "https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//levigile%20securite%20article.webp";
+
 const BlogCard: React.FC<BlogCardProps> = ({ article, className = '' }) => {
   return (
     <Card className={`overflow-hidden transition-all duration-300 hover:shadow-md h-full flex flex-col ${className}`}>
       <Link to={`/blog/${article.slug}`} className="block">
         <div className="aspect-video overflow-hidden">
           <img 
-            src={article.coverImage} 
+            src={ARTICLE_COVER_IMAGE}
             alt={article.title}
             className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
           />
@@ -60,3 +63,4 @@ const BlogCard: React.FC<BlogCardProps> = ({ article, className = '' }) => {
 };
 
 export default BlogCard;
+

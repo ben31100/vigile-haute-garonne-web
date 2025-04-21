@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { ChevronLeft } from 'lucide-react';
@@ -8,6 +9,9 @@ import BlogContent from '@/components/blog/BlogContent';
 import BlogRelatedArticles from '@/components/blog/BlogRelatedArticles';
 import BlogSidebar from '@/components/blog/BlogSidebar';
 import { Badge } from '@/components/ui/badge';
+
+// URL to use for all blog article pages
+const ARTICLE_COVER_IMAGE = "https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//levigile%20securite%20article.webp";
 
 const BlogArticle: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -41,7 +45,7 @@ const BlogArticle: React.FC = () => {
       title={article.title}
       description={article.excerpt}
       keywords={article.tags?.map(tag => tag.name).join(', ')}
-      ogImage={article.coverImage}
+      ogImage={ARTICLE_COVER_IMAGE}
     >
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row gap-8">
@@ -63,7 +67,7 @@ const BlogArticle: React.FC = () => {
               <div className="relative">
                 <div className="w-full h-64 md:h-96 overflow-hidden">
                   <img 
-                    src={article.coverImage}
+                    src={ARTICLE_COVER_IMAGE}
                     alt={article.title}
                     className="w-full h-full object-cover"
                   />
@@ -149,3 +153,4 @@ const BlogArticle: React.FC = () => {
 };
 
 export default BlogArticle;
+
