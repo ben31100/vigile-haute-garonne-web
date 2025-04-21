@@ -6,7 +6,7 @@ const SecuriteIncendiePage: React.FC = () => {
   return (
     <ServicePage
       title="Sécurité Incendie"
-      heroImage="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//Securite%20incendie%20levigile.jpg"
+      heroImage="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//securite%20incendie%20levigile.webp"
       description="Nos services de sécurité incendie associent prévention, surveillance et intervention rapide pour protéger efficacement les personnes et les biens contre les risques d'incendie dans tous types d'établissements."
       serviceDetails={[
         {
@@ -69,3 +69,4 @@ const SecuriteIncendiePage: React.FC = () => {
 };
 
 export default SecuriteIncendiePage;
+
