@@ -69,13 +69,13 @@ const AboutSection: React.FC = () => {
           <div className="relative rounded-lg overflow-hidden shadow-xl">
             <div className="aspect-w-16 aspect-h-9">
               <img 
-                alt="Équipe professionnelle de sécurité LeVigile en Occitanie" 
+                alt="À propos de LeVigile en Occitanie" 
                 className="object-cover w-full h-full" 
                 onError={e => {
                   const target = e.target as HTMLImageElement;
                   target.src = "https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80";
                 }} 
-                src="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//gardiennage-hero.jpg"
+                src="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//a%20propos%20de%20LeVigile.webp"
                 loading="lazy" 
               />
             </div>
@@ -129,3 +129,4 @@ const AboutSection: React.FC = () => {
 };
 
 export default AboutSection;
+
