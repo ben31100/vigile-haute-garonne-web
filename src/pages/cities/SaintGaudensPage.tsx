@@ -114,7 +114,7 @@ const SaintGaudensPage: React.FC = () => {
         <CityHero 
           cityName={cityName}
           subtitle="Des solutions de sécurité sur mesure dans la sous-préfecture de Haute-Garonne"
-          backgroundImage="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//incendie-hero.jpg"
+          backgroundImage="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//Levigile%20securite.webp"
         />
         
         <section className="py-16">

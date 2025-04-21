@@ -95,7 +95,7 @@ const TournefeuilePage: React.FC = () => {
           <CityHero 
             cityName="Tournefeuille" 
             subtitle="Sécurité adaptée pour cette ville résidentielle de l'ouest toulousain"
-            backgroundImage="evenement-hero.jpg"
+            backgroundImage="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//Levigile%20securite.webp"
           />
           
           <SpecificitesSection items={specificites} />

@@ -79,7 +79,7 @@ const AriegePage: React.FC = () => {
         <CityHero 
           cityName={departmentName}
           subtitle="Des solutions de sécurité sur mesure pour l'ensemble du département"
-          backgroundImage="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//gardiennage-hero.jpg"
+          backgroundImage="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//Levigile%20securite.webp"
         />
         
         <section className="py-16">

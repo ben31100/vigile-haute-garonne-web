@@ -79,7 +79,7 @@ const LUnionPage = () => {
         <CityHero 
           cityName={cityName} 
           subtitle={`Services de sécurité privée professionnels à ${cityName} (${postalCode})`} 
-          backgroundImage="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//gardiennage-hero.jpg"
+          backgroundImage="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//Levigile%20securite.webp"
         />
         
         <section className="py-16 bg-white">
