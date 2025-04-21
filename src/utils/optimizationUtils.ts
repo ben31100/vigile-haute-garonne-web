@@ -1,4 +1,3 @@
-
 /**
  * Utilitaires pour optimiser le chargement des ressources
  */
@@ -9,14 +8,7 @@
  * @param highPriority Si true, utilise fetchpriority="high" pour les ressources critiques
  */
 export const preloadImages = (imagePaths: string[], highPriority: boolean = false) => {
-  // First check if we're in a browser environment
-  if (typeof document === 'undefined') return;
-  
   imagePaths.forEach(path => {
-    // Check if a link with this href already exists to prevent duplicates
-    const existingLink = document.querySelector(`link[rel="preload"][href="${path}"]`);
-    if (existingLink) return;
-    
     // Créer un lien de préchargement dans le head
     const link = document.createElement('link');
     link.rel = 'preload';
