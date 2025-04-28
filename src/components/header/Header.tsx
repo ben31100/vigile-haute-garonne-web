@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import MobileNav from './MobileNav';
 import DesktopNav from './DesktopNav';
@@ -7,6 +7,7 @@ import HeaderLogo from './HeaderLogo';
 
 const Header: React.FC = () => {
   const isMobile = useIsMobile();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <header className="bg-white shadow-sm fixed w-full top-0 left-0 z-50">

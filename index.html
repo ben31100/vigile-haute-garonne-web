@@ -99,22 +99,28 @@
     <!-- Optimisation des polices -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-    <!-- Chargement synchrone des polices pour éviter les préchargements inutilisés -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link 
+      rel="preload" 
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    >
+    <link 
+      rel="preload" 
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    >
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    </noscript>
 
     <!-- Cache Control -->
     <meta http-equiv="Cache-Control" content="max-age=31536000, immutable" />
     
-    <!-- Logo : charge directement en priorité haute sans preload séparé -->
-    <link 
-      rel="preload" 
-      as="image" 
-      href="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//logo%20levigile%20securite.webp" 
-      type="image/webp"
-      fetchpriority="high"
-    />
+    <!-- Préchargement des ressources critiques - modifié avec l'attribut 'as' approprié -->
+    <link rel="preload" as="image" fetchpriority="high" href="https://dwugopridureefyyiyss.supabase.co/storage/v1/object/public/images//logo%20levigile%20securite.webp" />
   </head>
 
   <body>

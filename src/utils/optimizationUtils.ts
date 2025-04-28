@@ -3,8 +3,35 @@
  * Utilitaires pour optimiser le chargement des ressources
  */
 
-// Déclarer toutes les variables et fonctions avant leur utilisation
-// pour éviter l'erreur "Cannot access 'x' before initialization"
+/**
+ * Précharge une liste d'images pour améliorer les performances
+ * @param imagePaths Liste des chemins d'images à précharger
+ * @param highPriority Si true, utilise fetchpriority="high" pour les ressources critiques
+ */
+export const preloadImages = (imagePaths: string[], highPriority: boolean = false) => {
+  // First check if we're in a browser environment
+  if (typeof document === 'undefined') return;
+  
+  imagePaths.forEach(path => {
+    // Check if a link with this href already exists to prevent duplicates
+    const existingLink = document.querySelector(`link[rel="preload"][href="${path}"]`);
+    if (existingLink) return;
+    
+    // Créer un lien de préchargement dans le head
+    const link = document.createElement('link');
+    link.rel = 'preload';
+    link.as = 'image';
+    link.href = path;
+    if (highPriority) {
+      link.setAttribute('fetchpriority', 'high');
+    }
+    document.head.appendChild(link);
+    
+    // Précharger aussi dans le cache du navigateur
+    const img = new Image();
+    img.src = path;
+  });
+};
 
 /**
  * Récupère la taille d'image optimale en fonction de la largeur de l'écran
@@ -54,13 +81,18 @@ export const getResponsiveImageUrl = (
 };
 
 /**
- * Fonction d'aide pour la gestion des IntersectionObserver
+ * Cache les ressources statiques avec un service worker
  */
-const createIntersectionObserver = (
-  callback: (entries: IntersectionObserverEntry[]) => void,
-  options = { rootMargin: '100px' }
-) => {
-  return new IntersectionObserver(callback, options);
+export const setupServiceWorker = () => {
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js').then(registration => {
+        console.log('SW registered:', registration);
+      }).catch(error => {
+        console.log('SW registration failed:', error);
+      });
+    });
+  }
 };
 
 /**
@@ -70,14 +102,14 @@ export const setupLazyLoading = (
   elements: NodeListOf<Element> | Element[],
   callback: (element: Element) => void
 ) => {
-  const observer = createIntersectionObserver((entries) => {
+  const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         callback(entry.target);
         observer.unobserve(entry.target);
       }
     });
-  });
+  }, { rootMargin: '100px' });
 
   elements.forEach(element => {
     observer.observe(element);
@@ -143,9 +175,10 @@ export const loadDeferredResource = (
 
 /**
  * Optimise les dimensions des images en fonction de la taille de l'écran
+ * @param images NodeList d'éléments img
  */
 export const optimizeImageDimensions = (images: NodeListOf<HTMLImageElement>) => {
-  const observer = createIntersectionObserver((entries) => {
+  const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const img = entry.target as HTMLImageElement;
@@ -166,42 +199,4 @@ export const optimizeImageDimensions = (images: NodeListOf<HTMLImageElement>) =>
   });
 
   images.forEach(img => observer.observe(img));
-};
-
-/**
- * Précharge une liste d'images pour améliorer les performances
- * @param imagePaths Liste des chemins d'images à précharger
- * @param highPriority Si true, utilise fetchpriority="high" pour les ressources critiques
- */
-export const preloadImages = (imagePaths: string[], highPriority: boolean = false) => {
-  imagePaths.forEach(path => {
-    // Créer un lien de préchargement dans le head
-    const link = document.createElement('link');
-    link.rel = 'preload';
-    link.as = 'image';
-    link.href = path;
-    if (highPriority) {
-      link.setAttribute('fetchpriority', 'high');
-    }
-    document.head.appendChild(link);
-    
-    // Précharger aussi dans le cache du navigateur
-    const img = new Image();
-    img.src = path;
-  });
-};
-
-/**
- * Cache les ressources statiques avec un service worker
- */
-export const setupServiceWorker = () => {
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/sw.js').then(registration => {
-        console.log('SW registered:', registration);
-      }).catch(error => {
-        console.log('SW registration failed:', error);
-      });
-    });
-  }
 };
